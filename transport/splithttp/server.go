@@ -182,18 +182,18 @@ func (h *ServerHandler) handleUplink(w http.ResponseWriter, r *http.Request, rc 
 		size = 10485760
 	}
 
-	payloadRaw, err := io.ReadAll(io.LimitReader(r.Body, int64(size)))
-	if err != nil {
+	// 🚀 极致优化：直接从池中分配 Buffer 接收上传，避免 io.ReadAll 的堆逃逸
+	payloadBuf := buf.NewSize(size)
+	_, err := payloadBuf.ReadFullFrom(r.Body, size)
+	if err != nil && err != io.EOF && err != io.ErrUnexpectedEOF {
+		payloadBuf.Release()
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	payloadBuf := buf.As(payloadRaw)
 
 	seq, _ := strconv.ParseUint(seqStr, 10, 64)
 	if err := session.uploadQueue.Push(Packet{Buffer: payloadBuf, Seq: seq}); err != nil {
-		if payloadBuf != nil {
-			payloadBuf.Release()
-		}
+		payloadBuf.Release()
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}

@@ -58,40 +58,34 @@ func (m *XmuxManager) newXmuxClient() *XmuxClient {
 func (m *XmuxManager) GetXmuxClient(ctx context.Context) *XmuxClient {
 	m.Lock()
 	defer m.Unlock()
-	for i := 0; i < len(m.xmuxClients); {
-		xc := m.xmuxClients[i]
-		if xc.XmuxConn.IsClosed() || xc.leftUsage == 0 || xc.LeftRequests.Load() <= 0 ||
-			(xc.UnreusableAt != time.Time{} && time.Now().After(xc.UnreusableAt)) {
-			m.xmuxClients = append(m.xmuxClients[:i], m.xmuxClients[i+1:]...)
-		} else {
-			i++
+
+	activeClients := make([]*XmuxClient, 0, len(m.xmuxClients))
+	availableClients := make([]*XmuxClient, 0)
+
+	for _, xc := range m.xmuxClients {
+		if xc.XmuxConn.IsClosed() || xc.LeftRequests.Load() <= 0 ||
+			(!xc.UnreusableAt.IsZero() && time.Now().After(xc.UnreusableAt)) {
+			continue
+		}
+		activeClients = append(activeClients, xc)
+		if m.concurrency <= 0 || xc.OpenUsage.Load() < m.concurrency {
+			availableClients = append(availableClients, xc)
 		}
 	}
-	if len(m.xmuxClients) == 0 {
-		return m.newXmuxClient()
+	m.xmuxClients = activeClients
+
+	// ⚡ 恢复负载均衡随机性
+	if len(availableClients) > 0 {
+		target := availableClients[randv2.IntN(len(availableClients))]
+		if target.leftUsage > 0 {
+			target.leftUsage -= 1
+		}
+		return target
 	}
-	if m.connections > 0 && len(m.xmuxClients) < int(m.connections) {
+
+	if len(m.xmuxClients) < int(m.connections) || len(m.xmuxClients) == 0 {
 		return m.newXmuxClient()
 	}
 
-	validClients := make([]*XmuxClient, 0)
-	if m.concurrency > 0 {
-		for _, xc := range m.xmuxClients {
-			if xc.OpenUsage.Load() < m.concurrency {
-				validClients = append(validClients, xc)
-			}
-		}
-	} else {
-		validClients = m.xmuxClients
-	}
-
-	if len(validClients) == 0 {
-		return m.newXmuxClient()
-	}
-	idx := randv2.IntN(len(validClients))
-	xc := validClients[idx]
-	if xc.leftUsage > 0 {
-		xc.leftUsage -= 1
-	}
-	return xc
+	return m.xmuxClients[randv2.IntN(len(m.xmuxClients))]
 }

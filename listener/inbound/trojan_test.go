@@ -295,4 +295,44 @@ func TestInboundTrojan_SplitHTTP_Integration(t *testing.T) {
 		}
 		testInboundTrojan(t, inboundOptions, outboundOptions)
 	})
+
+	// t.Run("H3-XHTTP", func(t *testing.T) {
+	// 	inboundOptions := inbound.TrojanOption{
+	// 		Certificate: tlsCertificate,
+	// 		PrivateKey:  tlsPrivateKey,
+	// 		SplitHTTP:   inbound.SplitHTTPOptions{Path: "/h3"},
+	// 	}
+	// 	outboundOptions := outbound.TrojanOption{
+	// 		TLS:           true,
+	// 		Fingerprint:   tlsFingerprint,
+	// 		ALPN:          []string{"h3"},
+	// 		Network:       "splithttp",
+	// 		SplitHTTPOpts: outbound.SplitHTTPOptions{Path: "/h3", Mode: "packet-up"},
+	// 	}
+	// 	testInboundTrojan(t, inboundOptions, outboundOptions)
+	// })
+
+	t.Run("Reality-XHTTP", func(t *testing.T) {
+		inboundOptions := inbound.TrojanOption{
+			RealityConfig: inbound.RealityConfig{
+				Dest:        net.JoinHostPort(realityDest, "443"),
+				PrivateKey:  realityPrivateKey,
+				ShortID:     []string{realityShortid},
+				ServerNames: []string{realityDest},
+			},
+			SplitHTTP: inbound.SplitHTTPOptions{Path: "/reality"},
+		}
+		outboundOptions := outbound.TrojanOption{
+			TLS: true,
+			SNI: realityDest,
+			RealityOpts: outbound.RealityOptions{
+				PublicKey: realityPublickey,
+				ShortID:   realityShortid,
+			},
+			ClientFingerprint: "chrome",
+			Network:           "splithttp",
+			SplitHTTPOpts:     outbound.SplitHTTPOptions{Path: "/reality", Mode: "stream-one"},
+		}
+		testInboundTrojan(t, inboundOptions, outboundOptions)
+	})
 }

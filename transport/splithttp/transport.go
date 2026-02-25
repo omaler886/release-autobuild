@@ -1,7 +1,6 @@
 package splithttp
 
 import (
-	"bytes"
 	"context"
 	"io"
 	"net"
@@ -13,70 +12,42 @@ import (
 
 	"github.com/metacubex/http"
 	"github.com/metacubex/mihomo/common/buf"
-	"github.com/metacubex/mihomo/common/pool"
+	N "github.com/metacubex/mihomo/common/net"
 	"github.com/metacubex/mihomo/common/utils"
 	"github.com/metacubex/mihomo/component/ech"
 	tlsC "github.com/metacubex/mihomo/component/tls"
 	shareTLS "github.com/metacubex/mihomo/component/transport/tls"
-	"github.com/metacubex/mihomo/log"
 	"github.com/metacubex/quic-go"
 	"github.com/metacubex/quic-go/http3"
+	"github.com/metacubex/sing/common/bufio"
 	"github.com/metacubex/tls"
 )
 
-type uploadBuffer struct {
-	sync.Mutex
-	condFull, condEmpty *sync.Cond
-	buf                 *bytes.Buffer
-	closed              bool
-	limit               int
+type pooledBodyReader struct {
+	mu  sync.Mutex
+	buf *buf.Buffer
 }
 
-func newUploadBuffer(limit int) *uploadBuffer {
-	u := &uploadBuffer{buf: pool.GetBuffer(), limit: limit}
-	u.condFull, u.condEmpty = sync.NewCond(&u.Mutex), sync.NewCond(&u.Mutex)
-	return u
+func (r *pooledBodyReader) Read(p []byte) (n int, err error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.buf == nil || r.buf.IsEmpty() {
+		return 0, io.EOF
+	}
+	n, err = r.buf.Read(p)
+	if r.buf.IsEmpty() {
+		err = io.EOF
+	}
+	return
 }
 
-func (u *uploadBuffer) Write(b []byte) (int, error) {
-	u.Lock()
-	defer u.Unlock()
-	for u.buf.Len() > u.limit && !u.closed {
-		u.condFull.Wait()
+func (r *pooledBodyReader) Close() error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.buf != nil {
+		r.buf.Release()
+		r.buf = nil
 	}
-	if u.closed {
-		return 0, io.ErrClosedPipe
-	}
-	n, err := u.buf.Write(b)
-	u.condEmpty.Signal()
-	return n, err
-}
-
-func (u *uploadBuffer) ReadBatch(max int) (*buf.Buffer, error) {
-	u.Lock()
-	defer u.Unlock()
-	for u.buf.Len() == 0 && !u.closed {
-		u.condEmpty.Wait()
-	}
-	if u.buf.Len() == 0 && u.closed {
-		return nil, io.EOF
-	}
-	l := u.buf.Len()
-	if l > max {
-		l = max
-	}
-	b := buf.NewSize(l)
-	_, _ = io.CopyN(b, u.buf, int64(l))
-	u.condFull.Signal()
-	return b, nil
-}
-
-func (u *uploadBuffer) Close() error {
-	u.Lock()
-	defer u.Unlock()
-	u.closed = true
-	u.condEmpty.Broadcast()
-	u.condFull.Broadcast()
 	return nil
 }
 
@@ -92,7 +63,6 @@ type TransportWrap struct {
 	httpVersion    string
 }
 
-// ✨ 修改点：增加 authCert, authKey 参数，总计 9 个参数，修复编译错误并支持 mTLS
 func NewTransport(dialFn func(context.Context, string, string) (net.Conn, error), lpFn func(context.Context) (net.PacketConn, net.Addr, error), tlsCfg *tls.Config, cfg *Config, fp, authCert, authKey string, echCfg *ech.Config, realityCfg *tlsC.RealityConfig) *TransportWrap {
 	ctx, cancel := context.WithCancel(context.Background())
 	httpVersion := "2"
@@ -108,16 +78,9 @@ func NewTransport(dialFn func(context.Context, string, string) (net.Conn, error)
 		if tlsCfg == nil {
 			return pconn, nil
 		}
-		// ✨ 关键修复：在这里传入 authCert 和 authKey
 		return shareTLS.StreamTLSConn(ctxI, pconn, &shareTLS.Config{
-			Host:              tlsCfg.ServerName,
-			SkipCertVerify:    tlsCfg.InsecureSkipVerify,
-			NextProtos:        tlsCfg.NextProtos,
-			ClientFingerprint: fp,
-			Certificate:       authCert,
-			PrivateKey:        authKey,
-			ECH:               echCfg,
-			Reality:           realityCfg,
+			Host: tlsCfg.ServerName, SkipCertVerify: tlsCfg.InsecureSkipVerify, NextProtos: tlsCfg.NextProtos,
+			ClientFingerprint: fp, Certificate: authCert, PrivateKey: authKey, ECH: echCfg, Reality: realityCfg,
 		})
 	}
 	var xConf XmuxConfig
@@ -144,10 +107,14 @@ func (tw *TransportWrap) createHTTPClient() DialerClient {
 	} else {
 		transport = &http.Http2Transport{DialTLSContext: func(ctx context.Context, network, addr string, _ *tls.Config) (net.Conn, error) {
 			return tw.dialFn(ctx, network, addr)
-		}, AllowHTTP: true}
+		}, AllowHTTP: true, ReadIdleTimeout: 30 * time.Minute}
 	}
 	return &DefaultDialerClient{transportConfig: tw.config, client: &http.Client{Transport: transport}}
 }
+
+type readOnly struct{ io.Reader }
+
+func (readOnly) Close() error { return nil }
 
 func (tw *TransportWrap) DialContext(ctx context.Context) (net.Conn, error) {
 	requestURL := url.URL{Scheme: "http", Path: tw.config.GetNormalizedPath(), RawQuery: tw.config.GetNormalizedQuery()}
@@ -173,78 +140,118 @@ func (tw *TransportWrap) DialContext(ctx context.Context) (net.Conn, error) {
 		sessionId = utils.NewUUIDV4().String()
 	}
 
-	log.Debugln("[SplitHTTP] dialing to %s, mode: %s, HTTP version: %s", requestURL.Host, mode, tw.httpVersion)
-
+	p1, p2 := N.Pipe()
+	bgCtx, bgCancel := context.WithCancel(context.Background())
+	rAddr, lAddr := &LazyAddr{}, &LazyAddr{}
 	xmuxClient.OpenUsage.Add(1)
-	var closed atomic.Int32
-	conn := &splitConn{onClose: func() {
-		if closed.Add(1) == 1 {
+
+	var closed atomic.Bool
+	var wg sync.WaitGroup
+	onCloseFunc := func() {
+		if closed.CompareAndSwap(false, true) {
+			bgCancel()
 			xmuxClient.OpenUsage.Add(-1)
+			_ = p1.Close()
+			_ = p2.Close()
 		}
-	}}
-
-	if mode == "stream-one" || mode == "stream-up" {
-		pr, pw := io.Pipe()
-		conn.writer = pw
-		xmuxClient.LeftRequests.Add(-1)
-		rc, waitHS, rAddr, lAddr, err := httpClient.OpenStream(ctx, requestURL.String(), sessionId, pr, mode == "stream-up")
-		if err != nil {
-			return nil, err
-		}
-		conn.reader, conn.waitHandshake, conn.remoteAddr, conn.localAddr = rc, waitHS, rAddr, lAddr
-		return conn, nil
 	}
 
-	scMaxEach := tw.config.GetNormalizedScMaxEachPostBytes().rand()
-	upBuf := newUploadBuffer(int(scMaxEach) * 30)
-	conn.writer = upBuf
-
-	// 限制并发信号量以防止高并发测试下的 TLS 握手堆积
-	const maxConcurrency = 16
-	semaphore := make(chan struct{}, maxConcurrency)
-	for i := 0; i < maxConcurrency; i++ {
-		semaphore <- struct{}{}
-	}
-	xmuxClient.LeftRequests.Add(-1)
-	rc, waitHS, rAddr, lAddr, err := httpClient.OpenStream(ctx, requestURL.String(), sessionId, nil, false)
-	if err != nil {
-		return nil, err
-	}
-	conn.reader, conn.waitHandshake, conn.remoteAddr, conn.localAddr = rc, waitHS, rAddr, lAddr
-
+	// 🚦 此时不再需要 hsErrCh 阻塞 Read
 	go func() {
-		defer func() {
-			upBuf.Lock()
-			pool.PutBuffer(upBuf.buf)
-			upBuf.Unlock()
+		xmuxClient.LeftRequests.Add(-1)
+		var respBody io.ReadCloser
+		var err error
+
+		if mode == "stream-one" || mode == "stream-up" {
+			respBody, err = httpClient.OpenStream(bgCtx, requestURL.String(), sessionId, readOnly{p1}, mode == "stream-up", rAddr, lAddr)
+		} else {
+			respBody, err = httpClient.OpenStream(bgCtx, requestURL.String(), sessionId, nil, false, rAddr, lAddr)
+		}
+
+		if err != nil {
+			onCloseFunc()
+			return
+		}
+
+		if mode == "stream-one" || mode == "stream-up" {
+			if respBody != nil {
+				defer respBody.Close()
+				_, _ = bufio.Copy(p1, respBody)
+			}
+			onCloseFunc()
+			return
+		}
+
+		scMaxEach := tw.config.GetNormalizedScMaxEachPostBytes().rand()
+
+		go func() {
+			if respBody != nil {
+				defer respBody.Close()
+				_, _ = bufio.Copy(p1, respBody)
+			}
+			onCloseFunc()
 		}()
+
 		var seq int64
+		const maxConcurrency = 16
+		semaphore := make(chan struct{}, maxConcurrency)
+		for i := 0; i < maxConcurrency; i++ {
+			semaphore <- struct{}{}
+		}
+
+		defer func() { wg.Wait(); onCloseFunc() }()
+
 		for {
 			select {
 			case <-semaphore:
-			case <-tw.ctx.Done():
+			case <-bgCtx.Done():
 				return
 			}
-			payload, err := upBuf.ReadBatch(int(scMaxEach))
-			if payload != nil {
-				seqStr := strconv.FormatInt(seq, 10)
-				seq++
-				if xmuxClient.LeftRequests.Add(-1) <= 0 {
-					xmuxClient = tw.xmuxManager.GetXmuxClient(ctx)
-					httpClient = xmuxClient.XmuxConn.(DialerClient)
-				}
-				go func(s string, p *buf.Buffer) {
-					defer func() { semaphore <- struct{}{} }()
-					defer p.Release()
-					_ = httpClient.PostPacket(tw.ctx, requestURL.String(), sessionId, s, p.Bytes())
-				}(seqStr, payload)
-			} else {
+
+			payload := buf.NewSize(int(scMaxEach))
+			_, err := payload.ReadOnceFrom(p1)
+
+			if payload.IsEmpty() {
+				payload.Release()
 				semaphore <- struct{}{}
+				if err != nil {
+					break
+				}
+				continue
 			}
+
+			seqStr := strconv.FormatInt(seq, 10)
+			seq++
+			curClient := tw.xmuxManager.GetXmuxClient(bgCtx)
+			curHTTP := curClient.XmuxConn.(DialerClient)
+			curClient.LeftRequests.Add(-1)
+
+			wg.Add(1)
+			go func(s string, p *buf.Buffer, cl DialerClient) {
+				defer wg.Done()
+				defer func() { semaphore <- struct{}{} }()
+				bodyReader := &pooledBodyReader{buf: p}
+				defer bodyReader.Close()
+				if errPost := cl.PostPacket(bgCtx, requestURL.String(), sessionId, s, bodyReader); errPost != nil {
+					onCloseFunc()
+				}
+			}(seqStr, payload, curHTTP)
+
 			if err != nil {
 				break
 			}
 		}
 	}()
-	return conn, nil
+
+	wrappedConn := &asyncStreamConn{
+		Conn:        N.NewDeadlineConn(p2),
+		rAddr:       rAddr,
+		lAddr:       lAddr,
+		defaultHost: requestURL.Host,
+		onClose:     onCloseFunc,
+	}
+
+	// 🚀 终极优化：直接返回连接，不再使用 EarlyConn 阻塞 Read 响应头。
+	// 这就是全链路 0-RTT 的精髓：相信请求会成功，让首包飞出去。
+	return N.NewRefConn(wrappedConn, xmuxClient), nil
 }

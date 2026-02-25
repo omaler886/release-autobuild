@@ -324,4 +324,44 @@ func TestInboundVMess_SplitHTTP_Integration(t *testing.T) {
 		}
 		testInboundVMess(t, inboundOptions, outboundOptions)
 	})
+
+	// t.Run("H3-XHTTP", func(t *testing.T) {
+	// 	inboundOptions := inbound.VmessOption{
+	// 		Certificate: tlsCertificate,
+	// 		PrivateKey:  tlsPrivateKey,
+	// 		SplitHTTP:   inbound.SplitHTTPOptions{Path: "/h3"},
+	// 	}
+	// 	outboundOptions := outbound.VmessOption{
+	// 		TLS:           true,
+	// 		Fingerprint:   tlsFingerprint,
+	// 		ALPN:          []string{"h3"},
+	// 		Network:       "splithttp",
+	// 		SplitHTTPOpts: outbound.SplitHTTPOptions{Path: "/h3", Mode: "packet-up"},
+	// 	}
+	// 	testInboundVMess(t, inboundOptions, outboundOptions)
+	// })
+
+	t.Run("Reality-XHTTP", func(t *testing.T) {
+		inboundOptions := inbound.VmessOption{
+			RealityConfig: inbound.RealityConfig{
+				Dest:        net.JoinHostPort(realityDest, "443"),
+				PrivateKey:  realityPrivateKey,
+				ShortID:     []string{realityShortid},
+				ServerNames: []string{realityDest},
+			},
+			SplitHTTP: inbound.SplitHTTPOptions{Path: "/reality"},
+		}
+		outboundOptions := outbound.VmessOption{
+			TLS:        true,
+			ServerName: realityDest,
+			RealityOpts: outbound.RealityOptions{
+				PublicKey: realityPublickey,
+				ShortID:   realityShortid,
+			},
+			ClientFingerprint: "chrome",
+			Network:           "splithttp",
+			SplitHTTPOpts:     outbound.SplitHTTPOptions{Path: "/reality", Mode: "stream-one"},
+		}
+		testInboundVMess(t, inboundOptions, outboundOptions)
+	})
 }
