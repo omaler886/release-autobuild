@@ -11,6 +11,9 @@ on:
       - "README.md"
       - "PATCH_NOTES.md"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.event_name }}
   cancel-in-progress: true
