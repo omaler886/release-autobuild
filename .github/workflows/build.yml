@@ -709,11 +709,31 @@ jobs:
           mkdir clients/android/app/libs
           cp *.aar clients/android/app/libs
           cd clients/android
+          if [ "$GITHUB_REF_NAME" = "xhttp" ]; then
+            rm -f app/release.keystore
+            keytool -genkeypair \
+              -alias androiddebugkey \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -keystore app/release.keystore \
+              -storepass android \
+              -keypass android \
+              -dname "CN=Android Debug,O=Android,C=US" \
+              -noprompt
+            cat > xhttp-local.properties <<'EOF'
+            KEYSTORE_PASS=android
+            ALIAS_NAME=androiddebugkey
+            ALIAS_PASS=android
+            EOF
+            export LOCAL_PROPERTIES="$(base64 -w0 xhttp-local.properties)"
+          else
+            export LOCAL_PROPERTIES='${{ secrets.LOCAL_PROPERTIES }}'
+          fi
           ./gradlew :app:assembleOtherRelease :app:assembleOtherLegacyRelease
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-          LOCAL_PROPERTIES: ${{ secrets.LOCAL_PROPERTIES }}
       - name: Prepare upload
         run: |-
           mkdir -p dist
