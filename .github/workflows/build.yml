@@ -721,11 +721,11 @@ jobs:
               -keypass android \
               -dname "CN=Android Debug,O=Android,C=US" \
               -noprompt
-            cat > xhttp-local.properties <<'EOF'
-            KEYSTORE_PASS=android
-            ALIAS_NAME=androiddebugkey
-            ALIAS_PASS=android
-            EOF
+            printf '%s\n' \
+              'KEYSTORE_PASS=android' \
+              'ALIAS_NAME=androiddebugkey' \
+              'ALIAS_PASS=android' \
+              > xhttp-local.properties
             export LOCAL_PROPERTIES="$(base64 -w0 xhttp-local.properties)"
           else
             export LOCAL_PROPERTIES='${{ secrets.LOCAL_PROPERTIES }}'
