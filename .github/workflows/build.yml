@@ -687,6 +687,10 @@ jobs:
         run: |-
           cd clients/android
           git checkout dev
+      - name: Patch Android platform interface for xhttp
+        if: github.ref_name == 'xhttp'
+        run: |-
+          git -C clients/android apply --ignore-whitespace --whitespace=nowarn "$GITHUB_WORKSPACE/.github/patches/android-platform-interface.patch"
       - name: Gradle cache
         uses: actions/cache@v4
         with:

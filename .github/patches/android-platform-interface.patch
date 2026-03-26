@@ -1,0 +1,28 @@
+diff --git a/app/src/main/java/io/nekohasekai/sfa/bg/PlatformInterfaceWrapper.kt b/app/src/main/java/io/nekohasekai/sfa/bg/PlatformInterfaceWrapper.kt
+index 7a0be3c..6cac13b 100644
+--- a/app/src/main/java/io/nekohasekai/sfa/bg/PlatformInterfaceWrapper.kt
++++ b/app/src/main/java/io/nekohasekai/sfa/bg/PlatformInterfaceWrapper.kt
+@@ -11,6 +11,7 @@ import io.nekohasekai.libbox.ConnectionOwner
+ import io.nekohasekai.libbox.InterfaceUpdateListener
+ import io.nekohasekai.libbox.Libbox
+ import io.nekohasekai.libbox.LocalDNSTransport
++import io.nekohasekai.libbox.NeighborUpdateListener
+ import io.nekohasekai.libbox.NetworkInterfaceIterator
+ import io.nekohasekai.libbox.PlatformInterface
+ import io.nekohasekai.libbox.StringIterator
+@@ -155,6 +156,15 @@ interface PlatformInterfaceWrapper : PlatformInterface {
+ 
+     override fun localDNSTransport(): LocalDNSTransport? = LocalResolver
+ 
++    override fun startNeighborMonitor(listener: NeighborUpdateListener) {
++    }
++
++    override fun closeNeighborMonitor(listener: NeighborUpdateListener) {
++    }
++
++    override fun registerMyInterface(name: String) {
++    }
++
+     @OptIn(ExperimentalEncodingApi::class)
+     override fun systemCertificates(): StringIterator {
+         val certificates = mutableListOf<String>()
