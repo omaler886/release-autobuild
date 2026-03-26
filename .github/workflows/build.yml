@@ -51,7 +51,7 @@ jobs:
           git remote add upstream https://github.com/SagerNet/sing-box.git
           git fetch upstream --force --tags
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ~1.25.8
       - name: Check input version
@@ -128,7 +128,7 @@ jobs:
           fetch-depth: 0
       - name: Setup Go
         if: ${{ ! matrix.legacy_win7 }}
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ~1.25.8
       - name: Cache Go for Windows 7
@@ -477,7 +477,7 @@ jobs:
           fetch-depth: 0
       - name: Setup Go
         if: ${{ ! matrix.legacy_osx }}
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ^1.25.3
       - name: Cache Go for macOS 10.13
@@ -569,7 +569,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ^1.25.4
       - name: Set tag
@@ -653,7 +653,7 @@ jobs:
           fetch-depth: 0
           submodules: 'recursive'
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ~1.25.8
       - name: Setup Android NDK
@@ -767,7 +767,7 @@ jobs:
           fetch-depth: 0
           submodules: 'recursive'
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ~1.25.8
       - name: Setup Android NDK
@@ -866,7 +866,7 @@ jobs:
           submodules: 'recursive'
       - name: Setup Go
         if: matrix.if
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ~1.25.8
       - name: Set tag
