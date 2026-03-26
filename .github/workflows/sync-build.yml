@@ -90,9 +90,6 @@ jobs:
           if [ "$GOOS" = "windows" ]; then
             TAGS="$(cat release/DEFAULT_BUILD_TAGS_WINDOWS)"
             EXT=".exe"
-          elif [ "$GOOS" = "linux" ]; then
-            TAGS="$(cat release/DEFAULT_BUILD_TAGS)"
-            EXT=""
           else
             TAGS="$(cat release/DEFAULT_BUILD_TAGS_OTHERS)"
             EXT=""
