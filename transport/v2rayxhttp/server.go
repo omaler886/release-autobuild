@@ -5,6 +5,7 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -37,7 +38,9 @@ type Server struct {
 	path             string
 	mode             string
 	sessionPlacement string
+	sessionKey       string
 	seqPlacement     string
+	seqKey           string
 	uplinkPlacement  string
 	headers          http.Header
 	sessions         sync.Map
@@ -80,7 +83,9 @@ func NewServer(ctx context.Context, logger logger.ContextLogger, options option.
 		path:             normalizePath(options.Path),
 		mode:             mode,
 		sessionPlacement: sessionPlacement,
+		sessionKey:       options.SessionKey,
 		seqPlacement:     seqPlacement,
+		seqKey:           options.SeqKey,
 		uplinkPlacement:  uplinkPlacement,
 		headers:          options.Headers.Build(),
 	}
@@ -121,9 +126,9 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 		}
 	}
 	writer.Header().Set("Cache-Control", "no-store")
-	sessionID, seq, ok := parseRequestMeta(request.URL.Path, s.path, s.sessionPlacement, s.seqPlacement)
+	sessionID, seqText, ok := extractRequestMeta(request, s.path, s.sessionPlacement, s.seqPlacement, s.sessionKey, s.seqKey)
 	if !ok {
-		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp path metadata"))
+		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp request metadata"))
 		return
 	}
 	if sessionID == "" {
@@ -135,7 +140,7 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	case http.MethodGet:
 		s.handleDownload(sessionID, session, writer, request)
 	case http.MethodPost:
-		s.handleUpload(session, writer, request, seq)
+		s.handleUpload(session, writer, request, seqText)
 	default:
 		s.invalidRequest(writer, request, http.StatusMethodNotAllowed, E.New("unsupported method: ", request.Method))
 	}
@@ -169,8 +174,8 @@ func (s *Server) handleDownload(sessionID string, session *serverSession, writer
 	_ = conn.Close()
 }
 
-func (s *Server) handleUpload(session *serverSession, writer http.ResponseWriter, request *http.Request, seq int64) {
-	if s.mode == ModeStreamUp {
+func (s *Server) handleUpload(session *serverSession, writer http.ResponseWriter, request *http.Request, seqText string) {
+	if s.mode == ModeStreamUp || (s.mode == ModeAuto && seqText == "") {
 		if err := session.attachStream(request.Body); err != nil {
 			_ = request.Body.Close()
 			s.invalidRequest(writer, request, http.StatusConflict, err)
@@ -183,6 +188,15 @@ func (s *Server) handleUpload(session *serverSession, writer http.ResponseWriter
 		case <-request.Context().Done():
 		case <-session.done:
 		}
+		return
+	}
+	if seqText == "" {
+		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("missing xhttp seq"))
+		return
+	}
+	seq, err := strconv.ParseInt(seqText, 10, 64)
+	if err != nil {
+		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp seq"))
 		return
 	}
 	payload, err := extractPayloadFromRequest(request, s.uplinkPlacement, 1<<20)
@@ -217,7 +231,7 @@ func (s *Server) Serve(listener net.Listener) error {
 	}
 	if s.tlsConfig != nil {
 		if len(s.tlsConfig.NextProtos()) == 0 {
-			s.tlsConfig.SetNextProtos([]string{"http/1.1"})
+			s.tlsConfig.SetNextProtos([]string{"h2", "http/1.1"})
 		}
 		listener = aTLS.NewListener(listener, s.tlsConfig)
 	}

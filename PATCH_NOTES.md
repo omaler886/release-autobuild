@@ -8,6 +8,10 @@ Patch scope:
 - register xhttp in the V2Ray transport client and server factory
 - add the `transport/v2rayxhttp` implementation
 - add transport-level tests under `test/v2ray_xhttp_test.go`
+- complete xhttp metadata placement support for `path`, `query`, `header`, and `cookie`
+- honor custom `session_key` and `seq_key`
+- support `uplink_data_placement: auto`
+- default TLS ALPN to `h2,http/1.1` for xhttp listeners
 
 Maintenance model:
 

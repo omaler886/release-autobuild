@@ -28,6 +28,7 @@ on:
       - stable
       - testing
       - unstable
+      - xhttp
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}-${{ inputs.build }}

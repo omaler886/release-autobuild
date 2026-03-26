@@ -52,50 +52,92 @@ func appendPathSegment(rawURL string, segment string) (string, error) {
 	return parsed.String(), nil
 }
 
-func applySessionToURL(rawURL string, placement string, session string) (string, error) {
+func applySessionToURL(rawURL string, placement string, key string, session string) (string, error) {
+	if placement == PlacementHeader || placement == PlacementCookie {
+		return rawURL, nil
+	}
 	parsed, err := url.Parse(rawURL)
 	if err != nil {
 		return "", err
 	}
-	updated, err := applyMetaValue(parsed, nil, placement, session, defaultMetaKey(placement, true))
+	updated, err := applyMetaValue(parsed, nil, placement, session, defaultMetaKey(placement, key, true))
 	if err != nil {
 		return "", err
 	}
 	return updated.String(), nil
 }
 
-func applySeqToURL(rawURL string, placement string, seq string) (string, error) {
+func applySeqToURL(rawURL string, placement string, key string, seq string) (string, error) {
+	if placement == PlacementHeader || placement == PlacementCookie {
+		return rawURL, nil
+	}
 	parsed, err := url.Parse(rawURL)
 	if err != nil {
 		return "", err
 	}
-	updated, err := applyMetaValue(parsed, nil, placement, seq, defaultMetaKey(placement, false))
+	updated, err := applyMetaValue(parsed, nil, placement, seq, defaultMetaKey(placement, key, false))
 	if err != nil {
 		return "", err
 	}
 	return updated.String(), nil
 }
 
-func parseRequestMeta(requestPath string, basePath string, sessionPlacement string, seqPlacement string) (string, int64, bool) {
-	if sessionPlacement != PlacementPath || seqPlacement != PlacementPath {
-		return "", 0, false
+func extractRequestMeta(request *http.Request, basePath string, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string) (string, string, bool) {
+	if request == nil || request.URL == nil {
+		return "", "", false
 	}
-	if !strings.HasPrefix(requestPath, basePath) {
-		return "", 0, false
+	if !strings.HasPrefix(request.URL.Path, basePath) {
+		return "", "", false
 	}
-	relative := strings.TrimPrefix(requestPath, basePath)
-	parts := strings.Split(strings.Trim(relative, "/"), "/")
-	if len(parts) == 1 && parts[0] != "" {
-		return parts[0], 0, true
+	var pathParts []string
+	pathIndex := 0
+	if sessionPlacement == PlacementPath || seqPlacement == PlacementPath {
+		relative := strings.TrimPrefix(request.URL.Path, basePath)
+		pathParts = strings.Split(relative, "/")
 	}
-	if len(parts) == 2 && parts[0] != "" && parts[1] != "" {
-		seq, err := strconv.ParseInt(parts[1], 10, 64)
-		if err != nil {
-			return "", 0, false
+	sessionID := ""
+	switch sessionPlacement {
+	case PlacementPath:
+		if len(pathParts) > pathIndex && pathParts[pathIndex] != "" {
+			sessionID = pathParts[pathIndex]
+			pathIndex++
 		}
-		return parts[0], seq, true
+	case PlacementQuery:
+		sessionID = request.URL.Query().Get(defaultMetaKey(sessionPlacement, sessionKey, true))
+	case PlacementHeader:
+		sessionID = request.Header.Get(defaultMetaKey(sessionPlacement, sessionKey, true))
+	case PlacementCookie:
+		cookie, err := request.Cookie(defaultMetaKey(sessionPlacement, sessionKey, true))
+		if err == nil {
+			sessionID = cookie.Value
+		}
+	default:
+		return "", "", false
 	}
-	return "", 0, false
+	seqText := ""
+	switch seqPlacement {
+	case PlacementPath:
+		if len(pathParts) > pathIndex && pathParts[pathIndex] != "" {
+			seqText = pathParts[pathIndex]
+		}
+	case PlacementQuery:
+		seqText = request.URL.Query().Get(defaultMetaKey(seqPlacement, seqKey, false))
+	case PlacementHeader:
+		seqText = request.Header.Get(defaultMetaKey(seqPlacement, seqKey, false))
+	case PlacementCookie:
+		cookie, err := request.Cookie(defaultMetaKey(seqPlacement, seqKey, false))
+		if err == nil {
+			seqText = cookie.Value
+		}
+	default:
+		return "", "", false
+	}
+	if seqText != "" {
+		if _, err := strconv.ParseInt(seqText, 10, 64); err != nil {
+			return "", "", false
+		}
+	}
+	return sessionID, seqText, true
 }
 
 func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2RayXHTTPOptions, tlsConfig tls.Config) (http.RoundTripper, string, string, error) {
@@ -105,7 +147,7 @@ func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2
 		requestURL.Scheme = "http"
 		transport = &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
-				return dialer.DialContext(ctx, network, M.ParseSocksaddr(addr))
+				return dialer.DialContext(ctx, network, serverAddr)
 			},
 		}
 	} else {
@@ -117,13 +159,13 @@ func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2
 		if len(tlsConfig.NextProtos()) == 1 && tlsConfig.NextProtos()[0] == "http/1.1" {
 			transport = &http.Transport{
 				DialTLSContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
-					return tlsDialer.DialTLSContext(ctx, M.ParseSocksaddr(addr))
+					return tlsDialer.DialTLSContext(ctx, serverAddr)
 				},
 			}
 		} else {
 			transport = &http2.Transport{
 				DialTLSContext: func(ctx context.Context, network, addr string, cfg *tls.STDConfig) (net.Conn, error) {
-					return tlsDialer.DialTLSContext(ctx, M.ParseSocksaddr(addr))
+					return tlsDialer.DialTLSContext(ctx, serverAddr)
 				},
 			}
 		}
@@ -136,7 +178,7 @@ func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2
 			host = serverAddr.AddrString()
 		}
 	}
-	requestURL.Host = serverAddr.String()
+	requestURL.Host = host
 	requestURL.Path = normalizePath(options.Path)
 	return transport, requestURL.String(), host, nil
 }
@@ -208,6 +250,10 @@ func applyDefaultStreamHeaders(header http.Header) {
 }
 
 func fillStreamRequest(request *http.Request, sessionPlacement string, seqPlacement string, sessionID string) error {
+	return fillStreamRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", sessionID)
+}
+
+func fillStreamRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, sessionID string) error {
 	request.Header = cloneOrNewHeader(request.Header)
 	applyDefaultFetchHeaders(request.Header)
 	if request.Body != nil && request.Header.Get("Content-Type") == "" {
@@ -216,10 +262,14 @@ func fillStreamRequest(request *http.Request, sessionPlacement string, seqPlacem
 	if err := applyRefererPadding(request); err != nil {
 		return err
 	}
-	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionID, "")
+	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionKey, seqKey, sessionID, "")
 }
 
 func fillPacketRequest(request *http.Request, sessionPlacement string, seqPlacement string, uplinkPlacement string, sessionID string, seq string, payload []byte) error {
+	return fillPacketRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", uplinkPlacement, sessionID, seq, payload)
+}
+
+func fillPacketRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, uplinkPlacement string, sessionID string, seq string, payload []byte) error {
 	request.Header = cloneOrNewHeader(request.Header)
 	applyDefaultFetchHeaders(request.Header)
 	if err := applyPayloadToRequest(request, uplinkPlacement, payload); err != nil {
@@ -228,12 +278,12 @@ func fillPacketRequest(request *http.Request, sessionPlacement string, seqPlacem
 	if err := applyRefererPadding(request); err != nil {
 		return err
 	}
-	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionID, seq)
+	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionKey, seqKey, sessionID, seq)
 }
 
 func applyPayloadToRequest(request *http.Request, placement string, payload []byte) error {
 	switch placement {
-	case "", PlacementBody:
+	case "", PlacementAuto, PlacementBody:
 		request.Body = ioNopCloserBytes(payload)
 		request.ContentLength = int64(len(payload))
 	case PlacementHeader:
@@ -263,6 +313,26 @@ func applyPayloadToRequest(request *http.Request, placement string, payload []by
 func extractPayloadFromRequest(request *http.Request, placement string, maxBodyBytes int64) ([]byte, error) {
 	switch placement {
 	case "", PlacementBody:
+		if request.Body == nil {
+			return nil, nil
+		}
+		defer request.Body.Close()
+		return io.ReadAll(io.LimitReader(request.Body, maxBodyBytes))
+	case PlacementAuto:
+		payload, err := decodeChunkedHeader(request.Header, "x_data-")
+		if err != nil {
+			return nil, err
+		}
+		if len(payload) > 0 {
+			return payload, nil
+		}
+		payload, err = decodeChunkedCookies(request, "x_data_")
+		if err != nil {
+			return nil, err
+		}
+		if len(payload) > 0 {
+			return payload, nil
+		}
 		if request.Body == nil {
 			return nil, nil
 		}
@@ -321,16 +391,16 @@ func cloneOrNewHeader(header http.Header) http.Header {
 	return header.Clone()
 }
 
-func applyMetaToRequest(request *http.Request, sessionPlacement string, seqPlacement string, sessionID string, seq string) error {
+func applyMetaToRequest(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, sessionID string, seq string) error {
 	var err error
 	if sessionID != "" {
-		request.URL, err = applyMetaValue(request.URL, request.Header, sessionPlacement, sessionID, defaultMetaKey(sessionPlacement, true))
+		request.URL, err = applyMetaValue(request.URL, request.Header, sessionPlacement, sessionID, defaultMetaKey(sessionPlacement, sessionKey, true))
 		if err != nil {
 			return err
 		}
 	}
 	if seq != "" {
-		request.URL, err = applyMetaValue(request.URL, request.Header, seqPlacement, seq, defaultMetaKey(seqPlacement, false))
+		request.URL, err = applyMetaValue(request.URL, request.Header, seqPlacement, seq, defaultMetaKey(seqPlacement, seqKey, false))
 		if err != nil {
 			return err
 		}
@@ -369,7 +439,10 @@ func applyMetaValue(requestURL *url.URL, header http.Header, placement string, v
 	return &clone, nil
 }
 
-func defaultMetaKey(placement string, session bool) string {
+func defaultMetaKey(placement string, explicit string, session bool) string {
+	if explicit != "" {
+		return explicit
+	}
 	if session {
 		switch placement {
 		case PlacementHeader:

@@ -28,7 +28,9 @@ type Client struct {
 	xmuxManager      *xmuxManager
 	mode             string
 	sessionPlacement string
+	sessionKey       string
 	seqPlacement     string
+	seqKey           string
 	uplinkPlacement  string
 	httpClient       *http.Client
 	downloadURL      string
@@ -83,7 +85,9 @@ func NewClient(ctx context.Context, dialer N.Dialer, serverAddr M.Socksaddr, opt
 		xmuxManager:      newXMuxManager(options.XMux, func() xmuxConn { return &xmuxReusableConn{} }),
 		mode:             mode,
 		sessionPlacement: sessionPlacement,
+		sessionKey:       options.SessionKey,
 		seqPlacement:     seqPlacement,
+		seqKey:           options.SeqKey,
 		uplinkPlacement:  uplinkPlacement,
 		httpClient:       &http.Client{Transport: transport},
 		downloadURL:      downloadURL,
@@ -104,12 +108,12 @@ func (c *Client) DialContext(ctx context.Context) (net.Conn, error) {
 	if err != nil {
 		return nil, err
 	}
-	baseURL, err := applySessionToURL(c.requestURL, c.sessionPlacement, sessionID.String())
+	baseURL, err := applySessionToURL(c.requestURL, c.sessionPlacement, c.sessionKey, sessionID.String())
 	if err != nil {
 		return nil, err
 	}
 	seq := &atomic.Int64{}
-	downloadBaseURL, err := applySessionToURL(c.downloadURL, c.sessionPlacement, sessionID.String())
+	downloadBaseURL, err := applySessionToURL(c.downloadURL, c.sessionPlacement, c.sessionKey, sessionID.String())
 	if err != nil {
 		return nil, err
 	}
@@ -118,7 +122,7 @@ func (c *Client) DialContext(ctx context.Context) (net.Conn, error) {
 		client.openUsage.Add(1)
 		defer client.openUsage.Add(-1)
 	}
-	conn := newConn(ctx, c.httpClient, c.mode, c.sessionPlacement, c.seqPlacement, c.uplinkPlacement, c.http2, sessionID.String(), baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
+	conn := newConn(ctx, c.httpClient, c.mode, c.sessionPlacement, c.sessionKey, c.seqPlacement, c.seqKey, c.uplinkPlacement, c.http2, sessionID.String(), baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
 	if err = conn.start(); err != nil {
 		return nil, err
 	}
@@ -139,7 +143,9 @@ type conn struct {
 	httpClient       *http.Client
 	mode             string
 	sessionPlacement string
+	sessionKey       string
 	seqPlacement     string
+	seqKey           string
 	uplinkPlacement  string
 	http2            bool
 	sessionID        string
@@ -169,7 +175,7 @@ func (c *xmuxReusableConn) IsClosed() bool {
 	return c.closed.Load()
 }
 
-func newConn(ctx context.Context, httpClient *http.Client, mode string, sessionPlacement string, seqPlacement string, uplinkPlacement string, http2 bool, sessionID string, baseURL string, downloadURL string, host string, downloadHost string, headers http.Header, downloadHeaders http.Header, seq *atomic.Int64) *conn {
+func newConn(ctx context.Context, httpClient *http.Client, mode string, sessionPlacement string, sessionKey string, seqPlacement string, seqKey string, uplinkPlacement string, http2 bool, sessionID string, baseURL string, downloadURL string, host string, downloadHost string, headers http.Header, downloadHeaders http.Header, seq *atomic.Int64) *conn {
 	connCtx, cancel := context.WithCancel(ctx)
 	return &conn{
 		ctx:              connCtx,
@@ -177,7 +183,9 @@ func newConn(ctx context.Context, httpClient *http.Client, mode string, sessionP
 		httpClient:       httpClient,
 		mode:             mode,
 		sessionPlacement: sessionPlacement,
+		sessionKey:       sessionKey,
 		seqPlacement:     seqPlacement,
+		seqKey:           seqKey,
 		uplinkPlacement:  uplinkPlacement,
 		http2:            http2,
 		sessionID:        sessionID,
@@ -217,7 +225,7 @@ func (c *conn) startDownload() error {
 	}
 	request.Host = c.downloadHost
 	request.Header = c.downloadHeaders.Clone()
-	if err = fillStreamRequest(request, c.sessionPlacement, c.seqPlacement, c.sessionID); err != nil {
+	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID); err != nil {
 		return err
 	}
 	request = request.WithContext(httptrace.WithClientTrace(request.Context(), &httptrace.ClientTrace{
@@ -257,7 +265,7 @@ func (c *conn) startUploadStream() error {
 	}
 	request.Host = c.host
 	request.Header = c.headers.Clone()
-	if err = fillStreamRequest(request, c.sessionPlacement, c.seqPlacement, c.sessionID); err != nil {
+	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID); err != nil {
 		reader.Close()
 		writer.Close()
 		return err
@@ -336,7 +344,7 @@ func (c *conn) runPacketUploadLoop() {
 			time.Sleep(maxDuration(0, 30*time.Millisecond-time.Since(lastWrite)))
 		}
 		seq := c.seq.Add(1) - 1
-		requestURL, err := applySeqToURL(c.baseURL, c.seqPlacement, int64String(seq))
+		requestURL, err := applySeqToURL(c.baseURL, c.seqPlacement, c.seqKey, int64String(seq))
 		if err != nil {
 			c.storeUploadErr(err)
 			c.cancel()
@@ -350,7 +358,7 @@ func (c *conn) runPacketUploadLoop() {
 		}
 		request.Host = c.host
 		request.Header = c.headers.Clone()
-		if err = fillPacketRequest(request, c.sessionPlacement, c.seqPlacement, c.uplinkPlacement, c.sessionID, int64String(seq), payload); err != nil {
+		if err = fillPacketRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.uplinkPlacement, c.sessionID, int64String(seq), payload); err != nil {
 			c.storeUploadErr(err)
 			c.cancel()
 			return

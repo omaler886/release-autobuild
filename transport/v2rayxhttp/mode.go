@@ -7,6 +7,7 @@ const (
 	ModePacketUp    = "packet-up"
 	ModeStreamUp    = "stream-up"
 	ModeStreamOne   = "stream-one"
+	PlacementAuto   = "auto"
 	PlacementPath   = "path"
 	PlacementQuery  = "query"
 	PlacementHeader = "header"
@@ -27,8 +28,10 @@ func normalizeMode(mode string) (string, error) {
 
 func normalizePlacement(name string, value string) (string, error) {
 	switch value {
-	case "", PlacementPath, PlacementQuery, PlacementHeader, PlacementCookie:
+	case "":
 		return PlacementPath, nil
+	case PlacementPath, PlacementQuery, PlacementHeader, PlacementCookie:
+		return value, nil
 	default:
 		return "", E.New("unsupported xhttp ", name, ": ", value)
 	}
@@ -38,6 +41,8 @@ func normalizeDataPlacement(value string) (string, error) {
 	switch value {
 	case "":
 		return PlacementBody, nil
+	case PlacementAuto:
+		return PlacementAuto, nil
 	case PlacementHeader, PlacementCookie, PlacementBody:
 		return value, nil
 	default:
