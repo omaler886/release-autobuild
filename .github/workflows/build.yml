@@ -336,7 +336,7 @@ jobs:
           PKG_VERSION="${PKG_VERSION//-/\~}"
           echo "PKG_VERSION=${PKG_VERSION}" >> "${GITHUB_ENV}"
       - name: Package DEB
-        if: matrix.debian != ''
+        if: matrix.debian != '' && github.ref_name != 'xhttp'
         run: |
           set -xeuo pipefail
           sudo gem install fpm
@@ -360,7 +360,7 @@ jobs:
             echo "GPG signing secrets are not configured; skipping DEB signing."
           fi
       - name: Package RPM
-        if: matrix.rpm != ''
+        if: matrix.rpm != '' && github.ref_name != 'xhttp'
         run: |-
           set -xeuo pipefail
           sudo gem install fpm
@@ -383,7 +383,7 @@ jobs:
             echo "GPG signing secrets are not configured; skipping RPM signing."
           fi
       - name: Package Pacman
-        if: matrix.pacman != ''
+        if: matrix.pacman != '' && github.ref_name != 'xhttp'
         run: |-
           set -xeuo pipefail
           sudo gem install fpm
@@ -396,7 +396,7 @@ jobs:
             --architecture ${{ matrix.pacman }} \
             dist/sing-box=/usr/bin/sing-box
       - name: Package OpenWrt
-        if: matrix.openwrt != ''
+        if: matrix.openwrt != '' && github.ref_name != 'xhttp'
         run: |-
           set -xeuo pipefail
           sudo gem install fpm
@@ -411,11 +411,11 @@ jobs:
           done
           rm "dist/openwrt.deb"
       - name: Install apk-tools
-        if: matrix.openwrt != '' || matrix.alpine != ''
+        if: (matrix.openwrt != '' || matrix.alpine != '') && github.ref_name != 'xhttp'
         run: |-
           docker run --rm -v /usr/local/bin:/mnt alpine:edge sh -c "apk add --no-cache apk-tools-static && cp /sbin/apk.static /mnt/apk && chmod +x /mnt/apk"
       - name: Package OpenWrt APK
-        if: matrix.openwrt != ''
+        if: matrix.openwrt != '' && github.ref_name != 'xhttp'
         run: |-
           set -xeuo pipefail
           for architecture in ${{ matrix.openwrt }}; do
@@ -426,7 +426,7 @@ jobs:
               "dist/sing-box_${{ needs.calculate_version.outputs.version }}_openwrt_${architecture}.apk"
           done
       - name: Package Alpine APK
-        if: matrix.alpine != ''
+        if: matrix.alpine != '' && github.ref_name != 'xhttp'
         run: |-
           set -xeuo pipefail
           .github/build_alpine_apk.sh \
