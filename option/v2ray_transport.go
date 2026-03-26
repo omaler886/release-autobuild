@@ -15,6 +15,7 @@ type _V2RayTransportOptions struct {
 	QUICOptions        V2RayQUICOptions        `json:"-"`
 	GRPCOptions        V2RayGRPCOptions        `json:"-"`
 	HTTPUpgradeOptions V2RayHTTPUpgradeOptions `json:"-"`
+	XHTTPOptions       V2RayXHTTPOptions       `json:"-"`
 }
 
 type V2RayTransportOptions _V2RayTransportOptions
@@ -32,6 +33,8 @@ func (o V2RayTransportOptions) MarshalJSON() ([]byte, error) {
 		v = o.GRPCOptions
 	case C.V2RayTransportTypeHTTPUpgrade:
 		v = o.HTTPUpgradeOptions
+	case C.V2RayTransportTypeXHTTP:
+		v = o.XHTTPOptions
 	case "":
 		return nil, E.New("missing transport type")
 	default:
@@ -57,6 +60,8 @@ func (o *V2RayTransportOptions) UnmarshalJSON(bytes []byte) error {
 		v = &o.GRPCOptions
 	case C.V2RayTransportTypeHTTPUpgrade:
 		v = &o.HTTPUpgradeOptions
+	case C.V2RayTransportTypeXHTTP:
+		v = &o.XHTTPOptions
 	default:
 		return E.New("unknown transport type: " + o.Type)
 	}
@@ -97,4 +102,29 @@ type V2RayHTTPUpgradeOptions struct {
 	Host    string               `json:"host,omitempty"`
 	Path    string               `json:"path,omitempty"`
 	Headers badoption.HTTPHeader `json:"headers,omitempty"`
+}
+
+type V2RayXHTTPOptions struct {
+	Host                string                      `json:"host,omitempty"`
+	Path                string                      `json:"path,omitempty"`
+	Mode                string                      `json:"mode,omitempty"`
+	SessionPlacement    string                      `json:"session_placement,omitempty"`
+	SessionKey          string                      `json:"session_key,omitempty"`
+	SeqPlacement        string                      `json:"seq_placement,omitempty"`
+	SeqKey              string                      `json:"seq_key,omitempty"`
+	UplinkDataPlacement string                      `json:"uplink_data_placement,omitempty"`
+	DownloadSettings    *V2RayXHTTPDownloadSettings `json:"download_settings,omitempty"`
+	XMux                *V2RayXHTTPXMuxOptions      `json:"xmux,omitempty"`
+	Headers             badoption.HTTPHeader        `json:"headers,omitempty"`
+}
+
+type V2RayXHTTPDownloadSettings struct {
+	Host    string               `json:"host,omitempty"`
+	Path    string               `json:"path,omitempty"`
+	Headers badoption.HTTPHeader `json:"headers,omitempty"`
+}
+
+type V2RayXHTTPXMuxOptions struct {
+	MaxConcurrency int `json:"max_concurrency,omitempty"`
+	MaxConnections int `json:"max_connections,omitempty"`
 }

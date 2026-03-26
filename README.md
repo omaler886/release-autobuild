@@ -10,6 +10,15 @@
 
 The universal proxy platform.
 
+## XHTTP Branch
+
+This repository carries an xhttp transport patch on the `xhttp` branch while tracking `SagerNet/sing-box` `testing`.
+
+- `upstream-testing` is kept as a clean mirror of upstream `testing`.
+- `xhttp` carries the local patch set.
+- `.github/workflows/sync-build.yml` syncs upstream every day, merges into `xhttp`, and publishes build artifacts.
+- When upstream conflicts with the patch, the workflow fails and requires a manual conflict fix.
+
 [![Packaging status](https://repology.org/badge/vertical-allrepos/sing-box.svg)](https://repology.org/project/sing-box/versions)
 
 ## Documentation

@@ -1,0 +1,113 @@
+name: Sync And Build XHTTP
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - xhttp
+    paths-ignore:
+      - "README.md"
+      - "PATCH_NOTES.md"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout xhttp
+        uses: actions/checkout@v5
+        with:
+          ref: xhttp
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch upstream
+        run: |
+          git remote remove upstream || true
+          git remote add upstream https://github.com/SagerNet/sing-box.git
+          git fetch origin --prune
+          git fetch upstream testing --prune
+
+      - name: Update upstream mirror branch
+        run: |
+          git branch -f upstream-testing upstream/testing
+          git push origin refs/heads/upstream-testing:refs/heads/upstream-testing --force
+
+      - name: Merge upstream into xhttp
+        run: |
+          git checkout xhttp
+          git merge upstream/testing --no-edit || (git merge --abort && exit 1)
+
+      - name: Push xhttp branch
+        run: git push origin xhttp
+
+  build:
+    needs:
+      - sync
+    if: ${{ always() && (github.event_name == 'push' || needs.sync.result == 'success') }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { goos: linux, goarch: amd64 }
+          - { goos: linux, goarch: arm64 }
+          - { goos: windows, goarch: amd64 }
+          - { goos: windows, goarch: arm64 }
+          - { goos: darwin, goarch: amd64 }
+          - { goos: darwin, goarch: arm64 }
+
+    steps:
+      - name: Checkout xhttp
+        uses: actions/checkout@v5
+        with:
+          ref: xhttp
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.8"
+
+      - name: Build binary
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          VERSION="xhttp-$(date -u +'%Y%m%d')-${GITHUB_SHA::7}"
+          if [ "$GOOS" = "windows" ]; then
+            TAGS="$(cat release/DEFAULT_BUILD_TAGS_WINDOWS)"
+            EXT=".exe"
+          elif [ "$GOOS" = "linux" ]; then
+            TAGS="$(cat release/DEFAULT_BUILD_TAGS)"
+            EXT=""
+          else
+            TAGS="$(cat release/DEFAULT_BUILD_TAGS_OTHERS)"
+            EXT=""
+          fi
+          LDFLAGS_SHARED="$(cat release/LDFLAGS)"
+          mkdir -p dist
+          CGO_ENABLED=0 go build -trimpath \
+            -o "dist/sbx-xhttp-${GOOS}-${GOARCH}${EXT}" \
+            -tags "$TAGS" \
+            -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=${VERSION}' ${LDFLAGS_SHARED} -s -w -buildid=" \
+            ./cmd/sing-box
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbx-xhttp-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: dist/*
+          if-no-files-found: error
