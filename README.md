@@ -15,8 +15,12 @@ The universal proxy platform.
 This repository carries an xhttp transport patch on the `xhttp` branch while tracking `SagerNet/sing-box` `testing`.
 
 - `upstream-testing` is kept as a clean mirror of upstream `testing`.
+- `upstream-yelnoo-stable` mirrors `yelnoo/sing-box` `stable`.
+- `upstream-mihomo-splithttp` mirrors `daiaji/mihomo` `feat/splithttp`.
 - `xhttp` carries the local patch set.
-- `.github/workflows/sync-build.yml` syncs upstream every day, merges into `xhttp`, and publishes build artifacts.
+- `.github/upstream-tracking.env` records the last seen heads for the three source repositories.
+- `.github/workflows/sync-build.yml` refreshes mirrors every 6 hours, merges official `testing` into `xhttp`, runs focused xhttp/provider verification, and only then pushes `xhttp`.
+- donor changes from `yelnoo/sing-box` and `daiaji/mihomo` are mirrored and recorded for follow-up review instead of being blindly merged.
 - When upstream conflicts with the patch, the workflow fails and requires a manual conflict fix.
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/sing-box.svg)](https://repology.org/project/sing-box/versions)

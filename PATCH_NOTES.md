@@ -16,6 +16,10 @@ Patch scope:
 Maintenance model:
 
 - `upstream-testing` is force-synced to upstream `testing`
-- `xhttp` merges upstream changes instead of rebasing automatically
-- daily GitHub Actions builds publish artifacts when the merge succeeds
+- `upstream-yelnoo-stable` and `upstream-mihomo-splithttp` mirror the donor sources used for provider/xhttp follow-up
+- `.github/upstream-tracking.env` records the last seen heads for all three source repositories
+- `xhttp` merges upstream `testing` changes instead of rebasing automatically
+- scheduled GitHub Actions runs verify the merged branch before pushing it
+- donor mirror updates from `yelnoo` and `mihomo` are surfaced for manual port review instead of being blindly merged
+- successful scheduled runs still publish build artifacts
 - merge conflicts are treated as manual maintenance events

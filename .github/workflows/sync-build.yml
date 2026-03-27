@@ -1,8 +1,8 @@
-name: Sync And Build XHTTP
+name: Sync Verify And Build XHTTP
 
 on:
   schedule:
-    - cron: "17 2 * * *"
+    - cron: "17 */6 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -10,6 +10,7 @@ on:
     paths-ignore:
       - "README.md"
       - "PATCH_NOTES.md"
+      - ".github/upstream-tracking.env"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -19,47 +20,56 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sync:
+  sync_verify:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      branch_changed: ${{ steps.sync.outputs.branch_changed }}
+      donor_changed: ${{ steps.sync.outputs.donor_changed }}
     steps:
       - name: Checkout xhttp
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: xhttp
           fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.8"
 
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Fetch upstream
-        run: |
-          git remote remove upstream || true
-          git remote add upstream https://github.com/SagerNet/sing-box.git
-          git fetch origin --prune
-          git fetch upstream testing --prune
+      - name: Sync upstream mirrors and tracking
+        id: sync
+        shell: bash
+        run: .github/sync-upstreams.sh
 
-      - name: Update upstream mirror branch
+      - name: Verify merged xhttp branch
+        shell: bash
+        run: .github/verify-xhttp.sh
+
+      - name: Push mirrored upstream branches
+        shell: bash
         run: |
-          git branch -f upstream-testing upstream/testing
           git push origin refs/heads/upstream-testing:refs/heads/upstream-testing --force
-
-      - name: Merge upstream into xhttp
-        run: |
-          git checkout xhttp
-          git merge upstream/testing --no-edit || (git merge --abort && exit 1)
+          git push origin refs/heads/upstream-yelnoo-stable:refs/heads/upstream-yelnoo-stable --force
+          git push origin refs/heads/upstream-mihomo-splithttp:refs/heads/upstream-mihomo-splithttp --force
 
       - name: Push xhttp branch
+        if: steps.sync.outputs.branch_changed == 'true'
+        shell: bash
         run: git push origin xhttp
 
   build:
     needs:
-      - sync
-    if: ${{ always() && (github.event_name == 'push' || needs.sync.result == 'success') }}
+      - sync_verify
+    if: ${{ github.event_name == 'push' || needs.sync_verify.result == 'success' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -74,7 +84,7 @@ jobs:
 
     steps:
       - name: Checkout xhttp
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: xhttp
           fetch-depth: 0
