@@ -151,25 +151,33 @@ func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2
 			},
 		}
 	} else {
-		requestURL.Scheme = "https"
-		if len(tlsConfig.NextProtos()) == 0 {
-			tlsConfig.SetNextProtos([]string{http2.NextProtoTLS})
-		}
-		tlsDialer := tls.NewDialer(dialer, tlsConfig)
-		if len(tlsConfig.NextProtos()) == 1 && tlsConfig.NextProtos()[0] == "http/1.1" {
-			transport = &http.Transport{
-				DialTLSContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
-					return tlsDialer.DialTLSContext(ctx, serverAddr)
-				},
+		if wantsHTTP3(tlsConfig) {
+			var err error
+			transport, requestURL.Scheme, err = newHTTP3Transport(dialer, serverAddr, tlsConfig)
+			if err != nil {
+				return nil, "", "", err
 			}
 		} else {
-			transport = &http2.Transport{
-				DialTLSContext: func(ctx context.Context, network, addr string, cfg *tls.STDConfig) (net.Conn, error) {
-					return tlsDialer.DialTLSContext(ctx, serverAddr)
-				},
+			requestURL.Scheme = "https"
+			if len(tlsConfig.NextProtos()) == 0 {
+				tlsConfig.SetNextProtos([]string{http2.NextProtoTLS})
 			}
-			if options.XMux != nil && options.XMux.HKeepAlivePeriod > 0 {
-				transport.(*http2.Transport).ReadIdleTimeout = time.Duration(options.XMux.HKeepAlivePeriod) * time.Second
+			tlsDialer := tls.NewDialer(dialer, tlsConfig)
+			if len(tlsConfig.NextProtos()) == 1 && tlsConfig.NextProtos()[0] == "http/1.1" {
+				transport = &http.Transport{
+					DialTLSContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+						return tlsDialer.DialTLSContext(ctx, serverAddr)
+					},
+				}
+			} else {
+				transport = &http2.Transport{
+					DialTLSContext: func(ctx context.Context, network, addr string, cfg *tls.STDConfig) (net.Conn, error) {
+						return tlsDialer.DialTLSContext(ctx, serverAddr)
+					},
+				}
+				if options.XMux != nil && options.XMux.HKeepAlivePeriod > 0 {
+					transport.(*http2.Transport).ReadIdleTimeout = time.Duration(options.XMux.HKeepAlivePeriod) * time.Second
+				}
 			}
 		}
 	}

@@ -11,6 +11,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/sagernet/quic-go"
+	"github.com/sagernet/quic-go/http3"
 	"github.com/sagernet/sing-box/adapter"
 	"github.com/sagernet/sing-box/common/tls"
 	C "github.com/sagernet/sing-box/constant"
@@ -18,6 +20,7 @@ import (
 	"github.com/sagernet/sing-box/option"
 	"github.com/sagernet/sing-box/transport/v2rayhttp"
 	"github.com/sagernet/sing-box/transport/v2rayhttpupgrade"
+	qtls "github.com/sagernet/sing-quic"
 	"github.com/sagernet/sing/common"
 	E "github.com/sagernet/sing/common/exceptions"
 	"github.com/sagernet/sing/common/logger"
@@ -36,6 +39,8 @@ type Server struct {
 	handler          adapter.V2RayServerTransportHandler
 	wrapper          adapter.V2RayServerTransport
 	httpServer       *http.Server
+	http3Server      *http3.Server
+	quicListener     qtls.Listener
 	host             string
 	path             string
 	mode             string
@@ -70,7 +75,7 @@ func NewServer(ctx context.Context, logger logger.ContextLogger, options option.
 	if err != nil {
 		return nil, err
 	}
-	if mode == ModeStreamOne {
+	if mode == ModeStreamOne && !wantsHTTP3(tlsConfig) {
 		transport, err := v2rayhttpupgrade.NewServer(ctx, logger, option.V2RayHTTPUpgradeOptions{
 			Host:    options.Host,
 			Path:    options.Path,
@@ -146,6 +151,10 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	if sessionID == "" {
+		if s.mode == ModeStreamOne && request.Method == s.behavior.uplinkHTTPMethod {
+			s.handleStreamOne(writer, request)
+			return
+		}
 		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("missing xhttp session"))
 		return
 	}
@@ -162,6 +171,24 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	default:
 		s.invalidRequest(writer, request, http.StatusMethodNotAllowed, E.New("unsupported method: ", request.Method))
 	}
+}
+
+func (s *Server) handleStreamOne(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Set("X-Accel-Buffering", "no")
+	writer.Header().Set("Cache-Control", "no-store")
+	writer.WriteHeader(http.StatusOK)
+	flusher := writer.(http.Flusher)
+	flusher.Flush()
+	done := make(chan struct{})
+	conn := v2rayhttp.NewHTTP2Wrapper(&v2rayhttp.ServerHTTPConn{
+		HTTP2Conn: v2rayhttp.NewHTTPConn(request.Body, writer),
+		Flusher:   flusher,
+	})
+	s.handler.NewConnectionEx(request.Context(), conn, sHTTP.SourceAddress(request), M.Socksaddr{}, N.OnceClose(func(err error) {
+		close(done)
+	}))
+	<-done
+	conn.CloseWrapper()
 }
 
 func (s *Server) handleDownload(sessionID string, session *serverSession, writer http.ResponseWriter, request *http.Request) {
@@ -259,12 +286,18 @@ func (s *Server) Network() []string {
 	if s.wrapper != nil {
 		return s.wrapper.Network()
 	}
+	if wantsHTTP3(s.tlsConfig) {
+		return []string{N.NetworkUDP}
+	}
 	return []string{N.NetworkTCP}
 }
 
 func (s *Server) Serve(listener net.Listener) error {
 	if s.wrapper != nil {
 		return s.wrapper.Serve(listener)
+	}
+	if wantsHTTP3(s.tlsConfig) {
+		return os.ErrInvalid
 	}
 	if s.tlsConfig != nil {
 		if len(s.tlsConfig.NextProtos()) == 0 {
@@ -279,7 +312,28 @@ func (s *Server) ServePacket(listener net.PacketConn) error {
 	if s.wrapper != nil {
 		return s.wrapper.ServePacket(listener)
 	}
-	return os.ErrInvalid
+	if !wantsHTTP3(s.tlsConfig) {
+		return os.ErrInvalid
+	}
+	err := qtls.ConfigureHTTP3(s.tlsConfig)
+	if err != nil {
+		return err
+	}
+	quicConfig := &quic.Config{
+		DisablePathMTUDiscovery: !C.IsLinux && !C.IsWindows,
+	}
+	s.http3Server = &http3.Server{
+		Handler:        s,
+		MaxHeaderBytes: s.behavior.serverMaxHeaderBytes,
+		ConnContext: func(ctx context.Context, conn *quic.Conn) context.Context {
+			return log.ContextWithNewID(ctx)
+		},
+	}
+	s.quicListener, err = qtls.Listen(listener, s.tlsConfig, quicConfig)
+	if err != nil {
+		return err
+	}
+	return s.http3Server.ServeListener(s.quicListener)
 }
 
 func (s *Server) Close() error {
@@ -290,7 +344,7 @@ func (s *Server) Close() error {
 		value.(*serverSession).close()
 		return true
 	})
-	return common.Close(common.PtrOrNil(s.httpServer))
+	return common.Close(common.PtrOrNil(s.httpServer), common.PtrOrNil(s.http3Server), s.quicListener)
 }
 
 func (s *Server) session(sessionID string) *serverSession {

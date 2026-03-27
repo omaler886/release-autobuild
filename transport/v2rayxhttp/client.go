@@ -51,7 +51,7 @@ func NewClient(ctx context.Context, dialer N.Dialer, serverAddr M.Socksaddr, opt
 	if err != nil {
 		return nil, err
 	}
-	if mode == ModeStreamOne {
+	if mode == ModeStreamOne && !wantsHTTP3(tlsConfig) {
 		transport, err := v2rayhttpupgrade.NewClient(ctx, dialer, serverAddr, option.V2RayHTTPUpgradeOptions{
 			Host:    options.Host,
 			Path:    options.Path,
@@ -111,16 +111,22 @@ func (c *Client) DialContext(ctx context.Context) (net.Conn, error) {
 	if c.wrapper != nil {
 		return c.wrapper.DialContext(ctx)
 	}
-	sessionID, err := uuid.NewV4()
-	if err != nil {
-		return nil, err
+	var err error
+	sessionID := ""
+	if c.mode != ModeStreamOne {
+		var sessionUUID uuid.UUID
+		sessionUUID, err = uuid.NewV4()
+		if err != nil {
+			return nil, err
+		}
+		sessionID = sessionUUID.String()
 	}
-	baseURL, err := applySessionToURL(c.requestURL, c.sessionPlacement, c.sessionKey, sessionID.String())
+	baseURL, err := applySessionToURL(c.requestURL, c.sessionPlacement, c.sessionKey, sessionID)
 	if err != nil {
 		return nil, err
 	}
 	seq := &atomic.Int64{}
-	downloadBaseURL, err := applySessionToURL(c.downloadURL, c.sessionPlacement, c.sessionKey, sessionID.String())
+	downloadBaseURL, err := applySessionToURL(c.downloadURL, c.sessionPlacement, c.sessionKey, sessionID)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +135,7 @@ func (c *Client) DialContext(ctx context.Context) (net.Conn, error) {
 		client.openUsage.Add(1)
 		defer client.openUsage.Add(-1)
 	}
-	conn := newConn(ctx, c.httpClient, c.mode, c.behavior, c.sessionPlacement, c.sessionKey, c.seqPlacement, c.seqKey, c.uplinkPlacement, c.http2, sessionID.String(), baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
+	conn := newConn(ctx, c.httpClient, c.mode, c.behavior, c.sessionPlacement, c.sessionKey, c.seqPlacement, c.seqKey, c.uplinkPlacement, c.http2, sessionID, baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
 	if err = conn.start(); err != nil {
 		return nil, err
 	}
@@ -213,6 +219,9 @@ func newConn(ctx context.Context, httpClient *http.Client, mode string, behavior
 }
 
 func (c *conn) start() error {
+	if c.mode == ModeStreamOne {
+		return c.startSingleStream()
+	}
 	if err := c.startDownload(); err != nil {
 		return err
 	}
@@ -224,6 +233,55 @@ func (c *conn) start() error {
 	} else {
 		go c.runPacketUploadLoop()
 	}
+	return nil
+}
+
+func (c *conn) startSingleStream() error {
+	defer close(c.uploadDone)
+	reader, writer := io.Pipe()
+	request, err := http.NewRequestWithContext(c.ctx, c.behavior.uplinkHTTPMethod, c.baseURL, reader)
+	if err != nil {
+		_ = reader.Close()
+		_ = writer.Close()
+		return err
+	}
+	request.Host = c.host
+	request.Header = c.headers.Clone()
+	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID, c.behavior); err != nil {
+		_ = reader.Close()
+		_ = writer.Close()
+		return err
+	}
+	request.ContentLength = -1
+	request = request.WithContext(httptrace.WithClientTrace(request.Context(), &httptrace.ClientTrace{
+		GotConn: func(info httptrace.GotConnInfo) {
+			c.remoteAddr = info.Conn.RemoteAddr()
+			c.localAddr = info.Conn.LocalAddr()
+		},
+	}))
+	c.upload = writer
+	wrc := &waitReadCloser{Wait: make(chan struct{})}
+	c.reader = wrc
+	go func() {
+		response, err := c.httpClient.Do(request)
+		if err != nil {
+			c.storeUploadErr(err)
+			c.storeDownloadErr(err)
+			_ = writer.CloseWithError(err)
+			wrc.Close()
+			return
+		}
+		if response.StatusCode != http.StatusOK {
+			err = newHTTPStatusError("xhttp stream-one", response.Status)
+			c.storeUploadErr(err)
+			c.storeDownloadErr(err)
+			_ = writer.CloseWithError(err)
+			response.Body.Close()
+			wrc.Close()
+			return
+		}
+		wrc.Set(response.Body)
+	}()
 	return nil
 }
 
@@ -315,7 +373,7 @@ func (c *conn) Read(p []byte) (int, error) {
 }
 
 func (c *conn) Write(p []byte) (int, error) {
-	if c.mode == ModeStreamUp {
+	if c.mode == ModeStreamUp || c.mode == ModeStreamOne {
 		if c.upload == nil {
 			return 0, io.ErrClosedPipe
 		}
