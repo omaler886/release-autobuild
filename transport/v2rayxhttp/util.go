@@ -2,7 +2,6 @@ package v2rayxhttp
 
 import (
 	"context"
-	"crypto/rand"
 	"encoding/base64"
 	"fmt"
 	"io"
@@ -11,6 +10,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/sagernet/sing-box/common/tls"
 	"github.com/sagernet/sing-box/option"
@@ -168,6 +168,9 @@ func newHTTPTransport(dialer N.Dialer, serverAddr M.Socksaddr, options option.V2
 					return tlsDialer.DialTLSContext(ctx, serverAddr)
 				},
 			}
+			if options.XMux != nil && options.XMux.HKeepAlivePeriod > 0 {
+				transport.(*http2.Transport).ReadIdleTimeout = time.Duration(options.XMux.HKeepAlivePeriod) * time.Second
+			}
 		}
 	}
 	host := options.Host
@@ -249,39 +252,38 @@ func applyDefaultStreamHeaders(header http.Header) {
 	}
 }
 
-func fillStreamRequest(request *http.Request, sessionPlacement string, seqPlacement string, sessionID string) error {
-	return fillStreamRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", sessionID)
+func fillStreamRequest(request *http.Request, sessionPlacement string, seqPlacement string, sessionID string, behavior requestBehavior) error {
+	return fillStreamRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", sessionID, behavior)
 }
 
-func fillStreamRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, sessionID string) error {
+func fillStreamRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, sessionID string, behavior requestBehavior) error {
 	request.Header = cloneOrNewHeader(request.Header)
 	applyDefaultFetchHeaders(request.Header)
-	if request.Body != nil && request.Header.Get("Content-Type") == "" {
+	if request.Body != nil && !behavior.noGRPCHeader && request.Header.Get("Content-Type") == "" {
 		request.Header.Set("Content-Type", "application/grpc")
 	}
-	if err := applyRefererPadding(request); err != nil {
-		return err
-	}
+	applyXPaddingToRequest(request, behavior.requestPaddingConfig(request.URL.String()))
 	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionKey, seqKey, sessionID, "")
 }
 
-func fillPacketRequest(request *http.Request, sessionPlacement string, seqPlacement string, uplinkPlacement string, sessionID string, seq string, payload []byte) error {
-	return fillPacketRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", uplinkPlacement, sessionID, seq, payload)
+func fillPacketRequest(request *http.Request, sessionPlacement string, seqPlacement string, uplinkPlacement string, sessionID string, seq string, payload []byte, behavior requestBehavior) error {
+	return fillPacketRequestWithKeys(request, sessionPlacement, seqPlacement, "", "", uplinkPlacement, sessionID, seq, payload, behavior)
 }
 
-func fillPacketRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, uplinkPlacement string, sessionID string, seq string, payload []byte) error {
+func fillPacketRequestWithKeys(request *http.Request, sessionPlacement string, seqPlacement string, sessionKey string, seqKey string, uplinkPlacement string, sessionID string, seq string, payload []byte, behavior requestBehavior) error {
 	request.Header = cloneOrNewHeader(request.Header)
 	applyDefaultFetchHeaders(request.Header)
-	if err := applyPayloadToRequest(request, uplinkPlacement, payload); err != nil {
+	if err := applyPayloadToRequest(request, uplinkPlacement, behavior, payload); err != nil {
 		return err
 	}
-	if err := applyRefererPadding(request); err != nil {
-		return err
+	applyXPaddingToRequest(request, behavior.requestPaddingConfig(request.URL.String()))
+	if request.Body != nil && !behavior.noGRPCHeader && request.Header.Get("Content-Type") == "" {
+		request.Header.Set("Content-Type", "application/grpc")
 	}
 	return applyMetaToRequest(request, sessionPlacement, seqPlacement, sessionKey, seqKey, sessionID, seq)
 }
 
-func applyPayloadToRequest(request *http.Request, placement string, payload []byte) error {
+func applyPayloadToRequest(request *http.Request, placement string, behavior requestBehavior, payload []byte) error {
 	switch placement {
 	case "", PlacementAuto, PlacementBody:
 		request.Body = ioNopCloserBytes(payload)
@@ -289,19 +291,19 @@ func applyPayloadToRequest(request *http.Request, placement string, payload []by
 	case PlacementHeader:
 		encoded := base64.RawURLEncoding.EncodeToString(payload)
 		for i := 0; len(encoded) > 0; i++ {
-			chunkSize := minInt(3800, len(encoded))
+			chunkSize := minInt(int(behavior.uplinkChunkSize.rand()), len(encoded))
 			chunk := encoded[:chunkSize]
 			encoded = encoded[chunkSize:]
-			request.Header.Set(fmt.Sprintf("x_data-%d", i), chunk)
+			request.Header.Set(fmt.Sprintf("%s-%d", behavior.uplinkDataKey, i), chunk)
 		}
 		request.ContentLength = 0
 	case PlacementCookie:
 		encoded := base64.RawURLEncoding.EncodeToString(payload)
 		for i := 0; len(encoded) > 0; i++ {
-			chunkSize := minInt(2500, len(encoded))
+			chunkSize := minInt(int(behavior.uplinkChunkSize.rand()), len(encoded))
 			chunk := encoded[:chunkSize]
 			encoded = encoded[chunkSize:]
-			request.Header.Add("Cookie", (&http.Cookie{Name: fmt.Sprintf("x_data_%d", i), Value: chunk}).String())
+			request.Header.Add("Cookie", (&http.Cookie{Name: fmt.Sprintf("%s_%d", behavior.uplinkDataKey, i), Value: chunk}).String())
 		}
 		request.ContentLength = 0
 	default:
@@ -310,7 +312,7 @@ func applyPayloadToRequest(request *http.Request, placement string, payload []by
 	return nil
 }
 
-func extractPayloadFromRequest(request *http.Request, placement string, maxBodyBytes int64) ([]byte, error) {
+func extractPayloadFromRequest(request *http.Request, placement string, behavior requestBehavior, maxBodyBytes int64) ([]byte, error) {
 	switch placement {
 	case "", PlacementBody:
 		if request.Body == nil {
@@ -319,38 +321,41 @@ func extractPayloadFromRequest(request *http.Request, placement string, maxBodyB
 		defer request.Body.Close()
 		return io.ReadAll(io.LimitReader(request.Body, maxBodyBytes))
 	case PlacementAuto:
-		payload, err := decodeChunkedHeader(request.Header, "x_data-")
+		headerPayload, err := decodeChunkedHeader(request.Header, behavior.uplinkDataKey, true)
 		if err != nil {
 			return nil, err
 		}
-		if len(payload) > 0 {
-			return payload, nil
-		}
-		payload, err = decodeChunkedCookies(request, "x_data_")
+		cookiePayload, err := decodeChunkedCookies(request, behavior.uplinkDataKey)
 		if err != nil {
 			return nil, err
 		}
-		if len(payload) > 0 {
-			return payload, nil
-		}
+		var bodyPayload []byte
 		if request.Body == nil {
-			return nil, nil
+			return append(append(headerPayload, cookiePayload...), bodyPayload...), nil
 		}
 		defer request.Body.Close()
-		return io.ReadAll(io.LimitReader(request.Body, maxBodyBytes))
+		bodyPayload, err = io.ReadAll(io.LimitReader(request.Body, maxBodyBytes))
+		if err != nil {
+			return nil, err
+		}
+		return append(append(headerPayload, cookiePayload...), bodyPayload...), nil
 	case PlacementHeader:
-		return decodeChunkedHeader(request.Header, "x_data-")
+		return decodeChunkedHeader(request.Header, behavior.uplinkDataKey, true)
 	case PlacementCookie:
-		return decodeChunkedCookies(request, "x_data_")
+		return decodeChunkedCookies(request, behavior.uplinkDataKey)
 	default:
 		return nil, fmt.Errorf("unsupported uplink data placement: %s", placement)
 	}
 }
 
-func decodeChunkedHeader(header http.Header, prefix string) ([]byte, error) {
+func decodeChunkedHeader(header http.Header, key string, withDash bool) ([]byte, error) {
 	var chunks []string
 	for i := 0; ; i++ {
-		chunk := header.Get(fmt.Sprintf("%s%d", prefix, i))
+		name := fmt.Sprintf("%s%d", key, i)
+		if withDash {
+			name = fmt.Sprintf("%s-%d", key, i)
+		}
+		chunk := header.Get(name)
 		if chunk == "" {
 			break
 		}
@@ -362,10 +367,10 @@ func decodeChunkedHeader(header http.Header, prefix string) ([]byte, error) {
 	return base64.RawURLEncoding.DecodeString(strings.Join(chunks, ""))
 }
 
-func decodeChunkedCookies(request *http.Request, prefix string) ([]byte, error) {
+func decodeChunkedCookies(request *http.Request, key string) ([]byte, error) {
 	var chunks []string
 	for i := 0; ; i++ {
-		cookie, err := request.Cookie(fmt.Sprintf("%s%d", prefix, i))
+		cookie, err := request.Cookie(fmt.Sprintf("%s_%d", key, i))
 		if err != nil {
 			break
 		}
@@ -468,38 +473,6 @@ func appendURLPath(path string, value string) string {
 		return path + value
 	}
 	return path + "/" + value
-}
-
-func applyRefererPadding(request *http.Request) error {
-	if request == nil || request.URL == nil {
-		return nil
-	}
-	paddedURL := *request.URL
-	padding, err := generatePadding(100)
-	if err != nil {
-		return err
-	}
-	query := paddedURL.Query()
-	query.Set("x_padding", padding)
-	paddedURL.RawQuery = query.Encode()
-	request.Header.Set("Referer", paddedURL.String())
-	return nil
-}
-
-func generatePadding(length int) (string, error) {
-	if length <= 0 {
-		return "", nil
-	}
-	random := make([]byte, length)
-	_, err := rand.Read(random)
-	if err != nil {
-		return "", err
-	}
-	encoded := base64.RawURLEncoding.EncodeToString(random)
-	if len(encoded) > length {
-		encoded = encoded[:length]
-	}
-	return encoded, nil
 }
 
 type bytesReadCloser struct {

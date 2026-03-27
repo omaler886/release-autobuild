@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/sagernet/sing-box/option"
+
 	"github.com/stretchr/testify/require"
 )
 
@@ -62,13 +64,68 @@ func TestExtractPayloadAuto(t *testing.T) {
 
 			request, err := http.NewRequest(http.MethodPost, "https://example.org/xhttp/", nil)
 			require.NoError(t, err)
-
-			err = applyPayloadToRequest(request, testCase.placement, testCase.payload)
+			behavior, err := newRequestBehavior(ModePacketUp, testCase.placement, option.V2RayXHTTPOptions{
+				UplinkDataPlacement: testCase.placement,
+			})
 			require.NoError(t, err)
 
-			payload, err := extractPayloadFromRequest(request, PlacementAuto, 1<<20)
+			err = applyPayloadToRequest(request, testCase.placement, behavior, testCase.payload)
+			require.NoError(t, err)
+
+			payload, err := extractPayloadFromRequest(request, PlacementAuto, behavior, 1<<20)
 			require.NoError(t, err)
 			require.Equal(t, testCase.payload, payload)
 		})
 	}
+}
+
+func TestPayloadCustomKeyAndChunkSize(t *testing.T) {
+	t.Parallel()
+
+	behavior, err := newRequestBehavior(ModePacketUp, PlacementHeader, option.V2RayXHTTPOptions{
+		UplinkDataPlacement: PlacementHeader,
+		UplinkDataKey:       "X-Custom-Data",
+		UplinkChunkSize: &option.V2RayXHTTPRangeOptions{
+			From: 4,
+			To:   4,
+		},
+	})
+	require.NoError(t, err)
+
+	request, err := http.NewRequest(http.MethodPost, "https://example.org/xhttp/", nil)
+	require.NoError(t, err)
+
+	payloadIn := []byte("hello-custom-key")
+	err = applyPayloadToRequest(request, PlacementHeader, behavior, payloadIn)
+	require.NoError(t, err)
+	require.NotEmpty(t, request.Header.Get("X-Custom-Data-0"))
+
+	payloadOut, err := extractPayloadFromRequest(request, PlacementHeader, behavior, 1<<20)
+	require.NoError(t, err)
+	require.Equal(t, payloadIn, payloadOut)
+}
+
+func TestXPaddingObfsRoundTrip(t *testing.T) {
+	t.Parallel()
+
+	behavior, err := newRequestBehavior(ModePacketUp, PlacementBody, option.V2RayXHTTPOptions{
+		XPaddingObfsMode:  true,
+		XPaddingKey:       "pad",
+		XPaddingHeader:    "X-Pad",
+		XPaddingPlacement: "query_in_header",
+		XPaddingMethod:    "tokenish",
+		XPaddingBytes: &option.V2RayXHTTPRangeOptions{
+			From: 32,
+			To:   32,
+		},
+	})
+	require.NoError(t, err)
+
+	request, err := http.NewRequest(http.MethodPost, "https://example.org/xhttp/", nil)
+	require.NoError(t, err)
+
+	applyXPaddingToRequest(request, behavior.requestPaddingConfig(request.URL.String()))
+	paddingValue, placement := extractXPaddingFromRequest(request, behavior)
+	require.Equal(t, PlacementQueryInHeader, placement)
+	require.True(t, isXPaddingValid(paddingValue, behavior.xPaddingBytes, behavior.xPaddingMethod))
 }

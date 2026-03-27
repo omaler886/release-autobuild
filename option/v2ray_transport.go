@@ -1,6 +1,8 @@
 package option
 
 import (
+	"bytes"
+
 	C "github.com/sagernet/sing-box/constant"
 	E "github.com/sagernet/sing/common/exceptions"
 	"github.com/sagernet/sing/common/json"
@@ -105,17 +107,33 @@ type V2RayHTTPUpgradeOptions struct {
 }
 
 type V2RayXHTTPOptions struct {
-	Host                string                      `json:"host,omitempty"`
-	Path                string                      `json:"path,omitempty"`
-	Mode                string                      `json:"mode,omitempty"`
-	SessionPlacement    string                      `json:"session_placement,omitempty"`
-	SessionKey          string                      `json:"session_key,omitempty"`
-	SeqPlacement        string                      `json:"seq_placement,omitempty"`
-	SeqKey              string                      `json:"seq_key,omitempty"`
-	UplinkDataPlacement string                      `json:"uplink_data_placement,omitempty"`
-	DownloadSettings    *V2RayXHTTPDownloadSettings `json:"download_settings,omitempty"`
-	XMux                *V2RayXHTTPXMuxOptions      `json:"xmux,omitempty"`
-	Headers             badoption.HTTPHeader        `json:"headers,omitempty"`
+	Host                 string                      `json:"host,omitempty"`
+	Path                 string                      `json:"path,omitempty"`
+	Mode                 string                      `json:"mode,omitempty"`
+	XPaddingBytes        *V2RayXHTTPRangeOptions     `json:"x_padding_bytes,omitempty"`
+	XPaddingObfsMode     bool                        `json:"x_padding_obfs_mode,omitempty"`
+	XPaddingKey          string                      `json:"x_padding_key,omitempty"`
+	XPaddingHeader       string                      `json:"x_padding_header,omitempty"`
+	XPaddingPlacement    string                      `json:"x_padding_placement,omitempty"`
+	XPaddingMethod       string                      `json:"x_padding_method,omitempty"`
+	UplinkHTTPMethod     string                      `json:"uplink_http_method,omitempty"`
+	NoGRPCHeader         bool                        `json:"no_grpc_header,omitempty"`
+	NoSSEHeader          bool                        `json:"no_sse_header,omitempty"`
+	SessionPlacement     string                      `json:"session_placement,omitempty"`
+	SessionKey           string                      `json:"session_key,omitempty"`
+	SeqPlacement         string                      `json:"seq_placement,omitempty"`
+	SeqKey               string                      `json:"seq_key,omitempty"`
+	UplinkDataPlacement  string                      `json:"uplink_data_placement,omitempty"`
+	UplinkDataKey        string                      `json:"uplink_data_key,omitempty"`
+	UplinkChunkSize      *V2RayXHTTPRangeOptions     `json:"uplink_chunk_size,omitempty"`
+	ScMaxEachPostBytes   *V2RayXHTTPRangeOptions     `json:"sc_max_each_post_bytes,omitempty"`
+	ScMinPostsIntervalMs *V2RayXHTTPRangeOptions     `json:"sc_min_posts_interval_ms,omitempty"`
+	ScMaxBufferedPosts   int                         `json:"sc_max_buffered_posts,omitempty"`
+	ScStreamUpServerSecs *V2RayXHTTPRangeOptions     `json:"sc_stream_up_server_secs,omitempty"`
+	ServerMaxHeaderBytes int                         `json:"server_max_header_bytes,omitempty"`
+	DownloadSettings     *V2RayXHTTPDownloadSettings `json:"download_settings,omitempty"`
+	XMux                 *V2RayXHTTPXMuxOptions      `json:"xmux,omitempty"`
+	Headers              badoption.HTTPHeader        `json:"headers,omitempty"`
 }
 
 type V2RayXHTTPDownloadSettings struct {
@@ -125,6 +143,38 @@ type V2RayXHTTPDownloadSettings struct {
 }
 
 type V2RayXHTTPXMuxOptions struct {
-	MaxConcurrency int `json:"max_concurrency,omitempty"`
-	MaxConnections int `json:"max_connections,omitempty"`
+	MaxConcurrency   *V2RayXHTTPRangeOptions `json:"max_concurrency,omitempty"`
+	MaxConnections   *V2RayXHTTPRangeOptions `json:"max_connections,omitempty"`
+	CMaxReuseTimes   *V2RayXHTTPRangeOptions `json:"c_max_reuse_times,omitempty"`
+	HMaxRequestTimes *V2RayXHTTPRangeOptions `json:"h_max_request_times,omitempty"`
+	HMaxReusableSecs *V2RayXHTTPRangeOptions `json:"h_max_reusable_secs,omitempty"`
+	HKeepAlivePeriod int64                   `json:"h_keep_alive_period,omitempty"`
+}
+
+type V2RayXHTTPRangeOptions struct {
+	From int32 `json:"from,omitempty"`
+	To   int32 `json:"to,omitempty"`
+}
+
+func (r *V2RayXHTTPRangeOptions) UnmarshalJSON(content []byte) error {
+	content = bytes.TrimSpace(content)
+	if len(content) == 0 || bytes.Equal(content, []byte("null")) {
+		return nil
+	}
+	var single int32
+	if err := json.Unmarshal(content, &single); err == nil {
+		r.From = single
+		r.To = single
+		return nil
+	}
+	type rawRangeOptions V2RayXHTTPRangeOptions
+	var raw rawRangeOptions
+	if err := json.Unmarshal(content, &raw); err != nil {
+		return err
+	}
+	*r = V2RayXHTTPRangeOptions(raw)
+	if r.From != 0 && r.To == 0 {
+		r.To = r.From
+	}
+	return nil
 }

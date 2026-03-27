@@ -1,6 +1,7 @@
 package v2rayxhttp
 
 import (
+	"bytes"
 	"context"
 	"net"
 	"net/http"
@@ -8,6 +9,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/sagernet/sing-box/adapter"
 	"github.com/sagernet/sing-box/common/tls"
@@ -37,6 +39,7 @@ type Server struct {
 	host             string
 	path             string
 	mode             string
+	behavior         requestBehavior
 	sessionPlacement string
 	sessionKey       string
 	seqPlacement     string
@@ -63,6 +66,10 @@ func NewServer(ctx context.Context, logger logger.ContextLogger, options option.
 	if err != nil {
 		return nil, err
 	}
+	behavior, err := newRequestBehavior(mode, uplinkPlacement, options)
+	if err != nil {
+		return nil, err
+	}
 	if mode == ModeStreamOne {
 		transport, err := v2rayhttpupgrade.NewServer(ctx, logger, option.V2RayHTTPUpgradeOptions{
 			Host:    options.Host,
@@ -82,6 +89,7 @@ func NewServer(ctx context.Context, logger logger.ContextLogger, options option.
 		host:             options.Host,
 		path:             normalizePath(options.Path),
 		mode:             mode,
+		behavior:         behavior,
 		sessionPlacement: sessionPlacement,
 		sessionKey:       options.SessionKey,
 		seqPlacement:     seqPlacement,
@@ -92,7 +100,7 @@ func NewServer(ctx context.Context, logger logger.ContextLogger, options option.
 	server.httpServer = &http.Server{
 		Handler:           server,
 		ReadHeaderTimeout: C.TCPTimeout,
-		MaxHeaderBytes:    http.DefaultMaxHeaderBytes,
+		MaxHeaderBytes:    behavior.serverMaxHeaderBytes,
 		BaseContext: func(net.Listener) context.Context {
 			return ctx
 		},
@@ -125,7 +133,13 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 			writer.Header().Set(key, value)
 		}
 	}
+	applyXPaddingToResponse(writer, s.behavior.responsePaddingConfig())
 	writer.Header().Set("Cache-Control", "no-store")
+	paddingValue, _ := extractXPaddingFromRequest(request, s.behavior)
+	if !isXPaddingValid(paddingValue, s.behavior.xPaddingBytes, s.behavior.xPaddingMethod) {
+		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp padding"))
+		return
+	}
 	sessionID, seqText, ok := extractRequestMeta(request, s.path, s.sessionPlacement, s.seqPlacement, s.sessionKey, s.seqKey)
 	if !ok {
 		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp request metadata"))
@@ -136,10 +150,14 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	session := s.session(sessionID)
-	switch request.Method {
-	case http.MethodGet:
+	isUplink := request.Method == s.behavior.uplinkHTTPMethod
+	if request.Method == http.MethodGet && seqText != "" {
+		isUplink = true
+	}
+	switch {
+	case !isUplink && request.Method == http.MethodGet:
 		s.handleDownload(sessionID, session, writer, request)
-	case http.MethodPost:
+	case isUplink:
 		s.handleUpload(session, writer, request, seqText)
 	default:
 		s.invalidRequest(writer, request, http.StatusMethodNotAllowed, E.New("unsupported method: ", request.Method))
@@ -148,7 +166,9 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 
 func (s *Server) handleDownload(sessionID string, session *serverSession, writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("X-Accel-Buffering", "no")
-	writer.Header().Set("Content-Type", "text/event-stream")
+	if !s.behavior.noSSEHeader {
+		writer.Header().Set("Content-Type", "text/event-stream")
+	}
 	writer.WriteHeader(http.StatusOK)
 	writer.(http.Flusher).Flush()
 	reader := session.reader()
@@ -184,6 +204,18 @@ func (s *Server) handleUpload(session *serverSession, writer http.ResponseWriter
 		writer.Header().Set("X-Accel-Buffering", "no")
 		writer.WriteHeader(http.StatusOK)
 		writer.(http.Flusher).Flush()
+		if request.Header.Get("Referer") != "" && s.behavior.scStreamUpServerSecs.To > 0 {
+			go func() {
+				for {
+					padding := bytes.Repeat([]byte{'X'}, int(s.behavior.xPaddingBytes.rand()))
+					if _, err := writer.Write(padding); err != nil {
+						return
+					}
+					writer.(http.Flusher).Flush()
+					time.Sleep(time.Duration(s.behavior.scStreamUpServerSecs.rand()) * time.Second)
+				}
+			}()
+		}
 		select {
 		case <-request.Context().Done():
 		case <-session.done:
@@ -199,9 +231,14 @@ func (s *Server) handleUpload(session *serverSession, writer http.ResponseWriter
 		s.invalidRequest(writer, request, http.StatusBadRequest, E.New("invalid xhttp seq"))
 		return
 	}
-	payload, err := extractPayloadFromRequest(request, s.uplinkPlacement, 1<<20)
+	maxBodyBytes := int64(s.behavior.scMaxEachPostBytes.To)
+	payload, err := extractPayloadFromRequest(request, s.uplinkPlacement, s.behavior, maxBodyBytes)
 	if err != nil {
 		s.invalidRequest(writer, request, http.StatusBadRequest, E.Cause(err, "read request"))
+		return
+	}
+	if len(payload) > int(s.behavior.scMaxEachPostBytes.To) {
+		s.invalidRequest(writer, request, http.StatusRequestEntityTooLarge, E.New("xhttp upload exceeds sc_max_each_post_bytes"))
 		return
 	}
 	if err = session.push(seq, payload); err != nil {
@@ -261,7 +298,7 @@ func (s *Server) session(sessionID string) *serverSession {
 	if ok {
 		return loaded.(*serverSession)
 	}
-	session := newServerSession(s.mode)
+	session := newServerSession(s.mode, s.behavior.scMaxBufferedPosts)
 	actual, _ := s.sessions.LoadOrStore(sessionID, session)
 	return actual.(*serverSession)
 }

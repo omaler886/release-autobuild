@@ -27,6 +27,7 @@ var _ adapter.V2RayClientTransport = (*Client)(nil)
 type Client struct {
 	wrapper          adapter.V2RayClientTransport
 	xmuxManager      *xmuxManager
+	behavior         requestBehavior
 	mode             string
 	sessionPlacement string
 	sessionKey       string
@@ -73,6 +74,10 @@ func NewClient(ctx context.Context, dialer N.Dialer, serverAddr M.Socksaddr, opt
 	if err != nil {
 		return nil, err
 	}
+	behavior, err := newRequestBehavior(mode, uplinkPlacement, options)
+	if err != nil {
+		return nil, err
+	}
 	transport, requestURL, host, err := newHTTPTransport(dialer, serverAddr, options, tlsConfig)
 	if err != nil {
 		return nil, err
@@ -84,6 +89,7 @@ func NewClient(ctx context.Context, dialer N.Dialer, serverAddr M.Socksaddr, opt
 	return &Client{
 		wrapper:          nil,
 		xmuxManager:      newXMuxManager(options.XMux, func() xmuxConn { return &xmuxReusableConn{} }),
+		behavior:         behavior,
 		mode:             mode,
 		sessionPlacement: sessionPlacement,
 		sessionKey:       options.SessionKey,
@@ -123,7 +129,7 @@ func (c *Client) DialContext(ctx context.Context) (net.Conn, error) {
 		client.openUsage.Add(1)
 		defer client.openUsage.Add(-1)
 	}
-	conn := newConn(ctx, c.httpClient, c.mode, c.sessionPlacement, c.sessionKey, c.seqPlacement, c.seqKey, c.uplinkPlacement, c.http2, sessionID.String(), baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
+	conn := newConn(ctx, c.httpClient, c.mode, c.behavior, c.sessionPlacement, c.sessionKey, c.seqPlacement, c.seqKey, c.uplinkPlacement, c.http2, sessionID.String(), baseURL, downloadBaseURL, c.host, c.downloadHost, c.headers.Clone(), c.downloadHeaders.Clone(), seq)
 	if err = conn.start(); err != nil {
 		return nil, err
 	}
@@ -143,6 +149,7 @@ type conn struct {
 	cancel           context.CancelFunc
 	httpClient       *http.Client
 	mode             string
+	behavior         requestBehavior
 	sessionPlacement string
 	sessionKey       string
 	seqPlacement     string
@@ -176,13 +183,14 @@ func (c *xmuxReusableConn) IsClosed() bool {
 	return c.closed.Load()
 }
 
-func newConn(ctx context.Context, httpClient *http.Client, mode string, sessionPlacement string, sessionKey string, seqPlacement string, seqKey string, uplinkPlacement string, http2 bool, sessionID string, baseURL string, downloadURL string, host string, downloadHost string, headers http.Header, downloadHeaders http.Header, seq *atomic.Int64) *conn {
+func newConn(ctx context.Context, httpClient *http.Client, mode string, behavior requestBehavior, sessionPlacement string, sessionKey string, seqPlacement string, seqKey string, uplinkPlacement string, http2 bool, sessionID string, baseURL string, downloadURL string, host string, downloadHost string, headers http.Header, downloadHeaders http.Header, seq *atomic.Int64) *conn {
 	connCtx, cancel := context.WithCancel(ctx)
 	return &conn{
 		ctx:              connCtx,
 		cancel:           cancel,
 		httpClient:       httpClient,
 		mode:             mode,
+		behavior:         behavior,
 		sessionPlacement: sessionPlacement,
 		sessionKey:       sessionKey,
 		seqPlacement:     seqPlacement,
@@ -226,7 +234,7 @@ func (c *conn) startDownload() error {
 	}
 	request.Host = c.downloadHost
 	request.Header = c.downloadHeaders.Clone()
-	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID); err != nil {
+	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID, c.behavior); err != nil {
 		return err
 	}
 	request = request.WithContext(httptrace.WithClientTrace(request.Context(), &httptrace.ClientTrace{
@@ -258,7 +266,7 @@ func (c *conn) startDownload() error {
 
 func (c *conn) startUploadStream() error {
 	reader, writer := io.Pipe()
-	request, err := http.NewRequestWithContext(c.ctx, http.MethodPost, c.baseURL, reader)
+	request, err := http.NewRequestWithContext(c.ctx, c.behavior.uplinkHTTPMethod, c.baseURL, reader)
 	if err != nil {
 		reader.Close()
 		writer.Close()
@@ -266,7 +274,7 @@ func (c *conn) startUploadStream() error {
 	}
 	request.Host = c.host
 	request.Header = c.headers.Clone()
-	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID); err != nil {
+	if err = fillStreamRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.sessionID, c.behavior); err != nil {
 		reader.Close()
 		writer.Close()
 		return err
@@ -341,44 +349,57 @@ func (c *conn) runPacketUploadLoop() {
 	defer close(c.uploadDone)
 	var lastWrite time.Time
 	for payload := range c.uploadQueue {
-		if !lastWrite.IsZero() {
-			time.Sleep(maxDuration(0, 30*time.Millisecond-time.Since(lastWrite)))
+		maxUploadSize := int(c.behavior.scMaxEachPostBytes.rand())
+		if maxUploadSize <= 0 {
+			maxUploadSize = len(payload)
 		}
-		seq := c.seq.Add(1) - 1
-		requestURL, err := applySeqToURL(c.baseURL, c.seqPlacement, c.seqKey, int64String(seq))
-		if err != nil {
-			c.storeUploadErr(err)
-			c.cancel()
-			return
+		for offset := 0; offset < len(payload); {
+			if !lastWrite.IsZero() {
+				wait := time.Duration(c.behavior.scMinPostsIntervalMs.rand())*time.Millisecond - time.Since(lastWrite)
+				time.Sleep(maxDuration(0, wait))
+			}
+			end := offset + maxUploadSize
+			if end > len(payload) {
+				end = len(payload)
+			}
+			chunk := payload[offset:end]
+			offset = end
+			seq := c.seq.Add(1) - 1
+			requestURL, err := applySeqToURL(c.baseURL, c.seqPlacement, c.seqKey, int64String(seq))
+			if err != nil {
+				c.storeUploadErr(err)
+				c.cancel()
+				return
+			}
+			request, err := http.NewRequestWithContext(c.ctx, c.behavior.uplinkHTTPMethod, requestURL, nil)
+			if err != nil {
+				c.storeUploadErr(err)
+				c.cancel()
+				return
+			}
+			request.Host = c.host
+			request.Header = c.headers.Clone()
+			if err = fillPacketRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.uplinkPlacement, c.sessionID, int64String(seq), chunk, c.behavior); err != nil {
+				c.storeUploadErr(err)
+				c.cancel()
+				return
+			}
+			response, err := c.httpClient.Do(request)
+			if err != nil {
+				c.storeUploadErr(err)
+				c.cancel()
+				return
+			}
+			_, _ = io.Copy(io.Discard, response.Body)
+			response.Body.Close()
+			if response.StatusCode != http.StatusOK {
+				err = newHTTPStatusError("xhttp upload", response.Status)
+				c.storeUploadErr(err)
+				c.cancel()
+				return
+			}
+			lastWrite = time.Now()
 		}
-		request, err := http.NewRequestWithContext(c.ctx, http.MethodPost, requestURL, nil)
-		if err != nil {
-			c.storeUploadErr(err)
-			c.cancel()
-			return
-		}
-		request.Host = c.host
-		request.Header = c.headers.Clone()
-		if err = fillPacketRequestWithKeys(request, c.sessionPlacement, c.seqPlacement, c.sessionKey, c.seqKey, c.uplinkPlacement, c.sessionID, int64String(seq), payload); err != nil {
-			c.storeUploadErr(err)
-			c.cancel()
-			return
-		}
-		response, err := c.httpClient.Do(request)
-		if err != nil {
-			c.storeUploadErr(err)
-			c.cancel()
-			return
-		}
-		_, _ = io.Copy(io.Discard, response.Body)
-		response.Body.Close()
-		if response.StatusCode != http.StatusOK {
-			err = newHTTPStatusError("xhttp upload", response.Status)
-			c.storeUploadErr(err)
-			c.cancel()
-			return
-		}
-		lastWrite = time.Now()
 	}
 }
 

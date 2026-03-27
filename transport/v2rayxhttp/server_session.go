@@ -16,7 +16,7 @@ type serverSession struct {
 	closeOnce sync.Once
 }
 
-func newServerSession(mode string) *serverSession {
+func newServerSession(mode string, maxBufferedPosts int) *serverSession {
 	s := &serverSession{
 		mode: mode,
 		done: make(chan struct{}),
@@ -24,7 +24,7 @@ func newServerSession(mode string) *serverSession {
 	if mode == ModeStreamUp {
 		s.stream = newStreamReader()
 	} else {
-		s.queue = newPacketQueue()
+		s.queue = newPacketQueue(maxBufferedPosts)
 	}
 	return s
 }
@@ -63,16 +63,17 @@ func (s *serverSession) close() {
 }
 
 type packetQueue struct {
-	access  sync.Mutex
-	cond    *sync.Cond
-	chunks  map[int64][]byte
-	nextSeq int64
-	current *bytes.Reader
-	closed  bool
+	maxBuffered int
+	access      sync.Mutex
+	cond        *sync.Cond
+	chunks      map[int64][]byte
+	nextSeq     int64
+	current     *bytes.Reader
+	closed      bool
 }
 
-func newPacketQueue() *packetQueue {
-	q := &packetQueue{chunks: make(map[int64][]byte)}
+func newPacketQueue(maxBuffered int) *packetQueue {
+	q := &packetQueue{chunks: make(map[int64][]byte), maxBuffered: maxBuffered}
 	q.cond = sync.NewCond(&q.access)
 	return q
 }
@@ -82,6 +83,9 @@ func (q *packetQueue) Push(seq int64, payload []byte) error {
 	defer q.access.Unlock()
 	if q.closed {
 		return io.ErrClosedPipe
+	}
+	if q.maxBuffered > 0 && len(q.chunks) >= q.maxBuffered {
+		return E.New("too many buffered xhttp posts")
 	}
 	if _, exists := q.chunks[seq]; exists {
 		return E.New("duplicated xhttp seq: ", seq)
