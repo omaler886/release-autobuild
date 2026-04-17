@@ -31,10 +31,21 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pyyaml
 
+      - name: Discover extra GitHub source URLs
+        env:
+          GH_API_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/discover_github_sources.py \
+            --seed-repo-file config/github_seed_repos.txt \
+            --patterns-file config/discovery_patterns.yaml \
+            --output-file published/manifests/discovered-source-urls.txt \
+            --meta-file published/manifests/discovery-summary.json
+
       - name: Build GitHub source raw pool
         run: |
           python scripts/build_github_source_pool.py \
             --source-url-file config/github_source_urls.txt \
+            --extra-source-url-file published/manifests/discovered-source-urls.txt \
             --output-dir published
 
       - name: Upload generated artifacts

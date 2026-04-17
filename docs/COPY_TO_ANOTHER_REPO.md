@@ -8,7 +8,10 @@
 
 - `.github/workflows/build-github-source-pool.yml`
 - `config/github_source_urls.txt`
+- `config/github_seed_repos.txt`
+- `config/discovery_patterns.yaml`
 - `scripts/build_github_source_pool.py`
+- `scripts/discover_github_sources.py`
 - `scripts/github_source_pool_utils.py`
 - `scripts/mihomo_pool_utils.py`
 
@@ -28,7 +31,36 @@
 
 把里面的 URL 替换成你自己的 GitHub raw 源。
 
-### 2. 修改定时任务
+### 2. 修改种子仓库（可选但推荐）
+
+编辑：
+
+- `config/github_seed_repos.txt`
+
+每行一个种子仓库，例如：
+
+```text
+owner/repo
+owner/repo@main
+```
+
+模板会通过 GitHub Trees API 递归扫描这些仓库。
+
+### 3. 修改自动发现规则（可选）
+
+编辑：
+
+- `config/discovery_patterns.yaml`
+
+这里可以控制：
+
+- 允许的 Mihomo 节点类型
+- 扫描哪些文件后缀
+- 哪些路径关键词会被优先检查
+- 哪些路径会被排除
+- 内容命中规则
+
+### 4. 修改定时任务
 
 编辑：
 
@@ -41,7 +73,7 @@ schedule:
   - cron: '17 2 * * *'
 ```
 
-### 3. 修改产物提交说明（可选）
+### 5. 修改产物提交说明（可选）
 
 同一个 workflow 文件里可以改：
 
@@ -70,6 +102,8 @@ git commit -m "chore: refresh GitHub source raw pool"
 - `published/pools/github-source-raw.yaml`
 - `published/manifests/github-source-raw.meta.yaml`
 - `published/manifests/build-summary.json`
+- `published/manifests/discovered-source-urls.txt`
+- `published/manifests/discovery-summary.json`
 
 ## 节点来源追踪
 

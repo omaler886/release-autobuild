@@ -1,0 +1,13 @@
+# owner/repo or owner/repo@ref
+# These repositories will be scanned recursively via the Git Trees API.
+
+snakem982/proxypool
+peasoft/NoMoreWalls
+vxiaov/free_proxies
+mfbpn/tg_mfbpn_sub
+hossein-shayesteh/v2ray-config
+firefoxmmx2/v2rayshare_subcription
+go4sharing/sub
+chengaopan/AutoMergePublicNodes
+free18/v2ray
+ermaozi/get_subscribe

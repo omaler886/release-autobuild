@@ -1,8 +1,13 @@
 {
   "template_name": "github-source-raw-pool-template",
-  "updated_at": "2026-04-17T09:51:53.266035+00:00",
-  "proxy_count": 980,
-  "source_count": 11,
+  "base_source_file": "config/github_source_urls.txt",
+  "extra_source_files": [
+    "published/manifests/discovered-source-urls.txt"
+  ],
+  "effective_source_file": "published/manifests/effective-source-urls.txt",
+  "updated_at": "2026-04-17T10:14:40.383086+00:00",
+  "proxy_count": 10578,
+  "source_count": 206,
   "output_pool_path": "published/pools/github-source-raw.yaml",
   "output_meta_path": "published/manifests/github-source-raw.meta.yaml"
 }

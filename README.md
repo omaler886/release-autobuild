@@ -44,10 +44,13 @@ GitHub Actions 每次运行后会更新：
 ### 配置
 
 - `config/github_source_urls.txt`
+- `config/github_seed_repos.txt`
+- `config/discovery_patterns.yaml`
 
 ### 核心脚本
 
 - `scripts/build_github_source_pool.py`
+- `scripts/discover_github_sources.py`
 - `scripts/github_source_pool_utils.py`
 - `scripts/mihomo_pool_utils.py`
 
@@ -64,21 +67,26 @@ GitHub Actions 每次运行后会更新：
 
 ## 工作流逻辑
 
-1. 读取 `config/github_source_urls.txt`
-2. 逐个访问 GitHub raw 源
-3. 自动解析：
+1. 读取固定源列表：`config/github_source_urls.txt`
+2. 读取种子仓库列表：`config/github_seed_repos.txt`
+3. 使用 GitHub Trees API 递归扫描种子仓库中的候选文件
+4. 根据 `config/discovery_patterns.yaml` 过滤候选文件
+5. 自动发现额外可用的 GitHub raw 源
+6. 合并“固定源 + 自动发现源”
+7. 自动解析：
    - Clash/Mihomo YAML
    - Base64 URI 订阅
-4. 生成统一 raw 池
-5. 给每个节点打上：
+8. 生成统一 raw 池
+9. 给每个节点打上：
    - `source_repo`
    - `source_url`
-6. 将产物提交回仓库
+10. 将产物提交回仓库
 
 如果某个源临时失败：
 
 - 不会导致整个工作流直接中止
 - 失败信息会写入 `published/manifests/github-source-raw.meta.yaml`
+- 自动发现阶段的失败信息会写入 `published/manifests/discovery-summary.json`
 
 ---
 
@@ -88,6 +96,11 @@ GitHub Actions 每次运行后会更新：
 
 - `config/github_source_urls.txt`
 
+如果你想打开“自己搜”能力，还要改：
+
+- `config/github_seed_repos.txt`
+- `config/discovery_patterns.yaml`
+
 每行一个 GitHub raw 源。
 
 支持：
@@ -96,6 +109,8 @@ GitHub Actions 每次运行后会更新：
 - Base64 订阅
 
 不需要任何 GitHub Secret。
+
+GitHub Actions 会自动使用内置的 `github.token` 去调用 GitHub API 做种子仓库扫描。
 
 ---
 
@@ -122,6 +137,7 @@ GitHub Actions 每次运行后会更新：
 这个仓库只负责：
 
 - **抓 GitHub 源**
+- **自动发现额外 GitHub 候选源**
 - **产出 raw 池**
 
 VPS 建议只负责：

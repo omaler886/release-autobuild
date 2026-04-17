@@ -1,0 +1,613 @@
+{
+  "updated_at": "2026-04-17T10:12:20.655406+00:00",
+  "seed_repo_file": "config/github_seed_repos.txt",
+  "patterns_file": "config/discovery_patterns.yaml",
+  "discovered_source_count": 206,
+  "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
+  "repos": [
+    {
+      "seed_repo": "snakem982/proxypool",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 9,
+      "accepted_source_count": 2,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
+        "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/FastlyIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/GcoreIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflareIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflarePremiumDomain.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflarePremiumIp.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "source/v2ray-2.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "peasoft/NoMoreWalls",
+      "ref": "master",
+      "tree_truncated": false,
+      "candidate_file_count": 51,
+      "accepted_source_count": 13,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.yml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "abpwhite.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "list.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "list.yml",
+          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+        },
+        {
+          "path": "list_raw.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "requirements.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/adblock.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/direct.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/example.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/malware.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CA.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CA.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CH.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CH.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CN.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CN.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_DE.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_EE.meta.yml",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "vxiaov/free_proxies",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 3,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "links.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "mfbpn/tg_mfbpn_sub",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 65,
+      "accepted_source_count": 55,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub.txt",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub3.txt",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/2.flybar20.cc.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/cloudcat.top.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/mgnet.vip.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/www.qlgq.top.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/yiyuanvpn.top.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/TW.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/JP.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/TW.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/cloudcat.top/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/cloudcat.top/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/cloudcat.top/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/JP.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/TW.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/JP.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/TW.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/www.qlgq.top/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/All.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/CN.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/Other.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/SG.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/US.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "base.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trial_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/2.flybar20.cc_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/cloudcat.top_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/mgnet.vip_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/vipxgyun.com#西瓜皮_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/www.qlgq.top_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials/yiyuanvpn.top_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials_providers/vipxgyun.com#西瓜皮/All.yaml",
+          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+        }
+      ]
+    },
+    {
+      "seed_repo": "hossein-shayesteh/v2ray-config",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 3,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "generated/README.md",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "firefoxmmx2/v2rayshare_subcription",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 5,
+      "accepted_source_count": 3,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml",
+        "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/mihomo_sub.yaml",
+        "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/vray_sub.txt"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "requirements.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "go4sharing/sub",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 118,
+      "accepted_source_count": 115,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-30.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-02.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-04.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-05.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-06.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-07.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-11.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-12.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-14.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-15.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-18.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-21.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-24.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-29.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-30.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-01.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-02.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-04.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-05.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-06.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-07.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-09.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-10.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-11.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-12.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-14.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-16.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-17.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-19.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-21.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-22.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-23.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-24.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-27.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-29.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-31.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-01.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-02.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-03.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-04.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-05.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-06.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-07.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-09.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-10.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-11.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-12.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-15.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-17.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-19.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-20.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-21.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-22.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-24.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-26.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-29.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-31.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-01.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-05.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-07.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-12.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-22.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-23.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-26.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-27.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-01.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-02.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-03.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-04.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-05.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-09.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-10.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-11.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-12.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-14.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-16.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-17.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-18.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-19.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-21.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-24.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-27.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-28.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-29.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-30.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-01.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-03.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-04.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-06.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-07.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-08.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-13.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-14.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-15.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-16.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/clash.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "2025-10-27 23:58:09/123.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "worker.yaml",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "chengaopan/AutoMergePublicNodes",
+      "ref": "master",
+      "tree_truncated": false,
+      "candidate_file_count": 48,
+      "accepted_source_count": 13,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.yml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "abpwhite.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "list.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "list_raw.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "requirements.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/_config.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/adblock.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/direct.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CA.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CA.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CH.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CH.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CN.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_CN.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_DE.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_EE.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_EE.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_FR.meta.yml",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "free18/v2ray",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 5,
+      "accepted_source_count": 2,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
+        "https://raw.githubusercontent.com/free18/v2ray/main/v.txt"
+      ],
+      "sample_rejections": [
+        {
+          "path": "Client.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "vpn.md",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "ermaozi/get_subscribe",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 4,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "requirements.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "subscribe/v2ray.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    }
+  ]
+}

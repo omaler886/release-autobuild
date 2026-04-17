@@ -48,12 +48,31 @@ def ensure_unique_proxy_names(proxies: list[dict]) -> list[dict]:
     return out
 
 
-def load_subscription_proxies(text: str):
+def _normalize_supported_types(supported_types):
+    if not supported_types:
+        return None
+    return {str(item).strip().lower() for item in supported_types if str(item).strip()}
+
+
+def _filter_supported_yaml_proxies(proxies: list[dict], supported_types):
+    normalized = _normalize_supported_types(supported_types)
+    if not normalized:
+        return proxies
+    out = []
+    for proxy in proxies:
+        ptype = str(proxy.get('type') or '').strip().lower()
+        if ptype and ptype in normalized:
+            out.append(proxy)
+    return out
+
+
+def load_subscription_proxies(text: str, supported_types=None):
     errors = []
     try:
         data = yaml.safe_load(text)
         if isinstance(data, dict) and isinstance(data.get('proxies'), list):
             proxies = [p for p in data['proxies'] if isinstance(p, dict) and p.get('name')]
+            proxies = _filter_supported_yaml_proxies(proxies, supported_types)
             if proxies:
                 return proxies, 'clash-yaml'
             errors.append('yaml proxies list empty')
@@ -93,6 +112,9 @@ def load_subscription_proxies(text: str):
             proxy['name'] = f"{base_name} {count}"
         proxies.append(proxy)
     if not proxies:
+        inline_proxies = extract_embedded_uri_proxies(text)
+        if inline_proxies:
+            return inline_proxies, 'embedded-uri'
         raise ValueError('No proxies parsed from Base64 URI list')
     return proxies, 'base64-uri'
 
@@ -110,6 +132,25 @@ def parse_uri_line(line: str):
     if line.startswith('ss://'):
         return parse_ss_uri(line)
     raise ValueError(f'Unsupported URI scheme in line: {line[:32]}...')
+
+
+def extract_embedded_uri_proxies(text: str):
+    uri_pattern = re.compile(r'(?:vmess|vless|trojan|ss)://[^\s<>\")]+')
+    proxies = []
+    name_counts = {}
+    for match in uri_pattern.finditer(text):
+        raw = match.group(0).strip().rstrip('.,;')
+        try:
+            proxy = parse_uri_line(raw)
+        except Exception:
+            continue
+        base_name = proxy.get('name') or proxy.get('server') or 'node'
+        count = name_counts.get(base_name, 0) + 1
+        name_counts[base_name] = count
+        if count > 1:
+            proxy['name'] = f"{base_name} {count}"
+        proxies.append(proxy)
+    return proxies
 
 
 def _common_tls_fields(proxy: dict, query: dict):

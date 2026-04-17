@@ -1,0 +1,72 @@
+# Supported proxy types are derived from the Mihomo docs index:
+# https://wiki.metacubex.one/en/config/
+supported_proxy_types:
+  - http
+  - socks5
+  - socks4
+  - socks
+  - ss
+  - ssr
+  - snell
+  - vmess
+  - vless
+  - trojan
+  - anytls
+  - mieru
+  - sudoku
+  - hysteria
+  - hysteria2
+  - tuic
+  - wireguard
+  - ssh
+  - masque
+  - trust-tunnel
+  - tunnel
+
+include_globs:
+  - "*.yaml"
+  - "*.yml"
+  - "*.txt"
+  - "*.md"
+
+include_path_keywords:
+  - clash
+  - mihomo
+  - meta
+  - proxy
+  - provider
+  - subscribe
+  - subscription
+  - sub
+  - node
+  - nodes
+  - source
+  - sources
+  - generated
+  - public
+  - share
+
+exclude_regexes:
+  - "(^|/)\\.github/"
+  - "(^|/)\\.gitlab/"
+  - "(^|/)node_modules/"
+  - "(^|/)vendor/"
+  - "(^|/)dist/"
+  - "(^|/)build/"
+  - "(^|/)coverage/"
+  - "(^|/)site-packages/"
+  - "(?i)license"
+  - "(?i)changelog"
+
+content_indicator_regexes:
+  - "^\\s*proxies\\s*:"
+  - "\\btype\\s*:\\s*(vmess|vless|trojan|ss|ssr|snell|hysteria|hysteria2|tuic|anytls|wireguard|ssh|masque|trust-tunnel|tunnel)\\b"
+  - "vmess://"
+  - "vless://"
+  - "trojan://"
+  - "ss://"
+  - "ssr://"
+  - "hysteria2://"
+  - "tuic://"
+
+max_candidate_files_per_repo: 120
