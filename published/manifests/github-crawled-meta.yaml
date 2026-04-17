@@ -1,0 +1,60 @@
+updated_at: '2026-04-17T09:21:03.020644+00:00'
+pool_name: github-crawled-raw
+proxy_count: 980
+subscription_urls:
+- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+- https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
+- https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml
+- https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml
+- https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+- https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
+- https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+- https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+source_details:
+- url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+  source_repo: snakem982/proxypool
+  source_type: clash-yaml
+  proxy_count: 40
+- url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+  source_repo: snakem982/proxypool
+  source_type: clash-yaml
+  proxy_count: 50
+- url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+  source_repo: peasoft/NoMoreWalls
+  source_type: clash-yaml
+  proxy_count: 49
+- url: https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
+  source_repo: vxiaov/free_proxies
+  source_type: clash-yaml
+  proxy_count: 28
+- url: https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml
+  source_repo: mfbpn/tg_mfbpn_sub
+  source_type: clash-yaml
+  proxy_count: 118
+- url: https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml
+  source_repo: hossein-shayesteh/v2ray-config
+  source_type: clash-yaml
+  proxy_count: 17
+- url: https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
+  source_repo: firefoxmmx2/v2rayshare_subcription
+  source_type: clash-yaml
+  proxy_count: 26
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+  source_repo: go4sharing/sub
+  source_type: clash-yaml
+  proxy_count: 50
+- url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
+  source_repo: chengaopan/AutoMergePublicNodes
+  source_type: clash-yaml
+  proxy_count: 17
+- url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+  source_repo: free18/v2ray
+  source_type: clash-yaml
+  proxy_count: 582
+- url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+  source_repo: ermaozi/get_subscribe
+  source_type: clash-yaml
+  proxy_count: 3

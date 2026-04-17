@@ -1,0 +1,59 @@
+name: mihomo-raw-pools
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mihomo-raw-pools
+  cancel-in-progress: false
+
+jobs:
+  build-raw-pools:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml
+
+      - name: Build raw pools
+        run: |
+          python scripts/gha_build_raw_pools.py \
+            --subscription-b-url-file config/subscription_b_url.txt \
+            --output-dir published/pools
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: mihomo-raw-pools
+          path: |
+            published/pools
+            published/manifests
+
+      - name: Commit updated pools
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add published/pools published/manifests
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: refresh raw mihomo pools"
+          git push
