@@ -1,0 +1,20 @@
+repository_search_queries:
+  - 'clash mihomo subscription in:name,description,readme stars:>10'
+  - 'v2ray subscribe clash in:name,description,readme stars:>10'
+  - 'proxy pool clash in:name,description,readme stars:>5'
+  - 'mihomo nodes share in:name,description,readme stars:>5'
+
+code_search_queries:
+  - '"proxies:" "type: vless" extension:yaml'
+  - '"proxies:" "type: vmess" extension:yaml'
+  - '"proxies:" "type: trojan" extension:yaml'
+  - '"vmess://" extension:txt'
+  - '"vless://" extension:txt'
+  - '"trojan://" extension:txt'
+  - '"ss://" extension:txt'
+
+max_repository_results_per_query: 15
+max_code_results_per_query: 20
+exclude_repo_regexes:
+  - '(^|/)(awesome|docs|example|examples|tutorial)(-|$)'
+  - '(^|/)(backup|fork|archive)(-|$)'

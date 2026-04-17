@@ -10,7 +10,9 @@
 - `config/github_source_urls.txt`
 - `config/github_seed_repos.txt`
 - `config/discovery_patterns.yaml`
+- `config/search_queries.yaml`
 - `scripts/build_github_source_pool.py`
+- `scripts/search_github_candidates.py`
 - `scripts/discover_github_sources.py`
 - `scripts/github_source_pool_utils.py`
 - `scripts/mihomo_pool_utils.py`
@@ -60,7 +62,20 @@ owner/repo@main
 - 哪些路径会被排除
 - 内容命中规则
 
-### 4. 修改定时任务
+### 4. 修改 Search API / code search 查询（可选）
+
+编辑：
+
+- `config/search_queries.yaml`
+
+这里可以控制：
+
+- 仓库搜索查询
+- 代码搜索查询
+- 每个查询最多取多少条结果
+- 过滤掉哪些仓库
+
+### 5. 修改定时任务
 
 编辑：
 
@@ -73,7 +88,7 @@ schedule:
   - cron: '17 2 * * *'
 ```
 
-### 5. 修改产物提交说明（可选）
+### 6. 修改产物提交说明（可选）
 
 同一个 workflow 文件里可以改：
 
@@ -102,6 +117,9 @@ git commit -m "chore: refresh GitHub source raw pool"
 - `published/pools/github-source-raw.yaml`
 - `published/manifests/github-source-raw.meta.yaml`
 - `published/manifests/build-summary.json`
+- `published/manifests/search-discovered-repos.txt`
+- `published/manifests/search-discovered-source-urls.txt`
+- `published/manifests/search-summary.json`
 - `published/manifests/discovered-source-urls.txt`
 - `published/manifests/discovery-summary.json`
 

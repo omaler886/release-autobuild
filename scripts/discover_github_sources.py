@@ -110,44 +110,56 @@ def discover_sources(seed_repos, patterns):
     for item in seed_repos:
         owner = item['owner']
         repo = item['repo']
-        ref = item['ref'] or get_default_branch(owner, repo, api_opener)
         repo_id = f'{owner}/{repo}'
-        tree_payload = get_repo_tree(owner, repo, ref, api_opener)
-        entries = tree_payload.get('tree') or []
-        truncated = bool(tree_payload.get('truncated'))
-        candidate_paths = []
-        for entry in entries:
-            if entry.get('type') != 'blob':
-                continue
-            path = str(entry.get('path') or '')
-            if path_matches(path, patterns):
-                candidate_paths.append(path)
-        candidate_paths = candidate_paths[: patterns['max_candidate_files_per_repo']]
+        try:
+            ref = item['ref'] or get_default_branch(owner, repo, api_opener)
+            tree_payload = get_repo_tree(owner, repo, ref, api_opener)
+            entries = tree_payload.get('tree') or []
+            truncated = bool(tree_payload.get('truncated'))
+            candidate_paths = []
+            for entry in entries:
+                if entry.get('type') != 'blob':
+                    continue
+                path = str(entry.get('path') or '')
+                if path_matches(path, patterns):
+                    candidate_paths.append(path)
+            candidate_paths = candidate_paths[: patterns['max_candidate_files_per_repo']]
 
-        accepted = []
-        rejected = []
-        for path in candidate_paths:
-            url = raw_url(owner, repo, ref, path)
-            try:
-                with raw_opener.open(url, timeout=30) as resp:
-                    text = resp.read().decode('utf-8', errors='replace')
-                if content_looks_promising(text, patterns, patterns['supported_proxy_types']):
-                    accepted.append(url)
-                else:
-                    rejected.append({'path': path, 'reason': 'content_not_matching'})
-            except Exception as exc:
-                rejected.append({'path': path, 'reason': str(exc)})
+            accepted = []
+            rejected = []
+            for path in candidate_paths:
+                url = raw_url(owner, repo, ref, path)
+                try:
+                    with raw_opener.open(url, timeout=30) as resp:
+                        text = resp.read().decode('utf-8', errors='replace')
+                    if content_looks_promising(text, patterns, patterns['supported_proxy_types']):
+                        accepted.append(url)
+                    else:
+                        rejected.append({'path': path, 'reason': 'content_not_matching'})
+                except Exception as exc:
+                    rejected.append({'path': path, 'reason': str(exc)})
 
-        discovered.extend(accepted)
-        discovery_meta.append({
-            'seed_repo': repo_id,
-            'ref': ref,
-            'tree_truncated': truncated,
-            'candidate_file_count': len(candidate_paths),
-            'accepted_source_count': len(accepted),
-            'accepted_sources': accepted,
-            'sample_rejections': rejected[:20],
-        })
+            discovered.extend(accepted)
+            discovery_meta.append({
+                'seed_repo': repo_id,
+                'ref': ref,
+                'tree_truncated': truncated,
+                'candidate_file_count': len(candidate_paths),
+                'accepted_source_count': len(accepted),
+                'accepted_sources': accepted,
+                'sample_rejections': rejected[:20],
+            })
+        except Exception as exc:
+            discovery_meta.append({
+                'seed_repo': repo_id,
+                'ref': item.get('ref') or '',
+                'tree_truncated': False,
+                'candidate_file_count': 0,
+                'accepted_source_count': 0,
+                'accepted_sources': [],
+                'sample_rejections': [],
+                'error': str(exc),
+            })
 
     deduped = []
     seen = set()
@@ -161,13 +173,15 @@ def discover_sources(seed_repos, patterns):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--seed-repo-file', required=True)
+    parser.add_argument('--seed-repo-file', action='append', required=True)
     parser.add_argument('--patterns-file', required=True)
     parser.add_argument('--output-file', required=True)
     parser.add_argument('--meta-file', required=True)
     args = parser.parse_args()
 
-    seed_repos = parse_seed_repo_lines(Path(args.seed_repo_file))
+    seed_repos = []
+    for item in args.seed_repo_file:
+        seed_repos.extend(parse_seed_repo_lines(Path(item)))
     patterns = load_discovery_patterns(Path(args.patterns_file))
     discovered, discovery_meta = discover_sources(seed_repos, patterns)
 
@@ -178,7 +192,7 @@ def main():
     output_file.write_text('\n'.join(discovered) + ('\n' if discovered else ''), encoding='utf-8')
     meta = {
         'updated_at': datetime.now(timezone.utc).isoformat(),
-        'seed_repo_file': Path(args.seed_repo_file).as_posix(),
+        'seed_repo_files': [Path(item).as_posix() for item in args.seed_repo_file],
         'patterns_file': Path(args.patterns_file).as_posix(),
         'discovered_source_count': len(discovered),
         'discovered_sources_file': output_file.as_posix(),
