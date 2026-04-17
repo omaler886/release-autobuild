@@ -9,6 +9,7 @@ https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
 https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
 https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml
@@ -56,6 +57,7 @@ https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/SG.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/TW.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/US.yaml
+https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/All.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/CN.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/HK.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/JP.yaml
@@ -195,6 +197,7 @@ https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.me
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_GB.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml

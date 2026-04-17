@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-04-17T10:12:20.655406+00:00",
+  "updated_at": "2026-04-17T10:16:15.455947+00:00",
   "seed_repo_file": "config/github_seed_repos.txt",
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 206,
+  "discovered_source_count": 209,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -51,9 +51,10 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 51,
-      "accepted_source_count": 13,
+      "accepted_source_count": 14,
       "accepted_sources": [
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml",
@@ -83,10 +84,6 @@
         {
           "path": "list.txt",
           "reason": "content_not_matching"
-        },
-        {
-          "path": "list.yml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         },
         {
           "path": "list_raw.txt",
@@ -147,6 +144,10 @@
         {
           "path": "snippets/nodes_EE.meta.yml",
           "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_EE.yml",
+          "reason": "content_not_matching"
         }
       ]
     },
@@ -175,7 +176,7 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 65,
-      "accepted_source_count": 55,
+      "accepted_source_count": 56,
       "accepted_sources": [
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub.txt",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub3.txt",
@@ -213,6 +214,7 @@
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/SG.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/TW.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/mgnet.vip/US.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/All.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/CN.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/HK.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/vipxgyun.com%23%E8%A5%BF%E7%93%9C%E7%9A%AE/JP.yaml",
@@ -269,10 +271,6 @@
         {
           "path": "trials/yiyuanvpn.top_pp.yaml",
           "reason": "content_not_matching"
-        },
-        {
-          "path": "trials_providers/vipxgyun.com#西瓜皮/All.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         }
       ]
     },
@@ -461,13 +459,14 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 48,
-      "accepted_source_count": 13,
+      "accepted_source_count": 14,
       "accepted_sources": [
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_GB.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml",
