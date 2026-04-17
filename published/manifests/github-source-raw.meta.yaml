@@ -1,18 +1,8 @@
-updated_at: '2026-04-17T09:30:59.507798+00:00'
-pool_name: github-crawled-raw
+updated_at: '2026-04-17T09:51:00.891821+00:00'
+pool_name: github-source-raw
 proxy_count: 980
-subscription_urls:
-- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
-- https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
-- https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml
-- https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml
-- https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
-- https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
-- https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
-- https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
-- https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+source_list_path: config/github_source_urls.txt
+output_pool_path: published/pools/github-source-raw.yaml
 source_details:
 - url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
   source_repo: snakem982/proxypool
@@ -58,3 +48,15 @@ source_details:
   source_repo: ermaozi/get_subscribe
   source_type: clash-yaml
   proxy_count: 3
+source_urls:
+- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+- https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
+- https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml
+- https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml
+- https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+- https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
+- https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+- https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml

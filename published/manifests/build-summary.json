@@ -1,0 +1,8 @@
+{
+  "template_name": "github-source-raw-pool-template",
+  "updated_at": "2026-04-17T09:51:00.891821+00:00",
+  "proxy_count": 980,
+  "source_count": 11,
+  "output_pool_path": "published/pools/github-source-raw.yaml",
+  "output_meta_path": "published/manifests/github-source-raw.meta.yaml"
+}

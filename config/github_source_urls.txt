@@ -1,3 +1,8 @@
+# One URL per line.
+# Each URL should return either:
+#   1) Clash/Mihomo-compatible YAML with a top-level `proxies` list
+#   2) A base64-encoded URI subscription
+
 https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
 https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml

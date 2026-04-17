@@ -1,24 +1,17 @@
 #!/usr/bin/env python3
-import argparse
 import base64
 from copy import deepcopy
-from datetime import datetime, timezone
 from pathlib import Path
-import json
 import re
 import urllib.parse
 import urllib.request
+
 import yaml
 
-DEFAULT_PORT = 7897
-DEFAULT_SOCKS_PORT = 7898
-DEFAULT_CONTROLLER = '0.0.0.0:9097'
-DEFAULT_SECRET = 'set-your-secret'
-USER_AGENT = 'Mozilla/5.0 (Codex Mihomo Subscription Updater)'
-GROUP_TYPES_USE_ALL_PROXIES = {'url-test', 'fallback', 'load-balance'}
+USER_AGENT = 'Mozilla/5.0 (GitHub Actions Mihomo Pool Template)'
 
 
-def build_opener(proxy_url: str | None):
+def build_opener(proxy_url: str | None = None):
     handlers = []
     if proxy_url:
         handlers.append(urllib.request.ProxyHandler({'http': proxy_url, 'https': proxy_url}))
@@ -52,17 +45,6 @@ def ensure_unique_proxy_names(proxies: list[dict]) -> list[dict]:
         seen[base_name] = count
         proxy['name'] = base_name if count == 1 else f"{base_name} {count}"
         out.append(proxy)
-    return out
-
-
-def dedupe_keep_order(items):
-    out = []
-    seen = set()
-    for item in items:
-        if item in seen:
-            continue
-        seen.add(item)
-        out.append(item)
     return out
 
 
@@ -211,7 +193,7 @@ def parse_trojan_uri(line: str):
 def parse_vmess_uri(line: str):
     payload = line[len('vmess://'):].strip()
     pad = '=' * ((4 - len(payload) % 4) % 4)
-    data = json.loads(base64.b64decode(payload + pad).decode('utf-8', errors='replace'))
+    data = yaml.safe_load(base64.b64decode(payload + pad).decode('utf-8', errors='replace'))
     name = str(data.get('ps') or data.get('remark') or f"{data.get('add')}:{data.get('port')}").strip()
     proxy = {
         'name': name,
@@ -277,47 +259,6 @@ def parse_ss_uri(line: str):
     }
 
 
-def rebuild_config(base_config: dict, new_proxies: list[dict]) -> dict:
-    config = deepcopy(base_config)
-    old_proxy_names = [
-        str(item.get('name')).strip()
-        for item in config.get('proxies', [])
-        if isinstance(item, dict) and item.get('name')
-    ]
-    new_proxy_names = [
-        str(item.get('name')).strip()
-        for item in new_proxies
-        if isinstance(item, dict) and item.get('name')
-    ]
-    if not new_proxy_names:
-        raise ValueError('New proxy list is empty')
-
-    config['proxies'] = new_proxies
-    for group in config.get('proxy-groups', []):
-        if not isinstance(group, dict):
-            continue
-        gtype = str(group.get('type') or '').strip().lower()
-        existing = group.get('proxies')
-        if not isinstance(existing, list):
-            continue
-        keep = [item for item in existing if item not in old_proxy_names]
-        if gtype in GROUP_TYPES_USE_ALL_PROXIES:
-            group['proxies'] = list(new_proxy_names)
-        elif gtype == 'select':
-            group['proxies'] = dedupe_keep_order(keep + new_proxy_names)
-
-    config.pop('mixed-port', None)
-    config['port'] = DEFAULT_PORT
-    config['socks-port'] = DEFAULT_SOCKS_PORT
-    config['allow-lan'] = True
-    config['mode'] = 'rule'
-    config['log-level'] = 'info'
-    config['external-controller'] = DEFAULT_CONTROLLER
-    if not str(config.get('secret') or '').strip():
-        config['secret'] = DEFAULT_SECRET
-    return config
-
-
 def write_yaml(path: Path, data: dict):
     def _quote_short_id(match):
         raw = match.group(2).strip().strip("'\"")
@@ -332,98 +273,3 @@ def write_yaml(path: Path, data: dict):
     )
     text = re.sub(r"^(\s+short-id:\s+)(.+)$", _quote_short_id, text, flags=re.MULTILINE)
     path.write_text(text, encoding='utf-8')
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--config-path', required=True)
-    parser.add_argument('--output-path')
-    parser.add_argument('--url-file')
-    parser.add_argument('--url')
-    parser.add_argument('--meta-path')
-    parser.add_argument('--proxy-url')
-    parser.add_argument('--dry-run', action='store_true')
-    args = parser.parse_args()
-
-    base_config_path = Path(args.config_path)
-    if not base_config_path.exists():
-        raise FileNotFoundError(f'Config file not found: {base_config_path}')
-    output_path = Path(args.output_path) if args.output_path else base_config_path
-
-    urls = []
-    if args.url:
-        urls = [line.strip() for line in str(args.url).splitlines() if line.strip()]
-    if not urls and args.url_file:
-        urls = read_urls_from_file(Path(args.url_file))
-    if not urls:
-        raise ValueError('Subscription URL is required')
-
-    base_config = yaml.safe_load(base_config_path.read_text(encoding='utf-8'))
-    if not isinstance(base_config, dict):
-        raise ValueError('Existing config is not a YAML object')
-
-    opener = build_opener(args.proxy_url)
-    all_proxies = []
-    source_details = []
-    source_types = set()
-    for current_url in urls:
-        try:
-            raw_text = fetch_text(current_url, opener)
-            proxies, source_type = load_subscription_proxies(raw_text)
-            all_proxies.extend(proxies)
-            source_types.add(source_type)
-            source_details.append({
-                'url': current_url,
-                'source_type': source_type,
-                'proxy_count': len(proxies),
-            })
-        except Exception as exc:
-            source_details.append({
-                'url': current_url,
-                'source_type': 'error',
-                'proxy_count': 0,
-                'error': str(exc),
-            })
-
-    if not all_proxies:
-        raise ValueError('No proxies fetched successfully from subscription URLs')
-
-    all_proxies = ensure_unique_proxy_names(all_proxies)
-    new_config = rebuild_config(base_config, all_proxies)
-
-    meta = {
-        'source_type': next(iter(source_types)) if len(source_types) == 1 and len(urls) == 1 else 'multi-source',
-        'updated_at': datetime.now(timezone.utc).isoformat(),
-        'proxy_count': len(all_proxies),
-        'config_path': str(base_config_path),
-        'output_path': str(output_path),
-        'main_group_candidates': [
-            group.get('name')
-            for group in new_config.get('proxy-groups', [])
-            if isinstance(group, dict) and '节点选择' in str(group.get('name') or '')
-        ],
-        'source_details': source_details,
-    }
-    if args.proxy_url:
-        meta['fetched_via_proxy'] = args.proxy_url
-    if len(urls) == 1:
-        meta['subscription_url'] = urls[0]
-    else:
-        meta['subscription_urls'] = urls
-
-    if args.dry_run:
-        print(json.dumps(meta, ensure_ascii=False, indent=2))
-        return
-
-    if output_path == base_config_path:
-        backup_path = base_config_path.with_name(base_config_path.name + '.bak.' + datetime.now().strftime('%Y%m%d%H%M%S'))
-        backup_path.write_text(base_config_path.read_text(encoding='utf-8'), encoding='utf-8')
-        meta['backup_path'] = str(backup_path)
-    write_yaml(output_path, new_config)
-    if args.meta_path:
-        write_yaml(Path(args.meta_path), meta)
-    print(json.dumps(meta, ensure_ascii=False, indent=2))
-
-
-if __name__ == '__main__':
-    main()

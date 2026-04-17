@@ -1,45 +1,132 @@
-# GitHub Actions 版 Mihomo 原始节点池
+# GitHub Source Raw Pool Template
 
-这个目录可直接作为一个 GitHub 仓库使用。
+这是一个 **纯 GitHub 可移植模板仓库**，用于：
 
-## 目标
+- 从一组 GitHub raw 源抓取可给 Mihomo/Clash 使用的节点
+- 为每个节点附加来源标签
+  - `source_repo`
+  - `source_url`
+- 由 GitHub Actions 定时生成并提交原始池产物
 
-- **GitHub Actions 每日抓取 GitHub raw 池**
-  - `github-crawled-raw.yaml`
-- **VPS 本地只负责**
-  - live 测活
-  - 剔除香港
-  - 最终应用到 Mihomo
+它的定位是：
 
-## 目录
+> **生产 GitHub 来源的 raw 节点池**
 
-- Workflow: `.github/workflows/mihomo-raw-pools.yml`
-- B 池源列表: `config/subscription_b_url.txt`
-- GHA 构建脚本: `scripts/gha_build_raw_pools.py`
-- 产物输出目录:
-  - `published/pools/*.yaml`
-  - `published/manifests/*.yaml|json`
+而不是在仓库里做本地测活、地区过滤或 VPS 应用。
 
-## 必须配置的 GitHub Secret
+---
 
-无。
+## 你会得到什么
 
-## 产物说明
+GitHub Actions 每次运行后会更新：
 
-Actions 每次会提交更新后的：
+- `published/pools/github-source-raw.yaml`
+- `published/manifests/github-source-raw.meta.yaml`
+- `published/manifests/build-summary.json`
 
-- `published/pools/github-crawled-raw.yaml`
+其中：
 
-以及：
+- `github-source-raw.yaml`
+  - 是最终 raw 池
+- `github-source-raw.meta.yaml`
+  - 是来源统计和抓取元数据
+- `build-summary.json`
+  - 是本次构建摘要
 
-- `published/manifests/github-crawled-meta.yaml`
-- `published/manifests/summary.json`
+---
 
-## VPS 侧建议
+## 仓库结构
 
-VPS 不再负责抓源，只做：
+### Workflow
 
-1. 拉取 `github-crawled-raw.yaml`
-2. 本地测活
-3. 剔除香港
+- `.github/workflows/build-github-source-pool.yml`
+
+### 配置
+
+- `config/github_source_urls.txt`
+
+### 核心脚本
+
+- `scripts/build_github_source_pool.py`
+- `scripts/github_source_pool_utils.py`
+- `scripts/mihomo_pool_utils.py`
+
+### 产物目录
+
+- `published/pools/`
+- `published/manifests/`
+
+### 文档
+
+- `docs/COPY_TO_ANOTHER_REPO.md`
+
+---
+
+## 工作流逻辑
+
+1. 读取 `config/github_source_urls.txt`
+2. 逐个访问 GitHub raw 源
+3. 自动解析：
+   - Clash/Mihomo YAML
+   - Base64 URI 订阅
+4. 生成统一 raw 池
+5. 给每个节点打上：
+   - `source_repo`
+   - `source_url`
+6. 将产物提交回仓库
+
+如果某个源临时失败：
+
+- 不会导致整个工作流直接中止
+- 失败信息会写入 `published/manifests/github-source-raw.meta.yaml`
+
+---
+
+## 如何配置
+
+只需要修改一个文件：
+
+- `config/github_source_urls.txt`
+
+每行一个 GitHub raw 源。
+
+支持：
+
+- Mihomo/Clash YAML
+- Base64 订阅
+
+不需要任何 GitHub Secret。
+
+---
+
+## 如何复制到别的 repo
+
+看这里：
+
+- [`docs/COPY_TO_ANOTHER_REPO.md`](docs/COPY_TO_ANOTHER_REPO.md)
+
+---
+
+## 适合放在什么位置
+
+这类模板适合放在：
+
+- 专门的公开 raw 池仓库
+- 上游抓取/聚合仓库
+- VPS 消费端的上游仓库
+
+---
+
+## VPS 侧推荐分工
+
+这个仓库只负责：
+
+- **抓 GitHub 源**
+- **产出 raw 池**
+
+VPS 建议只负责：
+
+1. 拉 `published/pools/github-source-raw.yaml`
+2. 本地做 live 测试
+3. 剔除地区/关键词
 4. 应用到 Mihomo
