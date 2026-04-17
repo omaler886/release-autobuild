@@ -1,5 +1,10 @@
 # GitHub Source Raw Pool Template
 
+[![Build GitHub Source Pool](https://github.com/omaler886/mihomo_ossp_proxies/actions/workflows/build-github-source-pool.yml/badge.svg?branch=main)](https://github.com/omaler886/mihomo_ossp_proxies/actions/workflows/build-github-source-pool.yml)
+![No Secrets Required](https://img.shields.io/badge/secrets-none-brightgreen)
+![Discovery](https://img.shields.io/badge/discovery-fixed%20sources%20%2B%20search%20API%20%2B%20trees%20API-blue)
+![Output](https://img.shields.io/badge/output-github--source--raw.yaml-orange)
+
 这是一个 **纯 GitHub 可移植模板仓库**，用于：
 
 - 从一组 GitHub raw 源抓取可给 Mihomo/Clash 使用的节点
@@ -13,6 +18,38 @@
 > **生产 GitHub 来源的 raw 节点池**
 
 而不是在仓库里做本地测活、地区过滤或 VPS 应用。
+
+---
+
+## Quick Start
+
+1. 复制这个仓库到你自己的 GitHub 仓库
+2. 修改固定源列表：
+   - `config/github_source_urls.txt`
+3. 按需修改自动发现配置：
+   - `config/github_seed_repos.txt`
+   - `config/discovery_patterns.yaml`
+   - `config/search_queries.yaml`
+4. 在仓库的 Actions 页面启用 workflow
+5. 手动运行：
+   - `build-github-source-pool`
+6. 构建完成后直接读取：
+   - `published/pools/github-source-raw.yaml`
+
+---
+
+## Output Links
+
+- Workflow page: [build-github-source-pool](https://github.com/omaler886/mihomo_ossp_proxies/actions/workflows/build-github-source-pool.yml)
+- Actions runs: [workflow runs](https://github.com/omaler886/mihomo_ossp_proxies/actions/workflows/build-github-source-pool.yml)
+- Raw pool: [github-source-raw.yaml](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/pools/github-source-raw.yaml)
+- Source metadata: [github-source-raw.meta.yaml](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/github-source-raw.meta.yaml)
+- Build summary: [build-summary.json](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/build-summary.json)
+- Search summary: [search-summary.json](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/search-summary.json)
+- Trees discovery summary: [discovery-summary.json](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/discovery-summary.json)
+- Effective source list: [effective-source-urls.txt](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/effective-source-urls.txt)
+- Search discovered source list: [search-discovered-source-urls.txt](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/search-discovered-source-urls.txt)
+- Trees discovered source list: [discovered-source-urls.txt](https://raw.githubusercontent.com/omaler886/mihomo_ossp_proxies/main/published/manifests/discovered-source-urls.txt)
 
 ---
 
