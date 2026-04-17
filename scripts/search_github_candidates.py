@@ -39,12 +39,19 @@ def load_search_config(path: Path):
         'code_search_queries': [str(x).strip() for x in data.get('code_search_queries', []) if str(x).strip()],
         'max_repository_results_per_query': int(data.get('max_repository_results_per_query', 10)),
         'max_code_results_per_query': int(data.get('max_code_results_per_query', 10)),
+        'max_sources_per_repo': int(data.get('max_sources_per_repo', 5)),
+        'include_repo_regexes': [re.compile(str(x), re.IGNORECASE) for x in data.get('include_repo_regexes', []) if str(x).strip()],
         'exclude_repo_regexes': [re.compile(str(x), re.IGNORECASE) for x in data.get('exclude_repo_regexes', []) if str(x).strip()],
     }
 
 
 def repo_allowed(full_name: str, patterns):
-    return not any(regex.search(full_name) for regex in patterns['exclude_repo_regexes'])
+    if any(regex.search(full_name) for regex in patterns['exclude_repo_regexes']):
+        return False
+    include_regexes = patterns.get('include_repo_regexes') or []
+    if include_regexes and not any(regex.search(full_name) for regex in include_regexes):
+        return False
+    return True
 
 
 def search_repositories(opener, query: str, per_page: int):
@@ -146,11 +153,16 @@ def discover_with_search(patterns):
 
     deduped_sources = []
     seen_sources = set()
+    per_repo_count = {}
     for item in code_candidates:
         url = item['raw_url']
+        full_name = item['full_name']
         if url in seen_sources:
             continue
+        if per_repo_count.get(full_name, 0) >= patterns['max_sources_per_repo']:
+            continue
         seen_sources.add(url)
+        per_repo_count[full_name] = per_repo_count.get(full_name, 0) + 1
         deduped_sources.append(url)
 
     return deduped_repos, deduped_sources, {'repository_search': repo_meta, 'code_search': code_meta}

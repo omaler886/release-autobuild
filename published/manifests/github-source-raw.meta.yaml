@@ -1,6 +1,6 @@
-updated_at: '2026-04-17T10:51:10.302773+00:00'
+updated_at: '2026-04-17T11:25:54.706150+00:00'
 pool_name: github-source-raw
-proxy_count: 26740
+proxy_count: 19319
 source_list_path: published/manifests/effective-source-urls.txt
 output_pool_path: published/pools/github-source-raw.yaml
 source_details:
@@ -48,88 +48,6 @@ source_details:
   source_repo: ermaozi/get_subscribe
   source_type: clash-yaml
   proxy_count: 3
-- url: https://raw.githubusercontent.com/changfengoss/pub/main/20251226/z8ejep6.yaml
-  source_repo: changfengoss/pub
-  source_type: clash-yaml
-  proxy_count: 4
-- url: https://raw.githubusercontent.com/BoxXt/installReality/main/meta.yaml
-  source_repo: BoxXt/installReality
-  source_type: clash-yaml
-  proxy_count: 1
-- url: https://raw.githubusercontent.com/dalazhi/v2ray/main/dalazhi1.yaml
-  source_repo: dalazhi/v2ray
-  source_type: clash-yaml
-  proxy_count: 8
-- url: https://raw.githubusercontent.com/IPTUNNELS/IPTUNNELS/main/clash/vless-ws.yaml
-  source_repo: IPTUNNELS/IPTUNNELS
-  source_type: clash-yaml
-  proxy_count: 4
-- url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-  source_repo: liketolivefree/kobabi
-  source_type: clash-yaml
-  proxy_count: 390
-- url: https://raw.githubusercontent.com/qxmao/chromego_merge/main/sub/merged_warp_proxies.yaml
-  source_repo: qxmao/chromego_merge
-  source_type: clash-yaml
-  proxy_count: 16
-- url: https://raw.githubusercontent.com/mlgbz523/Wohhhhhhhhhhhhhhhhh/main/newPower.yaml
-  source_repo: mlgbz523/Wohhhhhhhhhhhhhhhhh
-  source_type: clash-yaml
-  proxy_count: 1
-- url: https://raw.githubusercontent.com/valvatacea/cfa-config/main/byu%20opok.yaml
-  source_repo: valvatacea/cfa-config
-  source_type: clash-yaml
-  proxy_count: 14
-- url: https://raw.githubusercontent.com/godlikeanyone/Stash/main/Archived/sayuri_temp.yaml
-  source_repo: godlikeanyone/Stash
-  source_type: clash-yaml
-  proxy_count: 29
-- url: https://raw.githubusercontent.com/tepo18/online-sshmax98/main/prox%26.yaml
-  source_repo: tepo18/online-sshmax98
-  source_type: clash-yaml
-  proxy_count: 20
-- url: https://raw.githubusercontent.com/G-Force-X/akunvpn/main/vmess365.yaml
-  source_repo: G-Force-X/akunvpn
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: while parsing a block collection\n  in \"<unicode string>\", line 2, column 3:\n      - name: Trojan-udin\n      ^\nexpected <block end>, but found '?'\n  in \"<unicode string>\", line 3, column 3:\n      server: quiz.vidio.com\n      ^"
-- url: https://raw.githubusercontent.com/tangwenlongNO1/freenode/main/data/I9YRCoxt.yaml
-  source_repo: tangwenlongNO1/freenode
-  source_type: clash-yaml
-  proxy_count: 17
-- url: https://raw.githubusercontent.com/qiaofeng6666/CFworker/main/Clash.yaml
-  source_repo: qiaofeng6666/CFworker
-  source_type: clash-yaml
-  proxy_count: 21
-- url: https://raw.githubusercontent.com/WANGYU5050/wangyu-test/main/real/clash.yaml.yaml
-  source_repo: WANGYU5050/wangyu-test
-  source_type: clash-yaml
-  proxy_count: 25
-- url: https://raw.githubusercontent.com/chiioi/DeepDarkPig.github.io/main/magicbox.yaml
-  source_repo: chiioi/DeepDarkPig.github.io
-  source_type: clash-yaml
-  proxy_count: 13
-- url: https://raw.githubusercontent.com/zz-want2sleep/daily-gist/main/2025/10/28/mihomo.yaml
-  source_repo: zz-want2sleep/daily-gist
-  source_type: clash-yaml
-  proxy_count: 814
-- url: https://raw.githubusercontent.com/1ynn5tay/change/main/clash_meta_client.yaml
-  source_repo: 1ynn5tay/change
-  source_type: clash-yaml
-  proxy_count: 6
-- url: https://raw.githubusercontent.com/dinaneq/xtrr-vmess/main/clash.config.yaml
-  source_repo: dinaneq/xtrr-vmess
-  source_type: clash-yaml
-  proxy_count: 319
-- url: https://raw.githubusercontent.com/sadietarasa/VOF-OvercomingGFW/main/Here2new/11.12.yaml
-  source_repo: sadietarasa/VOF-OvercomingGFW
-  source_type: clash-yaml
-  proxy_count: 18
-- url: https://raw.githubusercontent.com/ekosupry/AKUN/main/free.yaml
-  source_repo: ekosupry/AKUN
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: mapping values are not allowed here\n  in \"<unicode string>\", line 50, column 13:\n            Host: at.srpcom.online\n                ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
 - url: https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.yaml
   source_repo: VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy
   source_type: clash-yaml
@@ -152,10 +70,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/xinyex/ks/main/wl1015a.yaml
-  source_repo: xinyex/ks
-  source_type: clash-yaml
-  proxy_count: 39
 - url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml
   source_repo: peacefish/nodefree
   source_type: clash-yaml
@@ -173,14 +87,6 @@ source_details:
   source_repo: daycat/clashcheck
   source_type: clash-yaml
   proxy_count: 262
-- url: https://raw.githubusercontent.com/asu-kabeh/Akrab/main/Sg.yaml
-  source_repo: asu-kabeh/Akrab
-  source_type: clash-yaml
-  proxy_count: 6
-- url: https://raw.githubusercontent.com/tahulhuda/aakunstbhuda/main/id.yaml
-  source_repo: tahulhuda/aakunstbhuda
-  source_type: clash-yaml
-  proxy_count: 16
 - url: https://raw.githubusercontent.com/wu512993964/clash/main/ckip5.yaml
   source_repo: wu512993964/clash
   source_type: clash-yaml
@@ -189,35 +95,18 @@ source_details:
   source_repo: elmans87/vpn-hp
   source_type: clash-yaml
   proxy_count: 1
-- url: https://raw.githubusercontent.com/TeknisiIT1/rule_provider_oc/main/kiko/19.yaml
-  source_repo: TeknisiIT1/rule_provider_oc
-  source_type: clash-yaml
-  proxy_count: 4
 - url: https://raw.githubusercontent.com/KrcKidss/AKUN/main/MAGIP-ID.yaml
   source_repo: KrcKidss/AKUN
   source_type: clash-yaml
   proxy_count: 2
-- url: https://raw.githubusercontent.com/MrArven/TVBoxConfig/main/jk.yaml
-  source_repo: MrArven/TVBoxConfig
-  source_type: clash-yaml
-  proxy_count: 28
-- url: https://raw.githubusercontent.com/biafn/cfa-test/main/1.yaml
-  source_repo: biafn/cfa-test
+- url: https://raw.githubusercontent.com/xlwmin/ClashSubsPasscro/main/subs/frfq.yaml
+  source_repo: xlwmin/ClashSubsPasscro
   source_type: clash-yaml
   proxy_count: 45
-- url: https://raw.githubusercontent.com/m2uzc/razo8max/main/zfuty3cx.yaml
-  source_repo: m2uzc/razo8max
-  source_type: clash-yaml
-  proxy_count: 2
 - url: https://raw.githubusercontent.com/freeproxyvpn/freeproxyvpn.github.io/main/uploads/2026/02/3-20260215.yaml
   source_repo: freeproxyvpn/freeproxyvpn.github.io
   source_type: clash-yaml
   proxy_count: 22
-- url: https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/main/config.yaml
-  source_repo: xinggsf/Adblock-Plus-Rule
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
 - url: https://raw.githubusercontent.com/opusb/tpclash2/main/example.yaml
   source_repo: opusb/tpclash2
   source_type: error
@@ -231,68 +120,31 @@ source_details:
   source_repo: boychongzen18/OpenClash_OpenWRT
   source_type: clash-yaml
   proxy_count: 3
-- url: https://raw.githubusercontent.com/dq77/static/main/trojan/tg.yaml
-  source_repo: dq77/static
-  source_type: clash-yaml
-  proxy_count: 1
-- url: https://raw.githubusercontent.com/xinyex/ks/main/wl0120c.yaml
-  source_repo: xinyex/ks
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: could not determine a constructor for the tag 'str'\n  in \"<unicode string>\", line 76, column 76:\n     ... t: 443, type: trojan, password: !<str> 3648425794742788096, sni: ... \n                                         ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/Danu1688/DSTB_ID1/main/DSTB_ID1.yaml
-  source_repo: Danu1688/DSTB_ID1
-  source_type: clash-yaml
-  proxy_count: 16
-- url: https://raw.githubusercontent.com/Ndre-w/Provider/main/proxy/sg.yaml
-  source_repo: Ndre-w/Provider
-  source_type: clash-yaml
-  proxy_count: 6
-- url: https://raw.githubusercontent.com/v2raydy/Clash/main/02-02a2.yaml
+- url: https://raw.githubusercontent.com/v2raydy/Clash/main/01-28.yaml
   source_repo: v2raydy/Clash
   source_type: clash-yaml
-  proxy_count: 145
-- url: https://raw.githubusercontent.com/Jeffrey-done/v2ray/main/downloads/shaoyou/shaoyou_mihomo_20260324_022620.yaml
-  source_repo: Jeffrey-done/v2ray
+  proxy_count: 110
+- url: https://raw.githubusercontent.com/KLafosne/mysubs/main/sub/king.yaml
+  source_repo: KLafosne/mysubs
   source_type: clash-yaml
-  proxy_count: 30
-- url: https://raw.githubusercontent.com/SssTao/0000/main/519.yaml
-  source_repo: SssTao/0000
+  proxy_count: 200
+- url: https://raw.githubusercontent.com/qist/xray/main/clash.meta/config.yaml
+  source_repo: qist/xray
   source_type: clash-yaml
-  proxy_count: 128
-- url: https://raw.githubusercontent.com/F-Nonscene/Emby/main/V2TUN.yaml
-  source_repo: F-Nonscene/Emby
-  source_type: clash-yaml
-  proxy_count: 32
-- url: https://raw.githubusercontent.com/syra-project/subcription/main/akun.yaml
-  source_repo: syra-project/subcription
-  source_type: clash-yaml
-  proxy_count: 12
-- url: https://raw.githubusercontent.com/a97083435/tang/main/2022.yaml
-  source_repo: a97083435/tang
+  proxy_count: 27
+- url: https://raw.githubusercontent.com/Supprise0901/V2ray/main/clash.yaml
+  source_repo: Supprise0901/V2ray
   source_type: error
   proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: could not determine a constructor for the tag 'str'\n  in \"<unicode string>\", line 8, column 98:\n     ...  cipher: aes-128-gcm, password: !<str> 202211000000000000000020, ... \n                                         ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/sithu015/Sub-mm/main/clash.yaml
-  source_repo: sithu015/Sub-mm
+  error: 'HTTP Error 404: Not Found'
+- url: https://raw.githubusercontent.com/iHWJ/node/main/mihomo.yaml
+  source_repo: iHWJ/node
   source_type: clash-yaml
-  proxy_count: 328
-- url: https://raw.githubusercontent.com/m2uzc/razo8max/main/zfuty5c.yaml
-  source_repo: m2uzc/razo8max
+  proxy_count: 17
+- url: https://raw.githubusercontent.com/dsccccc/clashfree/main/flikify.yaml
+  source_repo: dsccccc/clashfree
   source_type: clash-yaml
-  proxy_count: 6
-- url: https://raw.githubusercontent.com/arismuslimin/clash/main/28jan.yaml
-  source_repo: arismuslimin/clash
-  source_type: clash-yaml
-  proxy_count: 6
-- url: https://raw.githubusercontent.com/degidevops/clash-account/main/trojan.yaml
-  source_repo: degidevops/clash-account
-  source_type: clash-yaml
-  proxy_count: 3
-- url: https://raw.githubusercontent.com/free18/jd/main/09-02.yaml
-  source_repo: free18/jd
-  source_type: clash-yaml
-  proxy_count: 24
+  proxy_count: 19
 - url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/main/update/2601/260105.txt
   source_repo: mahdibland/V2RayAggregator
   source_type: error
@@ -308,16 +160,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
-- url: https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/main/0413.txt
-  source_repo: pojiezhiyuanjun/freev2
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/shabane/kamaji/main/hub/MU.txt
-  source_repo: shabane/kamaji
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
 - url: https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/ss_iran.txt
   source_repo: mrvcoder/V2rayCollector
   source_type: error
@@ -353,16 +195,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/tepo80/tepo80/main/sort.go.txt
-  source_repo: tepo80/tepo80
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: while scanning for the next token\nfound character '\\t' that cannot start any token\n  in \"<unicode string>\", line 4, column 1:\n    \t\"bufio\"\n    ^"
-- url: https://raw.githubusercontent.com/sunshinehome/zidong/main/0626%E6%99%9A.txt
-  source_repo: sunshinehome/zidong
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
 - url: https://raw.githubusercontent.com/Kolandone/v2raycollector/main/config_lite.txt
   source_repo: Kolandone/v2raycollector
   source_type: error
@@ -383,11 +215,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/dimzon/scaling-sniffle/main/freedom/80.txt
-  source_repo: dimzon/scaling-sniffle
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
 - url: https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub61.txt
   source_repo: coldwater-10/V2ray-Config
   source_type: error
@@ -403,21 +230,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: unacceptable character #x0087: special characters are not allowed\n  in \"<unicode string>\", position 25189; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/planettechno0/test1/main/Doc.txt
-  source_repo: planettechno0/test1
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: while scanning a simple key\n  in \"<unicode string>\", line 2, column 1:\n    vless://40d2b26a-174b-4bed-9afe- ... \n    ^\ncould not find expected ':'\n  in \"<unicode string>\", line 4, column 1:\n    vless://26ce9fe1-24a0-4ef1-92f8- ... \n    ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/clubrotation1/LinuxVIP/main/fm2.txt
-  source_repo: clubrotation1/LinuxVIP
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: expected '<document start>', but found '<scalar>'\n  in \"<unicode string>\", line 21, column 1:\n    \U0001F48Eاکانت VIP ( سازگار با اینترنت م ... \n    ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/giromo/Collector/main/Sub56.txt
-  source_repo: giromo/Collector
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
 - url: https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub66.txt
   source_repo: Argh73/VpnConfigCollector
   source_type: error
@@ -425,31 +237,6 @@ source_details:
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
 - url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup.txt
   source_repo: lagzian/SS-Collector
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/hdalirsefat/Test/main/MM.txt
-  source_repo: hdalirsefat/Test
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/Mhdiqpzx/Mahdi-VIP/main/config.txt
-  source_repo: Mhdiqpzx/Mahdi-VIP
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
-- url: https://raw.githubusercontent.com/30yami/V2r/main/Sub23.txt
-  source_repo: 30yami/V2r
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: expected '<document start>', but found '<block mapping start>'\n  in \"<unicode string>\", line 179, column 1:\n    ➕نحوه   نصب   برنامه    برای   i ... \n    ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/zwgmy/OpenWrt-X64-often/main/Sub2.txt
-  source_repo: zwgmy/OpenWrt-X64-often
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: mapping values are not allowed here\n  in \"<unicode string>\", line 171, column 82:\n     ... 114.96.3:443?path=/Telegram Join: @Capoit,Telegram Join: @Capoit ... \n                                         ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/bozorgmehr71/photoshope/main/bb.txt
-  source_repo: bozorgmehr71/photoshope
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
@@ -463,11 +250,6 @@ source_details:
   source_type: error
   proxy_count: 0
   error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: expected '<document start>', but found '<scalar>'\n  in \"<unicode string>\", line 732, column 1:\n    vmess://eyJhZGQiOiIxNzIuNjcuNzEu ... \n    ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/resasanian/Mirza/main/best.txt
-  source_repo: resasanian/Mirza
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
 - url: https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub57.txt
   source_repo: coldwater-10/V2ray-Config
   source_type: error
@@ -478,21 +260,11 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/tepo80/tepo80/main/trojan.txt
-  source_repo: tepo80/tepo80
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
 - url: https://raw.githubusercontent.com/SER38Off/happ-subscription/main/1.txt
   source_repo: SER38Off/happ-subscription
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
-- url: https://raw.githubusercontent.com/shabane/kamaji/main/hub/VG.txt
-  source_repo: shabane/kamaji
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
 - url: https://raw.githubusercontent.com/seav1/subx/main/subx.txt
   source_repo: seav1/subx
   source_type: error
@@ -513,126 +285,16 @@ source_details:
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
-- url: https://raw.githubusercontent.com/giromo/Collector/main/Sub63.txt
-  source_repo: giromo/Collector
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: mapping values are not allowed here\n  in \"<unicode string>\", line 16, column 279:\n     ... دون قطعی اینجا کلیک کنید.\U0001F525 توجه : کانال ما هیچ ربات یا اکانتی غی ... \n                                         ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/MinZin100000/Project-0/main/Sub36.txt
-  source_repo: MinZin100000/Project-0
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
 - url: https://raw.githubusercontent.com/clubgratis/Vless-Trojan-worker/main/Tes.txt
   source_repo: clubgratis/Vless-Trojan-worker
   source_type: error
   proxy_count: 0
   error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/kiyantegra/Tegra/main/wwwadasd.txt
-  source_repo: kiyantegra/Tegra
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/holms2012/vtor/main/shj4.txt
-  source_repo: holms2012/vtor
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/Mozafar-sekaloo/.github/main/Sub11.txt
-  source_repo: Mozafar-sekaloo/.github
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
 - url: https://raw.githubusercontent.com/tepo18/online-sshmax98/main/final1.txt
   source_repo: tepo18/online-sshmax98
   source_type: error
   proxy_count: 0
   error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: while scanning a simple key\n  in \"<unicode string>\", line 2, column 1:\n    vless://8b262468-6e0d-46bf-b54f- ... \n    ^\ncould not find expected ':'\n  in \"<unicode string>\", line 3, column 1:\n    vless://6b3b071f-096b-4e4c-8d70- ... \n    ^"
-- url: https://raw.githubusercontent.com/giromo/Collector/main/Sub30.txt
-  source_repo: giromo/Collector
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters'
-- url: https://raw.githubusercontent.com/wangzhenjjcn/ssr-address-free/main/ss.txt
-  source_repo: wangzhenjjcn/ssr-address-free
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix.txt
-  source_repo: lagzian/SS-Collector
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/monteslu/hsync/main/llms.txt
-  source_repo: monteslu/hsync
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/LiveXY/elearning/main/go.txt
-  source_repo: LiveXY/elearning
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub82.txt
-  source_repo: longlon/v2ray-config
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/jessic01/tv/main/ssr.txt
-  source_repo: jessic01/tv
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str; base64 decode failed: Incorrect padding'
-- url: https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub49.txt
-  source_repo: coldwater-10/V2ray-Config
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/sunshinehome/zidong/main/v2.txt
-  source_repo: sunshinehome/zidong
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/sonzaiekkusu/V2RayDumper/main/ping.txt
-  source_repo: sonzaiekkusu/V2RayDumper
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/Jeamorg/Collect/main/Air.txt
-  source_repo: Jeamorg/Collect
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt
-  source_repo: Ashkan-m/v2ray
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/ipulsnutzz/link/main/waw.txt
-  source_repo: ipulsnutzz/link
-  source_type: error
-  proxy_count: 0
-  error: "Unable to parse subscription as Clash YAML or Base64 URI list: yaml parse failed: mapping values are not allowed here\n  in \"<unicode string>\", line 31, column 20:\n                proxyIP: proxyIP || \"Unknown\",\n                       ^; base64 decode failed: string argument should contain only ASCII characters; base64 decode failed: string argument should contain only ASCII characters"
-- url: https://raw.githubusercontent.com/hellopao/vscode-wechat/main/api.txt
-  source_repo: hellopao/vscode-wechat
-  source_type: error
-  proxy_count: 0
-  error: 'HTTP Error 404: Not Found'
-- url: https://raw.githubusercontent.com/davidlee6628/ssr/main/1126.txt
-  source_repo: davidlee6628/ssr
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/main/Mci.txt
-  source_repo: mehrdadmb2/V2ray_Sub
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
-- url: https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/base.txt
-  source_repo: moneyfly1/jichangnodes
-  source_type: error
-  proxy_count: 0
-  error: 'Unable to parse subscription as Clash YAML or Base64 URI list: yaml root type unsupported: str'
 - url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
@@ -673,6 +335,10 @@ source_details:
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
   proxy_count: 4
+- url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml
+  source_repo: peasoft/NoMoreWalls
+  source_type: clash-yaml
+  proxy_count: 3
 - url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
@@ -725,10 +391,6 @@ source_details:
   source_repo: mfbpn/tg_mfbpn_sub
   source_type: clash-yaml
   proxy_count: 9
-- url: https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml
-  source_repo: mfbpn/tg_mfbpn_sub
-  source_type: clash-yaml
-  proxy_count: 11
 - url: https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml
   source_repo: mfbpn/tg_mfbpn_sub
   source_type: clash-yaml
@@ -901,6 +563,10 @@ source_details:
   source_repo: mfbpn/tg_mfbpn_sub
   source_type: clash-yaml
   proxy_count: 2
+- url: https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/mihomo_sub.yaml
+  source_repo: firefoxmmx2/v2rayshare_subcription
+  source_type: clash-yaml
+  proxy_count: 26
 - url: https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/vray_sub.txt
   source_repo: firefoxmmx2/v2rayshare_subcription
   source_type: base64-uri
@@ -973,14 +639,6 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 71
-- url: https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml
-  source_repo: go4sharing/sub
-  source_type: clash-yaml
-  proxy_count: 127
-- url: https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml
-  source_repo: go4sharing/sub
-  source_type: clash-yaml
-  proxy_count: 43
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1043,9 +701,8 @@ source_details:
   proxy_count: 26
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-17.yaml
   source_repo: go4sharing/sub
-  source_type: error
-  proxy_count: 0
-  error: <urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+  source_type: clash-yaml
+  proxy_count: 46
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-19.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1170,6 +827,10 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 15
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-28.yaml
+  source_repo: go4sharing/sub
+  source_type: clash-yaml
+  proxy_count: 23
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-29.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1254,6 +915,10 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 25
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-12.yaml
+  source_repo: go4sharing/sub
+  source_type: clash-yaml
+  proxy_count: 70
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-13.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1270,6 +935,10 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 19
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-18.yaml
+  source_repo: go4sharing/sub
+  source_type: clash-yaml
+  proxy_count: 42
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-19.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1384,8 +1053,13 @@ source_details:
   proxy_count: 3
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.meta.yml
   source_repo: chengaopan/AutoMergePublicNodes
+  source_type: error
+  proxy_count: 0
+  error: <urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+- url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.yml
+  source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
-  proxy_count: 4
+  proxy_count: 3
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml
   source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
@@ -1430,26 +1104,50 @@ source_details:
   source_repo: PuddinCat/BestClash
   source_type: clash-yaml
   proxy_count: 16
-- url: https://raw.githubusercontent.com/iluobei/miaomiaowu/main/token_invalid.yaml
-  source_repo: iluobei/miaomiaowu
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml
+  source_repo: peacefish/nodefree
   source_type: clash-yaml
-  proxy_count: 2
-- url: https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash-filter.yml
-  source_repo: Leo-Leejianzhao/RSS
+  proxy_count: 91
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml
+  source_repo: peacefish/nodefree
   source_type: clash-yaml
-  proxy_count: 17
-- url: https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash.yml
-  source_repo: Leo-Leejianzhao/RSS
+  proxy_count: 477
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml
+  source_repo: peacefish/nodefree
   source_type: clash-yaml
-  proxy_count: 482
-- url: https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash_mat.yml
-  source_repo: Leo-Leejianzhao/RSS
+  proxy_count: 174
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml
+  source_repo: peacefish/nodefree
   source_type: clash-yaml
-  proxy_count: 42
-- url: https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/v2ray_mat.txt
-  source_repo: Leo-Leejianzhao/RSS
-  source_type: base64-uri
-  proxy_count: 42
+  proxy_count: 83
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 160
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 67
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 299
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 976
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 99
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 32
+- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml
+  source_repo: peacefish/nodefree
+  source_type: clash-yaml
+  proxy_count: 67
 - url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
   source_repo: mahdibland/V2RayAggregator
   source_type: clash-yaml
@@ -1462,14 +1160,6 @@ source_details:
   source_repo: mahdibland/V2RayAggregator
   source_type: clash-yaml
   proxy_count: 4945
-- url: https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/trojan.txt
-  source_repo: Danialsamadi/v2go
-  source_type: base64-uri
-  proxy_count: 1886
-- url: https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/vless.txt
-  source_repo: Danialsamadi/v2go
-  source_type: base64-uri
-  proxy_count: 5324
 source_urls:
 - https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
 - https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -1482,70 +1172,32 @@ source_urls:
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
 - https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
 - https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
-- https://raw.githubusercontent.com/changfengoss/pub/main/20251226/z8ejep6.yaml
-- https://raw.githubusercontent.com/BoxXt/installReality/main/meta.yaml
-- https://raw.githubusercontent.com/dalazhi/v2ray/main/dalazhi1.yaml
-- https://raw.githubusercontent.com/IPTUNNELS/IPTUNNELS/main/clash/vless-ws.yaml
-- https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-- https://raw.githubusercontent.com/qxmao/chromego_merge/main/sub/merged_warp_proxies.yaml
-- https://raw.githubusercontent.com/mlgbz523/Wohhhhhhhhhhhhhhhhh/main/newPower.yaml
-- https://raw.githubusercontent.com/valvatacea/cfa-config/main/byu%20opok.yaml
-- https://raw.githubusercontent.com/godlikeanyone/Stash/main/Archived/sayuri_temp.yaml
-- https://raw.githubusercontent.com/tepo18/online-sshmax98/main/prox%26.yaml
-- https://raw.githubusercontent.com/G-Force-X/akunvpn/main/vmess365.yaml
-- https://raw.githubusercontent.com/tangwenlongNO1/freenode/main/data/I9YRCoxt.yaml
-- https://raw.githubusercontent.com/qiaofeng6666/CFworker/main/Clash.yaml
-- https://raw.githubusercontent.com/WANGYU5050/wangyu-test/main/real/clash.yaml.yaml
-- https://raw.githubusercontent.com/chiioi/DeepDarkPig.github.io/main/magicbox.yaml
-- https://raw.githubusercontent.com/zz-want2sleep/daily-gist/main/2025/10/28/mihomo.yaml
-- https://raw.githubusercontent.com/1ynn5tay/change/main/clash_meta_client.yaml
-- https://raw.githubusercontent.com/dinaneq/xtrr-vmess/main/clash.config.yaml
-- https://raw.githubusercontent.com/sadietarasa/VOF-OvercomingGFW/main/Here2new/11.12.yaml
-- https://raw.githubusercontent.com/ekosupry/AKUN/main/free.yaml
 - https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.yaml
 - https://raw.githubusercontent.com/vxiaov/free_proxy_ss/main/config.yaml
 - https://raw.githubusercontent.com/wangrongding/clash-kit/main/default.yaml
 - https://raw.githubusercontent.com/awuaaaaa/vless-py/main/data/clash.yaml
 - https://raw.githubusercontent.com/heruhendri/CONFIG-VPN/main/heru.yaml
-- https://raw.githubusercontent.com/xinyex/ks/main/wl1015a.yaml
 - https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml
 - https://raw.githubusercontent.com/degidevops/clash-account/main/vmess-game.yaml
 - https://raw.githubusercontent.com/ltcrj/myclash/main/myclash.yaml
 - https://raw.githubusercontent.com/daycat/clashcheck/main/output.yaml
-- https://raw.githubusercontent.com/asu-kabeh/Akrab/main/Sg.yaml
-- https://raw.githubusercontent.com/tahulhuda/aakunstbhuda/main/id.yaml
 - https://raw.githubusercontent.com/wu512993964/clash/main/ckip5.yaml
 - https://raw.githubusercontent.com/elmans87/vpn-hp/main/AKUN.yaml
-- https://raw.githubusercontent.com/TeknisiIT1/rule_provider_oc/main/kiko/19.yaml
 - https://raw.githubusercontent.com/KrcKidss/AKUN/main/MAGIP-ID.yaml
-- https://raw.githubusercontent.com/MrArven/TVBoxConfig/main/jk.yaml
-- https://raw.githubusercontent.com/biafn/cfa-test/main/1.yaml
-- https://raw.githubusercontent.com/m2uzc/razo8max/main/zfuty3cx.yaml
+- https://raw.githubusercontent.com/xlwmin/ClashSubsPasscro/main/subs/frfq.yaml
 - https://raw.githubusercontent.com/freeproxyvpn/freeproxyvpn.github.io/main/uploads/2026/02/3-20260215.yaml
-- https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/main/config.yaml
 - https://raw.githubusercontent.com/opusb/tpclash2/main/example.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-29.yaml
 - https://raw.githubusercontent.com/boychongzen18/OpenClash_OpenWRT/main/eu.yaml
-- https://raw.githubusercontent.com/dq77/static/main/trojan/tg.yaml
-- https://raw.githubusercontent.com/xinyex/ks/main/wl0120c.yaml
-- https://raw.githubusercontent.com/Danu1688/DSTB_ID1/main/DSTB_ID1.yaml
-- https://raw.githubusercontent.com/Ndre-w/Provider/main/proxy/sg.yaml
-- https://raw.githubusercontent.com/v2raydy/Clash/main/02-02a2.yaml
-- https://raw.githubusercontent.com/Jeffrey-done/v2ray/main/downloads/shaoyou/shaoyou_mihomo_20260324_022620.yaml
-- https://raw.githubusercontent.com/SssTao/0000/main/519.yaml
-- https://raw.githubusercontent.com/F-Nonscene/Emby/main/V2TUN.yaml
-- https://raw.githubusercontent.com/syra-project/subcription/main/akun.yaml
-- https://raw.githubusercontent.com/a97083435/tang/main/2022.yaml
-- https://raw.githubusercontent.com/sithu015/Sub-mm/main/clash.yaml
-- https://raw.githubusercontent.com/m2uzc/razo8max/main/zfuty5c.yaml
-- https://raw.githubusercontent.com/arismuslimin/clash/main/28jan.yaml
-- https://raw.githubusercontent.com/degidevops/clash-account/main/trojan.yaml
-- https://raw.githubusercontent.com/free18/jd/main/09-02.yaml
+- https://raw.githubusercontent.com/v2raydy/Clash/main/01-28.yaml
+- https://raw.githubusercontent.com/KLafosne/mysubs/main/sub/king.yaml
+- https://raw.githubusercontent.com/qist/xray/main/clash.meta/config.yaml
+- https://raw.githubusercontent.com/Supprise0901/V2ray/main/clash.yaml
+- https://raw.githubusercontent.com/iHWJ/node/main/mihomo.yaml
+- https://raw.githubusercontent.com/dsccccc/clashfree/main/flikify.yaml
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/main/update/2601/260105.txt
 - https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/subs.txt
 - https://raw.githubusercontent.com/vxiaov/free_proxies/main/links.txt
-- https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/main/0413.txt
-- https://raw.githubusercontent.com/shabane/kamaji/main/hub/MU.txt
 - https://raw.githubusercontent.com/mrvcoder/V2rayCollector/main/ss_iran.txt
 - https://raw.githubusercontent.com/Amirali9687/free_v2ray_config/main/vmess.txt
 - https://raw.githubusercontent.com/tepo18/online-sshmax98/main/ssh-max98.txt
@@ -1553,62 +1205,26 @@ source_urls:
 - https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess_ye.txt
 - https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/server.txt
 - https://raw.githubusercontent.com/Surfboardv2ray/Proxy-sorter/main/custom/us.txt
-- https://raw.githubusercontent.com/tepo80/tepo80/main/sort.go.txt
-- https://raw.githubusercontent.com/sunshinehome/zidong/main/0626%E6%99%9A.txt
 - https://raw.githubusercontent.com/Kolandone/v2raycollector/main/config_lite.txt
 - https://raw.githubusercontent.com/deepinor/v2ray_luck/main/node.txt
 - https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub45.txt
 - https://raw.githubusercontent.com/nikita29a/FreeProxyList/main/mirror/8.txt
-- https://raw.githubusercontent.com/dimzon/scaling-sniffle/main/freedom/80.txt
 - https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub61.txt
 - https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub59.txt
 - https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub73.txt
-- https://raw.githubusercontent.com/planettechno0/test1/main/Doc.txt
-- https://raw.githubusercontent.com/clubrotation1/LinuxVIP/main/fm2.txt
-- https://raw.githubusercontent.com/giromo/Collector/main/Sub56.txt
 - https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub66.txt
 - https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup.txt
-- https://raw.githubusercontent.com/hdalirsefat/Test/main/MM.txt
-- https://raw.githubusercontent.com/Mhdiqpzx/Mahdi-VIP/main/config.txt
-- https://raw.githubusercontent.com/30yami/V2r/main/Sub23.txt
-- https://raw.githubusercontent.com/zwgmy/OpenWrt-X64-often/main/Sub2.txt
-- https://raw.githubusercontent.com/bozorgmehr71/photoshope/main/bb.txt
 - https://raw.githubusercontent.com/Saviorhoss/V2ray2/main/vless.txt
 - https://raw.githubusercontent.com/thefatedefeater/V2ray_Configs/main/Sub6.txt
-- https://raw.githubusercontent.com/resasanian/Mirza/main/best.txt
 - https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub57.txt
 - https://raw.githubusercontent.com/LonUp/NodeList/main/V2RAY/030.txt
-- https://raw.githubusercontent.com/tepo80/tepo80/main/trojan.txt
 - https://raw.githubusercontent.com/SER38Off/happ-subscription/main/1.txt
-- https://raw.githubusercontent.com/shabane/kamaji/main/hub/VG.txt
 - https://raw.githubusercontent.com/seav1/subx/main/subx.txt
 - https://raw.githubusercontent.com/Supprise0901/fetchNodes/main/Subs/Sub25.txt
 - https://raw.githubusercontent.com/ndsphonemy/proxy-sub/main/tmp3.txt
 - https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub62.txt
-- https://raw.githubusercontent.com/giromo/Collector/main/Sub63.txt
-- https://raw.githubusercontent.com/MinZin100000/Project-0/main/Sub36.txt
 - https://raw.githubusercontent.com/clubgratis/Vless-Trojan-worker/main/Tes.txt
-- https://raw.githubusercontent.com/kiyantegra/Tegra/main/wwwadasd.txt
-- https://raw.githubusercontent.com/holms2012/vtor/main/shj4.txt
-- https://raw.githubusercontent.com/Mozafar-sekaloo/.github/main/Sub11.txt
 - https://raw.githubusercontent.com/tepo18/online-sshmax98/main/final1.txt
-- https://raw.githubusercontent.com/giromo/Collector/main/Sub30.txt
-- https://raw.githubusercontent.com/wangzhenjjcn/ssr-address-free/main/ss.txt
-- https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix.txt
-- https://raw.githubusercontent.com/monteslu/hsync/main/llms.txt
-- https://raw.githubusercontent.com/LiveXY/elearning/main/go.txt
-- https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub82.txt
-- https://raw.githubusercontent.com/jessic01/tv/main/ssr.txt
-- https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub49.txt
-- https://raw.githubusercontent.com/sunshinehome/zidong/main/v2.txt
-- https://raw.githubusercontent.com/sonzaiekkusu/V2RayDumper/main/ping.txt
-- https://raw.githubusercontent.com/Jeamorg/Collect/main/Air.txt
-- https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt
-- https://raw.githubusercontent.com/ipulsnutzz/link/main/waw.txt
-- https://raw.githubusercontent.com/hellopao/vscode-wechat/main/api.txt
-- https://raw.githubusercontent.com/davidlee6628/ssr/main/1126.txt
-- https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/main/Mci.txt
-- https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/base.txt
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -1619,6 +1235,7 @@ source_urls:
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml
+- https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml
 - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.yml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub.txt
@@ -1632,7 +1249,6 @@ source_urls:
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/All.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/CN.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/HK.yaml
-- https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/SG.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/TW.yaml
@@ -1676,6 +1292,7 @@ source_urls:
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/Other.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/SG.yaml
 - https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyuanvpn.top/US.yaml
+- https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/mihomo_sub.yaml
 - https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/vray_sub.txt
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml
@@ -1694,8 +1311,6 @@ source_urls:
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-21.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-24.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-25.yaml
-- https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml
-- https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-30.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2025/12-01.yaml
@@ -1743,6 +1358,7 @@ source_urls:
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-24.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-25.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-26.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-28.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-29.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-31.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-01.yaml
@@ -1764,10 +1380,12 @@ source_urls:
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-09.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-10.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-11.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-12.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-13.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-14.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-16.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-17.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-18.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-19.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-21.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-24.yaml
@@ -1797,6 +1415,7 @@ source_urls:
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.meta.yml
+- https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.yml
 - https://raw.githubusercontent.com/free18/v2ray/main/v.txt
@@ -1808,13 +1427,17 @@ source_urls:
 - https://raw.githubusercontent.com/nodesfree/v2raynode/main/subscribe/clash.yml
 - https://raw.githubusercontent.com/nodesfree/v2raynode/main/v2ray.txt
 - https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
-- https://raw.githubusercontent.com/iluobei/miaomiaowu/main/token_invalid.yaml
-- https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash-filter.yml
-- https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash.yml
-- https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash_mat.yml
-- https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/v2ray_mat.txt
+- https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml
+- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_base64.txt
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
-- https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/trojan.txt
-- https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/vless.txt

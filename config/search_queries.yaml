@@ -13,8 +13,15 @@ code_search_queries:
   - '"trojan://" extension:txt'
   - '"ss://" extension:txt'
 
-max_repository_results_per_query: 15
+max_repository_results_per_query: 12
 max_code_results_per_query: 20
+max_sources_per_repo: 5
+include_repo_regexes:
+  - '(^|/).*(proxy|prox|v2ray|xray|clash|mihomo|sub|subscribe|subscription|node|nodes|vpn|vless|vmess|trojan|ssr?).*$'
 exclude_repo_regexes:
+  - '(^|/).*(starred|starlist|star-list|github-trending|trending).*$'
+  - '(^|/).*(awesome|docs|example|examples|tutorial).*$'
+  - '(^|/).*(paper|daily|rss|scoop).*$'
+  - '(^|/).*(manager|routing).*$'
   - '(^|/)(awesome|docs|example|examples|tutorial)(-|$)'
   - '(^|/)(backup|fork|archive)(-|$)'

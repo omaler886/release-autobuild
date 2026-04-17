@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-17T10:47:26.667122+00:00",
+  "updated_at": "2026-04-17T11:20:33.316947+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 221,
+  "discovered_source_count": 228,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -29,7 +29,7 @@
         },
         {
           "path": "cdn/GcoreIpRange.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+          "reason": "content_not_matching"
         },
         {
           "path": "cdn/cloudflare/CloudflareIpRange.txt",
@@ -54,7 +54,7 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 51,
-      "accepted_source_count": 13,
+      "accepted_source_count": 14,
       "accepted_sources": [
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml",
@@ -67,6 +67,7 @@
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.yml"
       ],
@@ -178,7 +179,7 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 65,
-      "accepted_source_count": 56,
+      "accepted_source_count": 55,
       "accepted_sources": [
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub.txt",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub3.txt",
@@ -192,7 +193,6 @@
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/All.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/CN.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/HK.yaml",
-        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/SG.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/TW.yaml",
@@ -272,6 +272,10 @@
         },
         {
           "path": "trials/yiyuanvpn.top_pp.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "trials_providers/2.flybar20.cc/JP.yaml",
           "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         }
       ]
@@ -301,9 +305,10 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 5,
-      "accepted_source_count": 2,
+      "accepted_source_count": 3,
       "accepted_sources": [
         "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml",
+        "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/mihomo_sub.yaml",
         "https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/vray_sub.txt"
       ],
       "sample_rejections": [
@@ -314,10 +319,6 @@
         {
           "path": "requirements.txt",
           "reason": "content_not_matching"
-        },
-        {
-          "path": "subscription/mihomo_sub.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         }
       ]
     },
@@ -326,7 +327,7 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 118,
-      "accepted_source_count": 112,
+      "accepted_source_count": 113,
       "accepted_sources": [
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml",
@@ -345,8 +346,6 @@
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-21.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-24.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-25.yaml",
-        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml",
-        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-29.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-30.yaml",
@@ -395,6 +394,7 @@
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-24.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-25.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-26.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-29.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/01-31.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-01.yaml",
@@ -416,10 +416,12 @@
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-09.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-10.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-11.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-12.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-13.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-14.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-16.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-17.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-18.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-19.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-21.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/03-24.yaml",
@@ -447,15 +449,11 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "2026/01-28.yaml",
+          "path": "2025/11-26.yaml",
           "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         },
         {
-          "path": "2026/03-12.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "2026/03-18.yaml",
+          "path": "2025/11-27.yaml",
           "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         },
         {
@@ -473,7 +471,7 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 48,
-      "accepted_source_count": 13,
+      "accepted_source_count": 14,
       "accepted_sources": [
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
@@ -486,6 +484,7 @@
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.yml"
       ],
@@ -599,41 +598,13 @@
     },
     {
       "seed_repo": "ermaozi/get_subscribe",
-      "ref": "main",
+      "ref": "",
       "tree_truncated": false,
-      "candidate_file_count": 4,
-      "accepted_source_count": 1,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribe/v2ray.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "yutao8/starred",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 1,
+      "candidate_file_count": 0,
       "accepted_source_count": 0,
       "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
+      "sample_rejections": [],
+      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
     },
     {
       "seed_repo": "junjun266/FreeProxyGo",
@@ -715,7 +686,7 @@
         },
         {
           "path": "githubmirror/clean/ss.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+          "reason": "content_not_matching"
         },
         {
           "path": "githubmirror/clean/trojan.txt",
@@ -766,7 +737,7 @@
         },
         {
           "path": "DNS over HTTPS/any DNS-over-HTTPS server you want.md",
-          "reason": "content_not_matching"
+          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
         },
         {
           "path": "DNS over HTTPS/public-resolvers.md",
@@ -782,7 +753,7 @@
         },
         {
           "path": "boringtun-boringtun-cli-0.5.2/README.md",
-          "reason": "content_not_matching"
+          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
         },
         {
           "path": "edge/SCAN/README.md",
@@ -867,7 +838,7 @@
         },
         {
           "path": "cdn/cloudflare/CloudflarePremiumDomain.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+          "reason": "content_not_matching"
         },
         {
           "path": "cdn/cloudflare/CloudflarePremiumIp.txt",
@@ -875,44 +846,6 @@
         },
         {
           "path": "source/v2ray-2.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "hydraponique/roscomvpn-routing",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 7,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "ADDON_AUTOROUTING/3x-ui/README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "ADDON_AUTOROUTING/Marzban/README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "ADDON_AUTOROUTING/Marzneshin/README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "ADDON_AUTOROUTING/Remnawave/README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "MIHOMO/default.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "MIHOMO/template_remnawave.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -948,105 +881,7 @@
       ]
     },
     {
-      "seed_repo": "aben1188/my-star-repos",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 2,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "hiifong/starList",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 1,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "johe123qwe/github-trending",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 14,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2022-08.md",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "archived/2022-09.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2022-10.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2022-11.md",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "archived/2022-12.md",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "archived/2023-01.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-02.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-03.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-04.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-05.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-06.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "archived/2023-07.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "rcy1314/some-stars",
+      "seed_repo": "free-proxy-nodes/free-nodes",
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 1,
@@ -1097,24 +932,10 @@
         },
         {
           "path": "requirements.txt",
-          "reason": "content_not_matching"
+          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
         },
         {
           "path": "subscribe/v2ray.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "hoilc/scoop-lemon",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 1,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1140,7 +961,110 @@
       ]
     },
     {
-      "seed_repo": "free-proxy-nodes/free-nodes",
+      "seed_repo": "peacefish/nodefree",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 94,
+      "accepted_source_count": 12,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml",
+        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/clash_nodeshare.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/00.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/02.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/03.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/04.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/05.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/06.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/07.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/08.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/09.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/10.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/11.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/15.txt",
+          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+        },
+        {
+          "path": "sub/list/16.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/17.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/23.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/24.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/25.txt",
+          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+        },
+        {
+          "path": "sub/list/27.txt",
+          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+        }
+      ]
+    },
+    {
+      "seed_repo": "OpenNetCN/clash",
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 1,
@@ -1149,70 +1073,6 @@
       "sample_rejections": [
         {
           "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "peacefish/nodefree",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 0,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [],
-      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-    },
-    {
-      "seed_repo": "OpenNetCN/clash",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 0,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [],
-      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-    },
-    {
-      "seed_repo": "iluobei/miaomiaowu",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 9,
-      "accepted_source_count": 1,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/iluobei/miaomiaowu/main/token_invalid.yaml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docker-compose.yml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "miaomiaowu/SITE_CONFIG.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "miaomiaowu/pnpm-lock.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "rule_templates/fake_ip__v3.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "rule_templates/redirhost__v3.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribes/.keep.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribes/README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1263,45 +1123,6 @@
         },
         {
           "path": "sources.yaml",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "Leo-Leejianzhao/RSS",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 10,
-      "accepted_source_count": 4,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash-filter.yml",
-        "https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash.yml",
-        "https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/clash_mat.yml",
-        "https://raw.githubusercontent.com/Leo-Leejianzhao/RSS/main/subscribe/v2ray_mat.txt"
-      ],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribe/config.yml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribe/filtered.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribe/result.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "subscribe/v2ray.txt",
           "reason": "content_not_matching"
         }
       ]
@@ -1401,225 +1222,6 @@
       ]
     },
     {
-      "seed_repo": "Danialsamadi/v2go",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 120,
-      "accepted_source_count": 2,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/trojan.txt",
-        "https://raw.githubusercontent.com/Danialsamadi/v2go/main/Splitted-By-Protocol/vless.txt"
-      ],
-      "sample_rejections": [
-        {
-          "path": "AllConfigsSub.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub10_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub11_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub12_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub13_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub14_base64.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "Base64/Sub15_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub16_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub17_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub1_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub2_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub3_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub4_base64.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "Base64/Sub5_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub6_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub7_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub8_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Base64/Sub9_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "Splitted-By-Country/AE.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "wgpsec/redc",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 84,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": ".claude/skills/useage/SKILL.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": ".claude/skills/useage/SKILL_CN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": ".goreleaser.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README_CN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "clawhub/SKILL.md",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "doc/Compose.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/Compose_CN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/GUI_CN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/MCP.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/MCP_CN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.0-userdata_execution.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.1-compose-template-path.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.10-ctyun-support.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.11-case-outputs-handling.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.12-gcp-support.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.13-billing-support.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.14-version-check.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.15-gui-release-automation.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "doc/design/3.16-proxy-support.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "bansky-cl/diffusion-nlp-paper-arxiv",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 2,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/_config.yml",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "luohongk/Embodied-AI-Daily",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 2,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
       "seed_repo": "rtwo2/FastNodes",
       "ref": "main",
       "tree_truncated": false,
@@ -1705,130 +1307,6 @@
         },
         {
           "path": "sub/countries/BG.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "BFanSYe/GPT-Auto-Manager",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 6,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "DEPLOY.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "PR_DESCRIPTION.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config.example.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docker-compose.yml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "gaahrdner/starred",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 1,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "DigneZzZ/routing",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 12,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "release/proc-games.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "release/proc-ru.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "release/proc-torrent.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "template.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/happ/default_deeplink.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/happ/full_deeplink.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/incy/default_deeplink.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/incy/full_deeplink.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/v2raytun/routing_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/v2raytun/routing_deeplink.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v2ray/v2raytun/routing_header.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "anxkhn/my-awesome-stars",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 2,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "topics.md",
           "reason": "content_not_matching"
         }
       ]
