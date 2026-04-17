@@ -3,9 +3,9 @@ kort0881/vpn-vless-configs-russia@main
 NiREvil/vless@main
 snakem982/proxypool@main
 wnlen/clash-for-linux@master
+PuddinCat/BestClash@main
 free-proxy-nodes/free-nodes@main
 nodesfree/v2raynode@main
-PuddinCat/BestClash@main
 peacefish/nodefree@main
 OpenNetCN/clash@main
 ishalumi/proxy-node-collector@main

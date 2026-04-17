@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-17T11:20:33.316947+00:00",
+  "updated_at": "2026-04-17T11:29:10.949593+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 228,
+  "discovered_source_count": 233,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -179,7 +179,7 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 65,
-      "accepted_source_count": 55,
+      "accepted_source_count": 56,
       "accepted_sources": [
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub.txt",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/sub3.txt",
@@ -193,6 +193,7 @@
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/All.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/CN.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/HK.yaml",
+        "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/SG.yaml",
         "https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/TW.yaml",
@@ -273,10 +274,6 @@
         {
           "path": "trials/yiyuanvpn.top_pp.yaml",
           "reason": "content_not_matching"
-        },
-        {
-          "path": "trials_providers/2.flybar20.cc/JP.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
         }
       ]
     },
@@ -327,7 +324,7 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 118,
-      "accepted_source_count": 113,
+      "accepted_source_count": 115,
       "accepted_sources": [
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml",
@@ -346,6 +343,8 @@
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-21.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-24.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-25.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-29.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-30.yaml",
@@ -449,14 +448,6 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "2025/11-26.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
-          "path": "2025/11-27.yaml",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
-        },
-        {
           "path": "README.md",
           "reason": "content_not_matching"
         },
@@ -471,13 +462,14 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 48,
-      "accepted_source_count": 14,
+      "accepted_source_count": 15,
       "accepted_sources": [
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml",
+        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_FR.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_GB.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml",
@@ -566,7 +558,7 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_FR.meta.yml",
+          "path": "snippets/nodes_FR.yml",
           "reason": "content_not_matching"
         }
       ]
@@ -598,13 +590,27 @@
     },
     {
       "seed_repo": "ermaozi/get_subscribe",
-      "ref": "",
+      "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 0,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [],
-      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+      "candidate_file_count": 4,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "requirements.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "subscribe/v2ray.txt",
+          "reason": "content_not_matching"
+        }
+      ]
     },
     {
       "seed_repo": "junjun266/FreeProxyGo",
@@ -737,7 +743,7 @@
         },
         {
           "path": "DNS over HTTPS/any DNS-over-HTTPS server you want.md",
-          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+          "reason": "content_not_matching"
         },
         {
           "path": "DNS over HTTPS/public-resolvers.md",
@@ -753,7 +759,7 @@
         },
         {
           "path": "boringtun-boringtun-cli-0.5.2/README.md",
-          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+          "reason": "content_not_matching"
         },
         {
           "path": "edge/SCAN/README.md",
@@ -881,6 +887,26 @@
       ]
     },
     {
+      "seed_repo": "PuddinCat/BestClash",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 3,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "5M.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
       "seed_repo": "free-proxy-nodes/free-nodes",
       "ref": "main",
       "tree_truncated": false,
@@ -932,30 +958,10 @@
         },
         {
           "path": "requirements.txt",
-          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+          "reason": "content_not_matching"
         },
         {
           "path": "subscribe/v2ray.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "PuddinCat/BestClash",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 3,
-      "accepted_source_count": 1,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "5M.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1035,7 +1041,7 @@
         },
         {
           "path": "sub/list/15.txt",
-          "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+          "reason": "content_not_matching"
         },
         {
           "path": "sub/list/16.txt",
@@ -1055,11 +1061,11 @@
         },
         {
           "path": "sub/list/25.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+          "reason": "content_not_matching"
         },
         {
           "path": "sub/list/27.txt",
-          "reason": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+          "reason": "content_not_matching"
         }
       ]
     },

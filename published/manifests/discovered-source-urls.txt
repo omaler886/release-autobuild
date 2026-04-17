@@ -27,6 +27,7 @@ https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials/yiyuanvpn.top.y
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/All.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/CN.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/HK.yaml
+https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/JP.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/Other.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/SG.yaml
 https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/2.flybar20.cc/TW.yaml
@@ -91,6 +92,8 @@ https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-18.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-21.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-24.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-25.yaml
+https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-26.yaml
+https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-27.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-28.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-29.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/11-30.yaml
@@ -192,6 +195,7 @@ https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.ym
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml
+https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_FR.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_GB.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml
@@ -203,14 +207,15 @@ https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippet
 https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.yml
 https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
 https://raw.githubusercontent.com/free18/v2ray/main/v.txt
+https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
 https://raw.githubusercontent.com/NiREvil/vless/main/edge/assets/clash-11.yaml
 https://raw.githubusercontent.com/NiREvil/vless/main/edge/assets/clash-12.yml
 https://raw.githubusercontent.com/NiREvil/vless/main/sub/clash-meta-wg.yml
 https://raw.githubusercontent.com/NiREvil/vless/main/sub/clash-meta.yml
+https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
 https://raw.githubusercontent.com/nodesfree/v2raynode/main/clash.yaml
 https://raw.githubusercontent.com/nodesfree/v2raynode/main/subscribe/clash.yml
 https://raw.githubusercontent.com/nodesfree/v2raynode/main/v2ray.txt
-https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
 https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml
 https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml
 https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml
