@@ -1,6 +1,6 @@
-updated_at: '2026-04-18T04:45:05.540415+00:00'
+updated_at: '2026-04-19T05:14:48.041896+00:00'
 pool_name: github-source-raw
-proxy_count: 19246
+proxy_count: 18071
 source_list_path: published/manifests/effective-source-urls.txt
 output_pool_path: published/pools/github-source-raw.yaml
 source_details:
@@ -11,11 +11,11 @@ source_details:
 - url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
   source_repo: snakem982/proxypool
   source_type: clash-yaml
-  proxy_count: 49
+  proxy_count: 75
 - url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
-  proxy_count: 40
+  proxy_count: 43
 - url: https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
   source_repo: vxiaov/free_proxies
   source_type: clash-yaml
@@ -35,7 +35,7 @@ source_details:
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
-  proxy_count: 48
+  proxy_count: 81
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
   source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
@@ -43,7 +43,7 @@ source_details:
 - url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
   source_repo: free18/v2ray
   source_type: clash-yaml
-  proxy_count: 95
+  proxy_count: 221
 - url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
   source_repo: ermaozi/get_subscribe
   source_type: clash-yaml
@@ -72,10 +72,22 @@ source_details:
   source_repo: SssTao/0000
   source_type: clash-yaml
   proxy_count: 124
-- url: https://raw.githubusercontent.com/rknbypass/blocked-domains-list/main/VLESS.yaml
-  source_repo: rknbypass/blocked-domains-list
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-22.yaml
+  source_repo: go4sharing/sub
   source_type: clash-yaml
-  proxy_count: 1
+  proxy_count: 52
+- url: https://raw.githubusercontent.com/silberkuin/Clash/main/Config.yaml
+  source_repo: silberkuin/Clash
+  source_type: clash-yaml
+  proxy_count: 13
+- url: https://raw.githubusercontent.com/KodeBarinn/mihomo-speedtest-rs/main/example-config.yaml
+  source_repo: KodeBarinn/mihomo-speedtest-rs
+  source_type: clash-yaml
+  proxy_count: 8
+- url: https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/sub/250626/clash.yaml
+  source_repo: moneyfly1/jichangnodes
+  source_type: clash-yaml
+  proxy_count: 911
 - url: https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.yaml
   source_repo: VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy
   source_type: clash-yaml
@@ -368,7 +380,7 @@ source_details:
 - url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
-  proxy_count: 40
+  proxy_count: 43
 - url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
   source_repo: peasoft/NoMoreWalls
   source_type: clash-yaml
@@ -941,10 +953,6 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 71
-- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-22.yaml
-  source_repo: go4sharing/sub
-  source_type: clash-yaml
-  proxy_count: 52
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-23.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1097,6 +1105,10 @@ source_details:
   source_repo: go4sharing/sub
   source_type: clash-yaml
   proxy_count: 48
+- url: https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-18.yaml
+  source_repo: go4sharing/sub
+  source_type: clash-yaml
+  proxy_count: 87
 - url: https://raw.githubusercontent.com/go4sharing/sub/main/clash.yaml
   source_repo: go4sharing/sub
   source_type: clash-yaml
@@ -1104,11 +1116,11 @@ source_details:
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml
   source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
-  proxy_count: 30
+  proxy_count: 32
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml
   source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
-  proxy_count: 30
+  proxy_count: 32
 - url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml
   source_repo: chengaopan/AutoMergePublicNodes
   source_type: clash-yaml
@@ -1160,7 +1172,15 @@ source_details:
 - url: https://raw.githubusercontent.com/free18/v2ray/main/v.txt
   source_repo: free18/v2ray
   source_type: base64-uri
-  proxy_count: 102
+  proxy_count: 221
+- url: https://raw.githubusercontent.com/madeye/mihomo-rust/main/config.example.yaml
+  source_repo: madeye/mihomo-rust
+  source_type: clash-yaml
+  proxy_count: 2
+- url: https://raw.githubusercontent.com/madeye/mihomo-rust/main/tests/tproxy-qemu/mihomo-tproxy.yaml
+  source_repo: madeye/mihomo-rust
+  source_type: clash-yaml
+  proxy_count: 1
 - url: https://raw.githubusercontent.com/NiREvil/vless/main/edge/assets/clash-11.yaml
   source_repo: NiREvil/vless
   source_type: clash-yaml
@@ -1188,15 +1208,11 @@ source_details:
 - url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
   source_repo: mahdibland/V2RayAggregator
   source_type: clash-yaml
-  proxy_count: 4947
-- url: https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
-  source_repo: PuddinCat/BestClash
-  source_type: clash-yaml
-  proxy_count: 16
+  proxy_count: 4959
 - url: https://raw.githubusercontent.com/nodesfree/v2raynode/main/clash.yaml
   source_repo: nodesfree/v2raynode
   source_type: clash-yaml
-  proxy_count: 27
+  proxy_count: 28
 - url: https://raw.githubusercontent.com/nodesfree/v2raynode/main/subscribe/clash.yml
   source_repo: nodesfree/v2raynode
   source_type: clash-yaml
@@ -1204,51 +1220,11 @@ source_details:
 - url: https://raw.githubusercontent.com/nodesfree/v2raynode/main/v2ray.txt
   source_repo: nodesfree/v2raynode
   source_type: base64-uri
-  proxy_count: 20
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml
-  source_repo: peacefish/nodefree
+  proxy_count: 22
+- url: https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
+  source_repo: PuddinCat/BestClash
   source_type: clash-yaml
-  proxy_count: 91
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 477
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 174
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 83
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 160
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 67
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 299
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 976
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 99
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 32
-- url: https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml
-  source_repo: peacefish/nodefree
-  source_type: clash-yaml
-  proxy_count: 67
+  proxy_count: 16
 source_urls:
 - https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
 - https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -1267,7 +1243,10 @@ source_urls:
 - https://raw.githubusercontent.com/tepo18/online-sshmax98/main/prox%26.yaml
 - https://raw.githubusercontent.com/ascentxt/asshole/main/kw/wrt/fhrz.yaml
 - https://raw.githubusercontent.com/SssTao/0000/main/ABB.yaml
-- https://raw.githubusercontent.com/rknbypass/blocked-domains-list/main/VLESS.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-22.yaml
+- https://raw.githubusercontent.com/silberkuin/Clash/main/Config.yaml
+- https://raw.githubusercontent.com/KodeBarinn/mihomo-speedtest-rs/main/example-config.yaml
+- https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/sub/250626/clash.yaml
 - https://raw.githubusercontent.com/VPN-Subcription-Links/ClashX-V2Ray-TopFreeProxy/main/combine/clash.config.yaml
 - https://raw.githubusercontent.com/vxiaov/free_proxy_ss/main/config.yaml
 - https://raw.githubusercontent.com/wangrongding/clash-kit/main/default.yaml
@@ -1473,7 +1452,6 @@ source_urls:
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-07.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-12.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-13.yaml
-- https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-22.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-23.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-25.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/02-26.yaml
@@ -1512,6 +1490,7 @@ source_urls:
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-15.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-16.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-17.yaml
+- https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-18.yaml
 - https://raw.githubusercontent.com/go4sharing/sub/main/clash.yaml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml
@@ -1528,6 +1507,8 @@ source_urls:
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml
 - https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.yml
 - https://raw.githubusercontent.com/free18/v2ray/main/v.txt
+- https://raw.githubusercontent.com/madeye/mihomo-rust/main/config.example.yaml
+- https://raw.githubusercontent.com/madeye/mihomo-rust/main/tests/tproxy-qemu/mihomo-tproxy.yaml
 - https://raw.githubusercontent.com/NiREvil/vless/main/edge/assets/clash-11.yaml
 - https://raw.githubusercontent.com/NiREvil/vless/main/edge/assets/clash-12.yml
 - https://raw.githubusercontent.com/NiREvil/vless/main/sub/clash-meta-wg.yml
@@ -1535,18 +1516,7 @@ source_urls:
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_base64.txt
 - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
-- https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml
 - https://raw.githubusercontent.com/nodesfree/v2raynode/main/clash.yaml
 - https://raw.githubusercontent.com/nodesfree/v2raynode/main/subscribe/clash.yml
 - https://raw.githubusercontent.com/nodesfree/v2raynode/main/v2ray.txt
-- https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml
-- https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml
+- https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml

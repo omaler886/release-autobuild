@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-18T04:44:18.625254+00:00",
+  "updated_at": "2026-04-19T05:14:01.652986+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 235,
+  "discovered_source_count": 226,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -324,8 +324,8 @@
       "seed_repo": "go4sharing/sub",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 119,
-      "accepted_source_count": 116,
+      "candidate_file_count": 120,
+      "accepted_source_count": 117,
       "accepted_sources": [
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml",
@@ -441,6 +441,7 @@
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-15.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-16.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-17.yaml",
+        "https://raw.githubusercontent.com/go4sharing/sub/main/2026/04-18.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/clash.yaml",
         "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
       ],
@@ -615,28 +616,10 @@
       ]
     },
     {
-      "seed_repo": "junjun266/FreeProxyGo",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 2,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "READEME.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
       "seed_repo": "kort0881/vpn-vless-configs-russia",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 85,
+      "candidate_file_count": 90,
       "accepted_source_count": 0,
       "accepted_sources": [],
       "sample_rejections": [
@@ -718,6 +701,99 @@
         },
         {
           "path": "githubmirror/new/by_protocol/hy2/hy2_001.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "madeye/mihomo-rust",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 70,
+      "accepted_source_count": 2,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/madeye/mihomo-rust/main/config.example.yaml",
+        "https://raw.githubusercontent.com/madeye/mihomo-rust/main/tests/tproxy-qemu/mihomo-tproxy.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "AGENTS.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "CLAUDE.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config-bench-dns.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config-bench.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0001-mihomo-transport-crate.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0002-upstream-divergence-policy.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0003-provider-refresh-substrate.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0004-metrics-cardinality.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0005-runtime-event-broadcaster.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0006-m2-benchmark-methodology.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0007-m2-footprint-budget.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/adr/0008-m2-allocator-audit.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/benchmarks/binary-size.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/benchmarks/methodology.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/benchmarks/rule-engine-findings.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/ci-status.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/gap-analysis.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/migration-from-go-mihomo.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/roadmap.md",
           "reason": "content_not_matching"
         }
       ]
@@ -818,6 +894,47 @@
       ]
     },
     {
+      "seed_repo": "snakem982/proxypool",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 9,
+      "accepted_source_count": 2,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
+        "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/FastlyIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/GcoreIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflareIpRange.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflarePremiumDomain.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "cdn/cloudflare/CloudflarePremiumIp.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "source/v2ray-2.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
       "seed_repo": "mahdibland/V2RayAggregator",
       "ref": "master",
       "tree_truncated": false,
@@ -912,40 +1029,6 @@
       ]
     },
     {
-      "seed_repo": "PuddinCat/BestClash",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 3,
-      "accepted_source_count": 1,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "5M.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "OpenNetCN/clash",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 1,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
       "seed_repo": "nodesfree/v2raynode",
       "ref": "main",
       "tree_truncated": false,
@@ -987,6 +1070,40 @@
         },
         {
           "path": "subscribe/v2ray.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "PuddinCat/BestClash",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 3,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "5M.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "OpenNetCN/clash",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 1,
+      "accepted_source_count": 0,
+      "accepted_sources": [],
+      "sample_rejections": [
+        {
+          "path": "README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1037,163 +1154,6 @@
         },
         {
           "path": "sources.yaml",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "peacefish/nodefree",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 94,
-      "accepted_source_count": 12,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/clash_nodeshare.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/00.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/02.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/03.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/04.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/05.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/06.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/07.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/08.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/09.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/10.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/11.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/15.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/16.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/17.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/23.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/24.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/25.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/27.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "Tokinx/sub2clash-workers",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 11,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": ".tasks/feasibility.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": ".tasks/roadmap.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "AGENTS.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "DESIGN.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/api.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/architecture.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/override.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/regression.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "public/templates/clash-default.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "public/templates/meta-default.yaml",
           "reason": "content_not_matching"
         }
       ]
