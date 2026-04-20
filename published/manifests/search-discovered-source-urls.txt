@@ -67,4 +67,3 @@ https://raw.githubusercontent.com/sonzaiekkusu/V2RayDumper/main/ping.txt
 https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt
 https://raw.githubusercontent.com/davidlee6628/ssr/main/1126.txt
 https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/main/Mci.txt
-https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/base.txt

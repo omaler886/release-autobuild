@@ -1,39 +1,33 @@
 {
-  "updated_at": "2026-04-19T05:11:24.713927+00:00",
+  "updated_at": "2026-04-20T05:21:48.921335+00:00",
   "queries_file": "config/search_queries.yaml",
   "discovered_repo_count": 9,
-  "discovered_source_count": 70,
+  "discovered_source_count": 69,
   "output_repo_file": "published/manifests/search-discovered-repos.txt",
   "output_source_file": "published/manifests/search-discovered-source-urls.txt",
   "repository_search": [
     {
       "query": "clash mihomo subscription in:name,description,readme stars:>10",
-      "total_count": 80,
-      "accepted_count": 4,
+      "total_count": 81,
+      "accepted_count": 3,
       "accepted_repos": [
+        {
+          "full_name": "junjun266/FreeProxyGo",
+          "default_branch": "main",
+          "html_url": "https://github.com/junjun266/FreeProxyGo",
+          "stargazers_count": 76
+        },
         {
           "full_name": "kort0881/vpn-vless-configs-russia",
           "default_branch": "main",
           "html_url": "https://github.com/kort0881/vpn-vless-configs-russia",
-          "stargazers_count": 342
-        },
-        {
-          "full_name": "madeye/mihomo-rust",
-          "default_branch": "main",
-          "html_url": "https://github.com/madeye/mihomo-rust",
-          "stargazers_count": 181
+          "stargazers_count": 350
         },
         {
           "full_name": "NiREvil/vless",
           "default_branch": "main",
           "html_url": "https://github.com/NiREvil/vless",
-          "stargazers_count": 1028
-        },
-        {
-          "full_name": "snakem982/proxypool",
-          "default_branch": "main",
-          "html_url": "https://github.com/snakem982/proxypool",
-          "stargazers_count": 1717
+          "stargazers_count": 1027
         }
       ]
     },
@@ -43,72 +37,72 @@
       "accepted_count": 6,
       "accepted_repos": [
         {
-          "full_name": "mahdibland/V2RayAggregator",
-          "default_branch": "master",
-          "html_url": "https://github.com/mahdibland/V2RayAggregator",
-          "stargazers_count": 3939
-        },
-        {
           "full_name": "nodesfree/v2raynode",
           "default_branch": "main",
           "html_url": "https://github.com/nodesfree/v2raynode",
           "stargazers_count": 70
         },
         {
+          "full_name": "ermaozi01/free_clash_vpn",
+          "default_branch": "main",
+          "html_url": "https://github.com/ermaozi01/free_clash_vpn",
+          "stargazers_count": 744
+        },
+        {
+          "full_name": "mahdibland/V2RayAggregator",
+          "default_branch": "master",
+          "html_url": "https://github.com/mahdibland/V2RayAggregator",
+          "stargazers_count": 3940
+        },
+        {
           "full_name": "PuddinCat/BestClash",
           "default_branch": "main",
           "html_url": "https://github.com/PuddinCat/BestClash",
-          "stargazers_count": 1404
+          "stargazers_count": 1410
         },
         {
-          "full_name": "OpenNetCN/clash",
+          "full_name": "ermaozi/get_subscribe",
           "default_branch": "main",
-          "html_url": "https://github.com/OpenNetCN/clash",
-          "stargazers_count": 202
+          "html_url": "https://github.com/ermaozi/get_subscribe",
+          "stargazers_count": 8882
         },
         {
           "full_name": "NiREvil/vless",
           "default_branch": "main",
           "html_url": "https://github.com/NiREvil/vless",
-          "stargazers_count": 1028
-        },
-        {
-          "full_name": "ishalumi/proxy-node-collector",
-          "default_branch": "main",
-          "html_url": "https://github.com/ishalumi/proxy-node-collector",
-          "stargazers_count": 15
+          "stargazers_count": 1027
         }
       ]
     },
     {
       "query": "proxy pool clash in:name,description,readme stars:>5",
-      "total_count": 194,
+      "total_count": 195,
       "accepted_count": 2,
       "accepted_repos": [
+        {
+          "full_name": "kissgyorgy/my-stars",
+          "default_branch": "master",
+          "html_url": "https://github.com/kissgyorgy/my-stars",
+          "stargazers_count": 16
+        },
         {
           "full_name": "mahdibland/V2RayAggregator",
           "default_branch": "master",
           "html_url": "https://github.com/mahdibland/V2RayAggregator",
-          "stargazers_count": 3939
-        },
-        {
-          "full_name": "NiREvil/vless",
-          "default_branch": "main",
-          "html_url": "https://github.com/NiREvil/vless",
-          "stargazers_count": 1028
+          "stargazers_count": 3940
         }
       ]
     },
     {
       "query": "mihomo nodes share in:name,description,readme stars:>5",
-      "total_count": 54,
+      "total_count": 56,
       "accepted_count": 1,
       "accepted_repos": [
         {
-          "full_name": "NiREvil/vless",
+          "full_name": "junjun266/FreeProxyGo",
           "default_branch": "main",
-          "html_url": "https://github.com/NiREvil/vless",
-          "stargazers_count": 1028
+          "html_url": "https://github.com/junjun266/FreeProxyGo",
+          "stargazers_count": 76
         }
       ]
     }
@@ -116,7 +110,7 @@
   "code_search": [
     {
       "query": "\"proxies:\" \"type: vless\" extension:yaml",
-      "total_count": 1108,
+      "total_count": 1172,
       "accepted_count": 10,
       "accepted_sources": [
         {
@@ -129,7 +123,7 @@
           "full_name": "dalazhi/v2ray",
           "path": "dalazhi1.yaml",
           "raw_url": "https://raw.githubusercontent.com/dalazhi/v2ray/main/dalazhi1.yaml",
-          "html_url": "https://github.com/dalazhi/v2ray/blob/f6ed9be3fc88d389c7d81e350917ec8de086d551/dalazhi1.yaml"
+          "html_url": "https://github.com/dalazhi/v2ray/blob/9eea79c2914ea8fef96d01e53fd5a2234e1a73b6/dalazhi1.yaml"
         },
         {
           "full_name": "FereydoonEisapour/v2ray",
@@ -141,7 +135,7 @@
           "full_name": "tepo18/online-sshmax98",
           "path": "prox&.yaml",
           "raw_url": "https://raw.githubusercontent.com/tepo18/online-sshmax98/main/prox%26.yaml",
-          "html_url": "https://github.com/tepo18/online-sshmax98/blob/a8601fcd17d842b3c20c460c6877db1db05c8fd3/prox&.yaml"
+          "html_url": "https://github.com/tepo18/online-sshmax98/blob/d6ef2820cb2233178ddad99826e12e27443d71f7/prox&.yaml"
         },
         {
           "full_name": "ascentxt/asshole",
@@ -183,7 +177,7 @@
     },
     {
       "query": "\"proxies:\" \"type: vmess\" extension:yaml",
-      "total_count": 800,
+      "total_count": 968,
       "accepted_count": 14,
       "accepted_sources": [
         {
@@ -220,7 +214,7 @@
           "full_name": "peacefish/nodefree",
           "path": "sub/clash_openshare.yaml",
           "raw_url": "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml",
-          "html_url": "https://github.com/peacefish/nodefree/blob/cd11ee1f4b19bd347d61125c6042e8b3adb10340/sub/clash_openshare.yaml"
+          "html_url": "https://github.com/peacefish/nodefree/blob/934bbce25310355c88d30cb6b88be67dc3a5371e/sub/clash_openshare.yaml"
         },
         {
           "full_name": "degidevops/clash-account",
@@ -274,7 +268,7 @@
     },
     {
       "query": "\"proxies:\" \"type: trojan\" extension:yaml",
-      "total_count": 916,
+      "total_count": 840,
       "accepted_count": 7,
       "accepted_sources": [
         {
@@ -323,20 +317,20 @@
     },
     {
       "query": "\"vmess://\" extension:txt",
-      "total_count": 9616,
+      "total_count": 11184,
       "accepted_count": 15,
       "accepted_sources": [
         {
           "full_name": "mahdibland/V2RayAggregator",
           "path": "update/2601/260105.txt",
           "raw_url": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/main/update/2601/260105.txt",
-          "html_url": "https://github.com/mahdibland/V2RayAggregator/blob/2b341e6aed103cafa8d6f36e5193d1d60aa1300a/update/2601/260105.txt"
+          "html_url": "https://github.com/mahdibland/V2RayAggregator/blob/3052693fc208a53ba360a6a95ca2c7704a0cf1c0/update/2601/260105.txt"
         },
         {
           "full_name": "Leon406/SubCrawler",
           "path": "sub/subs.txt",
           "raw_url": "https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/subs.txt",
-          "html_url": "https://github.com/Leon406/SubCrawler/blob/4398fc945e9ab980063b2102e11bcc865a5b9103/sub/subs.txt"
+          "html_url": "https://github.com/Leon406/SubCrawler/blob/6ced5d01fcf1244f5fa41d413fad159ede7108e7/sub/subs.txt"
         },
         {
           "full_name": "vxiaov/free_proxies",
@@ -360,7 +354,7 @@
           "full_name": "tepo18/online-sshmax98",
           "path": "ssh-max98.txt",
           "raw_url": "https://raw.githubusercontent.com/tepo18/online-sshmax98/main/ssh-max98.txt",
-          "html_url": "https://github.com/tepo18/online-sshmax98/blob/a8601fcd17d842b3c20c460c6877db1db05c8fd3/ssh-max98.txt"
+          "html_url": "https://github.com/tepo18/online-sshmax98/blob/d6ef2820cb2233178ddad99826e12e27443d71f7/ssh-max98.txt"
         },
         {
           "full_name": "ndsphonemy/proxy-sub",
@@ -378,7 +372,7 @@
           "full_name": "Surfboardv2ray/Proxy-sorter",
           "path": "custom/us.txt",
           "raw_url": "https://raw.githubusercontent.com/Surfboardv2ray/Proxy-sorter/main/custom/us.txt",
-          "html_url": "https://github.com/Surfboardv2ray/Proxy-sorter/blob/56dce9bb324f766db324eb6dd317a7ef692d46a5/custom/us.txt"
+          "html_url": "https://github.com/Surfboardv2ray/Proxy-sorter/blob/132f9b7b96148a46c5af92b4fe36be9c5c04dcdd/custom/us.txt"
         },
         {
           "full_name": "ALIILAPRO/v2rayNG-Config",
@@ -402,13 +396,13 @@
           "full_name": "longlon/v2ray-config",
           "path": "Sub45.txt",
           "raw_url": "https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub45.txt",
-          "html_url": "https://github.com/longlon/v2ray-config/blob/6dcf4ce4e042b02187b4b01c6100d9acdcdcf8e5/Sub45.txt"
+          "html_url": "https://github.com/longlon/v2ray-config/blob/6b62a5ced1c331d759c04eac019fd717f2a07c01/Sub45.txt"
         },
         {
           "full_name": "nikita29a/FreeProxyList",
           "path": "mirror/8.txt",
           "raw_url": "https://raw.githubusercontent.com/nikita29a/FreeProxyList/main/mirror/8.txt",
-          "html_url": "https://github.com/nikita29a/FreeProxyList/blob/61ce059b54fce382a398aca53b254ee5395e57e5/mirror/8.txt"
+          "html_url": "https://github.com/nikita29a/FreeProxyList/blob/1bbbd182939a62bc70abd47a761d20ea5955f688/mirror/8.txt"
         },
         {
           "full_name": "coldwater-10/V2ray-Config",
@@ -420,7 +414,7 @@
     },
     {
       "query": "\"vless://\" extension:txt",
-      "total_count": 13296,
+      "total_count": 10976,
       "accepted_count": 8,
       "accepted_sources": [
         {
@@ -439,7 +433,7 @@
           "full_name": "longlon/v2ray-config",
           "path": "Sub73.txt",
           "raw_url": "https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub73.txt",
-          "html_url": "https://github.com/longlon/v2ray-config/blob/6dcf4ce4e042b02187b4b01c6100d9acdcdcf8e5/Sub73.txt"
+          "html_url": "https://github.com/longlon/v2ray-config/blob/6b62a5ced1c331d759c04eac019fd717f2a07c01/Sub73.txt"
         },
         {
           "full_name": "ndsphonemy/proxy-sub",
@@ -451,13 +445,13 @@
           "full_name": "nikita29a/FreeProxyList",
           "path": "mirror/8.txt",
           "raw_url": "https://raw.githubusercontent.com/nikita29a/FreeProxyList/main/mirror/8.txt",
-          "html_url": "https://github.com/nikita29a/FreeProxyList/blob/61ce059b54fce382a398aca53b254ee5395e57e5/mirror/8.txt"
+          "html_url": "https://github.com/nikita29a/FreeProxyList/blob/1bbbd182939a62bc70abd47a761d20ea5955f688/mirror/8.txt"
         },
         {
           "full_name": "Argh73/VpnConfigCollector",
           "path": "Sub66.txt",
           "raw_url": "https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub66.txt",
-          "html_url": "https://github.com/Argh73/VpnConfigCollector/blob/55ecc75465ca3564fed2e725beaefd93b2a42e50/Sub66.txt"
+          "html_url": "https://github.com/Argh73/VpnConfigCollector/blob/f64daf357e3b8b758afb03e7bee7395cc949be70/Sub66.txt"
         },
         {
           "full_name": "lagzian/SS-Collector",
@@ -475,20 +469,20 @@
     },
     {
       "query": "\"trojan://\" extension:txt",
-      "total_count": 13824,
+      "total_count": 13280,
       "accepted_count": 12,
       "accepted_sources": [
         {
           "full_name": "mahdibland/V2RayAggregator",
           "path": "update/2601/260105.txt",
           "raw_url": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/main/update/2601/260105.txt",
-          "html_url": "https://github.com/mahdibland/V2RayAggregator/blob/2b341e6aed103cafa8d6f36e5193d1d60aa1300a/update/2601/260105.txt"
+          "html_url": "https://github.com/mahdibland/V2RayAggregator/blob/3052693fc208a53ba360a6a95ca2c7704a0cf1c0/update/2601/260105.txt"
         },
         {
           "full_name": "Leon406/SubCrawler",
           "path": "sub/subs.txt",
           "raw_url": "https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/subs.txt",
-          "html_url": "https://github.com/Leon406/SubCrawler/blob/4398fc945e9ab980063b2102e11bcc865a5b9103/sub/subs.txt"
+          "html_url": "https://github.com/Leon406/SubCrawler/blob/6ced5d01fcf1244f5fa41d413fad159ede7108e7/sub/subs.txt"
         },
         {
           "full_name": "coldwater-10/V2ray-Config",
@@ -530,7 +524,7 @@
           "full_name": "Argh73/VpnConfigCollector",
           "path": "Sub62.txt",
           "raw_url": "https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub62.txt",
-          "html_url": "https://github.com/Argh73/VpnConfigCollector/blob/55ecc75465ca3564fed2e725beaefd93b2a42e50/Sub62.txt"
+          "html_url": "https://github.com/Argh73/VpnConfigCollector/blob/f64daf357e3b8b758afb03e7bee7395cc949be70/Sub62.txt"
         },
         {
           "full_name": "clubgratis/Vless-Trojan-worker",
@@ -548,14 +542,14 @@
           "full_name": "tepo18/online-sshmax98",
           "path": "final1.txt",
           "raw_url": "https://raw.githubusercontent.com/tepo18/online-sshmax98/main/final1.txt",
-          "html_url": "https://github.com/tepo18/online-sshmax98/blob/a8601fcd17d842b3c20c460c6877db1db05c8fd3/final1.txt"
+          "html_url": "https://github.com/tepo18/online-sshmax98/blob/d6ef2820cb2233178ddad99826e12e27443d71f7/final1.txt"
         }
       ]
     },
     {
       "query": "\"ss://\" extension:txt",
-      "total_count": 35456,
-      "accepted_count": 12,
+      "total_count": 38912,
+      "accepted_count": 11,
       "accepted_sources": [
         {
           "full_name": "wangzhenjjcn/ssr-address-free",
@@ -585,7 +579,7 @@
           "full_name": "longlon/v2ray-config",
           "path": "Sub82.txt",
           "raw_url": "https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub82.txt",
-          "html_url": "https://github.com/longlon/v2ray-config/blob/6dcf4ce4e042b02187b4b01c6100d9acdcdcf8e5/Sub82.txt"
+          "html_url": "https://github.com/longlon/v2ray-config/blob/6b62a5ced1c331d759c04eac019fd717f2a07c01/Sub82.txt"
         },
         {
           "full_name": "jessic01/tv",
@@ -622,12 +616,6 @@
           "path": "Mci.txt",
           "raw_url": "https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/main/Mci.txt",
           "html_url": "https://github.com/mehrdadmb2/V2ray_Sub/blob/2a9bf667ad29c76100ac17b1a40f18bcecc3f10e/Mci.txt"
-        },
-        {
-          "full_name": "moneyfly1/jichangnodes",
-          "path": "base.txt",
-          "raw_url": "https://raw.githubusercontent.com/moneyfly1/jichangnodes/main/base.txt",
-          "html_url": "https://github.com/moneyfly1/jichangnodes/blob/42cac6420b92657a68d034322dd91276fcc340ad/base.txt"
         }
       ]
     }
