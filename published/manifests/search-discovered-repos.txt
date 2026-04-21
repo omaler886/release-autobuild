@@ -1,9 +1,12 @@
 junjun266/FreeProxyGo@main
+Tght1211/lan-proxy-gateway@main
+Au1rxx/free-vpn-subscriptions@main
 kort0881/vpn-vless-configs-russia@main
-NiREvil/vless@main
-nodesfree/v2raynode@main
-ermaozi01/free_clash_vpn@main
+Aethersailor/SubConverter-Extended@master
+sub-store-org/Sub-Store@master
+OpenNetCN/clash@main
 mahdibland/V2RayAggregator@master
 PuddinCat/BestClash@main
-ermaozi/get_subscribe@main
-kissgyorgy/my-stars@master
+nodesfree/v2raynode@main
+NiREvil/vless@main
+ishalumi/proxy-node-collector@main
