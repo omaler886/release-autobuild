@@ -1,12 +1,10 @@
 junjun266/FreeProxyGo@main
-Tght1211/lan-proxy-gateway@main
 Au1rxx/free-vpn-subscriptions@main
+madeye/mihomo-rust@main
 kort0881/vpn-vless-configs-russia@main
-Aethersailor/SubConverter-Extended@master
-sub-store-org/Sub-Store@master
+NiREvil/vless@main
 OpenNetCN/clash@main
 mahdibland/V2RayAggregator@master
 PuddinCat/BestClash@main
 nodesfree/v2raynode@main
-NiREvil/vless@main
 ishalumi/proxy-node-collector@main
