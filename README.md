@@ -62,8 +62,8 @@ Minimum tools:
 - Go projects: `python3 git go`
 - AdGuard Home: `python3 git go make node npm`
 - Android apps: `python3 git openjdk-17 Android SDK/NDK`
-- Momogram additionally needs `yasm`, submodules, `TELEGRAM_APP_ID`, and
-  `TELEGRAM_APP_HASH`
+- Momogram additionally needs `autoconf automake libtool meson nasm ninja-build
+  pkg-config yasm`, submodules, and Android NDK `21.4.7075529`.
 
 ## Run One Build
 
@@ -159,6 +159,9 @@ TELEGRAM_APP_ID
 TELEGRAM_APP_HASH
 V2RAYNG_LIBV2RAY_AAR
 ```
+
+When `V2RAYNG_LIBV2RAY_AAR` is not set, the script downloads `libv2ray.aar`
+from the latest stable `2dust/AndroidLibXrayLite` release.
 
 Run manually from GitHub:
 

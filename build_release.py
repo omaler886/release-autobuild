@@ -328,6 +328,8 @@ def clone_source(project: Project, tag: str, source_dir: Path, log_file: Path) -
         cmd += ["--recurse-submodules", "--shallow-submodules"]
     cmd += [project.clone_url, str(source_dir)]
     run(cmd, cwd=source_dir.parent, log_file=log_file)
+    if project.kind == "adguardhome":
+        run(["git", "fetch", "--depth", "1", "origin", "master:refs/heads/master"], cwd=source_dir, log_file=log_file)
     if project.clone_submodules:
         run(["git", "submodule", "update", "--init", "--recursive"], cwd=source_dir, log_file=log_file)
 
@@ -468,11 +470,41 @@ def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir:
 def build_v2rayng(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
     write_local_properties(project, source_dir)
     aar = os.environ.get("V2RAYNG_LIBV2RAY_AAR")
+    libs_dir = source_dir / "V2rayNG" / "app" / "libs"
+    libs_dir.mkdir(parents=True, exist_ok=True)
     if aar:
-        libs_dir = source_dir / "V2rayNG" / "app" / "libs"
-        libs_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(aar, libs_dir / "libv2ray.aar")
+    elif not (libs_dir / "libv2ray.aar").exists():
+        download_github_release_asset("2dust/AndroidLibXrayLite", "libv2ray.aar", libs_dir / "libv2ray.aar")
     return build_gradle(project, target, source_dir, dist_dir, log_file)
+
+
+def download_github_release_asset(repo: str, asset_name: str, dest: Path) -> None:
+    data = github_json(f"/repos/{repo}/releases?per_page=20")
+    if not isinstance(data, list):
+        raise BuildError(f"unexpected releases response for {repo}")
+    for release in data:
+        if not isinstance(release, dict) or not looks_stable_release(release):
+            continue
+        assets = release.get("assets", [])
+        if not isinstance(assets, list):
+            continue
+        for asset in assets:
+            if not isinstance(asset, dict) or asset.get("name") != asset_name:
+                continue
+            url = asset.get("browser_download_url")
+            if not isinstance(url, str) or not url:
+                raise BuildError(f"asset {asset_name} in {repo} has no download URL")
+            print(f"downloading {repo} {release.get('tag_name')} {asset_name}", flush=True)
+            request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            try:
+                with urllib.request.urlopen(request, timeout=600) as response, dest.open("wb") as fh:
+                    shutil.copyfileobj(response, fh)
+            except urllib.error.HTTPError as exc:
+                body = exc.read().decode("utf-8", "replace")
+                raise BuildError(f"failed to download {asset_name}: {exc.code} {body[:300]}") from exc
+            return
+    raise BuildError(f"no stable release asset named {asset_name} found in {repo}")
 
 
 def build_gradle(project: Project, _target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
