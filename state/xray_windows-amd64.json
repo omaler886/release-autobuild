@@ -1,14 +1,38 @@
 {
-  "commit": "0a42dba13e33153ac7714771454c8b201661645d",
+  "commit": "c5edc122b70ec56e24ea8038e727da6f823e34be",
   "files": [
-    "xray-v26.1.23-windows-amd64.zip"
+    "xray-v26.4.15-windows-amd64.zip"
   ],
   "project": "xray",
   "repo": "XTLS/Xray-core",
-  "tag": "v26.1.23",
+  "tag": "v26.4.15",
   "target": "windows-amd64",
-  "uploaded_at": "2026-04-27T10:03:02+00:00",
+  "uploaded_at": "2026-04-27T19:55:31+00:00",
   "uploads": [
+    {
+      "commit": "c5edc122b70ec56e24ea8038e727da6f823e34be",
+      "files": [
+        "xray-v26.4.15-windows-amd64.zip"
+      ],
+      "tag": "v26.4.15",
+      "uploaded_at": "2026-04-27T19:55:31+00:00"
+    },
+    {
+      "commit": "b4650360d6a05c2842d2c7157fb8cb864bba637a",
+      "files": [
+        "xray-v26.4.17-windows-amd64.zip"
+      ],
+      "tag": "v26.4.17",
+      "uploaded_at": "2026-04-27T19:54:53+00:00"
+    },
+    {
+      "commit": "b4f08981becb71eaa995fa98ed2098ade92566bb",
+      "files": [
+        "xray-v26.4.25-windows-amd64.zip"
+      ],
+      "tag": "v26.4.25",
+      "uploaded_at": "2026-04-27T19:53:45+00:00"
+    },
     {
       "commit": "0a42dba13e33153ac7714771454c8b201661645d",
       "files": [
