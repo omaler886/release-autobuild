@@ -421,14 +421,15 @@ def write_local_properties(project: Project, source_dir: Path) -> None:
     if android_home:
         lines.append(f"sdk.dir={android_home.replace(os.sep, '/')}")
     if project.key == "momogram":
+        for name in ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS"):
+            if os.environ.get(name):
+                value = os.environ[name]
+                lines.append(f"{name}={value}")
         app_id = os.environ.get("TELEGRAM_APP_ID")
         app_hash = os.environ.get("TELEGRAM_APP_HASH")
         if app_id and app_hash:
             lines.append(f"TELEGRAM_APP_ID={app_id}")
             lines.append(f"TELEGRAM_APP_HASH={app_hash}")
-        for name in ("ALIAS_NAME", "KEYSTORE_PASS", "ALIAS_PASS"):
-            if os.environ.get(name):
-                lines.append(f"{name}={os.environ[name]}")
     if not lines:
         return
     local_properties = source_dir / ("V2rayNG/local.properties" if project.key == "v2rayng" else "local.properties")
@@ -458,6 +459,7 @@ def apply_patch_hook(project: Project, source_dir: Path, patch_dir: Path, log_fi
 
 
 def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
+    ensure_momogram_keystore(source_dir, log_file)
     write_local_properties(project, source_dir)
     run_script = source_dir / "run"
     if run_script.exists():
@@ -465,6 +467,45 @@ def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir:
         run(["./run", "init", "libs"], cwd=source_dir, log_file=log_file)
         run(["./run", "libs", "update"], cwd=source_dir, log_file=log_file)
     return build_gradle(project, target, source_dir, dist_dir, log_file)
+
+
+def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> None:
+    required = ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS")
+    if all(os.environ.get(name) for name in required):
+        return
+
+    keystore_path = source_dir / "release.keystore"
+    store_pass = os.environ.get("KEYSTORE_PASS") or "release"
+    alias_name = os.environ.get("ALIAS_NAME") or "release"
+    alias_pass = os.environ.get("ALIAS_PASS") or store_pass
+    dname = os.environ.get("KEYSTORE_DNAME", "CN=Momogram, OU=Codex, O=Codex, L=Local, S=NA, C=US")
+    cmd = [
+        "keytool",
+        "-genkeypair",
+        "-keystore",
+        str(keystore_path),
+        "-storepass",
+        store_pass,
+        "-keypass",
+        alias_pass,
+        "-alias",
+        alias_name,
+        "-keyalg",
+        "RSA",
+        "-keysize",
+        "2048",
+        "-validity",
+        "36500",
+        "-dname",
+        dname,
+        "-storetype",
+        "PKCS12",
+    ]
+    run(cmd, cwd=source_dir, log_file=log_file)
+    os.environ["KEYSTORE_PATH"] = str(keystore_path)
+    os.environ["KEYSTORE_PASS"] = store_pass
+    os.environ["ALIAS_NAME"] = alias_name
+    os.environ["ALIAS_PASS"] = alias_pass
 
 
 def build_v2rayng(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
@@ -693,6 +734,8 @@ def check_tools(project: Project) -> None:
         need += ["make", "go", "node", "npm"]
     elif project.kind in {"momogram", "v2rayng"}:
         need += ["java"]
+        if project.kind == "momogram":
+            need.append("keytool")
     missing = [tool for tool in need if shutil.which(tool) is None]
     if missing:
         raise BuildError(f"missing required tool(s): {', '.join(missing)}")
