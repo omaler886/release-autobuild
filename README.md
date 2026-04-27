@@ -131,6 +131,49 @@ hits will not compile two repositories at once.
 Manual single-target commands are still useful for testing one project/target
 without walking the whole queue.
 
+## GitHub Actions
+
+The repository includes `.github/workflows/release-autobuild.yml`.
+
+GitHub Actions runs the same queue safely:
+
+- `concurrency` prevents two release builds from running at the same time.
+- One workflow job runs `python3 build_release.py --poll-all`, so projects and
+  targets are still compiled sequentially.
+- Uploaded targets are recorded in `state/*.json`.
+- The workflow commits changed `state/` files back to the repository, so the
+  next run skips already-uploaded artifacts.
+- Logs are uploaded as a workflow artifact for debugging.
+
+Required repository secrets:
+
+```text
+TG_BOT_TOKEN
+TG_CHAT_ID
+```
+
+Optional repository secrets:
+
+```text
+TELEGRAM_APP_ID
+TELEGRAM_APP_HASH
+V2RAYNG_LIBV2RAY_AAR
+```
+
+Run manually from GitHub:
+
+1. Open Actions.
+2. Select `Release Autobuild`.
+3. Use `Run workflow`.
+
+Modes:
+
+- `poll-all`: check and build every pending project/target.
+- `check`: only print pending/uploaded state.
+- `single`: build one `project` and one `target`.
+
+The workflow also runs every 6 hours by schedule.
+
 ## Chinese Quick Start
 
 这个仓库按你的队列要求工作：

@@ -1,8 +1,9 @@
 logs/
-state/
 __pycache__/
 patches/__pycache__/
 *.tmp
 .env
 config.env
 *.log
+state/.build.lock
+state/*.tmp

@@ -1,0 +1,169 @@
+name: Release Autobuild
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "poll-all, check, or single"
+        required: true
+        default: "poll-all"
+        type: choice
+        options:
+          - poll-all
+          - check
+          - single
+      project:
+        description: "single mode only, for example xray"
+        required: false
+        type: string
+      target:
+        description: "single mode only: android-arm64, windows-amd64, linux-amd64"
+        required: false
+        type: string
+      force:
+        description: "rebuild already uploaded tag/target"
+        required: false
+        default: false
+        type: boolean
+      no_upload:
+        description: "build but do not upload to Telegram or write state"
+        required: false
+        default: false
+        type: boolean
+      stop_on_error:
+        description: "stop queue after the first failed target"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-autobuild
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+      TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+      GITHUB_TOKEN: ${{ github.token }}
+      TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
+      TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
+      V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+          cache: true
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential yasm zip unzip
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
+
+      - name: Run autobuild
+        id: autobuild
+        shell: bash
+        run: |
+          set +e
+
+          mode="${{ github.event.inputs.mode || 'poll-all' }}"
+          project="${{ github.event.inputs.project || '' }}"
+          target="${{ github.event.inputs.target || '' }}"
+          force="${{ github.event.inputs.force || 'false' }}"
+          no_upload="${{ github.event.inputs.no_upload || 'false' }}"
+          stop_on_error="${{ github.event.inputs.stop_on_error || 'false' }}"
+
+          args=()
+          case "$mode" in
+            poll-all)
+              args+=(--poll-all)
+              ;;
+            check)
+              args+=(--poll-all --check-only)
+              ;;
+            single)
+              if [[ -z "$project" || -z "$target" ]]; then
+                echo "single mode requires project and target"
+                echo "exit_code=2" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              args+=(--project "$project" --target "$target")
+              ;;
+            *)
+              echo "unknown mode: $mode"
+              echo "exit_code=2" >> "$GITHUB_OUTPUT"
+              exit 0
+              ;;
+          esac
+
+          [[ "$force" == "true" ]] && args+=(--force)
+          [[ "$no_upload" == "true" ]] && args+=(--no-upload)
+          [[ "$stop_on_error" == "true" ]] && args+=(--stop-on-error)
+
+          python3 build_release.py "${args[@]}"
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit updated state
+        if: always()
+        shell: bash
+        run: |
+          set -e
+          if [[ -z "$(git status --porcelain state)" ]]; then
+            echo "No state changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state
+          git commit -m "Update uploaded release state [skip ci]"
+          git push
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-autobuild-logs
+          path: logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Fail if build failed
+        if: always()
+        shell: bash
+        run: exit "${{ steps.autobuild.outputs.exit_code || '1' }}"
