@@ -1,0 +1,11 @@
+{
+  "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
+  "files": [
+    "xray-v26.3.27-linux-amd64.tar.gz"
+  ],
+  "project": "xray",
+  "repo": "XTLS/Xray-core",
+  "tag": "v26.3.27",
+  "target": "linux-amd64",
+  "uploaded_at": "2026-04-27T06:57:41+00:00"
+}
