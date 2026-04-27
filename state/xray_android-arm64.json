@@ -1,11 +1,37 @@
 {
-  "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
+  "commit": "0a42dba13e33153ac7714771454c8b201661645d",
   "files": [
-    "xray-v26.3.27-android-arm64.tar.gz"
+    "xray-v26.1.23-android-arm64.tar.gz"
   ],
   "project": "xray",
   "repo": "XTLS/Xray-core",
-  "tag": "v26.3.27",
+  "tag": "v26.1.23",
   "target": "android-arm64",
-  "uploaded_at": "2026-04-27T07:06:03+00:00"
+  "uploaded_at": "2026-04-27T10:02:39+00:00",
+  "uploads": [
+    {
+      "commit": "0a42dba13e33153ac7714771454c8b201661645d",
+      "files": [
+        "xray-v26.1.23-android-arm64.tar.gz"
+      ],
+      "tag": "v26.1.23",
+      "uploaded_at": "2026-04-27T10:02:39+00:00"
+    },
+    {
+      "commit": "12ee51e4bb1d02ece4ef4b7114efa2bcdc130995",
+      "files": [
+        "xray-v26.2.6-android-arm64.tar.gz"
+      ],
+      "tag": "v26.2.6",
+      "uploaded_at": "2026-04-27T09:59:07+00:00"
+    },
+    {
+      "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
+      "files": [
+        "xray-v26.3.27-android-arm64.tar.gz"
+      ],
+      "tag": "v26.3.27",
+      "uploaded_at": "2026-04-27T07:06:03+00:00"
+    }
+  ]
 }

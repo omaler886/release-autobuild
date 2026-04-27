@@ -1,0 +1,29 @@
+{
+  "commit": "025b947a24cf4cba30ca3e629b2a326d1d02e93e",
+  "files": [
+    "sing-box-subscribe-v1.13.7-windows-amd64.zip"
+  ],
+  "project": "sing-box-subscribe",
+  "repo": "yelnoo/sing-box",
+  "tag": "v1.13.7",
+  "target": "windows-amd64",
+  "uploaded_at": "2026-04-27T10:08:05+00:00",
+  "uploads": [
+    {
+      "commit": "025b947a24cf4cba30ca3e629b2a326d1d02e93e",
+      "files": [
+        "sing-box-subscribe-v1.13.7-windows-amd64.zip"
+      ],
+      "tag": "v1.13.7",
+      "uploaded_at": "2026-04-27T10:08:05+00:00"
+    },
+    {
+      "commit": "d5adb54bc6c6b2c21ab6f748276c4ec62d9bb650",
+      "files": [
+        "sing-box-subscribe-v1.13.8-windows-amd64.zip"
+      ],
+      "tag": "v1.13.8",
+      "uploaded_at": "2026-04-27T10:06:16+00:00"
+    }
+  ]
+}

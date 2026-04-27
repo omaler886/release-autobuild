@@ -1,11 +1,37 @@
 {
-  "commit": "b7323188bab1ea742538aeccb31b692bc4967d1b",
+  "commit": "a281fdb3823788af41e925bc6d48632a451f0a5b",
   "files": [
-    "mosdns-v5.3.4-android-arm64.tar.gz"
+    "mosdns-v5.3.1-android-arm64.tar.gz"
   ],
   "project": "mosdns",
   "repo": "IrineSistiana/mosdns",
-  "tag": "v5.3.4",
+  "tag": "v5.3.1",
   "target": "android-arm64",
-  "uploaded_at": "2026-04-27T07:11:30+00:00"
+  "uploaded_at": "2026-04-27T10:10:46+00:00",
+  "uploads": [
+    {
+      "commit": "a281fdb3823788af41e925bc6d48632a451f0a5b",
+      "files": [
+        "mosdns-v5.3.1-android-arm64.tar.gz"
+      ],
+      "tag": "v5.3.1",
+      "uploaded_at": "2026-04-27T10:10:46+00:00"
+    },
+    {
+      "commit": "025823c1a5c9753c0e35f8b444b9e3c4472d37d1",
+      "files": [
+        "mosdns-v5.3.3-android-arm64.tar.gz"
+      ],
+      "tag": "v5.3.3",
+      "uploaded_at": "2026-04-27T10:09:45+00:00"
+    },
+    {
+      "commit": "b7323188bab1ea742538aeccb31b692bc4967d1b",
+      "files": [
+        "mosdns-v5.3.4-android-arm64.tar.gz"
+      ],
+      "tag": "v5.3.4",
+      "uploaded_at": "2026-04-27T07:11:30+00:00"
+    }
+  ]
 }

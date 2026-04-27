@@ -1,11 +1,37 @@
 {
-  "commit": "a84724665eb7f989809abe463c05f5723bd24975",
+  "commit": "0120b1d76d263575ac008abd821ec726042c94e6",
   "files": [
-    "mihomo-v1.19.24-windows-amd64.zip"
+    "mihomo-v1.19.22-windows-amd64.zip"
   ],
   "project": "mihomo",
   "repo": "MetaCubeX/mihomo",
-  "tag": "v1.19.24",
+  "tag": "v1.19.22",
   "target": "windows-amd64",
-  "uploaded_at": "2026-04-27T07:08:29+00:00"
+  "uploaded_at": "2026-04-27T10:03:22+00:00",
+  "uploads": [
+    {
+      "commit": "0120b1d76d263575ac008abd821ec726042c94e6",
+      "files": [
+        "mihomo-v1.19.22-windows-amd64.zip"
+      ],
+      "tag": "v1.19.22",
+      "uploaded_at": "2026-04-27T10:03:22+00:00"
+    },
+    {
+      "commit": "97c526f4cdd61a94defd70891b03c1365de8b816",
+      "files": [
+        "mihomo-v1.19.23-windows-amd64.zip"
+      ],
+      "tag": "v1.19.23",
+      "uploaded_at": "2026-04-27T10:00:37+00:00"
+    },
+    {
+      "commit": "a84724665eb7f989809abe463c05f5723bd24975",
+      "files": [
+        "mihomo-v1.19.24-windows-amd64.zip"
+      ],
+      "tag": "v1.19.24",
+      "uploaded_at": "2026-04-27T07:08:29+00:00"
+    }
+  ]
 }

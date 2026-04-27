@@ -1,11 +1,37 @@
 {
-  "commit": "19e30ce89c6eed7aaf2b74128e17b243325e4a8e",
+  "commit": "68bf00845f54b05a7c6620f2acee176f11cce636",
   "files": [
-    "adguard-v0.107.74-windows-amd64.zip"
+    "adguard-v0.107.72-windows-amd64.zip"
   ],
   "project": "adguard",
   "repo": "AdguardTeam/AdGuardHome",
-  "tag": "v0.107.74",
+  "tag": "v0.107.72",
   "target": "windows-amd64",
-  "uploaded_at": "2026-04-27T07:27:29+00:00"
+  "uploaded_at": "2026-04-27T10:12:42+00:00",
+  "uploads": [
+    {
+      "commit": "68bf00845f54b05a7c6620f2acee176f11cce636",
+      "files": [
+        "adguard-v0.107.72-windows-amd64.zip"
+      ],
+      "tag": "v0.107.72",
+      "uploaded_at": "2026-04-27T10:12:42+00:00"
+    },
+    {
+      "commit": "c003e9f9c04311a13ca7a873a8437f80711102a5",
+      "files": [
+        "adguard-v0.107.73-windows-amd64.zip"
+      ],
+      "tag": "v0.107.73",
+      "uploaded_at": "2026-04-27T10:05:14+00:00"
+    },
+    {
+      "commit": "19e30ce89c6eed7aaf2b74128e17b243325e4a8e",
+      "files": [
+        "adguard-v0.107.74-windows-amd64.zip"
+      ],
+      "tag": "v0.107.74",
+      "uploaded_at": "2026-04-27T07:27:29+00:00"
+    }
+  ]
 }
