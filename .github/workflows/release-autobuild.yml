@@ -35,6 +35,16 @@ on:
         required: false
         default: false
         type: boolean
+      jobs:
+        description: "poll-all parallel project builds, for example 3"
+        required: false
+        default: "1"
+        type: string
+      push_release_limit:
+        description: "latest stable versions to build/upload in poll-all"
+        required: false
+        default: "3"
+        type: string
   schedule:
     - cron: "17 */6 * * *"
 
@@ -107,6 +117,8 @@ jobs:
           force="${{ github.event.inputs.force || 'false' }}"
           no_upload="${{ github.event.inputs.no_upload || 'false' }}"
           stop_on_error="${{ github.event.inputs.stop_on_error || 'false' }}"
+          jobs="${{ github.event.inputs.jobs || '1' }}"
+          push_release_limit="${{ github.event.inputs.push_release_limit || '3' }}"
 
           args=()
           case "$mode" in
@@ -134,6 +146,8 @@ jobs:
           [[ "$force" == "true" ]] && args+=(--force)
           [[ "$no_upload" == "true" ]] && args+=(--no-upload)
           [[ "$stop_on_error" == "true" ]] && args+=(--stop-on-error)
+          [[ -n "$jobs" ]] && args+=(--jobs "$jobs")
+          [[ -n "$push_release_limit" ]] && args+=(--push-release-limit "$push_release_limit")
 
           python3 build_release.py "${args[@]}"
           code=$?

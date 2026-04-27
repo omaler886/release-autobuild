@@ -3,8 +3,10 @@
 Build upstream releases, upload them to Telegram, then clean up.
 
 Single-build mode accepts exactly one project and one target. Poll-all mode
-checks every configured project and target, but still builds only one target at
-a time.
+checks every configured project and target. It can build different upstream
+projects in parallel while keeping targets from the same project sequential.
+Poll-all syncs the full stable upstream Release list, but builds/uploads only
+the newest PUSH_RELEASE_LIMIT versions by default.
 Secrets are read from environment variables:
   TG_BOT_TOKEN - Telegram bot token
   TG_CHAT_ID   - target chat/user id
@@ -13,6 +15,7 @@ Secrets are read from environment variables:
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import dataclasses
 import datetime as dt
 import fnmatch
@@ -25,6 +28,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -45,6 +49,8 @@ DEFAULT_ENV_FILES = (
     ROOT / "config.env",
     ROOT / ".env",
 )
+SOURCE_CACHE_LOCKS: dict[Path, threading.Lock] = {}
+SOURCE_CACHE_LOCKS_GUARD = threading.Lock()
 
 
 @dataclasses.dataclass(frozen=True)
@@ -67,6 +73,7 @@ class Project:
     gradle_dir: str = "."
     gradle_tasks: tuple[str, ...] = ("assembleRelease",)
     clone_submodules: bool = False
+    local_branch: str | None = None
 
     @property
     def clone_url(self) -> str:
@@ -252,6 +259,60 @@ def load_environment(env_file: Path | None) -> None:
         load_env_file(path, override=False)
 
 
+def project_env_name(prefix: str, project: Project) -> str:
+    suffix = project.key.upper().replace("-", "_")
+    return f"{prefix}_{suffix}"
+
+
+def env_int(name: str, default: int) -> int:
+    value = os.environ.get(name)
+    if not value:
+        return default
+    try:
+        return int(value)
+    except ValueError as exc:
+        raise BuildError(f"{name} must be an integer, got {value!r}") from exc
+
+
+def resolve_runtime_options(args: argparse.Namespace) -> None:
+    if args.jobs is None:
+        args.jobs = env_int("BUILD_JOBS", 1)
+    if args.jobs < 1:
+        raise BuildError("--jobs must be at least 1")
+
+    if args.push_release_limit is None:
+        args.push_release_limit = env_int("PUSH_RELEASE_LIMIT", 3)
+    if args.push_release_limit < 1:
+        raise BuildError("--push-release-limit must be at least 1")
+
+    if args.source_cache_dir is None and os.environ.get("SOURCE_CACHE_DIR"):
+        args.source_cache_dir = Path(os.environ["SOURCE_CACHE_DIR"])
+    if args.source_branch_prefix is None:
+        args.source_branch_prefix = os.environ.get("SOURCE_BRANCH_PREFIX", "autobuild")
+    args.source_branch_prefix = args.source_branch_prefix.strip().strip("/")
+    if not args.source_branch_prefix:
+        raise BuildError("--source-branch-prefix cannot be empty")
+
+
+def project_local_branch(project: Project, branch_prefix: str) -> str:
+    branch = os.environ.get(project_env_name("SOURCE_BRANCH", project)) or project.local_branch
+    if branch:
+        branch = branch.strip()
+        if branch:
+            return branch
+    return f"{branch_prefix}/{project.key}"
+
+
+def source_cache_lock(cache_repo: Path) -> threading.Lock:
+    resolved = cache_repo.resolve()
+    with SOURCE_CACHE_LOCKS_GUARD:
+        lock = SOURCE_CACHE_LOCKS.get(resolved)
+        if lock is None:
+            lock = threading.Lock()
+            SOURCE_CACHE_LOCKS[resolved] = lock
+        return lock
+
+
 def github_json(path: str) -> object:
     url = f"https://api.github.com{path}"
     request = urllib.request.Request(url, headers=env_with_token())
@@ -273,17 +334,36 @@ def looks_stable_release(release: dict[str, object]) -> bool:
     )
 
 
-def latest_release(project: Project) -> dict[str, object]:
-    data = github_json(f"/repos/{project.repo}/releases?per_page=30")
-    if not isinstance(data, list):
-        raise BuildError(f"unexpected releases response for {project.repo}")
-    for release in data:
-        if isinstance(release, dict) and looks_stable_release(release):
-            tag = release.get("tag_name")
-            if not isinstance(tag, str) or not tag:
-                continue
-            return release
+def github_releases(project: Project) -> list[dict[str, object]]:
+    releases: list[dict[str, object]] = []
+    page = 1
+    while True:
+        data = github_json(f"/repos/{project.repo}/releases?per_page=100&page={page}")
+        if not isinstance(data, list):
+            raise BuildError(f"unexpected releases response for {project.repo}")
+        releases.extend(release for release in data if isinstance(release, dict))
+        if len(data) < 100:
+            break
+        page += 1
+    return releases
+
+
+def stable_releases(project: Project) -> list[dict[str, object]]:
+    releases: list[dict[str, object]] = []
+    for release in github_releases(project):
+        if not looks_stable_release(release):
+            continue
+        tag = release.get("tag_name")
+        if not isinstance(tag, str) or not tag:
+            continue
+        releases.append(release)
+    if releases:
+        return releases
     raise BuildError(f"no stable GitHub release found for {project.repo}")
+
+
+def latest_release(project: Project) -> dict[str, object]:
+    return stable_releases(project)[0]
 
 
 def run(
@@ -322,7 +402,48 @@ def run(
         raise BuildError(f"command failed with exit code {code}: {' '.join(cmd)}")
 
 
-def clone_source(project: Project, tag: str, source_dir: Path, log_file: Path) -> None:
+def ensure_source_cache(
+    project: Project,
+    tag: str,
+    source_cache_dir: Path,
+    branch_prefix: str,
+    log_file: Path,
+) -> tuple[Path, str]:
+    source_cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_repo = source_cache_dir / safe_name(project.key)
+    branch = project_local_branch(project, branch_prefix)
+    with source_cache_lock(cache_repo):
+        if cache_repo.exists() and not (cache_repo / ".git").exists():
+            raise BuildError(f"source cache path exists but is not a git repo: {cache_repo}")
+        if not cache_repo.exists():
+            run(["git", "clone", project.clone_url, str(cache_repo)], cwd=source_cache_dir, log_file=log_file)
+        else:
+            run(["git", "remote", "set-url", "origin", project.clone_url], cwd=cache_repo, log_file=log_file)
+        run(["git", "fetch", "--tags", "--prune", "origin"], cwd=cache_repo, log_file=log_file)
+        run(["git", "checkout", "-B", branch, tag], cwd=cache_repo, log_file=log_file)
+        run(["git", "reset", "--hard", tag], cwd=cache_repo, log_file=log_file)
+        run(["git", "clean", "-fdx"], cwd=cache_repo, log_file=log_file)
+    return cache_repo, branch
+
+
+def clone_source(
+    project: Project,
+    tag: str,
+    source_dir: Path,
+    log_file: Path,
+    source_cache_dir: Path | None = None,
+    branch_prefix: str = "autobuild",
+) -> None:
+    if source_cache_dir:
+        cache_repo, branch = ensure_source_cache(project, tag, source_cache_dir, branch_prefix, log_file)
+        print(f"using local source cache: {cache_repo} branch={branch}", flush=True)
+        run(["git", "clone", "--branch", branch, str(cache_repo), str(source_dir)], cwd=source_dir.parent, log_file=log_file)
+        if project.kind == "adguardhome":
+            run(["git", "fetch", "origin", "master:refs/heads/master"], cwd=source_dir, log_file=log_file)
+        if project.clone_submodules:
+            run(["git", "submodule", "update", "--init", "--recursive"], cwd=source_dir, log_file=log_file)
+        return
+
     cmd = ["git", "clone", "--depth", "1", "--branch", tag]
     if project.clone_submodules:
         cmd += ["--recurse-submodules", "--shallow-submodules"]
@@ -726,6 +847,34 @@ def write_state(path: Path, payload: dict[str, object]) -> None:
     tmp.replace(path)
 
 
+def uploaded_entries(state: dict[str, object]) -> list[dict[str, object]]:
+    entries: list[dict[str, object]] = []
+    seen: set[str] = set()
+    raw_uploads = state.get("uploads")
+    if isinstance(raw_uploads, list):
+        for item in raw_uploads:
+            if not isinstance(item, dict):
+                continue
+            tag = item.get("tag")
+            if not isinstance(tag, str) or not tag or tag in seen:
+                continue
+            entries.append(item)
+            seen.add(tag)
+
+    legacy_tag = state.get("tag")
+    if isinstance(legacy_tag, str) and legacy_tag and legacy_tag not in seen:
+        entries.insert(
+            0,
+            {
+                "tag": legacy_tag,
+                "commit": state.get("commit", ""),
+                "uploaded_at": state.get("uploaded_at", ""),
+                "files": state.get("files", []),
+            },
+        )
+    return entries
+
+
 def list_projects() -> None:
     print("Projects:")
     for key, project in PROJECTS.items():
@@ -760,7 +909,9 @@ def check_project_prereqs(project: Project) -> None:
 
 def target_uploaded(state_dir: Path, project: Project, target: Target, tag: str) -> bool:
     previous = read_state(state_file(state_dir, project, target))
-    return previous.get("tag") == tag and previous.get("target") == target.key
+    if previous.get("target") not in {None, target.key}:
+        return False
+    return any(entry.get("tag") == tag for entry in uploaded_entries(previous))
 
 
 def target_caption(project: Project, target: Target, tag: str, commit: str) -> str:
@@ -775,16 +926,27 @@ def mark_target_uploaded(
     commit: str,
     packages: list[Path],
 ) -> None:
+    path = state_file(state_dir, project, target)
+    previous = read_state(path)
+    upload_entry = {
+        "tag": tag,
+        "commit": commit,
+        "uploaded_at": utc_now(),
+        "files": [package.name for package in packages],
+    }
+    uploads = [entry for entry in uploaded_entries(previous) if entry.get("tag") != tag]
+    uploads.insert(0, upload_entry)
     write_state(
-        state_file(state_dir, project, target),
+        path,
         {
             "project": project.key,
             "repo": project.repo,
             "tag": tag,
             "target": target.key,
             "commit": commit,
-            "uploaded_at": utc_now(),
+            "uploaded_at": upload_entry["uploaded_at"],
             "files": [package.name for package in packages],
+            "uploads": uploads,
         },
     )
 
@@ -829,7 +991,7 @@ def single_build(args: argparse.Namespace, project: Project, target: Target) -> 
     if args.check_only:
         print(f"state: {json.dumps(previous, ensure_ascii=False)}")
         return 0
-    if not args.force and previous.get("tag") == tag and previous.get("target") == target.key:
+    if not args.force and target_uploaded(args.state_dir, project, target, tag):
         print("already uploaded; use --force to rebuild")
         return 0
     check_project_prereqs(project)
@@ -842,7 +1004,14 @@ def single_build(args: argparse.Namespace, project: Project, target: Target) -> 
     dist_dir = work_dir / "dist"
     failed = True
     try:
-        clone_source(project, tag, source_dir, log_file)
+        clone_source(
+            project,
+            tag,
+            source_dir,
+            log_file,
+            args.source_cache_dir,
+            args.source_branch_prefix,
+        )
         build_upload_one_target(
             project,
             target,
@@ -864,55 +1033,81 @@ def single_build(args: argparse.Namespace, project: Project, target: Target) -> 
             print(f"cleaned work directory: {work_dir}")
 
 
-def poll_all_once(args: argparse.Namespace) -> int:
-    args.log_dir.mkdir(parents=True, exist_ok=True)
-    tmp_parent = args.work_dir
-    if tmp_parent:
-        tmp_parent.mkdir(parents=True, exist_ok=True)
+@dataclasses.dataclass
+class PollProjectResult:
+    project: str
+    built: int = 0
+    skipped: int = 0
+    synced_releases: int = 0
+    failures: list[str] = dataclasses.field(default_factory=list)
 
-    failures: list[str] = []
-    built_count = 0
-    skipped_count = 0
 
-    for project in PROJECTS.values():
-        try:
-            release = latest_release(project)
-            tag = str(release["tag_name"])
-        except BuildError as exc:
-            failures.append(f"{project.key}: release check failed: {exc}")
-            if args.stop_on_error:
-                break
-            continue
+def poll_project_once(project: Project, args: argparse.Namespace) -> PollProjectResult:
+    result = PollProjectResult(project=project.key)
+    try:
+        releases = stable_releases(project)
+    except BuildError as exc:
+        result.failures.append(f"{project.key}: release check failed: {exc}")
+        return result
+    result.synced_releases = len(releases)
+    push_releases = releases[: args.push_release_limit]
 
-        targets = [TARGETS[key] for key in project.supports]
+    targets = [TARGETS[key] for key in project.supports]
+    release_plan: list[tuple[str, list[Target]]] = []
+    for release in push_releases:
+        tag = str(release["tag_name"])
         pending = [target for target in targets if args.force or not target_uploaded(args.state_dir, project, target, tag)]
-        if not pending:
-            print(f"{project.key}: {tag} all targets already uploaded")
-            skipped_count += len(targets)
-            continue
+        result.skipped += len(targets) - len(pending)
+        if pending:
+            release_plan.append((tag, pending))
 
-        print(f"{project.key}: {tag} pending targets: {', '.join(t.key for t in pending)}")
-        try:
-            check_project_prereqs(project)
-        except BuildError as exc:
-            message = f"{project.key}: prerequisite check failed: {exc}"
-            print(f"error: {message}", file=sys.stderr)
-            failures.append(message)
-            if args.stop_on_error:
-                break
-            continue
+    if not release_plan:
+        tags = ", ".join(str(release["tag_name"]) for release in push_releases)
+        print(f"{project.key}: synced {result.synced_releases} stable releases; latest {len(push_releases)} already uploaded: {tags}")
+        return result
 
+    plan_text = "; ".join(f"{tag}: {', '.join(target.key for target in pending)}" for tag, pending in release_plan)
+    print(
+        f"{project.key}: synced {result.synced_releases} stable releases; "
+        f"pushing latest {len(push_releases)}; pending {plan_text}"
+    )
+    try:
+        check_project_prereqs(project)
+    except BuildError as exc:
+        message = f"{project.key}: prerequisite check failed: {exc}"
+        print(f"error: {message}", file=sys.stderr)
+        result.failures.append(message)
+        return result
+
+    for tag, pending in release_plan:
         log_file = args.log_dir / f"{safe_name(project.key)}-{safe_name(tag)}-{int(time.time())}.log"
-        work_dir = Path(tempfile.mkdtemp(prefix=f"codex-poll-{project.key}-", dir=tmp_parent))
+        work_dir = Path(tempfile.mkdtemp(prefix=f"codex-poll-{project.key}-{safe_name(tag)}-", dir=args.work_dir))
         source_dir = work_dir / "src"
         project_failed = False
         try:
-            clone_source(project, tag, source_dir, log_file)
+            try:
+                clone_source(
+                    project,
+                    tag,
+                    source_dir,
+                    log_file,
+                    args.source_cache_dir,
+                    args.source_branch_prefix,
+                )
+            except BuildError as exc:
+                message = f"{project.key} {tag}: source clone failed: {exc}"
+                print(f"error: {message}", file=sys.stderr)
+                result.failures.append(message)
+                project_failed = True
+                if args.stop_on_error:
+                    break
+                continue
+
             for target in pending:
                 dist_dir = work_dir / "dist" / target.key
                 target_failed = True
                 try:
-                    print(f"{project.key}: building {target.key}")
+                    print(f"{project.key}: building {tag} {target.key}")
                     build_upload_one_target(
                         project,
                         target,
@@ -924,15 +1119,13 @@ def poll_all_once(args: argparse.Namespace) -> int:
                         args.state_dir,
                         args.no_upload,
                     )
-                    built_count += 1
+                    result.built += 1
                     target_failed = False
                 except BuildError as exc:
-                    message = f"{project.key} {target.key}: {exc}"
+                    message = f"{project.key} {tag} {target.key}: {exc}"
                     print(f"error: {message}", file=sys.stderr)
-                    failures.append(message)
+                    result.failures.append(message)
                     project_failed = True
-                    if args.stop_on_error:
-                        raise
                 finally:
                     if target_failed and args.keep_on_failure:
                         print(f"kept failed target output: {dist_dir}")
@@ -943,9 +1136,6 @@ def poll_all_once(args: argparse.Namespace) -> int:
                     break
                 if not target_failed:
                     reset_project_build_outputs(project, source_dir, log_file)
-        except BuildError:
-            if args.stop_on_error:
-                raise
         finally:
             if project_failed and args.keep_on_failure:
                 print(f"kept failed source work directory: {work_dir}")
@@ -953,10 +1143,53 @@ def poll_all_once(args: argparse.Namespace) -> int:
                 shutil.rmtree(work_dir, ignore_errors=True)
                 print(f"cleaned source work directory: {work_dir}")
 
-        if failures and args.stop_on_error:
+        if project_failed and args.stop_on_error:
             break
+    return result
 
-    print(f"poll summary: built={built_count} skipped={skipped_count} failures={len(failures)}")
+
+def poll_all_once(args: argparse.Namespace) -> int:
+    args.log_dir.mkdir(parents=True, exist_ok=True)
+    if args.work_dir:
+        args.work_dir.mkdir(parents=True, exist_ok=True)
+    if args.source_cache_dir:
+        args.source_cache_dir.mkdir(parents=True, exist_ok=True)
+
+    failures: list[str] = []
+    built_count = 0
+    skipped_count = 0
+    synced_count = 0
+    projects = list(PROJECTS.values())
+
+    if args.jobs == 1:
+        for project in projects:
+            result = poll_project_once(project, args)
+            built_count += result.built
+            skipped_count += result.skipped
+            synced_count += result.synced_releases
+            failures.extend(result.failures)
+            if result.failures and args.stop_on_error:
+                break
+    else:
+        print(f"poll-all parallel jobs: {args.jobs}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as executor:
+            future_to_project = {executor.submit(poll_project_once, project, args): project for project in projects}
+            for future in concurrent.futures.as_completed(future_to_project):
+                project = future_to_project[future]
+                try:
+                    result = future.result()
+                except Exception as exc:
+                    result = PollProjectResult(project=project.key, failures=[f"{project.key}: unexpected failure: {exc}"])
+                built_count += result.built
+                skipped_count += result.skipped
+                synced_count += result.synced_releases
+                failures.extend(result.failures)
+                if result.failures and args.stop_on_error:
+                    for pending_future in future_to_project:
+                        pending_future.cancel()
+                    break
+
+    print(f"poll summary: synced_releases={synced_count} built={built_count} skipped={skipped_count} failures={len(failures)}")
     for failure in failures:
         print(f"failure: {failure}", file=sys.stderr)
     return 1 if failures else 0
@@ -966,23 +1199,26 @@ def poll_all_check(args: argparse.Namespace) -> int:
     failures = 0
     for project in PROJECTS.values():
         try:
-            release = latest_release(project)
-            tag = str(release["tag_name"])
+            releases = stable_releases(project)
         except BuildError as exc:
             failures += 1
             print(f"{project.key}: release check failed: {exc}", file=sys.stderr)
             continue
-        pending: list[str] = []
-        uploaded: list[str] = []
-        for target_key in project.supports:
-            target = TARGETS[target_key]
-            if target_uploaded(args.state_dir, project, target, tag):
-                uploaded.append(target.key)
-            else:
-                pending.append(target.key)
-        print(f"{project.key}: {tag}")
-        print(f"  pending: {', '.join(pending) if pending else 'none'}")
-        print(f"  uploaded: {', '.join(uploaded) if uploaded else 'none'}")
+        push_releases = releases[: args.push_release_limit]
+        print(f"{project.key}: synced {len(releases)} stable releases; push latest {len(push_releases)}")
+        for release in push_releases:
+            tag = str(release["tag_name"])
+            pending: list[str] = []
+            uploaded: list[str] = []
+            for target_key in project.supports:
+                target = TARGETS[target_key]
+                if target_uploaded(args.state_dir, project, target, tag):
+                    uploaded.append(target.key)
+                else:
+                    pending.append(target.key)
+            print(f"  {tag}")
+            print(f"    pending: {', '.join(pending) if pending else 'none'}")
+            print(f"    uploaded: {', '.join(uploaded) if uploaded else 'none'}")
     return 1 if failures else 0
 
 
@@ -990,16 +1226,27 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", help="one project key, e.g. xray or v2rayng")
     parser.add_argument("--target", help="one target, e.g. linux-amd64, windows-amd64, android-arm64")
-    parser.add_argument("--poll-all", action="store_true", help="check every project/target and build pending artifacts sequentially")
+    parser.add_argument("--poll-all", action="store_true", help="check every project/target and build pending artifacts")
     parser.add_argument("--interval", type=int, default=0, help="with --poll-all, repeat forever every N seconds")
+    parser.add_argument("--jobs", type=int, default=None, help="max upstream projects to build in parallel with --poll-all; default: BUILD_JOBS or 1")
+    parser.add_argument(
+        "--push-release-limit",
+        "--release-limit",
+        dest="push_release_limit",
+        type=int,
+        default=None,
+        help="latest stable release versions to build/upload per project in poll-all; default: PUSH_RELEASE_LIMIT or 3",
+    )
     parser.add_argument("--stop-on-error", action="store_true", help="stop poll-all after the first failed project or target")
     parser.add_argument("--state-dir", type=Path, default=DEFAULT_STATE_DIR)
     parser.add_argument("--log-dir", type=Path, default=DEFAULT_LOG_DIR)
     parser.add_argument("--patch-dir", type=Path, default=DEFAULT_PATCH_DIR)
     parser.add_argument("--env-file", type=Path, default=None, help="load secrets/config from this env file")
     parser.add_argument("--work-dir", type=Path, default=None, help="parent directory for temporary source/build work")
+    parser.add_argument("--source-cache-dir", type=Path, default=None, help="optional persistent local upstream clone cache")
+    parser.add_argument("--source-branch-prefix", default=None, help="local branch prefix inside source cache; default: SOURCE_BRANCH_PREFIX or autobuild")
     parser.add_argument("--force", action="store_true", help="build even if this tag/target was already uploaded")
-    parser.add_argument("--check-only", action="store_true", help="only print latest stable release and state")
+    parser.add_argument("--check-only", action="store_true", help="only print release and state status")
     parser.add_argument("--no-upload", action="store_true", help="build but do not upload or mark state")
     parser.add_argument("--keep-on-failure", action="store_true", help="keep temporary work directory if build fails")
     parser.add_argument("--list", action="store_true", help="list configured projects and targets")
@@ -1012,6 +1259,7 @@ def main(argv: Iterable[str]) -> int:
     if args.list:
         list_projects()
         return 0
+    resolve_runtime_options(args)
 
     lock_path = args.state_dir / ".build.lock"
     with RunLock(lock_path):
