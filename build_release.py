@@ -471,12 +471,21 @@ def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir:
 
 def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> None:
     required = ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS")
+    config_keystore_path = source_dir / "TMessagesProj" / "config" / "release.keystore"
+    config_keystore_path.parent.mkdir(parents=True, exist_ok=True)
     if all(os.environ.get(name) for name in required):
+        supplied_keystore = Path(os.environ["KEYSTORE_PATH"]).expanduser()
+        if not supplied_keystore.exists():
+            raise BuildError(f"KEYSTORE_PATH does not exist: {supplied_keystore}")
+        if supplied_keystore.resolve() != config_keystore_path.resolve():
+            shutil.copy2(supplied_keystore, config_keystore_path)
         return
 
-    keystore_path = source_dir / "release.keystore"
-    store_pass = os.environ.get("KEYSTORE_PASS") or "release"
-    alias_name = os.environ.get("ALIAS_NAME") or "release"
+    keystore_path = config_keystore_path
+    if keystore_path.exists():
+        keystore_path.unlink()
+    store_pass = os.environ.get("KEYSTORE_PASS") or "android"
+    alias_name = os.environ.get("ALIAS_NAME") or "androidkey"
     alias_pass = os.environ.get("ALIAS_PASS") or store_pass
     dname = os.environ.get("KEYSTORE_DNAME", "CN=Momogram, OU=Codex, O=Codex, L=Local, S=NA, C=US")
     cmd = [
