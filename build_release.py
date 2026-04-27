@@ -131,6 +131,14 @@ PROJECTS: dict[str, Project] = {
         main="./cmd/sing-box",
         aliases=("singbox",),
     ),
+    "sing-box-subscribe": Project(
+        key="sing-box-subscribe",
+        repo="yelnoo/sing-box",
+        kind="go",
+        binary="sing-box",
+        main="./cmd/sing-box",
+        aliases=("singbox-subscribe", "sing-box-sub", "singbox-sub", "yelnoo-sing-box"),
+    ),
     "mosdns": Project(
         key="mosdns",
         repo="IrineSistiana/mosdns",
@@ -293,6 +301,12 @@ def resolve_runtime_options(args: argparse.Namespace) -> None:
     if not args.source_branch_prefix:
         raise BuildError("--source-branch-prefix cannot be empty")
 
+    if args.upstream_branch_prefix is None:
+        args.upstream_branch_prefix = os.environ.get("UPSTREAM_BRANCH_PREFIX", "upstream")
+    args.upstream_branch_prefix = args.upstream_branch_prefix.strip().strip("/")
+    if not args.upstream_branch_prefix:
+        raise BuildError("--upstream-branch-prefix cannot be empty")
+
 
 def project_local_branch(project: Project, branch_prefix: str) -> str:
     branch = os.environ.get(project_env_name("SOURCE_BRANCH", project)) or project.local_branch
@@ -322,6 +336,8 @@ def github_json(path: str) -> object:
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", "replace")
         raise BuildError(f"GitHub API failed {exc.code}: {body[:300]}") from exc
+    except urllib.error.URLError as exc:
+        raise BuildError(f"GitHub API request failed: {exc.reason}") from exc
 
 
 def looks_stable_release(release: dict[str, object]) -> bool:
@@ -348,22 +364,75 @@ def github_releases(project: Project) -> list[dict[str, object]]:
     return releases
 
 
-def stable_releases(project: Project) -> list[dict[str, object]]:
-    releases: list[dict[str, object]] = []
-    for release in github_releases(project):
+def github_tags(project: Project) -> list[dict[str, object]]:
+    tags: list[dict[str, object]] = []
+    page = 1
+    while True:
+        data = github_json(f"/repos/{project.repo}/tags?per_page=100&page={page}")
+        if not isinstance(data, list):
+            raise BuildError(f"unexpected tags response for {project.repo}")
+        for tag in data:
+            if not isinstance(tag, dict):
+                continue
+            name = tag.get("name")
+            if not isinstance(name, str) or not name:
+                continue
+            commit = tag.get("commit", {})
+            sha = commit.get("sha") if isinstance(commit, dict) else ""
+            tags.append(
+                {
+                    "tag_name": name,
+                    "name": name,
+                    "target_commitish": sha,
+                    "html_url": f"https://github.com/{project.repo}/tree/{urllib.parse.quote(name, safe='')}",
+                    "draft": False,
+                    "prerelease": False,
+                    "source": "tag",
+                }
+            )
+        if len(data) < 100:
+            break
+        page += 1
+    return tags
+
+
+def filter_stable_releases(releases: list[dict[str, object]]) -> list[dict[str, object]]:
+    stable: list[dict[str, object]] = []
+    for release in releases:
         if not looks_stable_release(release):
             continue
         tag = release.get("tag_name")
         if not isinstance(tag, str) or not tag:
             continue
-        releases.append(release)
+        stable.append(release)
+    return stable
+
+
+def upstream_versions(project: Project) -> tuple[list[dict[str, object]], str]:
+    releases = github_releases(project)
+    if filter_stable_releases(releases):
+        return releases, "release"
+    tags = github_tags(project)
+    if tags:
+        return tags, "tag"
+    return releases, "release"
+
+
+def stable_releases(project: Project) -> list[dict[str, object]]:
+    versions, source = upstream_versions(project)
+    releases = filter_stable_releases(versions)
     if releases:
         return releases
-    raise BuildError(f"no stable GitHub release found for {project.repo}")
+    raise BuildError(f"no stable GitHub {source} found for {project.repo}")
 
 
 def latest_release(project: Project) -> dict[str, object]:
     return stable_releases(project)[0]
+
+
+def release_summary(release: dict[str, object]) -> dict[str, object]:
+    keys = ("tag_name", "name", "published_at", "created_at", "target_commitish", "html_url", "draft", "prerelease", "source")
+    return {key: release.get(key) for key in keys if key in release}
 
 
 def run(
@@ -504,7 +573,7 @@ def build_go(project: Project, target: Target, source_dir: Path, dist_dir: Path,
     env = go_env(target)
     ldflags = os.environ.get("GO_LDFLAGS", "-s -w -buildid=")
     tags = ""
-    if project.key == "sing-box":
+    if project.key in {"sing-box", "sing-box-subscribe"}:
         tags = os.environ.get(
             "SING_BOX_TAGS",
             "with_gvisor,with_quic,with_dhcp,with_wireguard,with_utls,with_acme,with_clash_api",
@@ -1222,6 +1291,75 @@ def poll_all_check(args: argparse.Namespace) -> int:
     return 1 if failures else 0
 
 
+def sync_upstream_branches(args: argparse.Namespace) -> None:
+    args.log_dir.mkdir(parents=True, exist_ok=True)
+    log_file = args.log_dir / f"upstream-branches-{int(time.time())}.log"
+    base_head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(ROOT), text=True).strip()
+    base_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=str(ROOT), text=True).strip()
+    if not base_branch:
+        base_branch = "HEAD"
+
+    with tempfile.TemporaryDirectory(prefix="codex-upstream-branches-") as tmp:
+        worktree_dir = Path(tmp) / "worktree"
+        run(["git", "worktree", "add", "--detach", str(worktree_dir), base_head], cwd=ROOT, log_file=log_file)
+        try:
+            run(["git", "config", "user.name", os.environ.get("GIT_COMMITTER_NAME", "github-actions[bot]")], cwd=worktree_dir, log_file=log_file)
+            run(
+                [
+                    "git",
+                    "config",
+                    "user.email",
+                    os.environ.get("GIT_COMMITTER_EMAIL", "41898282+github-actions[bot]@users.noreply.github.com"),
+                ],
+                cwd=worktree_dir,
+                log_file=log_file,
+            )
+            for project in PROJECTS.values():
+                releases, source = upstream_versions(project)
+                stable = filter_stable_releases(releases)
+                if not stable:
+                    raise BuildError(f"no stable GitHub {source} found for {project.repo}")
+
+                branch = f"{args.upstream_branch_prefix}/{project.key}"
+                run(["git", "checkout", "-B", branch, base_head], cwd=worktree_dir, log_file=log_file)
+                run(["git", "reset", "--hard", base_head], cwd=worktree_dir, log_file=log_file)
+                run(["git", "clean", "-fdx"], cwd=worktree_dir, log_file=log_file)
+
+                branch_dir = worktree_dir / "upstream-releases"
+                branch_dir.mkdir(parents=True, exist_ok=True)
+                payload = {
+                    "project": project.key,
+                    "repo": project.repo,
+                    "source_branch": branch,
+                    "base_branch": base_branch,
+                    "base_commit": base_head,
+                    "version_source": source,
+                    "synced_at": utc_now(),
+                    "release_count": len(releases),
+                    "stable_release_count": len(stable),
+                    "push_release_limit": args.push_release_limit,
+                    "push_candidates": [release_summary(release) for release in stable[: args.push_release_limit]],
+                    "stable_releases": [release_summary(release) for release in stable],
+                    "all_releases": [release_summary(release) for release in releases],
+                }
+                metadata = branch_dir / f"{project.key}.json"
+                metadata.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+                run(["git", "add", str(metadata.relative_to(worktree_dir))], cwd=worktree_dir, log_file=log_file)
+                diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=str(worktree_dir))
+                if diff.returncode == 0:
+                    print(f"{branch}: upstream release metadata unchanged")
+                else:
+                    run(
+                        ["git", "commit", "-m", f"Sync {project.key} upstream releases [skip ci]"],
+                        cwd=worktree_dir,
+                        log_file=log_file,
+                    )
+                run(["git", "push", "--force", "origin", f"{branch}:refs/heads/{branch}"], cwd=worktree_dir, log_file=log_file)
+                print(f"synced upstream branch: {branch}")
+        finally:
+            run(["git", "worktree", "remove", "--force", str(worktree_dir)], cwd=ROOT, log_file=log_file)
+
+
 def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", help="one project key, e.g. xray or v2rayng")
@@ -1245,6 +1383,12 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument("--work-dir", type=Path, default=None, help="parent directory for temporary source/build work")
     parser.add_argument("--source-cache-dir", type=Path, default=None, help="optional persistent local upstream clone cache")
     parser.add_argument("--source-branch-prefix", default=None, help="local branch prefix inside source cache; default: SOURCE_BRANCH_PREFIX or autobuild")
+    parser.add_argument(
+        "--sync-upstream-branches",
+        action="store_true",
+        help="push generated upstream/<project> branches with synced GitHub release metadata",
+    )
+    parser.add_argument("--upstream-branch-prefix", default=None, help="remote branch prefix for --sync-upstream-branches; default: UPSTREAM_BRANCH_PREFIX or upstream")
     parser.add_argument("--force", action="store_true", help="build even if this tag/target was already uploaded")
     parser.add_argument("--check-only", action="store_true", help="only print release and state status")
     parser.add_argument("--no-upload", action="store_true", help="build but do not upload or mark state")
@@ -1263,6 +1407,11 @@ def main(argv: Iterable[str]) -> int:
 
     lock_path = args.state_dir / ".build.lock"
     with RunLock(lock_path):
+        if args.sync_upstream_branches:
+            sync_upstream_branches(args)
+            if not args.poll_all and not args.project and not args.target:
+                return 0
+
         if args.poll_all:
             if args.project or args.target:
                 raise BuildError("--poll-all cannot be combined with --project or --target")

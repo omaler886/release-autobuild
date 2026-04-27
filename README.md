@@ -16,7 +16,8 @@ It can run on a Linux builder through cron, or run on schedule through GitHub Ac
 
 - 自动查询上游最新稳定 Release，跳过 draft、prerelease、alpha、beta、rc、nightly、snapshot、preview 等版本。
 - 支持单项目单目标构建，也支持 `--poll-all` 队列模式。
-- `--poll-all` 会同步读取上游全部稳定 Release，但默认只构建/上传最近 3 个稳定版本，可用 `--push-release-limit` 或 `PUSH_RELEASE_LIMIT` 调整。
+- `--poll-all` 会同步读取上游全部稳定 Release；如果上游没有 GitHub Releases，则自动 fallback 到 tags。默认只构建/上传最近 3 个稳定版本，可用 `--push-release-limit` 或 `PUSH_RELEASE_LIMIT` 调整。
+- GitHub Actions 可自动生成 `upstream/<project>` 分支，例如 `upstream/xray`、`upstream/mihomo`，每个分支写入该上游仓库的 Release 同步元数据。
 - 队列模式默认保守顺序执行；设置 `--jobs` 或 `BUILD_JOBS` 后，不同上游项目可并行构建，同一项目内仍逐个目标构建和上传。
 - 可选本地源码缓存 `SOURCE_CACHE_DIR`，每个上游仓库使用独立本地 branch，例如 `autobuild/xray`、`autobuild/mihomo`，实际构建仍在临时 clone 中完成。
 - 使用 `state/*.json` 记录 `项目 + 目标平台 + tag` 上传历史，相同版本默认跳过，可用 `--force` 强制重建。
@@ -28,7 +29,8 @@ English:
 
 - Detects the latest stable upstream GitHub Release and skips drafts, prereleases, alpha, beta, rc, nightly, snapshot, and preview builds.
 - Supports single project/target builds and a full queue mode through `--poll-all`.
-- `--poll-all` syncs the full stable upstream Release list, but builds/uploads only the newest 3 stable versions by default. Tune it with `--push-release-limit` or `PUSH_RELEASE_LIMIT`.
+- `--poll-all` syncs the full stable upstream Release list; if a repository has no GitHub Releases, it falls back to tags. It builds/uploads only the newest 3 stable versions by default. Tune it with `--push-release-limit` or `PUSH_RELEASE_LIMIT`.
+- GitHub Actions can generate `upstream/<project>` branches, such as `upstream/xray` and `upstream/mihomo`, each containing release sync metadata for that upstream repository.
 - Queue mode runs conservatively by default; with `--jobs` or `BUILD_JOBS`, different upstream projects can build in parallel while targets from the same project still build and upload sequentially.
 - Optional local source cache through `SOURCE_CACHE_DIR`; each upstream repository gets its own local branch, such as `autobuild/xray` or `autobuild/mihomo`, while real builds still happen in temporary clones.
 - Uses `state/*.json` to record `project + target + tag` upload history; already uploaded releases are skipped unless `--force` is used.
@@ -44,6 +46,7 @@ English:
 | `xray` | `XTLS/Xray-core` | Go | `android-arm64`, `windows-amd64`, `linux-amd64` | `xray-core` |
 | `mihomo` | `MetaCubeX/mihomo` | Go | `android-arm64`, `windows-amd64`, `linux-amd64` | `clash-meta`, `clashmeta` |
 | `sing-box` | `SagerNet/sing-box` | Go | `android-arm64`, `windows-amd64`, `linux-amd64` | `singbox` |
+| `sing-box-subscribe` | `yelnoo/sing-box` | Go | `android-arm64`, `windows-amd64`, `linux-amd64` | `singbox-subscribe`, `sing-box-sub`, `singbox-sub`, `yelnoo-sing-box` |
 | `mosdns` | `IrineSistiana/mosdns` | Go | `android-arm64`, `windows-amd64`, `linux-amd64` | - |
 | `momogram` | `dic1911/Momogram` | Android/Gradle | `android-arm64` | - |
 | `v2rayng` | `2dust/v2rayNG` | Android/Gradle | `android-arm64` | `v2ray-ng` |
@@ -137,9 +140,9 @@ Run one full queue pass:
 python3 build_release.py --poll-all
 ```
 
-默认会同步读取每个上游仓库全部稳定 Release，但只构建/上传最近 3 个稳定版本:
+默认会同步读取每个上游仓库全部稳定 Release；没有 Releases 的仓库会使用 tags。只构建/上传最近 3 个稳定版本:
 
-By default, every upstream repository's full stable Release list is synced, but only the newest 3 stable versions are built/uploaded:
+By default, every upstream repository's full stable Release list is synced; repositories without Releases use tags. Only the newest 3 stable versions are built/uploaded:
 
 ```bash
 python3 build_release.py --poll-all --push-release-limit 3
@@ -206,6 +209,7 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | `GITHUB_TOKEN` | 提高 GitHub API 速率限制 / Increases the GitHub API rate limit |
 | `BUILD_JOBS` | `--poll-all` 并行构建的上游项目数，默认 `1` / Number of upstream projects built in parallel by `--poll-all`, default `1` |
 | `PUSH_RELEASE_LIMIT` | `--poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Number of newest stable versions built/uploaded by `--poll-all`, default `3` |
+| `UPSTREAM_BRANCH_PREFIX` | 远端 Release 元数据分支前缀，默认 `upstream` / Remote release metadata branch prefix, default `upstream` |
 | `SOURCE_CACHE_DIR` | 本地上游源码缓存目录；启用后每个上游仓库写入独立本地 branch / Local upstream source cache directory; each upstream repo is written to its own local branch |
 | `SOURCE_BRANCH_PREFIX` | 本地缓存 branch 前缀，默认 `autobuild` / Local cache branch prefix, default `autobuild` |
 | `SOURCE_BRANCH_<PROJECT>` | 覆盖单个项目的本地缓存 branch，例如 `SOURCE_BRANCH_XRAY` / Override one project's local cache branch, for example `SOURCE_BRANCH_XRAY` |
@@ -289,6 +293,7 @@ English:
 | `stop_on_error` | 队列遇到第一个失败即停止 / Stop the queue after the first failure |
 | `jobs` | `poll-all` 并行上游项目数，默认 `1` / Parallel upstream project builds in `poll-all`, default `1` |
 | `push_release_limit` | `poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Newest stable versions built/uploaded in `poll-all`, default `3` |
+| `sync_branches` | 生成/更新 `upstream/<project>` 元数据分支，默认开启 / Create/update `upstream/<project>` metadata branches, enabled by default |
 
 工作流的关键行为:
 
@@ -351,6 +356,8 @@ When the local builder has enough resources, build different upstream repositori
 --work-dir <path>       指定临时源码和产物目录的父目录 / Parent directory for temporary source and build outputs
 --source-cache-dir <path>       本地上游源码缓存目录 / Local upstream source cache directory
 --source-branch-prefix <prefix> 本地缓存 branch 前缀，默认 autobuild / Local cache branch prefix, default autobuild
+--sync-upstream-branches        生成/推送 upstream/<project> 元数据分支 / Generate and push upstream/<project> metadata branches
+--upstream-branch-prefix <name> 元数据分支前缀，默认 upstream / Metadata branch prefix, default upstream
 ```
 
 ## 目录说明 / Repository Layout
