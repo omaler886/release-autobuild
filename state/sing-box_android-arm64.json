@@ -1,0 +1,11 @@
+{
+  "commit": "553cfa1f9f99f4da6118f93d507294e580db00d7",
+  "files": [
+    "sing-box-v1.13.11-android-arm64.tar.gz"
+  ],
+  "project": "sing-box",
+  "repo": "SagerNet/sing-box",
+  "tag": "v1.13.11",
+  "target": "android-arm64",
+  "uploaded_at": "2026-04-27T07:10:04+00:00"
+}

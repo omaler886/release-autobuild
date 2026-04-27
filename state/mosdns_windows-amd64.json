@@ -1,0 +1,11 @@
+{
+  "commit": "b7323188bab1ea742538aeccb31b692bc4967d1b",
+  "files": [
+    "mosdns-v5.3.4-windows-amd64.zip"
+  ],
+  "project": "mosdns",
+  "repo": "IrineSistiana/mosdns",
+  "tag": "v5.3.4",
+  "target": "windows-amd64",
+  "uploaded_at": "2026-04-27T07:11:43+00:00"
+}

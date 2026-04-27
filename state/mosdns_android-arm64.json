@@ -1,0 +1,11 @@
+{
+  "commit": "b7323188bab1ea742538aeccb31b692bc4967d1b",
+  "files": [
+    "mosdns-v5.3.4-android-arm64.tar.gz"
+  ],
+  "project": "mosdns",
+  "repo": "IrineSistiana/mosdns",
+  "tag": "v5.3.4",
+  "target": "android-arm64",
+  "uploaded_at": "2026-04-27T07:11:30+00:00"
+}

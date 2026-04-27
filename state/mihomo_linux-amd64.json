@@ -1,0 +1,11 @@
+{
+  "commit": "a84724665eb7f989809abe463c05f5723bd24975",
+  "files": [
+    "mihomo-v1.19.24-linux-amd64.tar.gz"
+  ],
+  "project": "mihomo",
+  "repo": "MetaCubeX/mihomo",
+  "tag": "v1.19.24",
+  "target": "linux-amd64",
+  "uploaded_at": "2026-04-27T07:09:19+00:00"
+}

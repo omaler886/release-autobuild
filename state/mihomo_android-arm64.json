@@ -1,0 +1,11 @@
+{
+  "commit": "a84724665eb7f989809abe463c05f5723bd24975",
+  "files": [
+    "mihomo-v1.19.24-android-arm64.tar.gz"
+  ],
+  "project": "mihomo",
+  "repo": "MetaCubeX/mihomo",
+  "tag": "v1.19.24",
+  "target": "android-arm64",
+  "uploaded_at": "2026-04-27T07:07:44+00:00"
+}
