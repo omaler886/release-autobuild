@@ -1,0 +1,11 @@
+{
+  "commit": "42e7f95e4f7499037792bd347013c27d871ecfac",
+  "files": [
+    "v2rayng-2.0.18-android-arm64.zip"
+  ],
+  "project": "v2rayng",
+  "repo": "2dust/v2rayNG",
+  "tag": "2.0.18",
+  "target": "android-arm64",
+  "uploaded_at": "2026-04-27T08:27:00+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "commit": "19e30ce89c6eed7aaf2b74128e17b243325e4a8e",
+  "files": [
+    "adguard-v0.107.74-android-arm64.tar.gz"
+  ],
+  "project": "adguard",
+  "repo": "AdguardTeam/AdGuardHome",
+  "tag": "v0.107.74",
+  "target": "android-arm64",
+  "uploaded_at": "2026-04-27T07:26:21+00:00"
+}
