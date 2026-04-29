@@ -2,9 +2,9 @@
 
 [![Release Autobuild](https://github.com/omaler886/release-autobuild/actions/workflows/release-autobuild.yml/badge.svg)](https://github.com/omaler886/release-autobuild/actions/workflows/release-autobuild.yml)
 
-`release-autobuild` 用来自动跟踪上游项目的最新稳定 GitHub Release，可按上游仓库并行编译、同一项目内顺序处理目标平台，上传到 Telegram，并用 `state/` 记录已上传版本，避免重复构建。
+`release-autobuild` 用来自动跟踪上游项目的最新稳定 GitHub Release，可按上游仓库并行编译、同一项目内顺序处理目标平台，上传到 Telegram，并用 `state/` 记录已上传版本，避免重复构建。GitHub Actions 工作流使用普通免费版 `ubuntu-latest` runner 的 matrix 并行，不需要付费大 runner 或自建 runner。
 
-`release-autobuild` tracks the latest stable GitHub Release of configured upstream projects, can build different upstream repositories in parallel while processing targets from the same project sequentially, uploads artifacts to Telegram, and records completed uploads in `state/` to avoid duplicate builds.
+`release-autobuild` tracks the latest stable GitHub Release of configured upstream projects, can build different upstream repositories in parallel while processing targets from the same project sequentially, uploads artifacts to Telegram, and records completed uploads in `state/` to avoid duplicate builds. The GitHub Actions workflow uses normal free-plan `ubuntu-latest` matrix jobs, without paid larger runners or self-hosted runners.
 
 它适合部署在 Linux 构建机上通过 cron 运行，也可以直接使用 GitHub Actions 定时执行。
 
@@ -18,7 +18,8 @@ It can run on a Linux builder through cron, or run on schedule through GitHub Ac
 - 支持单项目单目标构建，也支持 `--poll-all` 队列模式。
 - `--poll-all` 会同步读取上游全部稳定 Release；如果上游没有 GitHub Releases，则自动 fallback 到 tags。默认只构建/上传最近 3 个稳定版本，可用 `--push-release-limit` 或 `PUSH_RELEASE_LIMIT` 调整。
 - GitHub Actions 可自动生成 `upstream/<project>` 分支，例如 `upstream/xray`、`upstream/mihomo`，每个分支写入该上游仓库的 Release 同步元数据。
-- 队列模式默认保守顺序执行；设置 `--jobs` 或 `BUILD_JOBS` 后，不同上游项目可并行构建，同一项目内仍逐个目标构建和上传。
+- GitHub Actions 会先生成待构建项目计划，再用 matrix 按上游项目并行构建；`jobs` 输入控制 `max-parallel`，默认 `3`，适合免费版普通 runner。
+- 本地或单 runner 队列模式默认保守顺序执行；设置 `--jobs` 或 `BUILD_JOBS` 后，不同上游项目可并行构建，同一项目内仍逐个目标构建和上传。
 - 可选本地源码缓存 `SOURCE_CACHE_DIR`，每个上游仓库使用独立本地 branch，例如 `autobuild/xray`、`autobuild/mihomo`，实际构建仍在临时 clone 中完成。
 - 使用 `state/*.json` 记录 `项目 + 目标平台 + tag` 上传历史，相同版本默认跳过，可用 `--force` 强制重建。
 - 上传前自动打包产物；Windows 默认 zip，Linux/Android Go 目标默认 tar.gz，APK 目标可直接上传 APK。
@@ -31,12 +32,13 @@ English:
 - Supports single project/target builds and a full queue mode through `--poll-all`.
 - `--poll-all` syncs the full stable upstream Release list; if a repository has no GitHub Releases, it falls back to tags. It builds/uploads only the newest 3 stable versions by default. Tune it with `--push-release-limit` or `PUSH_RELEASE_LIMIT`.
 - GitHub Actions can generate `upstream/<project>` branches, such as `upstream/xray` and `upstream/mihomo`, each containing release sync metadata for that upstream repository.
-- Queue mode runs conservatively by default; with `--jobs` or `BUILD_JOBS`, different upstream projects can build in parallel while targets from the same project still build and upload sequentially.
+- GitHub Actions first creates a pending project plan, then runs a project matrix in parallel; the `jobs` input controls `max-parallel`, default `3`, which is friendly to normal free-plan runners.
+- Local or single-runner queue mode runs conservatively by default; with `--jobs` or `BUILD_JOBS`, different upstream projects can build in parallel while targets from the same project still build and upload sequentially.
 - Optional local source cache through `SOURCE_CACHE_DIR`; each upstream repository gets its own local branch, such as `autobuild/xray` or `autobuild/mihomo`, while real builds still happen in temporary clones.
 - Uses `state/*.json` to record `project + target + tag` upload history; already uploaded releases are skipped unless `--force` is used.
 - Packages artifacts before upload; Windows uses zip, Linux/Android Go targets use tar.gz, and APK targets can be uploaded directly.
 - Supports project patch hooks, such as `patches/v2rayng-no-ads.py`, which hides the v2rayNG promotion entry before building.
-- Uses the global lock file `state/.build.lock` to prevent concurrent builds from cron or GitHub Actions.
+- Uses the global lock file `state/.build.lock` to prevent concurrent local or single-runner builds; GitHub Actions also uses per-branch workflow-level `concurrency` to prevent overlapping workflow runs on the same branch.
 
 ## 支持项目 / Supported Projects
 
@@ -235,15 +237,15 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | Android App | `python3`, `git`, `openjdk-17`, Android SDK/NDK |
 | Momogram | Android App 依赖，加 `autoconf`, `automake`, `libtool`, `meson`, `nasm`, `ninja-build`, `pkg-config`, `yasm`，并需要 NDK `21.4.7075529` / Android app dependencies plus `autoconf`, `automake`, `libtool`, `meson`, `nasm`, `ninja-build`, `pkg-config`, `yasm`, and NDK `21.4.7075529` |
 
-GitHub Actions 工作流会安装 Go、Java 17、Node、Android SDK/NDK 和常见 native 构建工具。自建机器请按实际项目补齐依赖。
+GitHub Actions 工作流会按项目类型安装 Go、Java 17、Node、Android SDK/NDK 和常见 native 构建工具。自建机器请按实际项目补齐依赖。
 
-The GitHub Actions workflow installs Go, Java 17, Node, Android SDK/NDK, and common native build tools. For self-hosted builders, install the dependencies required by the projects you want to build.
+The GitHub Actions workflow installs Go, Java 17, Node, Android SDK/NDK, and common native build tools according to each project type. For self-hosted builders, install the dependencies required by the projects you want to build.
 
 ## GitHub Actions
 
-仓库内置 `.github/workflows/release-autobuild.yml`，支持手动运行和每 6 小时定时运行。
+仓库内置 `.github/workflows/release-autobuild.yml`，支持手动运行和每 6 小时定时运行。工作流会先用 `plan` job 计算哪些上游项目还有待构建版本，再用 GitHub Actions matrix 按项目并行编译，最后由 `commit-state` job 集中合并并提交 `state/`。这套流程只使用免费版可用的标准 GitHub-hosted Linux runner。
 
-The repository includes `.github/workflows/release-autobuild.yml`, supporting manual runs and scheduled runs every 6 hours.
+The repository includes `.github/workflows/release-autobuild.yml`, supporting manual runs and scheduled runs every 6 hours. The workflow first uses a `plan` job to calculate projects with pending builds, then compiles them through a GitHub Actions project matrix, and finally merges and commits `state/` through `commit-state`. This uses only standard free-plan GitHub-hosted Linux runners.
 
 ### Secrets
 
@@ -293,7 +295,7 @@ English:
 | `force` | 重建已经上传过的 tag/target / Rebuild an already uploaded tag/target |
 | `no_upload` | 只构建，不上传 Telegram，也不写入 `state/` / Build only, without uploading to Telegram or writing `state/` |
 | `stop_on_error` | 队列遇到第一个失败即停止 / Stop the queue after the first failure |
-| `jobs` | `poll-all` 并行上游项目数，默认 `1` / Parallel upstream project builds in `poll-all`, default `1` |
+| `jobs` | Actions matrix 最大并行 job 数，默认 `3`；免费版建议 `2` 到 `3` / Max parallel Actions matrix jobs, default `3`; `2` to `3` is recommended for the free plan |
 | `push_release_limit` | `poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Newest stable versions built/uploaded in `poll-all`, default `3` |
 | `sync_branches` | 生成/更新 `upstream/<project>` 元数据分支，默认开启 / Create/update `upstream/<project>` metadata branches, enabled by default |
 
@@ -301,12 +303,14 @@ English:
 
 Workflow behavior:
 
-- `concurrency` 保证同一时间只有一个 Release Autobuild 运行。
-- `concurrency` ensures only one Release Autobuild run is active at a time.
+- `concurrency` 保证同一分支同一时间只有一个 Release Autobuild workflow 运行；单次 workflow 内部的 matrix job 可以并行。
+- `concurrency` ensures only one Release Autobuild workflow run is active per branch; matrix jobs inside that run can still run in parallel.
+- `poll-all` 会按上游项目拆分 matrix job；同一个项目内的多个 tag/target 仍按顺序构建和上传。
+- `poll-all` splits matrix jobs by upstream project; tags/targets inside the same project are still built and uploaded sequentially.
 - 构建结果上传到 Telegram。
 - Built artifacts are uploaded to Telegram.
-- `state/*.json` 变化会由 `github-actions[bot]` 自动提交回仓库。
-- Changes under `state/*.json` are committed back by `github-actions[bot]`.
+- 每个 matrix job 只上传自己的 `state/<project>_*.json` 分片，最后集中合并，避免多个 runner 同时 push。
+- Each matrix job uploads only its own `state/<project>_*.json` shard, then the shards are merged once to avoid concurrent pushes from multiple runners.
 - `logs/` 会作为 workflow artifact 保存 14 天，便于排查失败原因。
 - `logs/` is uploaded as a workflow artifact and retained for 14 days for debugging.
 
@@ -340,8 +344,8 @@ When the local builder has enough resources, build different upstream repositori
 
 ```text
 --list                  列出支持的项目和目标 / List configured projects and targets
---project <name>        单项目模式的项目名 / Project name for single-build mode
---target <target>       单项目模式的目标平台 / Target platform for single-build mode
+--project <name>        单项目模式的项目名；也可配合 --poll-all 只处理一个项目 / Project name for single-build mode; with --poll-all, process one project only
+--target <target>       单项目模式的目标平台；也可配合 --poll-all --project 只处理一个目标 / Target platform for single-build mode; with --poll-all --project, process one target only
 --poll-all              检查所有项目和目标，构建待处理产物 / Check every project/target and build pending artifacts
 --interval <seconds>    与 --poll-all 搭配，按间隔循环执行 / Repeat every N seconds with --poll-all
 --jobs <n>              poll-all 并行上游项目数，默认 BUILD_JOBS 或 1 / Parallel upstream projects for poll-all, default BUILD_JOBS or 1
@@ -360,6 +364,7 @@ When the local builder has enough resources, build different upstream repositori
 --source-branch-prefix <prefix> 本地缓存 branch 前缀，默认 autobuild / Local cache branch prefix, default autobuild
 --sync-upstream-branches        生成/推送 upstream/<project> 元数据分支 / Generate and push upstream/<project> metadata branches
 --upstream-branch-prefix <name> 元数据分支前缀，默认 upstream / Metadata branch prefix, default upstream
+--github-actions-plan           输出 Actions matrix 计划 JSON 后退出 / Print the Actions matrix plan as JSON and exit
 ```
 
 ## 目录说明 / Repository Layout

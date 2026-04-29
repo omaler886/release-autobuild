@@ -31,14 +31,14 @@ on:
         default: false
         type: boolean
       stop_on_error:
-        description: "stop queue after the first failed target"
+        description: "cancel queued matrix jobs after the first failure"
         required: false
         default: false
         type: boolean
       jobs:
-        description: "poll-all parallel project builds, for example 3"
+        description: "max parallel GitHub-hosted jobs, free-plan friendly default 3"
         required: false
-        default: "1"
+        default: "3"
         type: string
       push_release_limit:
         description: "latest stable versions to build/upload in poll-all"
@@ -57,13 +57,165 @@ permissions:
   contents: write
 
 concurrency:
-  group: release-autobuild
+  group: release-autobuild-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      has_work: ${{ steps.plan.outputs.has_work }}
+      mode: ${{ steps.inputs.outputs.mode }}
+      force: ${{ steps.inputs.outputs.force }}
+      no_upload: ${{ steps.inputs.outputs.no_upload }}
+      stop_on_error: ${{ steps.inputs.outputs.stop_on_error }}
+      max_parallel: ${{ steps.inputs.outputs.max_parallel }}
+      push_release_limit: ${{ steps.inputs.outputs.push_release_limit }}
+      sync_branches: ${{ steps.inputs.outputs.sync_branches }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Normalize inputs
+        id: inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mode="${{ github.event.inputs.mode || 'poll-all' }}"
+          force="${{ github.event.inputs.force || 'false' }}"
+          no_upload="${{ github.event.inputs.no_upload || 'false' }}"
+          stop_on_error="${{ github.event.inputs.stop_on_error || 'false' }}"
+          sync_branches="${{ github.event.inputs.sync_branches || 'true' }}"
+          max_parallel="${{ github.event.inputs.jobs || '3' }}"
+          push_release_limit="${{ github.event.inputs.push_release_limit || '3' }}"
+
+          if ! [[ "$max_parallel" =~ ^[0-9]+$ ]] || [[ "$max_parallel" -lt 1 ]]; then
+            echo "jobs must be a positive integer" >&2
+            exit 2
+          fi
+          if ! [[ "$push_release_limit" =~ ^[0-9]+$ ]] || [[ "$push_release_limit" -lt 1 ]]; then
+            echo "push_release_limit must be a positive integer" >&2
+            exit 2
+          fi
+
+          {
+            echo "mode=$mode"
+            echo "force=$force"
+            echo "no_upload=$no_upload"
+            echo "stop_on_error=$stop_on_error"
+            echo "sync_branches=$sync_branches"
+            echo "max_parallel=$max_parallel"
+            echo "push_release_limit=$push_release_limit"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create build matrix
+        id: plan
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mode="${{ steps.inputs.outputs.mode }}"
+          project="${{ github.event.inputs.project || '' }}"
+          target="${{ github.event.inputs.target || '' }}"
+          force="${{ steps.inputs.outputs.force }}"
+          push_release_limit="${{ steps.inputs.outputs.push_release_limit }}"
+
+          if [[ "$mode" == "check" ]]; then
+            printf '{"has_work":false,"matrix":{"include":[{"task_id":"noop","mode":"noop","project":"noop","target":"none","kind":"noop","repo":"","pending":0}]},"pending_count":0,"skipped_count":0,"task_count":0}\n' > gha-plan.json
+          else
+            args=(--github-actions-plan --push-release-limit "$push_release_limit")
+            case "$mode" in
+              poll-all)
+                args+=(--poll-all)
+                ;;
+              single)
+                if [[ -z "$project" || -z "$target" ]]; then
+                  echo "single mode requires project and target" >&2
+                  exit 2
+                fi
+                args+=(--project "$project" --target "$target")
+                ;;
+              *)
+                echo "unknown mode: $mode" >&2
+                exit 2
+                ;;
+            esac
+            [[ "$force" == "true" ]] && args+=(--force)
+            python3 build_release.py "${args[@]}" > gha-plan.json
+          fi
+
+          python3 - <<'PY'
+          import json
+          import os
+
+          with open("gha-plan.json", "r", encoding="utf-8") as fh:
+              plan = json.load(fh)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              out.write("matrix=" + json.dumps(plan["matrix"], separators=(",", ":")) + "\n")
+              out.write("has_work=" + ("true" if plan["has_work"] else "false") + "\n")
+
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write("### Release Autobuild plan\n\n")
+              summary.write(f"- Matrix jobs: {plan['task_count']}\n")
+              summary.write(f"- Pending build units: {plan['pending_count']}\n")
+              summary.write(f"- Skipped projects/targets: {plan['skipped_count']}\n")
+          PY
+
+  check:
+    needs: plan
+    if: needs.plan.outputs.mode == 'check'
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check pending builds
+        shell: bash
+        run: |
+          python3 build_release.py --poll-all --check-only --push-release-limit "${{ needs.plan.outputs.push_release_limit }}"
+
+  sync-upstream:
+    needs: plan
+    if: needs.plan.outputs.sync_branches == 'true'
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync upstream metadata branches
+        shell: bash
+        run: |
+          python3 build_release.py --sync-upstream-branches --push-release-limit "${{ needs.plan.outputs.push_release_limit }}"
+
+      - name: Upload sync logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-logs-upstream-sync
+          path: logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
   build:
+    needs: plan
+    if: needs.plan.outputs.mode != 'check' && needs.plan.outputs.has_work == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    strategy:
+      fail-fast: ${{ needs.plan.outputs.stop_on_error == 'true' }}
+      max-parallel: ${{ fromJSON(needs.plan.outputs.max_parallel) }}
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     env:
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
@@ -74,33 +226,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Go
+        if: matrix.kind == 'go' || matrix.kind == 'adguardhome'
         uses: actions/setup-go@v5
         with:
           go-version: "1.25.x"
           cache: false
 
       - name: Set up Java
+        if: matrix.kind == 'momogram' || matrix.kind == 'v2rayng'
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
       - name: Set up Node
+        if: matrix.kind == 'adguardhome'
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
       - name: Set up Android SDK
+        if: matrix.kind == 'momogram' || matrix.kind == 'v2rayng'
         uses: android-actions/setup-android@v3
 
-      - name: Install build tools
+      - name: Install Linux build tools
+        shell: bash
         run: |
+          set -euo pipefail
+          packages=(build-essential zip unzip)
+          if [[ "${{ matrix.kind }}" == "momogram" ]]; then
+            packages+=(autoconf automake libtool meson nasm ninja-build pkg-config yasm)
+          fi
           sudo apt-get update
-          sudo apt-get install -y build-essential autoconf automake libtool meson nasm ninja-build pkg-config yasm zip unzip
+          sudo apt-get install -y "${packages[@]}"
+
+      - name: Install Android SDK packages
+        if: matrix.kind == 'momogram' || matrix.kind == 'v2rayng'
+        shell: bash
+        run: |
+          set -euo pipefail
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager \
             "platform-tools" \
@@ -116,56 +282,105 @@ jobs:
         run: |
           set +e
 
-          mode="${{ github.event.inputs.mode || 'poll-all' }}"
-          project="${{ github.event.inputs.project || '' }}"
-          target="${{ github.event.inputs.target || '' }}"
-          force="${{ github.event.inputs.force || 'false' }}"
-          no_upload="${{ github.event.inputs.no_upload || 'false' }}"
-          stop_on_error="${{ github.event.inputs.stop_on_error || 'false' }}"
-          jobs="${{ github.event.inputs.jobs || '1' }}"
-          push_release_limit="${{ github.event.inputs.push_release_limit || '3' }}"
-          sync_branches="${{ github.event.inputs.sync_branches || 'true' }}"
-
           args=()
-          case "$mode" in
+          case "${{ matrix.mode }}" in
             poll-all)
-              args+=(--poll-all)
-              ;;
-            check)
-              args+=(--poll-all --check-only)
+              args+=(--poll-all --project "${{ matrix.project }}")
+              if [[ "${{ matrix.target }}" != "all" ]]; then
+                args+=(--target "${{ matrix.target }}")
+              fi
               ;;
             single)
-              if [[ -z "$project" || -z "$target" ]]; then
-                echo "single mode requires project and target"
-                echo "exit_code=2" >> "$GITHUB_OUTPUT"
-                exit 0
-              fi
-              args+=(--project "$project" --target "$target")
+              args+=(--project "${{ matrix.project }}" --target "${{ matrix.target }}")
               ;;
             *)
-              echo "unknown mode: $mode"
+              echo "unsupported matrix mode: ${{ matrix.mode }}"
               echo "exit_code=2" >> "$GITHUB_OUTPUT"
               exit 0
               ;;
           esac
 
-          [[ "$force" == "true" ]] && args+=(--force)
-          [[ "$no_upload" == "true" ]] && args+=(--no-upload)
-          [[ "$stop_on_error" == "true" ]] && args+=(--stop-on-error)
-          [[ -n "$jobs" ]] && args+=(--jobs "$jobs")
-          [[ -n "$push_release_limit" ]] && args+=(--push-release-limit "$push_release_limit")
-          [[ "$sync_branches" == "true" ]] && args+=(--sync-upstream-branches)
+          [[ "${{ needs.plan.outputs.force }}" == "true" ]] && args+=(--force)
+          [[ "${{ needs.plan.outputs.no_upload }}" == "true" ]] && args+=(--no-upload)
+          [[ "${{ needs.plan.outputs.stop_on_error }}" == "true" ]] && args+=(--stop-on-error)
+          args+=(--push-release-limit "${{ needs.plan.outputs.push_release_limit }}")
 
           python3 build_release.py "${args[@]}"
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
-      - name: Commit updated state
+      - name: Collect state shard
         if: always()
         shell: bash
         run: |
-          set -e
+          set -euo pipefail
+          mkdir -p state-shard/state
+          printf '%s\n' "${{ matrix.project }}" > state-shard/PROJECT
+          shopt -s nullglob
+          files=(state/${{ matrix.project }}_*.json)
+          if ((${#files[@]})); then
+            cp "${files[@]}" state-shard/state/
+          fi
+
+      - name: Upload state shard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-state-${{ matrix.task_id }}
+          path: state-shard/
+          retention-days: 1
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-logs-${{ matrix.task_id }}
+          path: logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Fail if build failed
+        if: always()
+        shell: bash
+        run: exit "${{ steps.autobuild.outputs.exit_code || '1' }}"
+
+  commit-state:
+    needs:
+      - plan
+      - build
+      - sync-upstream
+    if: always() && needs.plan.outputs.mode != 'check'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download state shards
+        if: needs.plan.outputs.has_work == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: release-state-*
+          path: state-artifacts
+
+      - name: Merge state shards
+        if: needs.plan.outputs.has_work == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p state
+          if [[ -d state-artifacts ]]; then
+            while IFS= read -r -d '' file; do
+              cp "$file" "state/$(basename "$file")"
+            done < <(find state-artifacts -type f -name '*.json' -print0)
+          fi
+
+      - name: Commit updated state
+        shell: bash
+        run: |
+          set -euo pipefail
           if [[ -z "$(git status --porcelain state)" ]]; then
             echo "No state changes."
             exit 0
@@ -175,17 +390,3 @@ jobs:
           git add state
           git commit -m "Update uploaded release state [skip ci]"
           git push
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-autobuild-logs
-          path: logs/
-          if-no-files-found: ignore
-          retention-days: 14
-
-      - name: Fail if build failed
-        if: always()
-        shell: bash
-        run: exit "${{ steps.autobuild.outputs.exit_code || '1' }}"

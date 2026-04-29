@@ -1,14 +1,22 @@
 {
-  "commit": "c5edc122b70ec56e24ea8038e727da6f823e34be",
+  "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
   "files": [
-    "xray-v26.4.15-linux-amd64.tar.gz"
+    "xray-v26.3.27-linux-amd64.tar.gz"
   ],
   "project": "xray",
   "repo": "XTLS/Xray-core",
-  "tag": "v26.4.15",
+  "tag": "v26.3.27",
   "target": "linux-amd64",
-  "uploaded_at": "2026-04-27T19:55:45+00:00",
+  "uploaded_at": "2026-04-29T15:42:14+00:00",
   "uploads": [
+    {
+      "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
+      "files": [
+        "xray-v26.3.27-linux-amd64.tar.gz"
+      ],
+      "tag": "v26.3.27",
+      "uploaded_at": "2026-04-29T15:42:14+00:00"
+    },
     {
       "commit": "c5edc122b70ec56e24ea8038e727da6f823e34be",
       "files": [
@@ -48,14 +56,6 @@
       ],
       "tag": "v26.2.6",
       "uploaded_at": "2026-04-27T10:02:08+00:00"
-    },
-    {
-      "commit": "d2758a023cd7f4174a5a5fa4ff66e487d4342ba0",
-      "files": [
-        "xray-v26.3.27-linux-amd64.tar.gz"
-      ],
-      "tag": "v26.3.27",
-      "uploaded_at": "2026-04-27T06:57:41+00:00"
     }
   ]
 }
