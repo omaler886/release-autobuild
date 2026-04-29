@@ -207,6 +207,8 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | 变量 / Variable | 说明 / Description |
 | --- | --- |
 | `GITHUB_TOKEN` | 提高 GitHub API 速率限制 / Increases the GitHub API rate limit |
+| `GITHUB_API_RETRIES` | GitHub API 短重试次数，默认 `3` / GitHub API retry attempts, default `3` |
+| `GITHUB_API_TIMEOUT` | 单次 GitHub API 请求超时秒数，默认 `60` / Per-request GitHub API timeout in seconds, default `60` |
 | `BUILD_JOBS` | `--poll-all` 并行构建的上游项目数，默认 `1` / Number of upstream projects built in parallel by `--poll-all`, default `1` |
 | `PUSH_RELEASE_LIMIT` | `--poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Number of newest stable versions built/uploaded by `--poll-all`, default `3` |
 | `UPSTREAM_BRANCH_PREFIX` | 远端 Release 元数据分支前缀，默认 `upstream` / Remote release metadata branch prefix, default `upstream` |
@@ -222,7 +224,7 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | `GO_LDFLAGS` | Go 构建 ldflags，默认 `-s -w -buildid=` / Go build ldflags, default `-s -w -buildid=` |
 | `GOARM64` | Android arm64 Go 目标使用，默认 `v8.0` / Used for Android arm64 Go targets, default `v8.0` |
 | `SING_BOX_TAGS` | sing-box 构建 tags / Build tags for sing-box |
-| `MOMOGRAM_GRADLE_TASKS` / `V2RAYNG_GRADLE_TASKS` | 覆盖对应 Android 项目的 Gradle task 列表 / Overrides Gradle tasks for the corresponding Android project |
+| `MOMOGRAM_GRADLE_TASKS` / `V2RAYNG_GRADLE_TASKS` | 覆盖对应 Android 项目的 Gradle task 列表；Momogram 默认 `TMessagesProj:assembleRelease` / Overrides Gradle tasks for the corresponding Android project; Momogram defaults to `TMessagesProj:assembleRelease` |
 
 ## 构建环境依赖 / Build Dependencies
 

@@ -153,7 +153,7 @@ PROJECTS: dict[str, Project] = {
         binary="Momogram",
         supports=("android-arm64",),
         clone_submodules=True,
-        gradle_tasks=("assembleRelease",),
+        gradle_tasks=("TMessagesProj:assembleRelease",),
     ),
     "v2rayng": Project(
         key="v2rayng",
@@ -282,6 +282,15 @@ def env_int(name: str, default: int) -> int:
         raise BuildError(f"{name} must be an integer, got {value!r}") from exc
 
 
+def retry_delay(attempt: int, retry_after: str | None = None) -> int:
+    if retry_after:
+        try:
+            return max(1, min(60, int(float(retry_after))))
+        except ValueError:
+            pass
+    return min(30, 2 ** (attempt - 1))
+
+
 def resolve_runtime_options(args: argparse.Namespace) -> None:
     if args.jobs is None:
         args.jobs = env_int("BUILD_JOBS", 1)
@@ -329,15 +338,31 @@ def source_cache_lock(cache_repo: Path) -> threading.Lock:
 
 def github_json(path: str) -> object:
     url = f"https://api.github.com{path}"
-    request = urllib.request.Request(url, headers=env_with_token())
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", "replace")
-        raise BuildError(f"GitHub API failed {exc.code}: {body[:300]}") from exc
-    except urllib.error.URLError as exc:
-        raise BuildError(f"GitHub API request failed: {exc.reason}") from exc
+    attempts = max(1, env_int("GITHUB_API_RETRIES", 3))
+    timeout = env_int("GITHUB_API_TIMEOUT", 60)
+    for attempt in range(1, attempts + 1):
+        request = urllib.request.Request(url, headers=env_with_token())
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", "replace")
+            message = f"GitHub API failed {exc.code}: {body[:300]}"
+            if exc.code in {403, 429, 500, 502, 503, 504} and attempt < attempts:
+                delay = retry_delay(attempt, exc.headers.get("Retry-After"))
+                print(f"warning: {message}; retrying in {delay}s", file=sys.stderr, flush=True)
+                time.sleep(delay)
+                continue
+            raise BuildError(message) from exc
+        except urllib.error.URLError as exc:
+            message = f"GitHub API request failed: {exc.reason}"
+            if attempt < attempts:
+                delay = retry_delay(attempt)
+                print(f"warning: {message}; retrying in {delay}s", file=sys.stderr, flush=True)
+                time.sleep(delay)
+                continue
+            raise BuildError(message) from exc
+    raise BuildError(f"GitHub API request failed after {attempts} attempts")
 
 
 def looks_stable_release(release: dict[str, object]) -> bool:
@@ -605,15 +630,29 @@ def chmod_executable(path: Path) -> None:
     path.chmod(mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
 
 
-def write_local_properties(project: Project, source_dir: Path) -> None:
+def path_property_value(path: Path) -> str:
+    return str(path).replace(os.sep, "/")
+
+
+def write_local_properties(
+    project: Project,
+    source_dir: Path,
+    extra_properties: dict[str, str] | None = None,
+) -> None:
     lines: list[str] = []
     android_home = os.environ.get("ANDROID_HOME") or os.environ.get("ANDROID_SDK_ROOT")
     if android_home:
         lines.append(f"sdk.dir={android_home.replace(os.sep, '/')}")
     if project.key == "momogram":
+        properties: dict[str, str] = {}
         for name in ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS"):
             if os.environ.get(name):
-                value = os.environ[name]
+                properties[name] = os.environ[name]
+        if extra_properties:
+            properties.update(extra_properties)
+        for name in ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS"):
+            value = properties.get(name)
+            if value:
                 lines.append(f"{name}={value}")
         app_id = os.environ.get("TELEGRAM_APP_ID")
         app_hash = os.environ.get("TELEGRAM_APP_HASH")
@@ -649,8 +688,8 @@ def apply_patch_hook(project: Project, source_dir: Path, patch_dir: Path, log_fi
 
 
 def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
-    ensure_momogram_keystore(source_dir, log_file)
-    write_local_properties(project, source_dir)
+    signing_properties = ensure_momogram_keystore(source_dir, log_file)
+    write_local_properties(project, source_dir, signing_properties)
     run_script = source_dir / "run"
     if run_script.exists():
         chmod_executable(run_script)
@@ -659,52 +698,57 @@ def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir:
     return build_gradle(project, target, source_dir, dist_dir, log_file)
 
 
-def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> None:
-    required = ("KEYSTORE_PATH", "KEYSTORE_PASS", "ALIAS_NAME", "ALIAS_PASS")
+def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> dict[str, str]:
     config_keystore_path = source_dir / "TMessagesProj" / "config" / "release.keystore"
     config_keystore_path.parent.mkdir(parents=True, exist_ok=True)
-    if all(os.environ.get(name) for name in required):
-        supplied_keystore = Path(os.environ["KEYSTORE_PATH"]).expanduser()
+    store_pass = os.environ.get("KEYSTORE_PASS") or "android"
+    alias_name = os.environ.get("ALIAS_NAME") or "androidkey"
+    alias_pass = os.environ.get("ALIAS_PASS") or store_pass
+    supplied_keystore_value = os.environ.get("KEYSTORE_PATH")
+    if (
+        supplied_keystore_value
+        and os.environ.get("KEYSTORE_PASS")
+        and os.environ.get("ALIAS_NAME")
+        and os.environ.get("ALIAS_PASS")
+    ):
+        supplied_keystore = Path(supplied_keystore_value).expanduser()
         if not supplied_keystore.exists():
             raise BuildError(f"KEYSTORE_PATH does not exist: {supplied_keystore}")
         if supplied_keystore.resolve() != config_keystore_path.resolve():
             shutil.copy2(supplied_keystore, config_keystore_path)
-        return
-
-    keystore_path = config_keystore_path
-    if keystore_path.exists():
-        keystore_path.unlink()
-    store_pass = os.environ.get("KEYSTORE_PASS") or "android"
-    alias_name = os.environ.get("ALIAS_NAME") or "androidkey"
-    alias_pass = os.environ.get("ALIAS_PASS") or store_pass
-    dname = os.environ.get("KEYSTORE_DNAME", "CN=Momogram, OU=Codex, O=Codex, L=Local, S=NA, C=US")
-    cmd = [
-        "keytool",
-        "-genkeypair",
-        "-keystore",
-        str(keystore_path),
-        "-storepass",
-        store_pass,
-        "-keypass",
-        alias_pass,
-        "-alias",
-        alias_name,
-        "-keyalg",
-        "RSA",
-        "-keysize",
-        "2048",
-        "-validity",
-        "36500",
-        "-dname",
-        dname,
-        "-storetype",
-        "PKCS12",
-    ]
-    run(cmd, cwd=source_dir, log_file=log_file)
-    os.environ["KEYSTORE_PATH"] = str(keystore_path)
-    os.environ["KEYSTORE_PASS"] = store_pass
-    os.environ["ALIAS_NAME"] = alias_name
-    os.environ["ALIAS_PASS"] = alias_pass
+    else:
+        if config_keystore_path.exists():
+            config_keystore_path.unlink()
+        dname = os.environ.get("KEYSTORE_DNAME", "CN=Momogram, OU=Codex, O=Codex, L=Local, S=NA, C=US")
+        cmd = [
+            "keytool",
+            "-genkeypair",
+            "-keystore",
+            str(config_keystore_path),
+            "-storepass",
+            store_pass,
+            "-keypass",
+            alias_pass,
+            "-alias",
+            alias_name,
+            "-keyalg",
+            "RSA",
+            "-keysize",
+            "2048",
+            "-validity",
+            "36500",
+            "-dname",
+            dname,
+            "-storetype",
+            "PKCS12",
+        ]
+        run(cmd, cwd=source_dir, log_file=log_file)
+    return {
+        "KEYSTORE_PATH": path_property_value(config_keystore_path),
+        "KEYSTORE_PASS": store_pass,
+        "ALIAS_NAME": alias_name,
+        "ALIAS_PASS": alias_pass,
+    }
 
 
 def build_v2rayng(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
