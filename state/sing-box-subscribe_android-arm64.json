@@ -1,14 +1,22 @@
 {
-  "commit": "7ffdc48b49718d6aeee19ede523a31d1286724cf",
+  "commit": "553cfa1f9f99f4da6118f93d507294e580db00d7",
   "files": [
-    "sing-box-subscribe-v1.13.5-android-arm64.tar.gz"
+    "sing-box-subscribe-v1.13.11-android-arm64.tar.gz"
   ],
   "project": "sing-box-subscribe",
   "repo": "yelnoo/sing-box",
-  "tag": "v1.13.5",
+  "tag": "v1.13.11",
   "target": "android-arm64",
-  "uploaded_at": "2026-04-27T10:09:04+00:00",
+  "uploaded_at": "2026-04-29T15:00:46+00:00",
   "uploads": [
+    {
+      "commit": "553cfa1f9f99f4da6118f93d507294e580db00d7",
+      "files": [
+        "sing-box-subscribe-v1.13.11-android-arm64.tar.gz"
+      ],
+      "tag": "v1.13.11",
+      "uploaded_at": "2026-04-29T15:00:46+00:00"
+    },
     {
       "commit": "7ffdc48b49718d6aeee19ede523a31d1286724cf",
       "files": [
