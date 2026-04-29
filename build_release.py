@@ -3,8 +3,9 @@
 Build upstream releases, upload them to Telegram, then clean up.
 
 Single-build mode accepts exactly one project and one target. Poll-all mode
-checks every configured project and target. It can build different upstream
-projects in parallel while keeping targets from the same project sequential.
+checks configured projects and targets, or one project/target when filtered.
+It can build different upstream projects in parallel while keeping targets
+from the same project sequential.
 Poll-all syncs the full stable upstream Release list, but builds/uploads only
 the newest PUSH_RELEASE_LIMIT versions by default.
 Secrets are read from environment variables:
@@ -1027,6 +1028,21 @@ def target_uploaded(state_dir: Path, project: Project, target: Target, tag: str)
     return any(entry.get("tag") == tag for entry in uploaded_entries(previous))
 
 
+def selected_projects(args: argparse.Namespace) -> list[Project]:
+    if args.project:
+        return [PROJECTS[normalize_project(args.project)]]
+    return list(PROJECTS.values())
+
+
+def selected_targets(project: Project, args: argparse.Namespace) -> list[Target]:
+    if args.target:
+        target = TARGETS[normalize_target(args.target)]
+        if target.key not in project.supports:
+            raise BuildError(f"{project.key} does not support {target.key}; supported: {', '.join(project.supports)}")
+        return [target]
+    return [TARGETS[key] for key in project.supports]
+
+
 def target_caption(project: Project, target: Target, tag: str, commit: str) -> str:
     return f"{project.key} {tag} {target.key}\nrepo: {project.repo}\ncommit: {commit[:12]}"
 
@@ -1165,7 +1181,7 @@ def poll_project_once(project: Project, args: argparse.Namespace) -> PollProject
     result.synced_releases = len(releases)
     push_releases = releases[: args.push_release_limit]
 
-    targets = [TARGETS[key] for key in project.supports]
+    targets = selected_targets(project, args)
     release_plan: list[tuple[str, list[Target]]] = []
     for release in push_releases:
         tag = str(release["tag_name"])
@@ -1272,7 +1288,7 @@ def poll_all_once(args: argparse.Namespace) -> int:
     built_count = 0
     skipped_count = 0
     synced_count = 0
-    projects = list(PROJECTS.values())
+    projects = selected_projects(args)
 
     if args.jobs == 1:
         for project in projects:
@@ -1308,31 +1324,115 @@ def poll_all_once(args: argparse.Namespace) -> int:
     return 1 if failures else 0
 
 
+def poll_project_check(args: argparse.Namespace, project: Project) -> int:
+    failures = 0
+    try:
+        releases = stable_releases(project)
+    except BuildError as exc:
+        failures += 1
+        print(f"{project.key}: release check failed: {exc}", file=sys.stderr)
+        return failures
+    push_releases = releases[: args.push_release_limit]
+    targets = selected_targets(project, args)
+    print(f"{project.key}: synced {len(releases)} stable releases; push latest {len(push_releases)}")
+    for release in push_releases:
+        tag = str(release["tag_name"])
+        pending: list[str] = []
+        uploaded: list[str] = []
+        for target in targets:
+            if target_uploaded(args.state_dir, project, target, tag):
+                uploaded.append(target.key)
+            else:
+                pending.append(target.key)
+        print(f"  {tag}")
+        print(f"    pending: {', '.join(pending) if pending else 'none'}")
+        print(f"    uploaded: {', '.join(uploaded) if uploaded else 'none'}")
+    return 1 if failures else 0
+
+
 def poll_all_check(args: argparse.Namespace) -> int:
     failures = 0
-    for project in PROJECTS.values():
-        try:
-            releases = stable_releases(project)
-        except BuildError as exc:
-            failures += 1
-            print(f"{project.key}: release check failed: {exc}", file=sys.stderr)
-            continue
-        push_releases = releases[: args.push_release_limit]
-        print(f"{project.key}: synced {len(releases)} stable releases; push latest {len(push_releases)}")
-        for release in push_releases:
-            tag = str(release["tag_name"])
-            pending: list[str] = []
-            uploaded: list[str] = []
-            for target_key in project.supports:
-                target = TARGETS[target_key]
-                if target_uploaded(args.state_dir, project, target, tag):
-                    uploaded.append(target.key)
-                else:
-                    pending.append(target.key)
-            print(f"  {tag}")
-            print(f"    pending: {', '.join(pending) if pending else 'none'}")
-            print(f"    uploaded: {', '.join(uploaded) if uploaded else 'none'}")
+    for project in selected_projects(args):
+        failures += poll_project_check(args, project)
+        if failures and args.stop_on_error:
+            break
     return 1 if failures else 0
+
+
+def github_actions_plan(args: argparse.Namespace) -> dict[str, object]:
+    include: list[dict[str, object]] = []
+    skipped = 0
+    pending_total = 0
+
+    if args.poll_all:
+        if args.target and not args.project:
+            raise BuildError("--target with --poll-all also requires --project")
+        for project in selected_projects(args):
+            releases = stable_releases(project)
+            push_releases = releases[: args.push_release_limit]
+            targets = selected_targets(project, args)
+            pending: list[str] = []
+            for release in push_releases:
+                tag = str(release["tag_name"])
+                for target in targets:
+                    if args.force or not target_uploaded(args.state_dir, project, target, tag):
+                        pending.append(f"{tag}:{target.key}")
+            if pending:
+                pending_total += len(pending)
+                include.append(
+                    {
+                        "task_id": safe_name(project.key),
+                        "mode": "poll-all",
+                        "project": project.key,
+                        "target": args.target or "all",
+                        "kind": project.kind,
+                        "repo": project.repo,
+                        "pending": len(pending),
+                    }
+                )
+            else:
+                skipped += 1
+    else:
+        if not args.project or not args.target:
+            raise BuildError("--project and --target are required unless --poll-all is used")
+        project = PROJECTS[normalize_project(args.project)]
+        target = selected_targets(project, args)[0]
+        release = latest_release(project)
+        tag = str(release["tag_name"])
+        if args.force or not target_uploaded(args.state_dir, project, target, tag):
+            pending_total = 1
+            include.append(
+                {
+                    "task_id": safe_name(f"{project.key}-{target.key}"),
+                    "mode": "single",
+                    "project": project.key,
+                    "target": target.key,
+                    "kind": project.kind,
+                    "repo": project.repo,
+                    "pending": 1,
+                }
+            )
+        else:
+            skipped = 1
+
+    matrix_include = include or [
+        {
+            "task_id": "noop",
+            "mode": "noop",
+            "project": "noop",
+            "target": "none",
+            "kind": "noop",
+            "repo": "",
+            "pending": 0,
+        }
+    ]
+    return {
+        "has_work": bool(include),
+        "matrix": {"include": matrix_include},
+        "task_count": len(include),
+        "pending_count": pending_total,
+        "skipped_count": skipped,
+    }
 
 
 def sync_upstream_branches(args: argparse.Namespace) -> None:
@@ -1438,6 +1538,7 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument("--no-upload", action="store_true", help="build but do not upload or mark state")
     parser.add_argument("--keep-on-failure", action="store_true", help="keep temporary work directory if build fails")
     parser.add_argument("--list", action="store_true", help="list configured projects and targets")
+    parser.add_argument("--github-actions-plan", action="store_true", help="print a GitHub Actions matrix plan as JSON and exit")
     return parser.parse_args(list(argv))
 
 
@@ -1448,6 +1549,9 @@ def main(argv: Iterable[str]) -> int:
         list_projects()
         return 0
     resolve_runtime_options(args)
+    if args.github_actions_plan:
+        print(json.dumps(github_actions_plan(args), separators=(",", ":"), sort_keys=True))
+        return 0
 
     lock_path = args.state_dir / ".build.lock"
     with RunLock(lock_path):
@@ -1457,8 +1561,8 @@ def main(argv: Iterable[str]) -> int:
                 return 0
 
         if args.poll_all:
-            if args.project or args.target:
-                raise BuildError("--poll-all cannot be combined with --project or --target")
+            if args.target and not args.project:
+                raise BuildError("--target with --poll-all also requires --project")
             if args.check_only:
                 return poll_all_check(args)
             if args.interval > 0:
