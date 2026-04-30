@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-29T05:37:34.566670+00:00",
+  "updated_at": "2026-04-30T05:42:26.290809+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 243,
+  "discovered_source_count": 240,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -54,7 +54,7 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 51,
-      "accepted_source_count": 22,
+      "accepted_source_count": 21,
       "accepted_sources": [
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml",
@@ -62,20 +62,19 @@
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_FR.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_KR.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_RU.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_RU.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.yml"
       ],
@@ -145,15 +144,15 @@
           "reason": "content_not_matching"
         },
         {
+          "path": "snippets/nodes_DE.yml",
+          "reason": "content_not_matching"
+        },
+        {
           "path": "snippets/nodes_EE.meta.yml",
           "reason": "content_not_matching"
         },
         {
           "path": "snippets/nodes_EE.yml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "snippets/nodes_FR.meta.yml",
           "reason": "content_not_matching"
         },
         {
@@ -621,15 +620,13 @@
       "seed_repo": "Au1rxx/free-vpn-subscriptions",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 22,
-      "accepted_source_count": 7,
+      "candidate_file_count": 20,
+      "accepted_source_count": 5,
       "accepted_sources": [
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-CA.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-DE.yaml",
-        "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-GB.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-US.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-DE.txt",
-        "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-GB.txt",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml"
       ],
       "sample_rejections": [
@@ -691,36 +688,6 @@
         },
         {
           "path": "output/v2ray-base64.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "wnlen/clash-for-linux",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 5,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config/mixin.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config/profiles.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config/template.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "resources/bin/README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -837,7 +804,7 @@
       "seed_repo": "madeye/mihomo-rust",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 76,
+      "candidate_file_count": 77,
       "accepted_source_count": 2,
       "accepted_sources": [
         "https://raw.githubusercontent.com/madeye/mihomo-rust/main/config.example.yaml",
@@ -850,6 +817,10 @@
         },
         {
           "path": "CLAUDE.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "M2_QA_BASELINE.txt",
           "reason": "content_not_matching"
         },
         {
@@ -918,10 +889,6 @@
         },
         {
           "path": "docs/gap-analysis.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/migration-from-go-mihomo.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1191,56 +1158,6 @@
         },
         {
           "path": "edge/assets/p-list-november.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "ishalumi/proxy-node-collector",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 10,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_asia.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_chatgpt.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_europe.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_nodes.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_us_optimized.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/nodes.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/nodes_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sources.yaml",
           "reason": "content_not_matching"
         }
       ]
