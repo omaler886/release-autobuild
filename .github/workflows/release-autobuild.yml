@@ -36,9 +36,9 @@ on:
         default: false
         type: boolean
       jobs:
-        description: "poll-all parallel project builds, for example 3"
+        description: "poll-all/check matrix max parallel project jobs, capped at 3"
         required: false
-        default: "1"
+        default: "3"
         type: string
       push_release_limit:
         description: "latest stable versions to build/upload in poll-all"
@@ -61,9 +61,130 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      max_parallel: ${{ steps.plan.outputs.max_parallel }}
+      mode: ${{ steps.plan.outputs.mode }}
+      sync_branches: ${{ steps.plan.outputs.sync_branches }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Plan project matrix
+        id: plan
+        shell: bash
+        env:
+          MODE: ${{ github.event.inputs.mode || 'poll-all' }}
+          PROJECT: ${{ github.event.inputs.project || '' }}
+          TARGET: ${{ github.event.inputs.target || '' }}
+          JOBS: ${{ github.event.inputs.jobs || '3' }}
+          SYNC_BRANCHES: ${{ github.event.inputs.sync_branches || 'true' }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+
+          from build_release import BuildError, PROJECTS, normalize_project, normalize_target
+
+          FREE_PLAN_MAX_PARALLEL = 3
+          ANDROID_KINDS = {"momogram", "v2rayng"}
+          NATIVE_KINDS = {"adguardhome", "momogram", "v2rayng"}
+
+          mode = (os.environ.get("MODE") or "poll-all").strip()
+          project_input = (os.environ.get("PROJECT") or "").strip()
+          target_input = (os.environ.get("TARGET") or "").strip()
+          jobs_input = (os.environ.get("JOBS") or "3").strip()
+          sync_branches = str(os.environ.get("SYNC_BRANCHES") or "true").lower() == "true"
+
+          def fail(message: str) -> None:
+              print(f"::error::{message}")
+              sys.exit(1)
+
+          def matrix_entry(project_key: str, matrix_mode: str, target_key: str = "") -> dict[str, object]:
+              project = PROJECTS[project_key]
+              return {
+                  "project": project.key,
+                  "target": target_key,
+                  "mode": matrix_mode,
+                  "needs_android": project.kind in ANDROID_KINDS,
+                  "needs_node": project.kind == "adguardhome",
+                  "needs_native": project.kind in NATIVE_KINDS,
+              }
+
+          include: list[dict[str, object]]
+          try:
+              if mode in {"poll-all", "check"}:
+                  include = [matrix_entry(project.key, mode) for project in PROJECTS.values()]
+              elif mode == "single":
+                  if not project_input or not target_input:
+                      fail("single mode requires project and target")
+                  project_key = normalize_project(project_input)
+                  target_key = normalize_target(target_input)
+                  if target_key not in PROJECTS[project_key].supports:
+                      supported = ", ".join(PROJECTS[project_key].supports)
+                      fail(f"{project_key} does not support {target_key}; supported: {supported}")
+                  include = [matrix_entry(project_key, mode, target_key)]
+              else:
+                  fail(f"unknown mode: {mode}")
+          except BuildError as exc:
+              fail(str(exc))
+
+          try:
+              requested_parallel = int(jobs_input)
+          except ValueError:
+              fail(f"jobs must be an integer, got {jobs_input!r}")
+
+          max_parallel = max(1, min(requested_parallel, FREE_PLAN_MAX_PARALLEL, len(include)))
+          output_path = os.environ["GITHUB_OUTPUT"]
+          with open(output_path, "a", encoding="utf-8") as output:
+              output.write("matrix=" + json.dumps({"include": include}, separators=(",", ":")) + "\n")
+              output.write(f"max_parallel={max_parallel}\n")
+              output.write(f"mode={mode}\n")
+              output.write(f"sync_branches={str(sync_branches).lower()}\n")
+
+          print(f"planned {len(include)} matrix job(s), max_parallel={max_parallel}, mode={mode}")
+          PY
+
+  sync-upstream-branches:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PUSH_RELEASE_LIMIT: ${{ github.event.inputs.push_release_limit || '3' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync upstream metadata branches
+        if: ${{ needs.prepare.outputs.sync_branches == 'true' }}
+        shell: bash
+        run: |
+          python3 build_release.py \
+            --sync-upstream-branches \
+            --push-release-limit "$PUSH_RELEASE_LIMIT"
+
+      - name: Skip upstream metadata sync
+        if: ${{ needs.prepare.outputs.sync_branches != 'true' }}
+        run: echo "sync_branches is false; skipping upstream metadata branch sync."
+
   build:
+    needs:
+      - prepare
+      - sync-upstream-branches
+    if: ${{ needs.prepare.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(needs.prepare.outputs.max_parallel) }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     env:
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
@@ -71,6 +192,9 @@ jobs:
       TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
       TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
       V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
+      MATRIX_MODE: ${{ matrix.mode }}
+      MATRIX_PROJECT: ${{ matrix.project }}
+      MATRIX_TARGET: ${{ matrix.target }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -78,29 +202,38 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Go
+        if: ${{ matrix.mode != 'check' }}
         uses: actions/setup-go@v5
         with:
           go-version: "1.25.x"
           cache: false
 
       - name: Set up Java
+        if: ${{ matrix.mode != 'check' && matrix.needs_android }}
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
       - name: Set up Node
+        if: ${{ matrix.mode != 'check' && matrix.needs_node }}
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
       - name: Set up Android SDK
+        if: ${{ matrix.mode != 'check' && matrix.needs_android }}
         uses: android-actions/setup-android@v3
 
-      - name: Install build tools
+      - name: Install native build tools
+        if: ${{ matrix.mode != 'check' && matrix.needs_native }}
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential autoconf automake libtool meson nasm ninja-build pkg-config yasm zip unzip
+
+      - name: Install Android SDK packages
+        if: ${{ matrix.mode != 'check' && matrix.needs_android }}
+        run: |
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager \
             "platform-tools" \
@@ -113,56 +246,113 @@ jobs:
       - name: Run autobuild
         id: autobuild
         shell: bash
+        env:
+          FORCE: ${{ github.event.inputs.force || 'false' }}
+          NO_UPLOAD: ${{ github.event.inputs.no_upload || 'false' }}
+          STOP_ON_ERROR: ${{ github.event.inputs.stop_on_error || 'false' }}
+          PUSH_RELEASE_LIMIT: ${{ github.event.inputs.push_release_limit || '3' }}
         run: |
           set +e
 
-          mode="${{ github.event.inputs.mode || 'poll-all' }}"
-          project="${{ github.event.inputs.project || '' }}"
-          target="${{ github.event.inputs.target || '' }}"
-          force="${{ github.event.inputs.force || 'false' }}"
-          no_upload="${{ github.event.inputs.no_upload || 'false' }}"
-          stop_on_error="${{ github.event.inputs.stop_on_error || 'false' }}"
-          jobs="${{ github.event.inputs.jobs || '1' }}"
-          push_release_limit="${{ github.event.inputs.push_release_limit || '3' }}"
-          sync_branches="${{ github.event.inputs.sync_branches || 'true' }}"
-
           args=()
-          case "$mode" in
+          case "$MATRIX_MODE" in
             poll-all)
-              args+=(--poll-all)
+              args+=(--poll-all --projects "$MATRIX_PROJECT" --jobs 1)
               ;;
             check)
-              args+=(--poll-all --check-only)
+              args+=(--poll-all --check-only --projects "$MATRIX_PROJECT")
               ;;
             single)
-              if [[ -z "$project" || -z "$target" ]]; then
+              if [[ -z "$MATRIX_PROJECT" || -z "$MATRIX_TARGET" ]]; then
                 echo "single mode requires project and target"
                 echo "exit_code=2" >> "$GITHUB_OUTPUT"
                 exit 0
               fi
-              args+=(--project "$project" --target "$target")
+              args+=(--project "$MATRIX_PROJECT" --target "$MATRIX_TARGET")
               ;;
             *)
-              echo "unknown mode: $mode"
+              echo "unknown mode: $MATRIX_MODE"
               echo "exit_code=2" >> "$GITHUB_OUTPUT"
               exit 0
               ;;
           esac
 
-          [[ "$force" == "true" ]] && args+=(--force)
-          [[ "$no_upload" == "true" ]] && args+=(--no-upload)
-          [[ "$stop_on_error" == "true" ]] && args+=(--stop-on-error)
-          [[ -n "$jobs" ]] && args+=(--jobs "$jobs")
-          [[ -n "$push_release_limit" ]] && args+=(--push-release-limit "$push_release_limit")
-          [[ "$sync_branches" == "true" ]] && args+=(--sync-upstream-branches)
+          [[ "$FORCE" == "true" ]] && args+=(--force)
+          [[ "$NO_UPLOAD" == "true" ]] && args+=(--no-upload)
+          [[ "$STOP_ON_ERROR" == "true" ]] && args+=(--stop-on-error)
+          [[ -n "$PUSH_RELEASE_LIMIT" ]] && args+=(--push-release-limit "$PUSH_RELEASE_LIMIT")
 
           python3 build_release.py "${args[@]}"
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
-      - name: Commit updated state
+      - name: Prepare state artifact
         if: always()
+        shell: bash
+        run: |
+          mkdir -p state-artifact
+          find state -maxdepth 1 -type f -name "${MATRIX_PROJECT}_*.json" -exec cp {} state-artifact/ \;
+          touch "state-artifact/KEEP-${MATRIX_PROJECT}"
+
+      - name: Upload state artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: state-${{ matrix.project }}
+          path: state-artifact/
+          retention-days: 1
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ matrix.project }}
+          path: logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Fail if build failed
+        if: always()
+        shell: bash
+        run: exit "${{ steps.autobuild.outputs.exit_code || '1' }}"
+
+  commit-state:
+    needs:
+      - prepare
+      - build
+    if: ${{ always() && needs.prepare.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download state artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: state-*
+          path: .state-artifacts
+          merge-multiple: true
+
+      - name: Merge state artifacts
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(.state-artifacts/*.json)
+          if (( ${#files[@]} == 0 )); then
+            echo "No state artifacts to merge."
+            exit 0
+          fi
+          mkdir -p state
+          cp "${files[@]}" state/
+          printf 'Merged state files:\n'
+          printf '  %s\n' "${files[@]}"
+
+      - name: Commit updated state
         shell: bash
         run: |
           set -e
@@ -175,17 +365,3 @@ jobs:
           git add state
           git commit -m "Update uploaded release state [skip ci]"
           git push
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-autobuild-logs
-          path: logs/
-          if-no-files-found: ignore
-          retention-days: 14
-
-      - name: Fail if build failed
-        if: always()
-        shell: bash
-        run: exit "${{ steps.autobuild.outputs.exit_code || '1' }}"

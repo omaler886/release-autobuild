@@ -18,7 +18,7 @@ It can run on a Linux builder through cron, or run on schedule through GitHub Ac
 - 支持单项目单目标构建，也支持 `--poll-all` 队列模式。
 - `--poll-all` 会同步读取上游全部稳定 Release；如果上游没有 GitHub Releases，则自动 fallback 到 tags。默认只构建/上传最近 3 个稳定版本，可用 `--push-release-limit` 或 `PUSH_RELEASE_LIMIT` 调整。
 - GitHub Actions 可自动生成 `upstream/<project>` 分支，例如 `upstream/xray`、`upstream/mihomo`，每个分支写入该上游仓库的 Release 同步元数据。
-- 队列模式默认保守顺序执行；设置 `--jobs` 或 `BUILD_JOBS` 后，不同上游项目可并行构建，同一项目内仍逐个目标构建和上传。
+- 队列模式默认保守顺序执行；设置 `--jobs` 或 `BUILD_JOBS` 后，不同上游项目可在同一构建机内并行构建，同一项目内仍逐个目标构建和上传。
 - 可选本地源码缓存 `SOURCE_CACHE_DIR`，每个上游仓库使用独立本地 branch，例如 `autobuild/xray`、`autobuild/mihomo`，实际构建仍在临时 clone 中完成。
 - 使用 `state/*.json` 记录 `项目 + 目标平台 + tag` 上传历史，相同版本默认跳过，可用 `--force` 强制重建。
 - 上传前自动打包产物；Windows 默认 zip，Linux/Android Go 目标默认 tar.gz，APK 目标可直接上传 APK。
@@ -31,7 +31,7 @@ English:
 - Supports single project/target builds and a full queue mode through `--poll-all`.
 - `--poll-all` syncs the full stable upstream Release list; if a repository has no GitHub Releases, it falls back to tags. It builds/uploads only the newest 3 stable versions by default. Tune it with `--push-release-limit` or `PUSH_RELEASE_LIMIT`.
 - GitHub Actions can generate `upstream/<project>` branches, such as `upstream/xray` and `upstream/mihomo`, each containing release sync metadata for that upstream repository.
-- Queue mode runs conservatively by default; with `--jobs` or `BUILD_JOBS`, different upstream projects can build in parallel while targets from the same project still build and upload sequentially.
+- Queue mode runs conservatively by default; with `--jobs` or `BUILD_JOBS`, different upstream projects can build in parallel on one builder while targets from the same project still build and upload sequentially.
 - Optional local source cache through `SOURCE_CACHE_DIR`; each upstream repository gets its own local branch, such as `autobuild/xray` or `autobuild/mihomo`, while real builds still happen in temporary clones.
 - Uses `state/*.json` to record `project + target + tag` upload history; already uploaded releases are skipped unless `--force` is used.
 - Packages artifacts before upload; Windows uses zip, Linux/Android Go targets use tar.gz, and APK targets can be uploaded directly.
@@ -148,12 +148,13 @@ By default, every upstream repository's full stable Release list is synced; repo
 python3 build_release.py --poll-all --push-release-limit 3
 ```
 
-并行处理不同上游仓库:
+在同一构建机内并行处理不同上游仓库，或限制 `poll-all` 只处理指定项目:
 
-Build different upstream repositories in parallel:
+Build different upstream repositories in parallel on one builder, or limit a poll-all pass to selected projects:
 
 ```bash
 python3 build_release.py --poll-all --jobs 3
+python3 build_release.py --poll-all --projects xray,mihomo
 ```
 
 使用本地源码缓存时，每个上游仓库会写入自己的本地 branch，随后从缓存 clone 临时工作树进行编译:
@@ -282,8 +283,8 @@ English:
 
 | mode | 行为 / Behavior |
 | --- | --- |
-| `poll-all` | 检查所有项目和目标，按 `jobs` 并行构建不同上游项目 / Check every project and target, then build different upstream projects according to `jobs` |
-| `check` | 只输出 pending/uploaded 状态，不编译 / Print pending/uploaded state only, without compiling |
+| `poll-all` | 检查所有项目和目标，并用 GitHub Actions matrix 按项目并行构建 / Check every project and target, then build projects in parallel with a GitHub Actions matrix |
+| `check` | 用 matrix 并行输出各项目 pending/uploaded 状态，不编译 / Print each project pending/uploaded state through the matrix, without compiling |
 | `single` | 只构建指定 `project` 和 `target` / Build one specified `project` and `target` |
 
 | 输入 / Input | 说明 / Description |
@@ -293,7 +294,7 @@ English:
 | `force` | 重建已经上传过的 tag/target / Rebuild an already uploaded tag/target |
 | `no_upload` | 只构建，不上传 Telegram，也不写入 `state/` / Build only, without uploading to Telegram or writing `state/` |
 | `stop_on_error` | 队列遇到第一个失败即停止 / Stop the queue after the first failure |
-| `jobs` | `poll-all` 并行上游项目数，默认 `1` / Parallel upstream project builds in `poll-all`, default `1` |
+| `jobs` | `poll-all`/`check` 的 GitHub Actions matrix 最大并行项目数，默认 `3`，工作流会按免费版友好的策略上限限制为 `3` / Maximum parallel project jobs for the GitHub Actions matrix in `poll-all`/`check`, default `3`, capped at `3` for free-plan-friendly runs |
 | `push_release_limit` | `poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Newest stable versions built/uploaded in `poll-all`, default `3` |
 | `sync_branches` | 生成/更新 `upstream/<project>` 元数据分支，默认开启 / Create/update `upstream/<project>` metadata branches, enabled by default |
 
@@ -303,10 +304,14 @@ Workflow behavior:
 
 - `concurrency` 保证同一时间只有一个 Release Autobuild 运行。
 - `concurrency` ensures only one Release Autobuild run is active at a time.
+- `poll-all` 和 `check` 会按上游项目拆成 matrix jobs，使用标准 `ubuntu-latest` GitHub-hosted runner，默认最多 3 个项目同时运行。
+- `poll-all` and `check` are split into one matrix job per upstream project, using standard `ubuntu-latest` GitHub-hosted runners with at most 3 projects running at once by default.
+- 工作流不使用 larger runner、自托管 runner 或付费外部构建服务。
+- The workflow does not use larger runners, self-hosted runners, or paid external build services.
 - 构建结果上传到 Telegram。
 - Built artifacts are uploaded to Telegram.
-- `state/*.json` 变化会由 `github-actions[bot]` 自动提交回仓库。
-- Changes under `state/*.json` are committed back by `github-actions[bot]`.
+- 各 matrix job 通过 artifact 回传自己的 `state/*.json`，最后由一个汇总 job 统一提交，避免并行 `git push` 冲突。
+- Each matrix job returns its own `state/*.json` files through artifacts; one final aggregation job commits them to avoid parallel `git push` conflicts.
 - `logs/` 会作为 workflow artifact 保存 14 天，便于排查失败原因。
 - `logs/` is uploaded as a workflow artifact and retained for 14 days for debugging.
 
@@ -343,6 +348,7 @@ When the local builder has enough resources, build different upstream repositori
 --project <name>        单项目模式的项目名 / Project name for single-build mode
 --target <target>       单项目模式的目标平台 / Target platform for single-build mode
 --poll-all              检查所有项目和目标，构建待处理产物 / Check every project/target and build pending artifacts
+--projects <names>      与 --poll-all 搭配，只处理逗号或空格分隔的指定项目 / Limit --poll-all to comma/space-separated projects
 --interval <seconds>    与 --poll-all 搭配，按间隔循环执行 / Repeat every N seconds with --poll-all
 --jobs <n>              poll-all 并行上游项目数，默认 BUILD_JOBS 或 1 / Parallel upstream projects for poll-all, default BUILD_JOBS or 1
 --push-release-limit <n> poll-all 只构建/上传最近 n 个稳定版本，默认 PUSH_RELEASE_LIMIT 或 3 / Build/upload newest n stable versions in poll-all, default PUSH_RELEASE_LIMIT or 3

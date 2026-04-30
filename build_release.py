@@ -326,6 +326,26 @@ def project_local_branch(project: Project, branch_prefix: str) -> str:
     return f"{branch_prefix}/{project.key}"
 
 
+def selected_projects(args: argparse.Namespace) -> list[Project]:
+    if not args.projects:
+        return list(PROJECTS.values())
+
+    projects: list[Project] = []
+    seen: set[str] = set()
+    for raw in re.split(r"[,\s]+", args.projects):
+        if not raw:
+            continue
+        key = normalize_project(raw)
+        if key in seen:
+            continue
+        projects.append(PROJECTS[key])
+        seen.add(key)
+
+    if not projects:
+        raise BuildError("--projects did not include any project")
+    return projects
+
+
 def source_cache_lock(cache_repo: Path) -> threading.Lock:
     resolved = cache_repo.resolve()
     with SOURCE_CACHE_LOCKS_GUARD:
@@ -1272,7 +1292,7 @@ def poll_all_once(args: argparse.Namespace) -> int:
     built_count = 0
     skipped_count = 0
     synced_count = 0
-    projects = list(PROJECTS.values())
+    projects = selected_projects(args)
 
     if args.jobs == 1:
         for project in projects:
@@ -1310,7 +1330,7 @@ def poll_all_once(args: argparse.Namespace) -> int:
 
 def poll_all_check(args: argparse.Namespace) -> int:
     failures = 0
-    for project in PROJECTS.values():
+    for project in selected_projects(args):
         try:
             releases = stable_releases(project)
         except BuildError as exc:
@@ -1409,6 +1429,7 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument("--project", help="one project key, e.g. xray or v2rayng")
     parser.add_argument("--target", help="one target, e.g. linux-amd64, windows-amd64, android-arm64")
     parser.add_argument("--poll-all", action="store_true", help="check every project/target and build pending artifacts")
+    parser.add_argument("--projects", help="comma/space-separated project keys to include with --poll-all")
     parser.add_argument("--interval", type=int, default=0, help="with --poll-all, repeat forever every N seconds")
     parser.add_argument("--jobs", type=int, default=None, help="max upstream projects to build in parallel with --poll-all; default: BUILD_JOBS or 1")
     parser.add_argument(
@@ -1451,6 +1472,9 @@ def main(argv: Iterable[str]) -> int:
 
     lock_path = args.state_dir / ".build.lock"
     with RunLock(lock_path):
+        if args.projects and not args.poll_all:
+            raise BuildError("--projects can only be used with --poll-all")
+
         if args.sync_upstream_branches:
             sync_upstream_branches(args)
             if not args.poll_all and not args.project and not args.target:
