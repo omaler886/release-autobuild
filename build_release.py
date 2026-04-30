@@ -719,12 +719,21 @@ def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir:
 
 
 def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> dict[str, str]:
+    legacy_keystore_path = source_dir / "TMessagesProj" / "release.keystore"
     config_keystore_path = source_dir / "TMessagesProj" / "config" / "release.keystore"
+    legacy_keystore_path.parent.mkdir(parents=True, exist_ok=True)
     config_keystore_path.parent.mkdir(parents=True, exist_ok=True)
     store_pass = os.environ.get("KEYSTORE_PASS") or "android"
     alias_name = os.environ.get("ALIAS_NAME") or "androidkey"
     alias_pass = os.environ.get("ALIAS_PASS") or store_pass
     supplied_keystore_value = os.environ.get("KEYSTORE_PATH")
+
+    def sync_keystore_layout(source_path: Path) -> None:
+        if source_path.resolve() != legacy_keystore_path.resolve():
+            shutil.copy2(source_path, legacy_keystore_path)
+        if legacy_keystore_path.resolve() != config_keystore_path.resolve():
+            shutil.copy2(legacy_keystore_path, config_keystore_path)
+
     if (
         supplied_keystore_value
         and os.environ.get("KEYSTORE_PASS")
@@ -734,17 +743,17 @@ def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> dict[str, str]
         supplied_keystore = Path(supplied_keystore_value).expanduser()
         if not supplied_keystore.exists():
             raise BuildError(f"KEYSTORE_PATH does not exist: {supplied_keystore}")
-        if supplied_keystore.resolve() != config_keystore_path.resolve():
-            shutil.copy2(supplied_keystore, config_keystore_path)
+        sync_keystore_layout(supplied_keystore)
     else:
-        if config_keystore_path.exists():
-            config_keystore_path.unlink()
+        for path in (legacy_keystore_path, config_keystore_path):
+            if path.exists():
+                path.unlink()
         dname = os.environ.get("KEYSTORE_DNAME", "CN=Momogram, OU=Codex, O=Codex, L=Local, S=NA, C=US")
         cmd = [
             "keytool",
             "-genkeypair",
             "-keystore",
-            str(config_keystore_path),
+            str(legacy_keystore_path),
             "-storepass",
             store_pass,
             "-keypass",
@@ -763,8 +772,9 @@ def ensure_momogram_keystore(source_dir: Path, log_file: Path) -> dict[str, str]
             "PKCS12",
         ]
         run(cmd, cwd=source_dir, log_file=log_file)
+        sync_keystore_layout(legacy_keystore_path)
     return {
-        "KEYSTORE_PATH": path_property_value(config_keystore_path),
+        "KEYSTORE_PATH": path_property_value(legacy_keystore_path),
         "KEYSTORE_PASS": store_pass,
         "ALIAS_NAME": alias_name,
         "ALIAS_PASS": alias_pass,
