@@ -1,8 +1,9 @@
-NiREvil/vless@main
-Au1rxx/free-vpn-subscriptions@main
 junjun266/FreeProxyGo@main
+Au1rxx/free-vpn-subscriptions@main
 kort0881/vpn-vless-configs-russia@main
-OpenNetCN/clash@main
+NiREvil/vless@main
+PuddinCat/BestClash@main
 mahdibland/V2RayAggregator@master
+OpenNetCN/clash@main
 nodesfree/v2raynode@main
 ishalumi/proxy-node-collector@main
