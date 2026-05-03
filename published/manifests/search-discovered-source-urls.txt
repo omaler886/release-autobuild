@@ -35,7 +35,6 @@ https://raw.githubusercontent.com/Kolandone/v2raycollector/main/config_lite.txt
 https://raw.githubusercontent.com/deepinor/v2ray_luck/main/node.txt
 https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub45.txt
 https://raw.githubusercontent.com/nikita29a/FreeProxyList/main/mirror/8.txt
-https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub61.txt
 https://raw.githubusercontent.com/coldwater-10/V2ray-Config/main/Sub59.txt
 https://raw.githubusercontent.com/longlon/v2ray-config/main/Sub73.txt
 https://raw.githubusercontent.com/Argh73/VpnConfigCollector/main/Sub32.txt
