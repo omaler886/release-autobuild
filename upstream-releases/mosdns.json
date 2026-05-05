@@ -1,0 +1,2068 @@
+{
+  "all_releases": [
+    {
+      "created_at": "2026-01-11T11:09:51Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.4",
+      "name": "v5.3.4",
+      "prerelease": false,
+      "published_at": "2026-01-11T11:42:56Z",
+      "tag_name": "v5.3.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-08-14T14:27:15Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.3",
+      "name": "v5.3.3",
+      "prerelease": false,
+      "published_at": "2024-08-14T14:31:49Z",
+      "tag_name": "v5.3.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-11-06T01:23:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.1",
+      "name": "v5.3.1",
+      "prerelease": false,
+      "published_at": "2023-11-06T01:35:47Z",
+      "tag_name": "v5.3.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-11-01T07:20:58Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.0",
+      "name": "v5.3.0",
+      "prerelease": false,
+      "published_at": "2023-11-01T07:26:04Z",
+      "tag_name": "v5.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-10-29T02:57:49Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.0-rc0",
+      "name": "v5.3.0-rc0",
+      "prerelease": true,
+      "published_at": "2023-10-29T03:23:02Z",
+      "tag_name": "v5.3.0-rc0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-09-28T07:58:54Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.2.1",
+      "name": "v5.2.1",
+      "prerelease": false,
+      "published_at": "2023-09-28T08:07:07Z",
+      "tag_name": "v5.2.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-03-15T08:52:06Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.3",
+      "name": "v5.1.3",
+      "prerelease": false,
+      "published_at": "2023-03-15T09:02:03Z",
+      "tag_name": "v5.1.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-03-04T08:55:44Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.2",
+      "name": "v5.1.2",
+      "prerelease": false,
+      "published_at": "2023-03-04T09:02:29Z",
+      "tag_name": "v5.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-02-18T10:34:37Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.1",
+      "name": "v5.1.1",
+      "prerelease": false,
+      "published_at": "2023-02-18T10:54:24Z",
+      "tag_name": "v5.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-02-02T15:10:24Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.0",
+      "name": "v5.1.0",
+      "prerelease": false,
+      "published_at": "2023-02-03T11:30:21Z",
+      "tag_name": "v5.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-01-17T11:33:34Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.1",
+      "name": "v5.0.1",
+      "prerelease": false,
+      "published_at": "2023-01-22T03:13:13Z",
+      "tag_name": "v5.0.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-01-14T12:32:57Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0",
+      "name": "v5.0.0",
+      "prerelease": false,
+      "published_at": "2023-01-14T12:52:58Z",
+      "tag_name": "v5.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-01-07T02:29:19Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-rc.2",
+      "name": "v5.0.0-rc.2",
+      "prerelease": true,
+      "published_at": "2023-01-07T02:38:11Z",
+      "tag_name": "v5.0.0-rc.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-12-26T10:30:00Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-rc.1",
+      "name": "v5.0.0-rc.1",
+      "prerelease": true,
+      "published_at": "2022-12-26T10:40:32Z",
+      "tag_name": "v5.0.0-rc.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-12-20T02:56:02Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-rc.0",
+      "name": "v5.0.0-rc.0",
+      "prerelease": true,
+      "published_at": "2022-12-21T13:34:44Z",
+      "tag_name": "v5.0.0-rc.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-12-18T07:50:55Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-alpha.4",
+      "name": "v5.0.0-alpha.4",
+      "prerelease": true,
+      "published_at": "2022-12-18T08:05:24Z",
+      "tag_name": "v5.0.0-alpha.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-12-06T06:30:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-alpha.3",
+      "name": "v5.0.0-alpha.3",
+      "prerelease": true,
+      "published_at": "2022-12-06T06:39:27Z",
+      "tag_name": "v5.0.0-alpha.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-12-02T12:46:59Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-alpha.2",
+      "name": "v5.0.0-alpha.2",
+      "prerelease": true,
+      "published_at": "2022-12-02T13:21:20Z",
+      "tag_name": "v5.0.0-alpha.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-11-29T08:25:36Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0-alpha.1",
+      "name": "v5.0.0-alpha.1",
+      "prerelease": true,
+      "published_at": "2022-11-29T08:37:34Z",
+      "tag_name": "v5.0.0-alpha.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-30T08:49:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.3",
+      "name": "v4.5.3",
+      "prerelease": false,
+      "published_at": "2022-11-02T10:04:52Z",
+      "tag_name": "v4.5.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T14:18:35Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.2",
+      "name": "v4.5.2",
+      "prerelease": false,
+      "published_at": "2022-10-23T14:30:45Z",
+      "tag_name": "v4.5.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T13:14:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.1",
+      "name": "v4.5.1",
+      "prerelease": false,
+      "published_at": "2022-10-23T13:24:15Z",
+      "tag_name": "v4.5.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T09:44:38Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.0",
+      "name": "v4.5.0",
+      "prerelease": false,
+      "published_at": "2022-10-23T10:04:05Z",
+      "tag_name": "v4.5.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-06T01:52:44Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.4.2",
+      "name": "v4.4.2",
+      "prerelease": false,
+      "published_at": "2022-10-06T02:02:24Z",
+      "tag_name": "v4.4.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-05T13:10:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.4.1",
+      "name": "v4.4.1",
+      "prerelease": false,
+      "published_at": "2022-10-05T13:19:28Z",
+      "tag_name": "v4.4.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-05T12:50:47Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.4.0",
+      "name": "v4.4.0",
+      "prerelease": true,
+      "published_at": "2022-10-05T13:00:30Z",
+      "tag_name": "v4.4.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-03T11:59:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.3.1",
+      "name": "v4.3.1",
+      "prerelease": false,
+      "published_at": "2022-10-03T12:08:21Z",
+      "tag_name": "v4.3.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-29T12:45:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.3.0",
+      "name": "v4.3.0",
+      "prerelease": false,
+      "published_at": "2022-09-29T12:55:32Z",
+      "tag_name": "v4.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-25T09:04:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.2.0",
+      "name": "v4.2.0",
+      "prerelease": false,
+      "published_at": "2022-09-25T09:15:12Z",
+      "tag_name": "v4.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-13T11:11:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.10",
+      "name": "v4.1.10",
+      "prerelease": false,
+      "published_at": "2022-09-13T11:20:55Z",
+      "tag_name": "v4.1.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-08-05T06:11:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.9",
+      "name": "v4.1.9",
+      "prerelease": false,
+      "published_at": "2022-08-05T06:18:59Z",
+      "tag_name": "v4.1.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-16T13:19:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.8",
+      "name": "v4.1.8",
+      "prerelease": false,
+      "published_at": "2022-07-16T13:27:22Z",
+      "tag_name": "v4.1.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-11T13:51:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.6",
+      "name": "v4.1.6",
+      "prerelease": false,
+      "published_at": "2022-07-11T14:00:00Z",
+      "tag_name": "v4.1.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-04T11:18:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.5",
+      "name": "v4.1.5",
+      "prerelease": false,
+      "published_at": "2022-07-04T11:26:39Z",
+      "tag_name": "v4.1.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-30T15:21:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.4",
+      "name": "v4.1.4",
+      "prerelease": false,
+      "published_at": "2022-06-30T15:38:18Z",
+      "tag_name": "v4.1.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-30T08:11:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.3",
+      "name": "v4.1.3",
+      "prerelease": false,
+      "published_at": "2022-06-30T08:23:05Z",
+      "tag_name": "v4.1.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-27T16:19:46Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.2",
+      "name": "v4.1.2",
+      "prerelease": false,
+      "published_at": "2022-06-27T16:28:59Z",
+      "tag_name": "v4.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-27T14:54:14Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.0",
+      "name": "v4.1.0",
+      "prerelease": false,
+      "published_at": "2022-06-27T15:02:08Z",
+      "tag_name": "v4.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-26T03:16:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0",
+      "name": "v4.0.0",
+      "prerelease": false,
+      "published_at": "2022-06-26T03:23:40Z",
+      "tag_name": "v4.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-24T13:51:25Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0-alpha4",
+      "name": "v4.0.0-alpha4",
+      "prerelease": true,
+      "published_at": "2022-06-24T14:01:54Z",
+      "tag_name": "v4.0.0-alpha4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-22T03:58:07Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0-alpha3",
+      "name": "v4.0.0-alpha3",
+      "prerelease": true,
+      "published_at": "2022-06-22T04:07:51Z",
+      "tag_name": "v4.0.0-alpha3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-14T13:02:52Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0-alpha2",
+      "name": "v4.0.0-alpha2",
+      "prerelease": true,
+      "published_at": "2022-06-14T13:11:46Z",
+      "tag_name": "v4.0.0-alpha2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-11T08:54:17Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0-alpha1",
+      "name": "v4.0.0-alpha1",
+      "prerelease": true,
+      "published_at": "2022-06-11T09:02:30Z",
+      "tag_name": "v4.0.0-alpha1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-05-29T03:18:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.9.0",
+      "name": "v3.9.0",
+      "prerelease": false,
+      "published_at": "2022-05-29T03:27:02Z",
+      "tag_name": "v3.9.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-05-06T13:49:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.8.0",
+      "name": "v3.8.0",
+      "prerelease": false,
+      "published_at": "2022-05-06T13:55:45Z",
+      "tag_name": "v3.8.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-28T11:54:20Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.3",
+      "name": "v3.7.3",
+      "prerelease": false,
+      "published_at": "2022-04-28T12:05:57Z",
+      "tag_name": "v3.7.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-06T03:56:01Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.2",
+      "name": "v3.7.2",
+      "prerelease": false,
+      "published_at": "2022-04-06T04:03:11Z",
+      "tag_name": "v3.7.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-05T03:50:32Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.0",
+      "name": "v3.7.0",
+      "prerelease": false,
+      "published_at": "2022-04-05T03:59:57Z",
+      "tag_name": "v3.7.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-01T04:19:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.6.0",
+      "name": "v3.6.0",
+      "prerelease": false,
+      "published_at": "2022-04-01T04:29:12Z",
+      "tag_name": "v3.6.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-27T13:54:58Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.3",
+      "name": "v3.5.3",
+      "prerelease": false,
+      "published_at": "2022-03-27T14:01:32Z",
+      "tag_name": "v3.5.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-16T02:45:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.2",
+      "name": "v3.5.2",
+      "prerelease": false,
+      "published_at": "2022-03-16T02:52:25Z",
+      "tag_name": "v3.5.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-15T01:28:52Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.1",
+      "name": "v3.5.1",
+      "prerelease": false,
+      "published_at": "2022-03-15T01:35:12Z",
+      "tag_name": "v3.5.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-12T11:56:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.0",
+      "name": "v3.5.0",
+      "prerelease": false,
+      "published_at": "2022-03-12T12:01:50Z",
+      "tag_name": "v3.5.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-06T09:30:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.4.0",
+      "name": "v3.4.0",
+      "prerelease": false,
+      "published_at": "2022-03-06T09:37:08Z",
+      "tag_name": "v3.4.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-26T11:13:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.3.0",
+      "name": "v3.3.0",
+      "prerelease": false,
+      "published_at": "2022-02-26T11:18:48Z",
+      "tag_name": "v3.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-14T14:39:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.2.0",
+      "name": "v3.2.0",
+      "prerelease": false,
+      "published_at": "2022-02-14T14:45:15Z",
+      "tag_name": "v3.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-11T12:45:24Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.2",
+      "name": "v3.1.2",
+      "prerelease": false,
+      "published_at": "2022-02-11T12:51:36Z",
+      "tag_name": "v3.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-03T12:30:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.1",
+      "name": "v3.1.1",
+      "prerelease": false,
+      "published_at": "2022-02-03T12:35:58Z",
+      "tag_name": "v3.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-25T07:04:46Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.0",
+      "name": "v3.1.0",
+      "prerelease": false,
+      "published_at": "2022-01-25T07:12:48Z",
+      "tag_name": "v3.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-04T15:02:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.0.0",
+      "name": "v3.0.0",
+      "prerelease": false,
+      "published_at": "2022-01-04T15:09:49Z",
+      "tag_name": "v3.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-03T16:30:10Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.0.0-rc.1",
+      "name": "v3.0.0-rc.1",
+      "prerelease": true,
+      "published_at": "2022-01-03T16:37:08Z",
+      "tag_name": "v3.0.0-rc.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-02T12:28:11Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.0.0-beta.1",
+      "name": "v3.0.0-beta.1",
+      "prerelease": true,
+      "published_at": "2022-01-02T12:34:27Z",
+      "tag_name": "v3.0.0-beta.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-19T12:07:25Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.2",
+      "name": "v2.2.2",
+      "prerelease": false,
+      "published_at": "2021-12-19T12:14:36Z",
+      "tag_name": "v2.2.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-15T09:31:15Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.1",
+      "name": "v2.2.1",
+      "prerelease": false,
+      "published_at": "2021-12-15T09:37:08Z",
+      "tag_name": "v2.2.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-12T17:30:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.0",
+      "name": "v2.2.0",
+      "prerelease": false,
+      "published_at": "2021-12-12T17:37:02Z",
+      "tag_name": "v2.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-11-17T06:25:01Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.2",
+      "name": "v2.1.2",
+      "prerelease": false,
+      "published_at": "2021-11-17T06:32:46Z",
+      "tag_name": "v2.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-28T12:52:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.1",
+      "name": "v2.1.1",
+      "prerelease": false,
+      "published_at": "2021-10-28T12:59:55Z",
+      "tag_name": "v2.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-27T11:44:22Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.0",
+      "name": "v2.1.0",
+      "prerelease": false,
+      "published_at": "2021-10-27T11:51:18Z",
+      "tag_name": "v2.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-04T03:06:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.0.1",
+      "name": "v2.0.1",
+      "prerelease": false,
+      "published_at": "2021-10-04T03:12:16Z",
+      "tag_name": "v2.0.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-09-30T12:21:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.0.0",
+      "name": "v2.0.0",
+      "prerelease": false,
+      "published_at": "2021-09-30T12:36:52Z",
+      "tag_name": "v2.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-09-27T15:56:21Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.0.0-alpha2",
+      "name": "v2.0.0-alpha2",
+      "prerelease": true,
+      "published_at": "2021-09-27T16:02:55Z",
+      "tag_name": "v2.0.0-alpha2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-09-18T02:31:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.7",
+      "name": "v1.8.7",
+      "prerelease": false,
+      "published_at": "2021-09-18T02:38:16Z",
+      "tag_name": "v1.8.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-05-16T02:54:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.6",
+      "name": "v1.8.6",
+      "prerelease": false,
+      "published_at": "2021-05-16T03:00:01Z",
+      "tag_name": "v1.8.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-28T15:42:01Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.5",
+      "name": "v1.8.5",
+      "prerelease": true,
+      "published_at": "2021-04-28T15:46:26Z",
+      "tag_name": "v1.8.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-25T09:25:21Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.4",
+      "name": "v1.8.4",
+      "prerelease": false,
+      "published_at": "2021-04-25T12:04:53Z",
+      "tag_name": "v1.8.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-19T04:52:37Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.3",
+      "name": "v1.8.3",
+      "prerelease": false,
+      "published_at": "2021-04-19T04:58:47Z",
+      "tag_name": "v1.8.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-18T04:47:18Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.2",
+      "name": "v1.8.2",
+      "prerelease": false,
+      "published_at": "2021-04-18T04:51:59Z",
+      "tag_name": "v1.8.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-18T00:54:51Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.1",
+      "name": "v1.8.1",
+      "prerelease": false,
+      "published_at": "2021-04-18T01:00:04Z",
+      "tag_name": "v1.8.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-15T02:11:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.0",
+      "name": "v1.8.0",
+      "prerelease": false,
+      "published_at": "2021-04-15T02:17:49Z",
+      "tag_name": "v1.8.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-06T09:30:20Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.2",
+      "name": "v1.7.2",
+      "prerelease": false,
+      "published_at": "2021-04-06T09:35:53Z",
+      "tag_name": "v1.7.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-30T10:58:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.1",
+      "name": "v1.7.1",
+      "prerelease": false,
+      "published_at": "2021-03-30T11:05:42Z",
+      "tag_name": "v1.7.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-24T03:00:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.0",
+      "name": "v1.7.0",
+      "prerelease": false,
+      "published_at": "2021-03-24T03:04:59Z",
+      "tag_name": "v1.7.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-19T02:20:32Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.5",
+      "name": "v1.6.5",
+      "prerelease": false,
+      "published_at": "2021-03-19T02:26:14Z",
+      "tag_name": "v1.6.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-18T15:29:12Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.4",
+      "name": "v1.6.4",
+      "prerelease": false,
+      "published_at": "2021-03-18T15:39:32Z",
+      "tag_name": "v1.6.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-05T14:59:10Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.3",
+      "name": "v1.6.3",
+      "prerelease": false,
+      "published_at": "2021-03-05T15:03:16Z",
+      "tag_name": "v1.6.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-05T04:08:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.2",
+      "name": "v1.6.2",
+      "prerelease": false,
+      "published_at": "2021-03-05T04:12:35Z",
+      "tag_name": "v1.6.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-05T04:00:55Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.2-docker-test1",
+      "name": "v1.6.2-docker-test1",
+      "prerelease": true,
+      "published_at": "2021-03-05T04:04:59Z",
+      "tag_name": "v1.6.2-docker-test1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-27T10:13:56Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.1",
+      "name": "v1.6.1",
+      "prerelease": false,
+      "published_at": "2021-02-27T10:19:19Z",
+      "tag_name": "v1.6.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-24T14:47:38Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.0",
+      "name": "v1.6.0",
+      "prerelease": false,
+      "published_at": "2021-02-24T14:51:56Z",
+      "tag_name": "v1.6.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-22T03:52:02Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.5.2",
+      "name": "v1.5.2",
+      "prerelease": true,
+      "published_at": "2021-02-22T04:20:28Z",
+      "tag_name": "v1.5.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-17T15:02:56Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.5.1",
+      "name": "v1.5.1",
+      "prerelease": true,
+      "published_at": "2021-02-17T15:07:54Z",
+      "tag_name": "v1.5.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-15T09:43:39Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.5.0",
+      "name": "v1.5.0",
+      "prerelease": true,
+      "published_at": "2021-02-15T09:47:40Z",
+      "tag_name": "v1.5.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-08T16:21:39Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.4.0",
+      "name": "v1.4.0",
+      "prerelease": false,
+      "published_at": "2021-02-08T16:31:20Z",
+      "tag_name": "v1.4.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-03T07:50:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.3.4",
+      "name": "v1.3.4",
+      "prerelease": false,
+      "published_at": "2021-02-03T07:55:11Z",
+      "tag_name": "v1.3.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-29T15:31:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.3.2",
+      "name": "v1.3.2",
+      "prerelease": false,
+      "published_at": "2021-01-29T15:34:33Z",
+      "tag_name": "v1.3.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-24T12:20:11Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.2.0",
+      "name": "v1.2.0",
+      "prerelease": false,
+      "published_at": "2021-01-24T12:39:15Z",
+      "tag_name": "v1.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-21T10:52:10Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.1.1",
+      "name": "v1.1.1",
+      "prerelease": false,
+      "published_at": "2021-01-21T11:37:55Z",
+      "tag_name": "v1.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-16T04:43:52Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.1.0",
+      "name": "v1.1.0",
+      "prerelease": false,
+      "published_at": "2021-01-16T05:01:11Z",
+      "tag_name": "v1.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-13T12:48:36Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.25.2",
+      "name": "v0.25.2",
+      "prerelease": false,
+      "published_at": "2021-01-13T12:55:00Z",
+      "tag_name": "v0.25.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-10T17:18:55Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.25.1",
+      "name": "v0.25.1",
+      "prerelease": false,
+      "published_at": "2021-01-10T17:22:49Z",
+      "tag_name": "v0.25.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-09T08:04:06Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.24.0",
+      "name": "v0.24.0",
+      "prerelease": false,
+      "published_at": "2021-01-09T08:34:35Z",
+      "tag_name": "v0.24.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-02T12:57:22Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.23.0",
+      "name": "v0.23.0",
+      "prerelease": false,
+      "published_at": "2021-01-02T13:02:51Z",
+      "tag_name": "v0.23.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-31T15:34:49Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.22.1",
+      "name": "v0.22.1",
+      "prerelease": true,
+      "published_at": "2020-12-31T15:38:12Z",
+      "tag_name": "v0.22.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-29T15:22:49Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.21.0",
+      "name": "v0.21.0",
+      "prerelease": true,
+      "published_at": "2020-12-29T15:38:04Z",
+      "tag_name": "v0.21.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-26T10:23:17Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.20.0",
+      "name": "v0.20.0",
+      "prerelease": false,
+      "published_at": "2020-12-26T10:37:43Z",
+      "tag_name": "v0.20.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-25T16:53:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.19.1",
+      "name": "v0.19.1",
+      "prerelease": true,
+      "published_at": "2020-12-25T16:55:29Z",
+      "tag_name": "v0.19.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-23T16:22:09Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.18.0",
+      "name": "v0.18.0",
+      "prerelease": true,
+      "published_at": "2020-12-23T16:33:47Z",
+      "tag_name": "v0.18.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-18T15:01:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.17.1",
+      "name": "v0.17.1",
+      "prerelease": false,
+      "published_at": "2020-12-18T15:05:01Z",
+      "tag_name": "v0.17.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-11T09:31:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.16.0",
+      "name": "v0.16.0",
+      "prerelease": false,
+      "published_at": "2020-12-11T09:45:29Z",
+      "tag_name": "v0.16.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-09T12:25:43Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.15.0",
+      "name": "v0.15.0",
+      "prerelease": false,
+      "published_at": "2020-12-09T12:34:28Z",
+      "tag_name": "v0.15.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-06T11:13:39Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.14.0",
+      "name": "v0.14.0",
+      "prerelease": false,
+      "published_at": "2020-12-06T11:26:05Z",
+      "tag_name": "v0.14.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-03T00:23:29Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.13.1",
+      "name": "v0.13.1",
+      "prerelease": false,
+      "published_at": "2020-12-03T00:25:49Z",
+      "tag_name": "v0.13.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-11-29T10:31:49Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.12.1",
+      "name": "v0.12.1",
+      "prerelease": false,
+      "published_at": "2020-11-29T10:50:49Z",
+      "tag_name": "v0.12.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-11-27T13:05:43Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.9.0",
+      "name": "v0.9.0",
+      "prerelease": true,
+      "published_at": "2020-11-27T13:15:45Z",
+      "tag_name": "v0.9.0",
+      "target_commitish": "main"
+    }
+  ],
+  "base_branch": "master",
+  "base_commit": "fe195216b05d765cbafeeeeecd7822b0fab943d9",
+  "project": "mosdns",
+  "push_candidates": [
+    {
+      "created_at": "2026-01-11T11:09:51Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.4",
+      "name": "v5.3.4",
+      "prerelease": false,
+      "published_at": "2026-01-11T11:42:56Z",
+      "tag_name": "v5.3.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-08-14T14:27:15Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.3",
+      "name": "v5.3.3",
+      "prerelease": false,
+      "published_at": "2024-08-14T14:31:49Z",
+      "tag_name": "v5.3.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-11-06T01:23:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.1",
+      "name": "v5.3.1",
+      "prerelease": false,
+      "published_at": "2023-11-06T01:35:47Z",
+      "tag_name": "v5.3.1",
+      "target_commitish": "main"
+    }
+  ],
+  "push_release_limit": 3,
+  "release_count": 114,
+  "repo": "IrineSistiana/mosdns",
+  "source_branch": "upstream/mosdns",
+  "stable_release_count": 88,
+  "stable_releases": [
+    {
+      "created_at": "2026-01-11T11:09:51Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.4",
+      "name": "v5.3.4",
+      "prerelease": false,
+      "published_at": "2026-01-11T11:42:56Z",
+      "tag_name": "v5.3.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-08-14T14:27:15Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.3",
+      "name": "v5.3.3",
+      "prerelease": false,
+      "published_at": "2024-08-14T14:31:49Z",
+      "tag_name": "v5.3.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-11-06T01:23:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.1",
+      "name": "v5.3.1",
+      "prerelease": false,
+      "published_at": "2023-11-06T01:35:47Z",
+      "tag_name": "v5.3.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-11-01T07:20:58Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.3.0",
+      "name": "v5.3.0",
+      "prerelease": false,
+      "published_at": "2023-11-01T07:26:04Z",
+      "tag_name": "v5.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-09-28T07:58:54Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.2.1",
+      "name": "v5.2.1",
+      "prerelease": false,
+      "published_at": "2023-09-28T08:07:07Z",
+      "tag_name": "v5.2.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-03-15T08:52:06Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.3",
+      "name": "v5.1.3",
+      "prerelease": false,
+      "published_at": "2023-03-15T09:02:03Z",
+      "tag_name": "v5.1.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-03-04T08:55:44Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.2",
+      "name": "v5.1.2",
+      "prerelease": false,
+      "published_at": "2023-03-04T09:02:29Z",
+      "tag_name": "v5.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-02-18T10:34:37Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.1",
+      "name": "v5.1.1",
+      "prerelease": false,
+      "published_at": "2023-02-18T10:54:24Z",
+      "tag_name": "v5.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-02-02T15:10:24Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.1.0",
+      "name": "v5.1.0",
+      "prerelease": false,
+      "published_at": "2023-02-03T11:30:21Z",
+      "tag_name": "v5.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-01-17T11:33:34Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.1",
+      "name": "v5.0.1",
+      "prerelease": false,
+      "published_at": "2023-01-22T03:13:13Z",
+      "tag_name": "v5.0.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2023-01-14T12:32:57Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v5.0.0",
+      "name": "v5.0.0",
+      "prerelease": false,
+      "published_at": "2023-01-14T12:52:58Z",
+      "tag_name": "v5.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-30T08:49:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.3",
+      "name": "v4.5.3",
+      "prerelease": false,
+      "published_at": "2022-11-02T10:04:52Z",
+      "tag_name": "v4.5.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T14:18:35Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.2",
+      "name": "v4.5.2",
+      "prerelease": false,
+      "published_at": "2022-10-23T14:30:45Z",
+      "tag_name": "v4.5.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T13:14:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.1",
+      "name": "v4.5.1",
+      "prerelease": false,
+      "published_at": "2022-10-23T13:24:15Z",
+      "tag_name": "v4.5.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-23T09:44:38Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.5.0",
+      "name": "v4.5.0",
+      "prerelease": false,
+      "published_at": "2022-10-23T10:04:05Z",
+      "tag_name": "v4.5.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-06T01:52:44Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.4.2",
+      "name": "v4.4.2",
+      "prerelease": false,
+      "published_at": "2022-10-06T02:02:24Z",
+      "tag_name": "v4.4.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-05T13:10:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.4.1",
+      "name": "v4.4.1",
+      "prerelease": false,
+      "published_at": "2022-10-05T13:19:28Z",
+      "tag_name": "v4.4.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-10-03T11:59:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.3.1",
+      "name": "v4.3.1",
+      "prerelease": false,
+      "published_at": "2022-10-03T12:08:21Z",
+      "tag_name": "v4.3.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-29T12:45:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.3.0",
+      "name": "v4.3.0",
+      "prerelease": false,
+      "published_at": "2022-09-29T12:55:32Z",
+      "tag_name": "v4.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-25T09:04:41Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.2.0",
+      "name": "v4.2.0",
+      "prerelease": false,
+      "published_at": "2022-09-25T09:15:12Z",
+      "tag_name": "v4.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-09-13T11:11:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.10",
+      "name": "v4.1.10",
+      "prerelease": false,
+      "published_at": "2022-09-13T11:20:55Z",
+      "tag_name": "v4.1.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-08-05T06:11:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.9",
+      "name": "v4.1.9",
+      "prerelease": false,
+      "published_at": "2022-08-05T06:18:59Z",
+      "tag_name": "v4.1.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-16T13:19:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.8",
+      "name": "v4.1.8",
+      "prerelease": false,
+      "published_at": "2022-07-16T13:27:22Z",
+      "tag_name": "v4.1.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-11T13:51:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.6",
+      "name": "v4.1.6",
+      "prerelease": false,
+      "published_at": "2022-07-11T14:00:00Z",
+      "tag_name": "v4.1.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-07-04T11:18:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.5",
+      "name": "v4.1.5",
+      "prerelease": false,
+      "published_at": "2022-07-04T11:26:39Z",
+      "tag_name": "v4.1.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-30T15:21:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.4",
+      "name": "v4.1.4",
+      "prerelease": false,
+      "published_at": "2022-06-30T15:38:18Z",
+      "tag_name": "v4.1.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-30T08:11:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.3",
+      "name": "v4.1.3",
+      "prerelease": false,
+      "published_at": "2022-06-30T08:23:05Z",
+      "tag_name": "v4.1.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-27T16:19:46Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.2",
+      "name": "v4.1.2",
+      "prerelease": false,
+      "published_at": "2022-06-27T16:28:59Z",
+      "tag_name": "v4.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-27T14:54:14Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.1.0",
+      "name": "v4.1.0",
+      "prerelease": false,
+      "published_at": "2022-06-27T15:02:08Z",
+      "tag_name": "v4.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-06-26T03:16:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v4.0.0",
+      "name": "v4.0.0",
+      "prerelease": false,
+      "published_at": "2022-06-26T03:23:40Z",
+      "tag_name": "v4.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-05-29T03:18:53Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.9.0",
+      "name": "v3.9.0",
+      "prerelease": false,
+      "published_at": "2022-05-29T03:27:02Z",
+      "tag_name": "v3.9.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-05-06T13:49:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.8.0",
+      "name": "v3.8.0",
+      "prerelease": false,
+      "published_at": "2022-05-06T13:55:45Z",
+      "tag_name": "v3.8.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-28T11:54:20Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.3",
+      "name": "v3.7.3",
+      "prerelease": false,
+      "published_at": "2022-04-28T12:05:57Z",
+      "tag_name": "v3.7.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-06T03:56:01Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.2",
+      "name": "v3.7.2",
+      "prerelease": false,
+      "published_at": "2022-04-06T04:03:11Z",
+      "tag_name": "v3.7.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-05T03:50:32Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.7.0",
+      "name": "v3.7.0",
+      "prerelease": false,
+      "published_at": "2022-04-05T03:59:57Z",
+      "tag_name": "v3.7.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-04-01T04:19:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.6.0",
+      "name": "v3.6.0",
+      "prerelease": false,
+      "published_at": "2022-04-01T04:29:12Z",
+      "tag_name": "v3.6.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-27T13:54:58Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.3",
+      "name": "v3.5.3",
+      "prerelease": false,
+      "published_at": "2022-03-27T14:01:32Z",
+      "tag_name": "v3.5.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-16T02:45:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.2",
+      "name": "v3.5.2",
+      "prerelease": false,
+      "published_at": "2022-03-16T02:52:25Z",
+      "tag_name": "v3.5.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-15T01:28:52Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.1",
+      "name": "v3.5.1",
+      "prerelease": false,
+      "published_at": "2022-03-15T01:35:12Z",
+      "tag_name": "v3.5.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-12T11:56:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.5.0",
+      "name": "v3.5.0",
+      "prerelease": false,
+      "published_at": "2022-03-12T12:01:50Z",
+      "tag_name": "v3.5.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-03-06T09:30:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.4.0",
+      "name": "v3.4.0",
+      "prerelease": false,
+      "published_at": "2022-03-06T09:37:08Z",
+      "tag_name": "v3.4.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-26T11:13:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.3.0",
+      "name": "v3.3.0",
+      "prerelease": false,
+      "published_at": "2022-02-26T11:18:48Z",
+      "tag_name": "v3.3.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-14T14:39:03Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.2.0",
+      "name": "v3.2.0",
+      "prerelease": false,
+      "published_at": "2022-02-14T14:45:15Z",
+      "tag_name": "v3.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-11T12:45:24Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.2",
+      "name": "v3.1.2",
+      "prerelease": false,
+      "published_at": "2022-02-11T12:51:36Z",
+      "tag_name": "v3.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-02-03T12:30:13Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.1",
+      "name": "v3.1.1",
+      "prerelease": false,
+      "published_at": "2022-02-03T12:35:58Z",
+      "tag_name": "v3.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-25T07:04:46Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.1.0",
+      "name": "v3.1.0",
+      "prerelease": false,
+      "published_at": "2022-01-25T07:12:48Z",
+      "tag_name": "v3.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2022-01-04T15:02:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v3.0.0",
+      "name": "v3.0.0",
+      "prerelease": false,
+      "published_at": "2022-01-04T15:09:49Z",
+      "tag_name": "v3.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-19T12:07:25Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.2",
+      "name": "v2.2.2",
+      "prerelease": false,
+      "published_at": "2021-12-19T12:14:36Z",
+      "tag_name": "v2.2.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-15T09:31:15Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.1",
+      "name": "v2.2.1",
+      "prerelease": false,
+      "published_at": "2021-12-15T09:37:08Z",
+      "tag_name": "v2.2.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-12-12T17:30:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.2.0",
+      "name": "v2.2.0",
+      "prerelease": false,
+      "published_at": "2021-12-12T17:37:02Z",
+      "tag_name": "v2.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-11-17T06:25:01Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.2",
+      "name": "v2.1.2",
+      "prerelease": false,
+      "published_at": "2021-11-17T06:32:46Z",
+      "tag_name": "v2.1.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-28T12:52:28Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.1",
+      "name": "v2.1.1",
+      "prerelease": false,
+      "published_at": "2021-10-28T12:59:55Z",
+      "tag_name": "v2.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-27T11:44:22Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.1.0",
+      "name": "v2.1.0",
+      "prerelease": false,
+      "published_at": "2021-10-27T11:51:18Z",
+      "tag_name": "v2.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-10-04T03:06:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.0.1",
+      "name": "v2.0.1",
+      "prerelease": false,
+      "published_at": "2021-10-04T03:12:16Z",
+      "tag_name": "v2.0.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-09-30T12:21:23Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v2.0.0",
+      "name": "v2.0.0",
+      "prerelease": false,
+      "published_at": "2021-09-30T12:36:52Z",
+      "tag_name": "v2.0.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-09-18T02:31:05Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.7",
+      "name": "v1.8.7",
+      "prerelease": false,
+      "published_at": "2021-09-18T02:38:16Z",
+      "tag_name": "v1.8.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-05-16T02:54:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.6",
+      "name": "v1.8.6",
+      "prerelease": false,
+      "published_at": "2021-05-16T03:00:01Z",
+      "tag_name": "v1.8.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-25T09:25:21Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.4",
+      "name": "v1.8.4",
+      "prerelease": false,
+      "published_at": "2021-04-25T12:04:53Z",
+      "tag_name": "v1.8.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-19T04:52:37Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.3",
+      "name": "v1.8.3",
+      "prerelease": false,
+      "published_at": "2021-04-19T04:58:47Z",
+      "tag_name": "v1.8.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-18T04:47:18Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.2",
+      "name": "v1.8.2",
+      "prerelease": false,
+      "published_at": "2021-04-18T04:51:59Z",
+      "tag_name": "v1.8.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-18T00:54:51Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.1",
+      "name": "v1.8.1",
+      "prerelease": false,
+      "published_at": "2021-04-18T01:00:04Z",
+      "tag_name": "v1.8.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-15T02:11:45Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.8.0",
+      "name": "v1.8.0",
+      "prerelease": false,
+      "published_at": "2021-04-15T02:17:49Z",
+      "tag_name": "v1.8.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-04-06T09:30:20Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.2",
+      "name": "v1.7.2",
+      "prerelease": false,
+      "published_at": "2021-04-06T09:35:53Z",
+      "tag_name": "v1.7.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-30T10:58:04Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.1",
+      "name": "v1.7.1",
+      "prerelease": false,
+      "published_at": "2021-03-30T11:05:42Z",
+      "tag_name": "v1.7.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-24T03:00:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.7.0",
+      "name": "v1.7.0",
+      "prerelease": false,
+      "published_at": "2021-03-24T03:04:59Z",
+      "tag_name": "v1.7.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-19T02:20:32Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.5",
+      "name": "v1.6.5",
+      "prerelease": false,
+      "published_at": "2021-03-19T02:26:14Z",
+      "tag_name": "v1.6.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-18T15:29:12Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.4",
+      "name": "v1.6.4",
+      "prerelease": false,
+      "published_at": "2021-03-18T15:39:32Z",
+      "tag_name": "v1.6.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-05T14:59:10Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.3",
+      "name": "v1.6.3",
+      "prerelease": false,
+      "published_at": "2021-03-05T15:03:16Z",
+      "tag_name": "v1.6.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-03-05T04:08:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.2",
+      "name": "v1.6.2",
+      "prerelease": false,
+      "published_at": "2021-03-05T04:12:35Z",
+      "tag_name": "v1.6.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-27T10:13:56Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.1",
+      "name": "v1.6.1",
+      "prerelease": false,
+      "published_at": "2021-02-27T10:19:19Z",
+      "tag_name": "v1.6.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-24T14:47:38Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.6.0",
+      "name": "v1.6.0",
+      "prerelease": false,
+      "published_at": "2021-02-24T14:51:56Z",
+      "tag_name": "v1.6.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-08T16:21:39Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.4.0",
+      "name": "v1.4.0",
+      "prerelease": false,
+      "published_at": "2021-02-08T16:31:20Z",
+      "tag_name": "v1.4.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-02-03T07:50:48Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.3.4",
+      "name": "v1.3.4",
+      "prerelease": false,
+      "published_at": "2021-02-03T07:55:11Z",
+      "tag_name": "v1.3.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-29T15:31:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.3.2",
+      "name": "v1.3.2",
+      "prerelease": false,
+      "published_at": "2021-01-29T15:34:33Z",
+      "tag_name": "v1.3.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-24T12:20:11Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.2.0",
+      "name": "v1.2.0",
+      "prerelease": false,
+      "published_at": "2021-01-24T12:39:15Z",
+      "tag_name": "v1.2.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-21T10:52:10Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.1.1",
+      "name": "v1.1.1",
+      "prerelease": false,
+      "published_at": "2021-01-21T11:37:55Z",
+      "tag_name": "v1.1.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-16T04:43:52Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v1.1.0",
+      "name": "v1.1.0",
+      "prerelease": false,
+      "published_at": "2021-01-16T05:01:11Z",
+      "tag_name": "v1.1.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-13T12:48:36Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.25.2",
+      "name": "v0.25.2",
+      "prerelease": false,
+      "published_at": "2021-01-13T12:55:00Z",
+      "tag_name": "v0.25.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-10T17:18:55Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.25.1",
+      "name": "v0.25.1",
+      "prerelease": false,
+      "published_at": "2021-01-10T17:22:49Z",
+      "tag_name": "v0.25.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-09T08:04:06Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.24.0",
+      "name": "v0.24.0",
+      "prerelease": false,
+      "published_at": "2021-01-09T08:34:35Z",
+      "tag_name": "v0.24.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2021-01-02T12:57:22Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.23.0",
+      "name": "v0.23.0",
+      "prerelease": false,
+      "published_at": "2021-01-02T13:02:51Z",
+      "tag_name": "v0.23.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-26T10:23:17Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.20.0",
+      "name": "v0.20.0",
+      "prerelease": false,
+      "published_at": "2020-12-26T10:37:43Z",
+      "tag_name": "v0.20.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-18T15:01:16Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.17.1",
+      "name": "v0.17.1",
+      "prerelease": false,
+      "published_at": "2020-12-18T15:05:01Z",
+      "tag_name": "v0.17.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-11T09:31:33Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.16.0",
+      "name": "v0.16.0",
+      "prerelease": false,
+      "published_at": "2020-12-11T09:45:29Z",
+      "tag_name": "v0.16.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-09T12:25:43Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.15.0",
+      "name": "v0.15.0",
+      "prerelease": false,
+      "published_at": "2020-12-09T12:34:28Z",
+      "tag_name": "v0.15.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-06T11:13:39Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.14.0",
+      "name": "v0.14.0",
+      "prerelease": false,
+      "published_at": "2020-12-06T11:26:05Z",
+      "tag_name": "v0.14.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-12-03T00:23:29Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.13.1",
+      "name": "v0.13.1",
+      "prerelease": false,
+      "published_at": "2020-12-03T00:25:49Z",
+      "tag_name": "v0.13.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2020-11-29T10:31:49Z",
+      "draft": false,
+      "html_url": "https://github.com/IrineSistiana/mosdns/releases/tag/v0.12.1",
+      "name": "v0.12.1",
+      "prerelease": false,
+      "published_at": "2020-11-29T10:50:49Z",
+      "tag_name": "v0.12.1",
+      "target_commitish": "main"
+    }
+  ],
+  "synced_at": "2026-05-05T03:52:56+00:00",
+  "version_source": "release"
+}
