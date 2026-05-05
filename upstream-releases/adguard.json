@@ -1,0 +1,3558 @@
+{
+  "all_releases": [
+    {
+      "created_at": "2026-04-16T11:12:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.74",
+      "name": "AdGuard Home v0.107.74",
+      "prerelease": false,
+      "published_at": "2026-04-16T11:34:27Z",
+      "tag_name": "v0.107.74",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-04-14T12:44:16Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.85",
+      "name": "AdGuard Home v0.108.0-b.85",
+      "prerelease": true,
+      "published_at": "2026-04-14T13:03:12Z",
+      "tag_name": "v0.108.0-b.85",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-04-01T14:24:51Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.84",
+      "name": "AdGuard Home v0.108.0-b.84",
+      "prerelease": true,
+      "published_at": "2026-04-01T14:39:00Z",
+      "tag_name": "v0.108.0-b.84",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-03-13T14:26:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.83",
+      "name": "AdGuard Home v0.108.0-b.83",
+      "prerelease": true,
+      "published_at": "2026-03-13T14:51:42Z",
+      "tag_name": "v0.108.0-b.83",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-03-10T17:08:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.73",
+      "name": "AdGuard Home v0.107.73",
+      "prerelease": false,
+      "published_at": "2026-03-10T17:23:23Z",
+      "tag_name": "v0.107.73",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-02-19T14:35:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.72",
+      "name": "AdGuard Home v0.107.72",
+      "prerelease": false,
+      "published_at": "2026-02-19T15:37:49Z",
+      "tag_name": "v0.107.72",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-02-09T15:49:18Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.82",
+      "name": "AdGuard Home v0.108.0-b.82",
+      "prerelease": true,
+      "published_at": "2026-02-09T16:47:36Z",
+      "tag_name": "v0.108.0-b.82",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-02-04T12:27:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.81",
+      "name": "AdGuard Home v0.108.0-b.81",
+      "prerelease": true,
+      "published_at": "2026-02-04T12:41:28Z",
+      "tag_name": "v0.108.0-b.81",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-12-08T14:24:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.71",
+      "name": "AdGuard Home v0.107.71",
+      "prerelease": false,
+      "published_at": "2025-12-08T14:34:55Z",
+      "tag_name": "v0.107.71",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-12-04T17:47:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.80",
+      "name": "AdGuard Home v0.108.0-b.80",
+      "prerelease": true,
+      "published_at": "2025-12-04T17:57:42Z",
+      "tag_name": "v0.108.0-b.80",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-12-03T14:02:21Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.70",
+      "name": "AdGuard Home v0.107.70",
+      "prerelease": false,
+      "published_at": "2025-12-03T16:12:15Z",
+      "tag_name": "v0.107.70",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-11-19T12:16:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.79",
+      "name": "AdGuard Home v0.108.0-b.79",
+      "prerelease": true,
+      "published_at": "2025-11-19T12:48:48Z",
+      "tag_name": "v0.108.0-b.79",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-30T14:21:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.69",
+      "name": "AdGuard Home v0.107.69",
+      "prerelease": false,
+      "published_at": "2025-10-30T15:31:50Z",
+      "tag_name": "v0.107.69",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-28T16:09:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.78",
+      "name": "AdGuard Home v0.108.0-b.78",
+      "prerelease": true,
+      "published_at": "2025-10-28T16:26:21Z",
+      "tag_name": "v0.108.0-b.78",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-23T14:16:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.68",
+      "name": "AdGuard Home v0.107.68",
+      "prerelease": false,
+      "published_at": "2025-10-23T14:26:29Z",
+      "tag_name": "v0.107.68",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-08T15:50:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.77",
+      "name": "AdGuard Home v0.108.0-b.77",
+      "prerelease": true,
+      "published_at": "2025-10-08T16:21:07Z",
+      "tag_name": "v0.108.0-b.77",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-29T14:30:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.67",
+      "name": "AdGuard Home v0.107.67",
+      "prerelease": false,
+      "published_at": "2025-09-29T14:45:57Z",
+      "tag_name": "v0.107.67",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-16T16:38:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.76",
+      "name": "AdGuard Home v0.108.0-b.76",
+      "prerelease": true,
+      "published_at": "2025-09-16T16:54:19Z",
+      "tag_name": "v0.108.0-b.76",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-15T11:52:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.66",
+      "name": "AdGuard Home v0.107.66",
+      "prerelease": false,
+      "published_at": "2025-09-15T13:39:52Z",
+      "tag_name": "v0.107.66",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-04T17:19:18Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.75",
+      "name": "AdGuard Home v0.108.0-b.75",
+      "prerelease": true,
+      "published_at": "2025-09-04T17:51:31Z",
+      "tag_name": "v0.108.0-b.75",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-08-20T12:51:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.65",
+      "name": "AdGuard Home v0.107.65",
+      "prerelease": false,
+      "published_at": "2025-08-20T14:02:28Z",
+      "tag_name": "v0.107.65",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-08-14T12:21:41Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.74",
+      "name": "AdGuard Home v0.108.0-b.74",
+      "prerelease": true,
+      "published_at": "2025-08-14T12:40:50Z",
+      "tag_name": "v0.108.0-b.74",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-07-28T15:55:29Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.73",
+      "name": "AdGuard Home v0.108.0-b.73",
+      "prerelease": true,
+      "published_at": "2025-07-28T16:06:09Z",
+      "tag_name": "v0.108.0-b.73",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-07-28T12:48:39Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.64",
+      "name": "AdGuard Home v0.107.64",
+      "prerelease": false,
+      "published_at": "2025-07-28T14:24:56Z",
+      "tag_name": "v0.107.64",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-07-09T12:27:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.72",
+      "name": "AdGuard Home v0.108.0-b.72",
+      "prerelease": true,
+      "published_at": "2025-07-09T12:56:51Z",
+      "tag_name": "v0.108.0-b.72",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-06-26T14:09:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.63",
+      "name": "AdGuard Home v0.107.63",
+      "prerelease": false,
+      "published_at": "2025-06-26T14:34:19Z",
+      "tag_name": "v0.107.63",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-06-10T14:00:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.71",
+      "name": "AdGuard Home v0.108.0-b.71",
+      "prerelease": true,
+      "published_at": "2025-06-10T14:31:42Z",
+      "tag_name": "v0.108.0-b.71",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-05-27T11:56:10Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.62",
+      "name": "AdGuard Home v0.107.62",
+      "prerelease": false,
+      "published_at": "2025-05-27T12:10:19Z",
+      "tag_name": "v0.107.62",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-05-26T11:29:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.70",
+      "name": "AdGuard Home v0.108.0-b.70",
+      "prerelease": true,
+      "published_at": "2025-05-26T11:47:04Z",
+      "tag_name": "v0.108.0-b.70",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-05-06T14:53:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.69",
+      "name": "AdGuard Home v0.108.0-b.69",
+      "prerelease": true,
+      "published_at": "2025-05-06T15:06:05Z",
+      "tag_name": "v0.108.0-b.69",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-22T12:14:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.61",
+      "name": "AdGuard Home v0.107.61",
+      "prerelease": false,
+      "published_at": "2025-04-22T12:42:26Z",
+      "tag_name": "v0.107.61",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-21T15:54:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.68",
+      "name": "AdGuard Home v0.108.0-b.68",
+      "prerelease": true,
+      "published_at": "2025-04-21T16:08:03Z",
+      "tag_name": "v0.108.0-b.68",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-17T18:41:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.67",
+      "name": "AdGuard Home v0.108.0-b.67",
+      "prerelease": true,
+      "published_at": "2025-04-17T18:53:33Z",
+      "tag_name": "v0.108.0-b.67",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-14T11:06:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.60",
+      "name": "AdGuard Home v0.107.60",
+      "prerelease": false,
+      "published_at": "2025-04-14T11:46:19Z",
+      "tag_name": "v0.107.60",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-08T14:22:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.66",
+      "name": "AdGuard Home v0.108.0-b.66",
+      "prerelease": true,
+      "published_at": "2025-04-08T14:52:58Z",
+      "tag_name": "v0.108.0-b.66",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-21T10:40:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.59",
+      "name": "AdGuard Home v0.107.59",
+      "prerelease": false,
+      "published_at": "2025-03-21T11:11:39Z",
+      "tag_name": "v0.107.59",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-20T16:03:31Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.65",
+      "name": "AdGuard Home v0.108.0-b.65",
+      "prerelease": true,
+      "published_at": "2025-03-20T16:27:43Z",
+      "tag_name": "v0.108.0-b.65",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-19T16:17:29Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.58",
+      "name": "AdGuard Home v0.107.58",
+      "prerelease": false,
+      "published_at": "2025-03-19T16:29:42Z",
+      "tag_name": "v0.107.58",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-10T15:41:41Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.64",
+      "name": "AdGuard Home v0.108.0-b.64",
+      "prerelease": true,
+      "published_at": "2025-03-10T16:11:19Z",
+      "tag_name": "v0.108.0-b.64",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-02-20T14:46:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.57",
+      "name": "AdGuard Home v0.107.57",
+      "prerelease": false,
+      "published_at": "2025-02-20T14:58:55Z",
+      "tag_name": "v0.107.57",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-02-18T16:23:26Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.63",
+      "name": "AdGuard Home v0.108.0-b.63",
+      "prerelease": true,
+      "published_at": "2025-02-18T16:37:10Z",
+      "tag_name": "v0.108.0-b.63",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-01-23T13:52:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.56",
+      "name": "AdGuard Home v0.107.56",
+      "prerelease": false,
+      "published_at": "2025-01-23T14:11:42Z",
+      "tag_name": "v0.107.56",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-01-20T16:14:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.62",
+      "name": "AdGuard Home v0.108.0-b.62",
+      "prerelease": true,
+      "published_at": "2025-01-20T16:44:01Z",
+      "tag_name": "v0.108.0-b.62",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-12-11T13:23:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.55",
+      "name": "AdGuard Home v0.107.55",
+      "prerelease": false,
+      "published_at": "2024-12-11T13:32:39Z",
+      "tag_name": "v0.107.55",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-12-04T15:08:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.61",
+      "name": "AdGuard Home v0.108.0-b.61",
+      "prerelease": true,
+      "published_at": "2024-12-04T16:36:00Z",
+      "tag_name": "v0.108.0-b.61",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-11-06T16:36:54Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.60",
+      "name": "AdGuard Home v0.108.0-b.60",
+      "prerelease": true,
+      "published_at": "2024-11-06T16:46:35Z",
+      "tag_name": "v0.108.0-b.60",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-11-06T13:13:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.54",
+      "name": "AdGuard Home v0.107.54",
+      "prerelease": false,
+      "published_at": "2024-11-06T13:26:47Z",
+      "tag_name": "v0.107.54",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-10-29T12:15:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.59",
+      "name": "AdGuard Home v0.108.0-b.59",
+      "prerelease": true,
+      "published_at": "2024-10-29T13:25:50Z",
+      "tag_name": "v0.108.0-b.59",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-10-03T12:35:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.53",
+      "name": "AdGuard Home v0.107.53",
+      "prerelease": false,
+      "published_at": "2024-10-03T12:46:45Z",
+      "tag_name": "v0.107.53",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-10-02T18:00:42Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.58",
+      "name": "AdGuard Home v0.108.0-b.58",
+      "prerelease": true,
+      "published_at": "2024-10-02T18:29:14Z",
+      "tag_name": "v0.108.0-b.58",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-07-04T15:39:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.52",
+      "name": "AdGuard Home v0.107.52",
+      "prerelease": false,
+      "published_at": "2024-07-04T15:51:06Z",
+      "tag_name": "v0.107.52",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-07-03T13:09:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.57",
+      "name": "AdGuard Home v0.108.0-b.57",
+      "prerelease": true,
+      "published_at": "2024-07-03T13:41:14Z",
+      "tag_name": "v0.108.0-b.57",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-06-06T14:32:02Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.51",
+      "name": "AdGuard Home v0.107.51",
+      "prerelease": false,
+      "published_at": "2024-06-06T14:41:02Z",
+      "tag_name": "v0.107.51",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-28T12:52:36Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.56",
+      "name": "AdGuard Home v0.108.0-b.56",
+      "prerelease": true,
+      "published_at": "2024-05-28T13:19:34Z",
+      "tag_name": "v0.108.0-b.56",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-23T12:34:41Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.50",
+      "name": "AdGuard Home v0.107.50",
+      "prerelease": false,
+      "published_at": "2024-05-23T12:53:14Z",
+      "tag_name": "v0.107.50",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-21T14:13:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.49",
+      "name": "AdGuard Home v0.107.49",
+      "prerelease": false,
+      "published_at": "2024-05-21T15:25:56Z",
+      "tag_name": "v0.107.49",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-15T13:52:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.55",
+      "name": "AdGuard Home v0.108.0-b.55",
+      "prerelease": true,
+      "published_at": "2024-05-15T14:27:34Z",
+      "tag_name": "v0.108.0-b.55",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-04-05T14:34:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.48",
+      "name": "AdGuard Home v0.107.48",
+      "prerelease": false,
+      "published_at": "2024-04-05T15:17:32Z",
+      "tag_name": "v0.107.48",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-04-04T14:00:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.47",
+      "name": "AdGuard Home v0.107.47",
+      "prerelease": false,
+      "published_at": "2024-04-04T14:28:57Z",
+      "tag_name": "v0.107.47",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-03-20T14:07:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.46",
+      "name": "AdGuard Home v0.107.46",
+      "prerelease": false,
+      "published_at": "2024-03-20T14:55:31Z",
+      "tag_name": "v0.107.46",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-03-19T13:33:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.54",
+      "name": "AdGuard Home v0.108.0-b.54",
+      "prerelease": true,
+      "published_at": "2024-03-19T14:01:15Z",
+      "tag_name": "v0.108.0-b.54",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-03-06T15:43:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.45",
+      "name": "AdGuard Home v0.107.45",
+      "prerelease": false,
+      "published_at": "2024-03-06T16:01:54Z",
+      "tag_name": "v0.107.45",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-02-13T15:34:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.53",
+      "name": "AdGuard Home v0.108.0-b.53",
+      "prerelease": true,
+      "published_at": "2024-02-13T15:53:06Z",
+      "tag_name": "v0.108.0-b.53",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-02-06T12:40:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.44",
+      "name": "AdGuard Home v0.107.44",
+      "prerelease": false,
+      "published_at": "2024-02-06T14:05:26Z",
+      "tag_name": "v0.107.44",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-01-23T16:42:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.52",
+      "name": "AdGuard Home v0.108.0-b.52",
+      "prerelease": true,
+      "published_at": "2024-01-24T09:42:27Z",
+      "tag_name": "v0.108.0-b.52",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-12-11T12:50:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.43",
+      "name": "AdGuard Home v0.107.43",
+      "prerelease": false,
+      "published_at": "2023-12-11T14:37:55Z",
+      "tag_name": "v0.107.43",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-12-07T15:58:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.51",
+      "name": "AdGuard Home v0.108.0-b.51",
+      "prerelease": true,
+      "published_at": "2023-12-07T16:22:43Z",
+      "tag_name": "v0.108.0-b.51",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-12-07T14:44:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.42",
+      "name": "AdGuard Home v0.107.42",
+      "prerelease": false,
+      "published_at": "2023-12-07T15:22:40Z",
+      "tag_name": "v0.107.42",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-11-22T12:30:33Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.50",
+      "name": "AdGuard Home v0.108.0-b.50",
+      "prerelease": true,
+      "published_at": "2023-11-22T12:45:22Z",
+      "tag_name": "v0.108.0-b.50",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-11-13T17:08:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.49",
+      "name": "AdGuard Home v0.108.0-b.49",
+      "prerelease": true,
+      "published_at": "2023-11-13T17:35:05Z",
+      "tag_name": "v0.108.0-b.49",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-11-13T15:02:17Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.41",
+      "name": "AdGuard Home v0.107.41",
+      "prerelease": false,
+      "published_at": "2023-11-13T16:04:41Z",
+      "tag_name": "v0.107.41",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-18T15:05:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.40",
+      "name": "AdGuard Home v0.107.40",
+      "prerelease": false,
+      "published_at": "2023-10-18T15:44:52Z",
+      "tag_name": "v0.107.40",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-17T15:11:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.48",
+      "name": "AdGuard Home v0.108.0-b.48",
+      "prerelease": true,
+      "published_at": "2023-10-17T15:25:24Z",
+      "tag_name": "v0.108.0-b.48",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-11T16:28:16Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.47",
+      "name": "AdGuard Home v0.108.0-b.47",
+      "prerelease": true,
+      "published_at": "2023-10-11T16:47:19Z",
+      "tag_name": "v0.108.0-b.47",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-11T15:39:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.39",
+      "name": "AdGuard Home v0.107.39",
+      "prerelease": false,
+      "published_at": "2023-10-11T15:54:51Z",
+      "tag_name": "v0.107.39",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-11T15:42:18Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.46",
+      "name": "AdGuard Home v0.108.0-b.46",
+      "prerelease": true,
+      "published_at": "2023-09-11T15:58:27Z",
+      "tag_name": "v0.108.0-b.46",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-11T15:00:07Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.38",
+      "name": "AdGuard Home v0.107.38",
+      "prerelease": false,
+      "published_at": "2023-09-11T15:20:44Z",
+      "tag_name": "v0.107.38",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-07T16:27:26Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.45",
+      "name": "AdGuard Home v0.108.0-b.45",
+      "prerelease": true,
+      "published_at": "2023-09-07T16:44:38Z",
+      "tag_name": "v0.108.0-b.45",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-07T14:18:02Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.37",
+      "name": "AdGuard Home v0.107.37",
+      "prerelease": false,
+      "published_at": "2023-09-07T15:12:52Z",
+      "tag_name": "v0.107.37",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-08-24T13:11:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.44",
+      "name": "AdGuard Home v0.108.0-b.44",
+      "prerelease": true,
+      "published_at": "2023-08-24T14:03:03Z",
+      "tag_name": "v0.108.0-b.44",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-08-02T15:05:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.43",
+      "name": "AdGuard Home v0.108.0-b.43",
+      "prerelease": true,
+      "published_at": "2023-08-02T15:35:36Z",
+      "tag_name": "v0.108.0-b.43",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-08-02T13:35:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.36",
+      "name": "AdGuard Home v0.107.36",
+      "prerelease": false,
+      "published_at": "2023-08-02T14:00:11Z",
+      "tag_name": "v0.107.36",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-26T12:27:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.35",
+      "name": "AdGuard Home v0.107.35",
+      "prerelease": false,
+      "published_at": "2023-07-26T12:42:42Z",
+      "tag_name": "v0.107.35",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-19T14:54:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.42",
+      "name": "AdGuard Home v0.108.0-b.42",
+      "prerelease": true,
+      "published_at": "2023-07-19T15:09:51Z",
+      "tag_name": "v0.108.0-b.42",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-12T13:19:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.41",
+      "name": "AdGuard Home v0.108.0-b.41",
+      "prerelease": true,
+      "published_at": "2023-07-12T13:39:27Z",
+      "tag_name": "v0.108.0-b.41",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-12T12:22:59Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.34",
+      "name": "AdGuard Home v0.107.34",
+      "prerelease": false,
+      "published_at": "2023-07-12T12:48:21Z",
+      "tag_name": "v0.107.34",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-11T13:50:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.40",
+      "name": "AdGuard Home v0.108.0-b.40",
+      "prerelease": true,
+      "published_at": "2023-07-11T14:08:22Z",
+      "tag_name": "v0.108.0-b.40",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-03T14:19:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.39",
+      "name": "AdGuard Home v0.108.0-b.39",
+      "prerelease": true,
+      "published_at": "2023-07-03T14:43:08Z",
+      "tag_name": "v0.108.0-b.39",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-03T13:10:13Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.33",
+      "name": "AdGuard Home v0.107.33",
+      "prerelease": false,
+      "published_at": "2023-07-03T14:07:00Z",
+      "tag_name": "v0.107.33",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-28T15:29:49Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.38",
+      "name": "AdGuard Home v0.108.0-b.38",
+      "prerelease": true,
+      "published_at": "2023-06-28T15:52:09Z",
+      "tag_name": "v0.108.0-b.38",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-13T15:04:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.37",
+      "name": "AdGuard Home v0.108.0-b.37",
+      "prerelease": true,
+      "published_at": "2023-06-13T15:22:39Z",
+      "tag_name": "v0.108.0-b.37",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-13T14:15:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.32",
+      "name": "AdGuard Home v0.107.32",
+      "prerelease": false,
+      "published_at": "2023-06-13T14:41:41Z",
+      "tag_name": "v0.107.32",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-08T17:17:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.36",
+      "name": "AdGuard Home v0.108.0-b.36",
+      "prerelease": true,
+      "published_at": "2023-06-08T17:32:39Z",
+      "tag_name": "v0.108.0-b.36",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-08T16:51:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.31",
+      "name": "AdGuard Home v0.107.31",
+      "prerelease": false,
+      "published_at": "2023-06-08T17:10:50Z",
+      "tag_name": "v0.107.31",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-07T17:16:15Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.35",
+      "name": "AdGuard Home v0.108.0-b.35",
+      "prerelease": true,
+      "published_at": "2023-06-07T17:44:24Z",
+      "tag_name": "v0.108.0-b.35",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-07T17:06:07Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.30",
+      "name": "AdGuard Home v0.107.30",
+      "prerelease": false,
+      "published_at": "2023-06-07T17:34:11Z",
+      "tag_name": "v0.107.30",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-18T15:58:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.34",
+      "name": "AdGuard Home v0.108.0-b.34",
+      "prerelease": true,
+      "published_at": "2023-04-18T16:15:07Z",
+      "tag_name": "v0.108.0-b.34",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-18T13:10:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.29",
+      "name": "AdGuard Home v0.107.29",
+      "prerelease": false,
+      "published_at": "2023-04-18T13:48:57Z",
+      "tag_name": "v0.107.29",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-12T14:21:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.33",
+      "name": "AdGuard Home v0.108.0-b.33",
+      "prerelease": true,
+      "published_at": "2023-04-12T15:04:36Z",
+      "tag_name": "v0.108.0-b.33",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-12T13:19:25Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.28",
+      "name": "AdGuard Home v0.107.28",
+      "prerelease": false,
+      "published_at": "2023-04-12T13:47:13Z",
+      "tag_name": "v0.107.28",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-05T14:10:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.32",
+      "name": "AdGuard Home v0.108.0-b.32",
+      "prerelease": true,
+      "published_at": "2023-04-05T14:27:37Z",
+      "tag_name": "v0.108.0-b.32",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-05T13:48:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.27",
+      "name": "AdGuard Home v0.107.27",
+      "prerelease": false,
+      "published_at": "2023-04-05T14:08:32Z",
+      "tag_name": "v0.107.27",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-03-30T13:52:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.31",
+      "name": "AdGuard Home v0.108.0-b.31",
+      "prerelease": true,
+      "published_at": "2023-03-30T14:12:17Z",
+      "tag_name": "v0.108.0-b.31",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-03-09T13:21:42Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.30",
+      "name": "AdGuard Home v0.108.0-b.30",
+      "prerelease": true,
+      "published_at": "2023-03-09T13:34:39Z",
+      "tag_name": "v0.108.0-b.30",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-03-09T12:43:59Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.26",
+      "name": "AdGuard Home v0.107.26",
+      "prerelease": false,
+      "published_at": "2023-03-09T13:17:54Z",
+      "tag_name": "v0.107.26",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-03-01T12:10:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.29",
+      "name": "AdGuard Home v0.108.0-b.29",
+      "prerelease": true,
+      "published_at": "2023-03-01T12:21:32Z",
+      "tag_name": "v0.108.0-b.29",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-21T15:07:27Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.28",
+      "name": "AdGuard Home v0.108.0-b.28",
+      "prerelease": true,
+      "published_at": "2023-02-21T15:27:43Z",
+      "tag_name": "v0.108.0-b.28",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-21T12:14:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.25",
+      "name": "AdGuard Home v0.107.25",
+      "prerelease": false,
+      "published_at": "2023-02-21T12:30:46Z",
+      "tag_name": "v0.107.25",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-16T16:24:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.27",
+      "name": "AdGuard Home v0.108.0-b.27",
+      "prerelease": true,
+      "published_at": "2023-02-16T16:40:09Z",
+      "tag_name": "v0.108.0-b.27",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-15T13:57:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.24",
+      "name": "AdGuard Home v0.107.24",
+      "prerelease": false,
+      "published_at": "2023-02-15T17:31:24Z",
+      "tag_name": "v0.107.24",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-01T13:58:58Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.26",
+      "name": "AdGuard Home v0.108.0-b.26",
+      "prerelease": true,
+      "published_at": "2023-02-01T14:17:40Z",
+      "tag_name": "v0.108.0-b.26",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-01T12:58:49Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.23",
+      "name": "AdGuard Home v0.107.23",
+      "prerelease": false,
+      "published_at": "2023-02-01T13:30:25Z",
+      "tag_name": "v0.107.23",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-01-19T13:50:22Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.25",
+      "name": "AdGuard Home v0.108.0-b.25",
+      "prerelease": true,
+      "published_at": "2023-01-19T14:33:39Z",
+      "tag_name": "v0.108.0-b.25",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-01-19T12:31:35Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.22",
+      "name": "AdGuard Home v0.107.22",
+      "prerelease": false,
+      "published_at": "2023-01-19T13:17:28Z",
+      "tag_name": "v0.107.22",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-15T15:26:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.24",
+      "name": "AdGuard Home v0.108.0-b.24",
+      "prerelease": true,
+      "published_at": "2022-12-15T16:01:11Z",
+      "tag_name": "v0.108.0-b.24",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-15T14:53:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.21",
+      "name": "AdGuard Home v0.107.21",
+      "prerelease": false,
+      "published_at": "2022-12-15T15:18:41Z",
+      "tag_name": "v0.107.21",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-07T14:48:21Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.23",
+      "name": "AdGuard Home v0.108.0-b.23",
+      "prerelease": true,
+      "published_at": "2022-12-07T15:36:36Z",
+      "tag_name": "v0.108.0-b.23",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-07T13:51:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.20",
+      "name": "AdGuard Home v0.107.20",
+      "prerelease": false,
+      "published_at": "2022-12-07T14:37:48Z",
+      "tag_name": "v0.107.20",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-23T14:38:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.22",
+      "name": "AdGuard Home v0.108.0-b.22",
+      "prerelease": true,
+      "published_at": "2022-11-23T16:46:07Z",
+      "tag_name": "v0.108.0-b.22",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-23T14:01:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.19",
+      "name": "AdGuard Home v0.107.19",
+      "prerelease": false,
+      "published_at": "2022-11-23T14:35:52Z",
+      "tag_name": "v0.107.19",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-08T15:16:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.21",
+      "name": "AdGuard Home v0.108.0-b.21",
+      "prerelease": true,
+      "published_at": "2022-11-08T15:45:20Z",
+      "tag_name": "v0.108.0-b.21",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-08T14:57:17Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.18",
+      "name": "AdGuard Home v0.107.18",
+      "prerelease": false,
+      "published_at": "2022-11-08T15:28:26Z",
+      "tag_name": "v0.107.18",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-02T15:43:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.20",
+      "name": "AdGuard Home v0.108.0-b.20",
+      "prerelease": true,
+      "published_at": "2022-11-02T16:18:32Z",
+      "tag_name": "v0.108.0-b.20",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-02T15:30:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.17",
+      "name": "AdGuard Home v0.107.17",
+      "prerelease": false,
+      "published_at": "2022-11-02T16:12:54Z",
+      "tag_name": "v0.107.17",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-19T15:21:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.19",
+      "name": "AdGuard Home v0.108.0-b.19",
+      "prerelease": true,
+      "published_at": "2022-10-19T15:48:09Z",
+      "tag_name": "v0.108.0-b.19",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-07T14:06:54Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.18",
+      "name": "AdGuard Home v0.108.0-b.18",
+      "prerelease": true,
+      "published_at": "2022-10-07T14:22:56Z",
+      "tag_name": "v0.108.0-b.18",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-07T13:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.16",
+      "name": "AdGuard Home v0.107.16",
+      "prerelease": false,
+      "published_at": "2022-10-07T13:51:36Z",
+      "tag_name": "v0.107.16",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-03T16:34:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.17",
+      "name": "AdGuard Home v0.108.0-b.17",
+      "prerelease": true,
+      "published_at": "2022-10-03T16:55:25Z",
+      "tag_name": "v0.108.0-b.17",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-03T16:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.15",
+      "name": "AdGuard Home v0.107.15",
+      "prerelease": false,
+      "published_at": "2022-10-03T16:30:11Z",
+      "tag_name": "v0.107.15",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-29T16:54:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.16",
+      "name": "AdGuard Home v0.108.0-b.16",
+      "prerelease": true,
+      "published_at": "2022-09-29T17:16:43Z",
+      "tag_name": "v0.108.0-b.16",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-29T16:17:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.14",
+      "name": "AdGuard Home v0.107.14",
+      "prerelease": false,
+      "published_at": "2022-09-29T16:40:26Z",
+      "tag_name": "v0.107.14",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-14T15:08:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.15",
+      "name": "AdGuard Home v0.108.0-b.15",
+      "prerelease": true,
+      "published_at": "2022-09-14T15:28:41Z",
+      "tag_name": "v0.108.0-b.15",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-14T14:06:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.13",
+      "name": "AdGuard Home v0.107.13",
+      "prerelease": false,
+      "published_at": "2022-09-14T14:55:43Z",
+      "tag_name": "v0.107.13",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-07T16:05:22Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.14",
+      "name": "AdGuard Home v0.108.0-b.14",
+      "prerelease": true,
+      "published_at": "2022-09-07T16:34:14Z",
+      "tag_name": "v0.108.0-b.14",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-07T15:14:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.12",
+      "name": "AdGuard Home v0.107.12",
+      "prerelease": false,
+      "published_at": "2022-09-07T15:42:56Z",
+      "tag_name": "v0.107.12",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-19T13:59:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.13",
+      "name": "AdGuard Home v0.108.0-b.13",
+      "prerelease": true,
+      "published_at": "2022-08-19T14:15:21Z",
+      "tag_name": "v0.108.0-b.13",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-19T13:00:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.11",
+      "name": "AdGuard Home v0.107.11",
+      "prerelease": false,
+      "published_at": "2022-08-19T13:41:02Z",
+      "tag_name": "v0.107.11",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-17T16:17:01Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.12",
+      "name": "AdGuard Home v0.108.0-b.12",
+      "prerelease": true,
+      "published_at": "2022-08-17T16:35:49Z",
+      "tag_name": "v0.108.0-b.12",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-17T15:37:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.10",
+      "name": "AdGuard Home v0.107.10",
+      "prerelease": false,
+      "published_at": "2022-08-17T15:54:14Z",
+      "tag_name": "v0.107.10",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-03T14:53:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.11",
+      "name": "AdGuard Home v0.108.0-b.11",
+      "prerelease": true,
+      "published_at": "2022-08-03T15:10:12Z",
+      "tag_name": "v0.108.0-b.11",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-03T13:27:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.9",
+      "name": "AdGuard Home v0.107.9",
+      "prerelease": false,
+      "published_at": "2022-08-03T14:14:00Z",
+      "tag_name": "v0.107.9",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-07-13T13:45:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.10",
+      "name": "AdGuard Home v0.108.0-b.10",
+      "prerelease": true,
+      "published_at": "2022-07-13T14:19:31Z",
+      "tag_name": "v0.108.0-b.10",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-07-13T13:07:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.8",
+      "name": "AdGuard Home v0.107.8",
+      "prerelease": false,
+      "published_at": "2022-07-13T13:26:08Z",
+      "tag_name": "v0.107.8",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-06-06T15:11:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.7",
+      "name": "AdGuard Home v0.107.7",
+      "prerelease": false,
+      "published_at": "2022-06-06T15:40:16Z",
+      "tag_name": "v0.107.7",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-06-03T14:01:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.9",
+      "name": "AdGuard Home v0.108.0-b.9",
+      "prerelease": true,
+      "published_at": "2022-06-03T14:45:15Z",
+      "tag_name": "v0.108.0-b.9",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-05-26T12:15:33Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.8",
+      "name": "AdGuard Home v0.108.0-b.8",
+      "prerelease": true,
+      "published_at": "2022-05-26T12:46:16Z",
+      "tag_name": "v0.108.0-b.8",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-04-27T11:35:31Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.7",
+      "name": "AdGuard Home v0.108.0-b.7",
+      "prerelease": true,
+      "published_at": "2022-04-27T12:20:12Z",
+      "tag_name": "v0.108.0-b.7",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-04-13T17:34:47Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.6",
+      "name": "AdGuard Home v0.108.0-b.6",
+      "prerelease": true,
+      "published_at": "2022-04-13T17:52:26Z",
+      "tag_name": "v0.108.0-b.6",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-04-13T13:32:18Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.6",
+      "name": "AdGuard Home v0.107.6",
+      "prerelease": false,
+      "published_at": "2022-04-13T14:05:10Z",
+      "tag_name": "v0.107.6",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-23T11:54:49Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.5",
+      "name": "AdGuard Home v0.108.0-b.5",
+      "prerelease": true,
+      "published_at": "2022-03-23T12:09:18Z",
+      "tag_name": "v0.108.0-b.5",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-04T13:17:47Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.4",
+      "name": "AdGuard Home v0.108.0-b.4",
+      "prerelease": true,
+      "published_at": "2022-03-04T13:46:50Z",
+      "tag_name": "v0.108.0-b.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-04T12:47:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.5",
+      "name": "AdGuard Home v0.107.5",
+      "prerelease": false,
+      "published_at": "2022-03-04T13:19:06Z",
+      "tag_name": "v0.107.5",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-01T13:04:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.4",
+      "name": "AdGuard Home v0.107.4",
+      "prerelease": false,
+      "published_at": "2022-03-01T13:20:56Z",
+      "tag_name": "v0.107.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-02-08T10:58:31Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.3",
+      "name": "AdGuard Home v0.108.0-b.3",
+      "prerelease": true,
+      "published_at": "2022-02-08T11:27:38Z",
+      "tag_name": "v0.108.0-b.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-01-25T12:46:15Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.3",
+      "name": "AdGuard Home v0.107.3",
+      "prerelease": false,
+      "published_at": "2022-01-25T13:50:12Z",
+      "tag_name": "v0.107.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-01-24T13:28:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.2",
+      "name": "AdGuard Home v0.108.0-b.2",
+      "prerelease": true,
+      "published_at": "2022-01-24T13:45:42Z",
+      "tag_name": "v0.108.0-b.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-30T11:33:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.108.0-b.1",
+      "name": "AdGuard Home v0.108.0-b.1",
+      "prerelease": true,
+      "published_at": "2021-12-30T11:49:31Z",
+      "tag_name": "v0.108.0-b.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-29T19:44:42Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.2",
+      "name": "AdGuard Home v0.107.2",
+      "prerelease": false,
+      "published_at": "2021-12-29T20:09:13Z",
+      "tag_name": "v0.107.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-29T16:22:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.1",
+      "name": "AdGuard Home v0.107.1",
+      "prerelease": false,
+      "published_at": "2021-12-29T17:05:17Z",
+      "tag_name": "v0.107.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-21T13:35:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0",
+      "name": "AdGuard Home v0.107.0",
+      "prerelease": false,
+      "published_at": "2021-12-21T14:35:34Z",
+      "tag_name": "v0.107.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-21T12:23:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.17",
+      "name": "AdGuard Home v0.107.0-b.17 / RC2",
+      "prerelease": true,
+      "published_at": "2021-12-21T13:10:50Z",
+      "tag_name": "v0.107.0-b.17",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-15T14:05:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.16",
+      "name": "AdGuard Home v0.107.0-b.16 / RC1",
+      "prerelease": true,
+      "published_at": "2021-12-15T14:38:39Z",
+      "tag_name": "v0.107.0-b.16",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-11-23T11:40:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.15",
+      "name": "AdGuard Home v0.107.0-b.15",
+      "prerelease": true,
+      "published_at": "2021-11-23T12:00:45Z",
+      "tag_name": "v0.107.0-b.15",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-11-03T11:38:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.14",
+      "name": "AdGuard Home v0.107.0-b.14",
+      "prerelease": true,
+      "published_at": "2021-11-03T12:09:18Z",
+      "tag_name": "v0.107.0-b.14",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-10-12T11:06:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.13",
+      "name": "AdGuard Home v0.107.0-b.13",
+      "prerelease": true,
+      "published_at": "2021-10-12T11:31:28Z",
+      "tag_name": "v0.107.0-b.13",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-09-29T12:03:29Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.12",
+      "name": "AdGuard Home v0.107.0-b.12",
+      "prerelease": true,
+      "published_at": "2021-09-29T12:30:24Z",
+      "tag_name": "v0.107.0-b.12",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-09-14T17:08:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.11",
+      "name": "AdGuard Home v0.107.0-b.11",
+      "prerelease": true,
+      "published_at": "2021-09-14T17:32:31Z",
+      "tag_name": "v0.107.0-b.11",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-09-14T13:15:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.10",
+      "name": "AdGuard Home v0.107.0-b.10",
+      "prerelease": true,
+      "published_at": "2021-09-14T13:53:00Z",
+      "tag_name": "v0.107.0-b.10",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-08-31T11:09:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.9",
+      "name": "AdGuard Home v0.107.0-b.9",
+      "prerelease": true,
+      "published_at": "2021-08-31T11:43:57Z",
+      "tag_name": "v0.107.0-b.9",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-08-17T13:33:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.8",
+      "name": "AdGuard Home v0.107.0-b.8",
+      "prerelease": true,
+      "published_at": "2021-08-17T13:55:29Z",
+      "tag_name": "v0.107.0-b.8",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-08-04T12:48:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.7",
+      "name": "AdGuard Home v0.107.0-b.7",
+      "prerelease": true,
+      "published_at": "2021-08-04T13:17:09Z",
+      "tag_name": "v0.107.0-b.7",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-08-03T11:26:07Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.6",
+      "name": "AdGuard Home v0.107.0-b.6",
+      "prerelease": true,
+      "published_at": "2021-08-03T13:05:45Z",
+      "tag_name": "v0.107.0-b.6",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-07-20T12:19:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.5",
+      "name": "AdGuard Home v0.107.0-b.5",
+      "prerelease": true,
+      "published_at": "2021-07-20T13:23:56Z",
+      "tag_name": "v0.107.0-b.5",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-07-07T10:47:33Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.4",
+      "name": "AdGuard Home v0.107.0-b.4",
+      "prerelease": true,
+      "published_at": "2021-07-07T11:53:58Z",
+      "tag_name": "v0.107.0-b.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-06-29T14:31:49Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.3",
+      "name": "AdGuard Home v0.107.0-b.3",
+      "prerelease": true,
+      "published_at": "2021-06-29T15:49:56Z",
+      "tag_name": "v0.107.0-b.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-06-16T10:56:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.2",
+      "name": "AdGuard Home v0.107.0-b.2",
+      "prerelease": true,
+      "published_at": "2021-06-16T11:31:29Z",
+      "tag_name": "v0.107.0-b.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-06-01T13:06:23Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0-b.1",
+      "name": "AdGuard Home v0.107.0-b.1",
+      "prerelease": true,
+      "published_at": "2021-06-01T14:01:00Z",
+      "tag_name": "v0.107.0-b.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-05-19T13:16:22Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.3",
+      "name": "AdGuard Home v0.106.3",
+      "prerelease": false,
+      "published_at": "2021-05-19T13:38:41Z",
+      "tag_name": "v0.106.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-05-06T16:18:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.2",
+      "name": "AdGuard Home v0.106.2",
+      "prerelease": false,
+      "published_at": "2021-05-06T16:36:44Z",
+      "tag_name": "v0.106.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-30T13:14:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.1",
+      "name": "AdGuard Home v0.106.1",
+      "prerelease": false,
+      "published_at": "2021-04-30T13:45:07Z",
+      "tag_name": "v0.106.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-28T14:03:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0",
+      "name": "AdGuard Home v0.106.0",
+      "prerelease": false,
+      "published_at": "2021-04-28T15:29:14Z",
+      "tag_name": "v0.106.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-21T13:57:25Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0-b.4",
+      "name": "AdGuard Home v0.106.0-b.4",
+      "prerelease": true,
+      "published_at": "2021-04-21T14:35:24Z",
+      "tag_name": "v0.106.0-b.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-19T14:55:02Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0-b.3",
+      "name": "AdGuard Home v0.106.0-b.3",
+      "prerelease": true,
+      "published_at": "2021-04-19T15:25:53Z",
+      "tag_name": "v0.106.0-b.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-14T11:58:29Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0-b.2",
+      "name": "AdGuard Home v0.106.0-b.2",
+      "prerelease": true,
+      "published_at": "2021-04-14T12:55:03Z",
+      "tag_name": "v0.106.0-b.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-03-30T09:51:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0-b.1",
+      "name": "AdGuard Home v0.106.0-b.1",
+      "prerelease": true,
+      "published_at": "2021-03-30T10:52:07Z",
+      "tag_name": "v0.106.0-b.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-03-10T12:39:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.2",
+      "name": "AdGuard Home v0.105.2",
+      "prerelease": false,
+      "published_at": "2021-03-10T14:39:28Z",
+      "tag_name": "v0.105.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-15T17:38:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.1",
+      "name": "AdGuard Home v0.105.1",
+      "prerelease": false,
+      "published_at": "2021-02-15T19:24:31Z",
+      "tag_name": "v0.105.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-10T15:22:27Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0",
+      "name": "AdGuard Home v0.105.0",
+      "prerelease": false,
+      "published_at": "2021-02-10T15:58:46Z",
+      "tag_name": "v0.105.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-08T10:20:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0-beta.4",
+      "name": "AdGuard Home v0.105.0-beta.4",
+      "prerelease": true,
+      "published_at": "2021-02-08T13:30:43Z",
+      "tag_name": "v0.105.0-beta.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-02T13:34:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0-beta.3",
+      "name": "AdGuard Home v0.105.0-beta.3",
+      "prerelease": true,
+      "published_at": "2021-02-02T14:33:24Z",
+      "tag_name": "v0.105.0-beta.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-12-23T12:49:15Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0-beta.2",
+      "name": "AdGuard Home v0.105.0-beta.2",
+      "prerelease": true,
+      "published_at": "2020-12-24T14:51:05Z",
+      "tag_name": "v0.105.0-beta.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-12-09T10:17:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0-beta.1",
+      "name": "AdGuard Home v0.105.0-beta.1",
+      "prerelease": true,
+      "published_at": "2020-12-09T12:19:02Z",
+      "tag_name": "v0.105.0-beta.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-11-19T12:01:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.3",
+      "name": "AdGuard Home v0.104.3",
+      "prerelease": false,
+      "published_at": "2020-11-20T10:40:04Z",
+      "tag_name": "v0.104.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-11-11T10:56:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.1",
+      "name": "AdGuard Home v0.104.1",
+      "prerelease": false,
+      "published_at": "2020-11-11T13:53:05Z",
+      "tag_name": "v0.104.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-10-28T12:52:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.0",
+      "name": "AdGuard Home v0.104.0",
+      "prerelease": false,
+      "published_at": "2020-10-28T16:13:47Z",
+      "tag_name": "v0.104.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-10-22T20:36:51Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.0-beta3",
+      "name": "AdGuard Home v0.104.0-beta3",
+      "prerelease": true,
+      "published_at": "2020-10-22T21:39:52Z",
+      "tag_name": "v0.104.0-beta3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-10-12T17:48:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.0-beta2",
+      "name": "AdGuard Home v0.104.0-beta2",
+      "prerelease": true,
+      "published_at": "2020-10-12T18:12:33Z",
+      "tag_name": "v0.104.0-beta2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-09-16T15:11:01Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.0-beta1",
+      "name": "AdGuard Home v0.104.0-beta1",
+      "prerelease": true,
+      "published_at": "2020-09-16T16:18:15Z",
+      "tag_name": "v0.104.0-beta1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-24T17:01:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.3",
+      "name": "AdGuard Home v0.103.3",
+      "prerelease": false,
+      "published_at": "2020-07-24T17:41:30Z",
+      "tag_name": "v0.103.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-23T17:49:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.2",
+      "name": "AdGuard Home v0.103.2",
+      "prerelease": false,
+      "published_at": "2020-07-23T18:29:10Z",
+      "tag_name": "v0.103.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-23T15:11:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.1",
+      "name": "AdGuard Home v0.103.1",
+      "prerelease": false,
+      "published_at": "2020-07-23T17:17:52Z",
+      "tag_name": "v0.103.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-22T18:00:41Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.0-beta3",
+      "name": "AdGuard Home v0.103.0-beta3",
+      "prerelease": true,
+      "published_at": "2020-07-22T18:39:54Z",
+      "tag_name": "v0.103.0-beta3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-17T17:05:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.0-beta2",
+      "name": "AdGuard Home v0.103.0-beta2",
+      "prerelease": true,
+      "published_at": "2020-07-17T17:59:59Z",
+      "tag_name": "v0.103.0-beta2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-13T10:00:33Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.0-beta1",
+      "name": "AdGuard Home v0.103.0-beta1",
+      "prerelease": true,
+      "published_at": "2020-07-13T11:12:50Z",
+      "tag_name": "v0.103.0-beta1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-05-15T12:23:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.102.0",
+      "name": "AdGuard Home v0.102.0",
+      "prerelease": false,
+      "published_at": "2020-05-15T15:46:06Z",
+      "tag_name": "v0.102.0",
+      "target_commitish": "bab7b2dc65004d7c9661a590965f710584f063b9"
+    },
+    {
+      "created_at": "2020-03-13T09:25:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.101.0",
+      "name": "AdGuard Home v0.101.0",
+      "prerelease": false,
+      "published_at": "2020-03-13T12:45:18Z",
+      "tag_name": "v0.101.0",
+      "target_commitish": "fa07809189a0528469d7102c82c5b9f663566681"
+    },
+    {
+      "created_at": "2020-01-14T11:22:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.9",
+      "name": "AdGuard Home v0.100.9",
+      "prerelease": false,
+      "published_at": "2020-01-15T10:58:44Z",
+      "tag_name": "v0.100.9",
+      "target_commitish": "e667ec1b6010f937b9d6e5786e86b3f2d339f08d"
+    },
+    {
+      "created_at": "2019-12-25T20:25:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.8",
+      "name": "AdGuard Home v0.100.8",
+      "prerelease": false,
+      "published_at": "2019-12-25T21:09:41Z",
+      "tag_name": "v0.100.8",
+      "target_commitish": "d0eb5695df1d83661a92a4f463d5408297d9aef2"
+    },
+    {
+      "created_at": "2019-12-24T09:15:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.7",
+      "name": "AdGuard Home v0.100.7",
+      "prerelease": false,
+      "published_at": "2019-12-24T10:18:31Z",
+      "tag_name": "v0.100.7",
+      "target_commitish": "1e36deeedac9aba02e410bf5b7529a342a77beab"
+    },
+    {
+      "created_at": "2019-12-19T16:51:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.6",
+      "name": "AdGuard Home v0.100.6",
+      "prerelease": false,
+      "published_at": "2019-12-19T18:02:04Z",
+      "tag_name": "v0.100.6",
+      "target_commitish": "32f780366e61bcc8ca192af264729dd40a196eeb"
+    },
+    {
+      "created_at": "2019-12-19T12:03:13Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.5",
+      "name": "AdGuard Home v0.100.5",
+      "prerelease": false,
+      "published_at": "2019-12-19T12:27:30Z",
+      "tag_name": "v0.100.5",
+      "target_commitish": "041ea65d143a47b5a7184ba7fb1aab262bf75dc3"
+    },
+    {
+      "created_at": "2019-12-19T10:28:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.4",
+      "name": "AdGuard Home v0.100.4",
+      "prerelease": false,
+      "published_at": "2019-12-19T11:04:29Z",
+      "tag_name": "v0.100.4",
+      "target_commitish": "cde15afd904697e6b6e97977b85f41af96653ba1"
+    },
+    {
+      "created_at": "2019-12-17T19:36:25Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.2",
+      "name": "AdGuard Home v0.100.2",
+      "prerelease": false,
+      "published_at": "2019-12-18T14:22:23Z",
+      "tag_name": "v0.100.2",
+      "target_commitish": "b54bf94697db5b6988205b0144243036a5e2b6eb"
+    },
+    {
+      "created_at": "2019-11-19T14:21:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.3",
+      "name": "AdGuard Home v0.99.3",
+      "prerelease": false,
+      "published_at": "2019-11-19T20:50:45Z",
+      "tag_name": "v0.99.3",
+      "target_commitish": "0d4dce5c79fa12a9c2c67e15776001e468b428c5"
+    },
+    {
+      "created_at": "2019-10-25T10:28:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.2",
+      "name": "AdGuard Home v0.99.2",
+      "prerelease": false,
+      "published_at": "2019-10-25T11:23:36Z",
+      "tag_name": "v0.99.2",
+      "target_commitish": "e04ffde105f88b6665d90ae8d9fbf0c2e84dedbf"
+    },
+    {
+      "created_at": "2019-10-24T11:45:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.1",
+      "name": "AdGuard Home v0.99.1",
+      "prerelease": false,
+      "published_at": "2019-10-24T12:56:41Z",
+      "tag_name": "v0.99.1",
+      "target_commitish": "b28582d630931cd9cd206b751efc3a4adc6e4703"
+    },
+    {
+      "created_at": "2019-10-18T12:18:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.0",
+      "name": "AdGuard Home v0.99.0",
+      "prerelease": false,
+      "published_at": "2019-10-18T14:42:36Z",
+      "tag_name": "v0.99.0",
+      "target_commitish": "67a3d44b8cf657549a054b601b0a31b8bbadd6ce"
+    },
+    {
+      "created_at": "2019-08-22T12:38:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.98.1",
+      "name": "AdGuard Home v0.98.1",
+      "prerelease": false,
+      "published_at": "2019-08-22T13:14:12Z",
+      "tag_name": "v0.98.1",
+      "target_commitish": "64d40bdc47081ed80e597e61e5c96953c1e35c30"
+    },
+    {
+      "created_at": "2019-08-21T22:28:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.98.0",
+      "name": "AdGuard Home v0.98.0",
+      "prerelease": false,
+      "published_at": "2019-08-22T12:20:14Z",
+      "tag_name": "v0.98.0",
+      "target_commitish": "e6bd2a101d181a686a2444d2b1096a2fe9260625"
+    },
+    {
+      "created_at": "2019-07-17T09:45:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.97.1",
+      "name": "AdGuard Home v0.97.1",
+      "prerelease": false,
+      "published_at": "2019-07-17T11:38:27Z",
+      "tag_name": "v0.97.1",
+      "target_commitish": "1973901802a4cdcfbec8ae56f5b72c2011762cfc"
+    },
+    {
+      "created_at": "2019-07-12T12:58:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.97.0",
+      "name": "AdGuard Home v0.97.0",
+      "prerelease": false,
+      "published_at": "2019-07-12T13:23:20Z",
+      "tag_name": "v0.97.0",
+      "target_commitish": "9eb6da05ada3a0c591d8b516a44953dfa904f53a"
+    },
+    {
+      "created_at": "2019-06-07T17:35:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.96-hotfix",
+      "name": "AdGuard Home v0.96-hotfix",
+      "prerelease": false,
+      "published_at": "2019-06-07T17:54:50Z",
+      "tag_name": "v0.96-hotfix",
+      "target_commitish": "9fe34818e3f87925df5600285f6330865cb4b730"
+    },
+    {
+      "created_at": "2019-06-06T15:34:58Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.96",
+      "name": "AdGuard Home v0.96",
+      "prerelease": false,
+      "published_at": "2019-06-06T16:05:35Z",
+      "tag_name": "v0.96",
+      "target_commitish": "0f7235f2170b0d90b9239d4263d030a920a348f6"
+    },
+    {
+      "created_at": "2019-04-24T11:39:52Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.95-hotfix",
+      "name": "AdGuard Home v0.95-hotfix",
+      "prerelease": false,
+      "published_at": "2019-04-24T13:38:10Z",
+      "tag_name": "v0.95-hotfix",
+      "target_commitish": "7d2df263359c95d8e31e0319d0d15c93e4ceb886"
+    },
+    {
+      "created_at": "2019-04-23T17:28:54Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.95",
+      "name": "AdGuard Home v0.95",
+      "prerelease": false,
+      "published_at": "2019-04-23T18:18:34Z",
+      "tag_name": "v0.95",
+      "target_commitish": "cedab695c2819eaca8e49e069af9b613a0023abb"
+    },
+    {
+      "created_at": "2019-03-22T13:57:47Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.94",
+      "name": "AdGuard Home v0.94",
+      "prerelease": false,
+      "published_at": "2019-03-22T14:30:14Z",
+      "tag_name": "v0.94",
+      "target_commitish": "395ddb7b3caf97c4c281badf0882dc3baf7f3b88"
+    },
+    {
+      "created_at": "2019-02-25T16:16:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.93",
+      "name": "AdGuard Home v0.93",
+      "prerelease": false,
+      "published_at": "2019-02-25T16:39:32Z",
+      "tag_name": "v0.93",
+      "target_commitish": "aa30728cdaf0b51e449e248cbdeadf7532347a68"
+    },
+    {
+      "created_at": "2019-01-11T12:28:16Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92-hotfix2",
+      "name": "AdGuard Home v0.92-hotfix2",
+      "prerelease": false,
+      "published_at": "2019-01-11T12:31:53Z",
+      "tag_name": "v0.92-hotfix2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2019-01-04T19:18:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92-hotfix1",
+      "name": "AdGuard Home v0.92-hotfix1",
+      "prerelease": false,
+      "published_at": "2019-01-04T19:23:05Z",
+      "tag_name": "v0.92-hotfix1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-12-29T17:21:36Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92",
+      "name": "AdGuard Home v0.92",
+      "prerelease": false,
+      "published_at": "2018-12-30T13:06:07Z",
+      "tag_name": "v0.92",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-11-27T09:44:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.91",
+      "name": "AdGuard Home v0.91",
+      "prerelease": false,
+      "published_at": "2018-11-27T10:18:14Z",
+      "tag_name": "v0.91",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-10-18T13:01:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.9-hotfix1",
+      "name": "AdGuard Home v0.9-hotfix1",
+      "prerelease": false,
+      "published_at": "2018-10-18T13:25:12Z",
+      "tag_name": "v0.9-hotfix1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-10-16T12:40:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.9",
+      "name": "AdGuard Home v0.9",
+      "prerelease": false,
+      "published_at": "2018-10-16T20:47:57Z",
+      "tag_name": "v0.9",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-08-30T14:25:33Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.1",
+      "name": "AdGuard Home v0.1",
+      "prerelease": true,
+      "published_at": "2018-08-30T14:42:19Z",
+      "tag_name": "v0.1",
+      "target_commitish": "master"
+    }
+  ],
+  "base_branch": "master",
+  "base_commit": "fe195216b05d765cbafeeeeecd7822b0fab943d9",
+  "project": "adguard",
+  "push_candidates": [
+    {
+      "created_at": "2026-04-16T11:12:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.74",
+      "name": "AdGuard Home v0.107.74",
+      "prerelease": false,
+      "published_at": "2026-04-16T11:34:27Z",
+      "tag_name": "v0.107.74",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-03-10T17:08:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.73",
+      "name": "AdGuard Home v0.107.73",
+      "prerelease": false,
+      "published_at": "2026-03-10T17:23:23Z",
+      "tag_name": "v0.107.73",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-02-19T14:35:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.72",
+      "name": "AdGuard Home v0.107.72",
+      "prerelease": false,
+      "published_at": "2026-02-19T15:37:49Z",
+      "tag_name": "v0.107.72",
+      "target_commitish": "master"
+    }
+  ],
+  "push_release_limit": 3,
+  "release_count": 234,
+  "repo": "AdguardTeam/AdGuardHome",
+  "source_branch": "upstream/adguard",
+  "stable_release_count": 117,
+  "stable_releases": [
+    {
+      "created_at": "2026-04-16T11:12:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.74",
+      "name": "AdGuard Home v0.107.74",
+      "prerelease": false,
+      "published_at": "2026-04-16T11:34:27Z",
+      "tag_name": "v0.107.74",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-03-10T17:08:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.73",
+      "name": "AdGuard Home v0.107.73",
+      "prerelease": false,
+      "published_at": "2026-03-10T17:23:23Z",
+      "tag_name": "v0.107.73",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2026-02-19T14:35:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.72",
+      "name": "AdGuard Home v0.107.72",
+      "prerelease": false,
+      "published_at": "2026-02-19T15:37:49Z",
+      "tag_name": "v0.107.72",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-12-08T14:24:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.71",
+      "name": "AdGuard Home v0.107.71",
+      "prerelease": false,
+      "published_at": "2025-12-08T14:34:55Z",
+      "tag_name": "v0.107.71",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-12-03T14:02:21Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.70",
+      "name": "AdGuard Home v0.107.70",
+      "prerelease": false,
+      "published_at": "2025-12-03T16:12:15Z",
+      "tag_name": "v0.107.70",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-30T14:21:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.69",
+      "name": "AdGuard Home v0.107.69",
+      "prerelease": false,
+      "published_at": "2025-10-30T15:31:50Z",
+      "tag_name": "v0.107.69",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-10-23T14:16:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.68",
+      "name": "AdGuard Home v0.107.68",
+      "prerelease": false,
+      "published_at": "2025-10-23T14:26:29Z",
+      "tag_name": "v0.107.68",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-29T14:30:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.67",
+      "name": "AdGuard Home v0.107.67",
+      "prerelease": false,
+      "published_at": "2025-09-29T14:45:57Z",
+      "tag_name": "v0.107.67",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-09-15T11:52:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.66",
+      "name": "AdGuard Home v0.107.66",
+      "prerelease": false,
+      "published_at": "2025-09-15T13:39:52Z",
+      "tag_name": "v0.107.66",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-08-20T12:51:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.65",
+      "name": "AdGuard Home v0.107.65",
+      "prerelease": false,
+      "published_at": "2025-08-20T14:02:28Z",
+      "tag_name": "v0.107.65",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-07-28T12:48:39Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.64",
+      "name": "AdGuard Home v0.107.64",
+      "prerelease": false,
+      "published_at": "2025-07-28T14:24:56Z",
+      "tag_name": "v0.107.64",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-06-26T14:09:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.63",
+      "name": "AdGuard Home v0.107.63",
+      "prerelease": false,
+      "published_at": "2025-06-26T14:34:19Z",
+      "tag_name": "v0.107.63",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-05-27T11:56:10Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.62",
+      "name": "AdGuard Home v0.107.62",
+      "prerelease": false,
+      "published_at": "2025-05-27T12:10:19Z",
+      "tag_name": "v0.107.62",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-22T12:14:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.61",
+      "name": "AdGuard Home v0.107.61",
+      "prerelease": false,
+      "published_at": "2025-04-22T12:42:26Z",
+      "tag_name": "v0.107.61",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-04-14T11:06:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.60",
+      "name": "AdGuard Home v0.107.60",
+      "prerelease": false,
+      "published_at": "2025-04-14T11:46:19Z",
+      "tag_name": "v0.107.60",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-21T10:40:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.59",
+      "name": "AdGuard Home v0.107.59",
+      "prerelease": false,
+      "published_at": "2025-03-21T11:11:39Z",
+      "tag_name": "v0.107.59",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-03-19T16:17:29Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.58",
+      "name": "AdGuard Home v0.107.58",
+      "prerelease": false,
+      "published_at": "2025-03-19T16:29:42Z",
+      "tag_name": "v0.107.58",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-02-20T14:46:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.57",
+      "name": "AdGuard Home v0.107.57",
+      "prerelease": false,
+      "published_at": "2025-02-20T14:58:55Z",
+      "tag_name": "v0.107.57",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2025-01-23T13:52:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.56",
+      "name": "AdGuard Home v0.107.56",
+      "prerelease": false,
+      "published_at": "2025-01-23T14:11:42Z",
+      "tag_name": "v0.107.56",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-12-11T13:23:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.55",
+      "name": "AdGuard Home v0.107.55",
+      "prerelease": false,
+      "published_at": "2024-12-11T13:32:39Z",
+      "tag_name": "v0.107.55",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-11-06T13:13:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.54",
+      "name": "AdGuard Home v0.107.54",
+      "prerelease": false,
+      "published_at": "2024-11-06T13:26:47Z",
+      "tag_name": "v0.107.54",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-10-03T12:35:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.53",
+      "name": "AdGuard Home v0.107.53",
+      "prerelease": false,
+      "published_at": "2024-10-03T12:46:45Z",
+      "tag_name": "v0.107.53",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-07-04T15:39:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.52",
+      "name": "AdGuard Home v0.107.52",
+      "prerelease": false,
+      "published_at": "2024-07-04T15:51:06Z",
+      "tag_name": "v0.107.52",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-06-06T14:32:02Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.51",
+      "name": "AdGuard Home v0.107.51",
+      "prerelease": false,
+      "published_at": "2024-06-06T14:41:02Z",
+      "tag_name": "v0.107.51",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-23T12:34:41Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.50",
+      "name": "AdGuard Home v0.107.50",
+      "prerelease": false,
+      "published_at": "2024-05-23T12:53:14Z",
+      "tag_name": "v0.107.50",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-05-21T14:13:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.49",
+      "name": "AdGuard Home v0.107.49",
+      "prerelease": false,
+      "published_at": "2024-05-21T15:25:56Z",
+      "tag_name": "v0.107.49",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-04-05T14:34:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.48",
+      "name": "AdGuard Home v0.107.48",
+      "prerelease": false,
+      "published_at": "2024-04-05T15:17:32Z",
+      "tag_name": "v0.107.48",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-04-04T14:00:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.47",
+      "name": "AdGuard Home v0.107.47",
+      "prerelease": false,
+      "published_at": "2024-04-04T14:28:57Z",
+      "tag_name": "v0.107.47",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-03-20T14:07:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.46",
+      "name": "AdGuard Home v0.107.46",
+      "prerelease": false,
+      "published_at": "2024-03-20T14:55:31Z",
+      "tag_name": "v0.107.46",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-03-06T15:43:09Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.45",
+      "name": "AdGuard Home v0.107.45",
+      "prerelease": false,
+      "published_at": "2024-03-06T16:01:54Z",
+      "tag_name": "v0.107.45",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2024-02-06T12:40:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.44",
+      "name": "AdGuard Home v0.107.44",
+      "prerelease": false,
+      "published_at": "2024-02-06T14:05:26Z",
+      "tag_name": "v0.107.44",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-12-11T12:50:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.43",
+      "name": "AdGuard Home v0.107.43",
+      "prerelease": false,
+      "published_at": "2023-12-11T14:37:55Z",
+      "tag_name": "v0.107.43",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-12-07T14:44:44Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.42",
+      "name": "AdGuard Home v0.107.42",
+      "prerelease": false,
+      "published_at": "2023-12-07T15:22:40Z",
+      "tag_name": "v0.107.42",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-11-13T15:02:17Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.41",
+      "name": "AdGuard Home v0.107.41",
+      "prerelease": false,
+      "published_at": "2023-11-13T16:04:41Z",
+      "tag_name": "v0.107.41",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-18T15:05:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.40",
+      "name": "AdGuard Home v0.107.40",
+      "prerelease": false,
+      "published_at": "2023-10-18T15:44:52Z",
+      "tag_name": "v0.107.40",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-10-11T15:39:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.39",
+      "name": "AdGuard Home v0.107.39",
+      "prerelease": false,
+      "published_at": "2023-10-11T15:54:51Z",
+      "tag_name": "v0.107.39",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-11T15:00:07Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.38",
+      "name": "AdGuard Home v0.107.38",
+      "prerelease": false,
+      "published_at": "2023-09-11T15:20:44Z",
+      "tag_name": "v0.107.38",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-09-07T14:18:02Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.37",
+      "name": "AdGuard Home v0.107.37",
+      "prerelease": false,
+      "published_at": "2023-09-07T15:12:52Z",
+      "tag_name": "v0.107.37",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-08-02T13:35:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.36",
+      "name": "AdGuard Home v0.107.36",
+      "prerelease": false,
+      "published_at": "2023-08-02T14:00:11Z",
+      "tag_name": "v0.107.36",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-26T12:27:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.35",
+      "name": "AdGuard Home v0.107.35",
+      "prerelease": false,
+      "published_at": "2023-07-26T12:42:42Z",
+      "tag_name": "v0.107.35",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-12T12:22:59Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.34",
+      "name": "AdGuard Home v0.107.34",
+      "prerelease": false,
+      "published_at": "2023-07-12T12:48:21Z",
+      "tag_name": "v0.107.34",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-07-03T13:10:13Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.33",
+      "name": "AdGuard Home v0.107.33",
+      "prerelease": false,
+      "published_at": "2023-07-03T14:07:00Z",
+      "tag_name": "v0.107.33",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-13T14:15:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.32",
+      "name": "AdGuard Home v0.107.32",
+      "prerelease": false,
+      "published_at": "2023-06-13T14:41:41Z",
+      "tag_name": "v0.107.32",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-08T16:51:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.31",
+      "name": "AdGuard Home v0.107.31",
+      "prerelease": false,
+      "published_at": "2023-06-08T17:10:50Z",
+      "tag_name": "v0.107.31",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-06-07T17:06:07Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.30",
+      "name": "AdGuard Home v0.107.30",
+      "prerelease": false,
+      "published_at": "2023-06-07T17:34:11Z",
+      "tag_name": "v0.107.30",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-18T13:10:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.29",
+      "name": "AdGuard Home v0.107.29",
+      "prerelease": false,
+      "published_at": "2023-04-18T13:48:57Z",
+      "tag_name": "v0.107.29",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-12T13:19:25Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.28",
+      "name": "AdGuard Home v0.107.28",
+      "prerelease": false,
+      "published_at": "2023-04-12T13:47:13Z",
+      "tag_name": "v0.107.28",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-04-05T13:48:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.27",
+      "name": "AdGuard Home v0.107.27",
+      "prerelease": false,
+      "published_at": "2023-04-05T14:08:32Z",
+      "tag_name": "v0.107.27",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-03-09T12:43:59Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.26",
+      "name": "AdGuard Home v0.107.26",
+      "prerelease": false,
+      "published_at": "2023-03-09T13:17:54Z",
+      "tag_name": "v0.107.26",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-21T12:14:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.25",
+      "name": "AdGuard Home v0.107.25",
+      "prerelease": false,
+      "published_at": "2023-02-21T12:30:46Z",
+      "tag_name": "v0.107.25",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-15T13:57:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.24",
+      "name": "AdGuard Home v0.107.24",
+      "prerelease": false,
+      "published_at": "2023-02-15T17:31:24Z",
+      "tag_name": "v0.107.24",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-02-01T12:58:49Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.23",
+      "name": "AdGuard Home v0.107.23",
+      "prerelease": false,
+      "published_at": "2023-02-01T13:30:25Z",
+      "tag_name": "v0.107.23",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2023-01-19T12:31:35Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.22",
+      "name": "AdGuard Home v0.107.22",
+      "prerelease": false,
+      "published_at": "2023-01-19T13:17:28Z",
+      "tag_name": "v0.107.22",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-15T14:53:28Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.21",
+      "name": "AdGuard Home v0.107.21",
+      "prerelease": false,
+      "published_at": "2022-12-15T15:18:41Z",
+      "tag_name": "v0.107.21",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-12-07T13:51:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.20",
+      "name": "AdGuard Home v0.107.20",
+      "prerelease": false,
+      "published_at": "2022-12-07T14:37:48Z",
+      "tag_name": "v0.107.20",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-23T14:01:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.19",
+      "name": "AdGuard Home v0.107.19",
+      "prerelease": false,
+      "published_at": "2022-11-23T14:35:52Z",
+      "tag_name": "v0.107.19",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-08T14:57:17Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.18",
+      "name": "AdGuard Home v0.107.18",
+      "prerelease": false,
+      "published_at": "2022-11-08T15:28:26Z",
+      "tag_name": "v0.107.18",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-11-02T15:30:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.17",
+      "name": "AdGuard Home v0.107.17",
+      "prerelease": false,
+      "published_at": "2022-11-02T16:12:54Z",
+      "tag_name": "v0.107.17",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-07T13:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.16",
+      "name": "AdGuard Home v0.107.16",
+      "prerelease": false,
+      "published_at": "2022-10-07T13:51:36Z",
+      "tag_name": "v0.107.16",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-10-03T16:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.15",
+      "name": "AdGuard Home v0.107.15",
+      "prerelease": false,
+      "published_at": "2022-10-03T16:30:11Z",
+      "tag_name": "v0.107.15",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-29T16:17:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.14",
+      "name": "AdGuard Home v0.107.14",
+      "prerelease": false,
+      "published_at": "2022-09-29T16:40:26Z",
+      "tag_name": "v0.107.14",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-14T14:06:20Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.13",
+      "name": "AdGuard Home v0.107.13",
+      "prerelease": false,
+      "published_at": "2022-09-14T14:55:43Z",
+      "tag_name": "v0.107.13",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-09-07T15:14:43Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.12",
+      "name": "AdGuard Home v0.107.12",
+      "prerelease": false,
+      "published_at": "2022-09-07T15:42:56Z",
+      "tag_name": "v0.107.12",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-19T13:00:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.11",
+      "name": "AdGuard Home v0.107.11",
+      "prerelease": false,
+      "published_at": "2022-08-19T13:41:02Z",
+      "tag_name": "v0.107.11",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-17T15:37:00Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.10",
+      "name": "AdGuard Home v0.107.10",
+      "prerelease": false,
+      "published_at": "2022-08-17T15:54:14Z",
+      "tag_name": "v0.107.10",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-08-03T13:27:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.9",
+      "name": "AdGuard Home v0.107.9",
+      "prerelease": false,
+      "published_at": "2022-08-03T14:14:00Z",
+      "tag_name": "v0.107.9",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-07-13T13:07:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.8",
+      "name": "AdGuard Home v0.107.8",
+      "prerelease": false,
+      "published_at": "2022-07-13T13:26:08Z",
+      "tag_name": "v0.107.8",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-06-06T15:11:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.7",
+      "name": "AdGuard Home v0.107.7",
+      "prerelease": false,
+      "published_at": "2022-06-06T15:40:16Z",
+      "tag_name": "v0.107.7",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-04-13T13:32:18Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.6",
+      "name": "AdGuard Home v0.107.6",
+      "prerelease": false,
+      "published_at": "2022-04-13T14:05:10Z",
+      "tag_name": "v0.107.6",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-04T12:47:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.5",
+      "name": "AdGuard Home v0.107.5",
+      "prerelease": false,
+      "published_at": "2022-03-04T13:19:06Z",
+      "tag_name": "v0.107.5",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-03-01T13:04:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.4",
+      "name": "AdGuard Home v0.107.4",
+      "prerelease": false,
+      "published_at": "2022-03-01T13:20:56Z",
+      "tag_name": "v0.107.4",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2022-01-25T12:46:15Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.3",
+      "name": "AdGuard Home v0.107.3",
+      "prerelease": false,
+      "published_at": "2022-01-25T13:50:12Z",
+      "tag_name": "v0.107.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-29T19:44:42Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.2",
+      "name": "AdGuard Home v0.107.2",
+      "prerelease": false,
+      "published_at": "2021-12-29T20:09:13Z",
+      "tag_name": "v0.107.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-29T16:22:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.1",
+      "name": "AdGuard Home v0.107.1",
+      "prerelease": false,
+      "published_at": "2021-12-29T17:05:17Z",
+      "tag_name": "v0.107.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-12-21T13:35:57Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.0",
+      "name": "AdGuard Home v0.107.0",
+      "prerelease": false,
+      "published_at": "2021-12-21T14:35:34Z",
+      "tag_name": "v0.107.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-05-19T13:16:22Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.3",
+      "name": "AdGuard Home v0.106.3",
+      "prerelease": false,
+      "published_at": "2021-05-19T13:38:41Z",
+      "tag_name": "v0.106.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-05-06T16:18:24Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.2",
+      "name": "AdGuard Home v0.106.2",
+      "prerelease": false,
+      "published_at": "2021-05-06T16:36:44Z",
+      "tag_name": "v0.106.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-30T13:14:14Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.1",
+      "name": "AdGuard Home v0.106.1",
+      "prerelease": false,
+      "published_at": "2021-04-30T13:45:07Z",
+      "tag_name": "v0.106.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-04-28T14:03:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.106.0",
+      "name": "AdGuard Home v0.106.0",
+      "prerelease": false,
+      "published_at": "2021-04-28T15:29:14Z",
+      "tag_name": "v0.106.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-03-10T12:39:06Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.2",
+      "name": "AdGuard Home v0.105.2",
+      "prerelease": false,
+      "published_at": "2021-03-10T14:39:28Z",
+      "tag_name": "v0.105.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-15T17:38:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.1",
+      "name": "AdGuard Home v0.105.1",
+      "prerelease": false,
+      "published_at": "2021-02-15T19:24:31Z",
+      "tag_name": "v0.105.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2021-02-10T15:22:27Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.105.0",
+      "name": "AdGuard Home v0.105.0",
+      "prerelease": false,
+      "published_at": "2021-02-10T15:58:46Z",
+      "tag_name": "v0.105.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-11-19T12:01:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.3",
+      "name": "AdGuard Home v0.104.3",
+      "prerelease": false,
+      "published_at": "2020-11-20T10:40:04Z",
+      "tag_name": "v0.104.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-11-11T10:56:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.1",
+      "name": "AdGuard Home v0.104.1",
+      "prerelease": false,
+      "published_at": "2020-11-11T13:53:05Z",
+      "tag_name": "v0.104.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-10-28T12:52:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.104.0",
+      "name": "AdGuard Home v0.104.0",
+      "prerelease": false,
+      "published_at": "2020-10-28T16:13:47Z",
+      "tag_name": "v0.104.0",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-24T17:01:30Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.3",
+      "name": "AdGuard Home v0.103.3",
+      "prerelease": false,
+      "published_at": "2020-07-24T17:41:30Z",
+      "tag_name": "v0.103.3",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-23T17:49:03Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.2",
+      "name": "AdGuard Home v0.103.2",
+      "prerelease": false,
+      "published_at": "2020-07-23T18:29:10Z",
+      "tag_name": "v0.103.2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-07-23T15:11:34Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.1",
+      "name": "AdGuard Home v0.103.1",
+      "prerelease": false,
+      "published_at": "2020-07-23T17:17:52Z",
+      "tag_name": "v0.103.1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2020-05-15T12:23:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.102.0",
+      "name": "AdGuard Home v0.102.0",
+      "prerelease": false,
+      "published_at": "2020-05-15T15:46:06Z",
+      "tag_name": "v0.102.0",
+      "target_commitish": "bab7b2dc65004d7c9661a590965f710584f063b9"
+    },
+    {
+      "created_at": "2020-03-13T09:25:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.101.0",
+      "name": "AdGuard Home v0.101.0",
+      "prerelease": false,
+      "published_at": "2020-03-13T12:45:18Z",
+      "tag_name": "v0.101.0",
+      "target_commitish": "fa07809189a0528469d7102c82c5b9f663566681"
+    },
+    {
+      "created_at": "2020-01-14T11:22:40Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.9",
+      "name": "AdGuard Home v0.100.9",
+      "prerelease": false,
+      "published_at": "2020-01-15T10:58:44Z",
+      "tag_name": "v0.100.9",
+      "target_commitish": "e667ec1b6010f937b9d6e5786e86b3f2d339f08d"
+    },
+    {
+      "created_at": "2019-12-25T20:25:19Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.8",
+      "name": "AdGuard Home v0.100.8",
+      "prerelease": false,
+      "published_at": "2019-12-25T21:09:41Z",
+      "tag_name": "v0.100.8",
+      "target_commitish": "d0eb5695df1d83661a92a4f463d5408297d9aef2"
+    },
+    {
+      "created_at": "2019-12-24T09:15:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.7",
+      "name": "AdGuard Home v0.100.7",
+      "prerelease": false,
+      "published_at": "2019-12-24T10:18:31Z",
+      "tag_name": "v0.100.7",
+      "target_commitish": "1e36deeedac9aba02e410bf5b7529a342a77beab"
+    },
+    {
+      "created_at": "2019-12-19T16:51:38Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.6",
+      "name": "AdGuard Home v0.100.6",
+      "prerelease": false,
+      "published_at": "2019-12-19T18:02:04Z",
+      "tag_name": "v0.100.6",
+      "target_commitish": "32f780366e61bcc8ca192af264729dd40a196eeb"
+    },
+    {
+      "created_at": "2019-12-19T12:03:13Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.5",
+      "name": "AdGuard Home v0.100.5",
+      "prerelease": false,
+      "published_at": "2019-12-19T12:27:30Z",
+      "tag_name": "v0.100.5",
+      "target_commitish": "041ea65d143a47b5a7184ba7fb1aab262bf75dc3"
+    },
+    {
+      "created_at": "2019-12-19T10:28:32Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.4",
+      "name": "AdGuard Home v0.100.4",
+      "prerelease": false,
+      "published_at": "2019-12-19T11:04:29Z",
+      "tag_name": "v0.100.4",
+      "target_commitish": "cde15afd904697e6b6e97977b85f41af96653ba1"
+    },
+    {
+      "created_at": "2019-12-17T19:36:25Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.100.2",
+      "name": "AdGuard Home v0.100.2",
+      "prerelease": false,
+      "published_at": "2019-12-18T14:22:23Z",
+      "tag_name": "v0.100.2",
+      "target_commitish": "b54bf94697db5b6988205b0144243036a5e2b6eb"
+    },
+    {
+      "created_at": "2019-11-19T14:21:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.3",
+      "name": "AdGuard Home v0.99.3",
+      "prerelease": false,
+      "published_at": "2019-11-19T20:50:45Z",
+      "tag_name": "v0.99.3",
+      "target_commitish": "0d4dce5c79fa12a9c2c67e15776001e468b428c5"
+    },
+    {
+      "created_at": "2019-10-25T10:28:50Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.2",
+      "name": "AdGuard Home v0.99.2",
+      "prerelease": false,
+      "published_at": "2019-10-25T11:23:36Z",
+      "tag_name": "v0.99.2",
+      "target_commitish": "e04ffde105f88b6665d90ae8d9fbf0c2e84dedbf"
+    },
+    {
+      "created_at": "2019-10-24T11:45:46Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.1",
+      "name": "AdGuard Home v0.99.1",
+      "prerelease": false,
+      "published_at": "2019-10-24T12:56:41Z",
+      "tag_name": "v0.99.1",
+      "target_commitish": "b28582d630931cd9cd206b751efc3a4adc6e4703"
+    },
+    {
+      "created_at": "2019-10-18T12:18:48Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.99.0",
+      "name": "AdGuard Home v0.99.0",
+      "prerelease": false,
+      "published_at": "2019-10-18T14:42:36Z",
+      "tag_name": "v0.99.0",
+      "target_commitish": "67a3d44b8cf657549a054b601b0a31b8bbadd6ce"
+    },
+    {
+      "created_at": "2019-08-22T12:38:56Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.98.1",
+      "name": "AdGuard Home v0.98.1",
+      "prerelease": false,
+      "published_at": "2019-08-22T13:14:12Z",
+      "tag_name": "v0.98.1",
+      "target_commitish": "64d40bdc47081ed80e597e61e5c96953c1e35c30"
+    },
+    {
+      "created_at": "2019-08-21T22:28:04Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.98.0",
+      "name": "AdGuard Home v0.98.0",
+      "prerelease": false,
+      "published_at": "2019-08-22T12:20:14Z",
+      "tag_name": "v0.98.0",
+      "target_commitish": "e6bd2a101d181a686a2444d2b1096a2fe9260625"
+    },
+    {
+      "created_at": "2019-07-17T09:45:45Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.97.1",
+      "name": "AdGuard Home v0.97.1",
+      "prerelease": false,
+      "published_at": "2019-07-17T11:38:27Z",
+      "tag_name": "v0.97.1",
+      "target_commitish": "1973901802a4cdcfbec8ae56f5b72c2011762cfc"
+    },
+    {
+      "created_at": "2019-07-12T12:58:08Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.97.0",
+      "name": "AdGuard Home v0.97.0",
+      "prerelease": false,
+      "published_at": "2019-07-12T13:23:20Z",
+      "tag_name": "v0.97.0",
+      "target_commitish": "9eb6da05ada3a0c591d8b516a44953dfa904f53a"
+    },
+    {
+      "created_at": "2019-06-07T17:35:05Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.96-hotfix",
+      "name": "AdGuard Home v0.96-hotfix",
+      "prerelease": false,
+      "published_at": "2019-06-07T17:54:50Z",
+      "tag_name": "v0.96-hotfix",
+      "target_commitish": "9fe34818e3f87925df5600285f6330865cb4b730"
+    },
+    {
+      "created_at": "2019-06-06T15:34:58Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.96",
+      "name": "AdGuard Home v0.96",
+      "prerelease": false,
+      "published_at": "2019-06-06T16:05:35Z",
+      "tag_name": "v0.96",
+      "target_commitish": "0f7235f2170b0d90b9239d4263d030a920a348f6"
+    },
+    {
+      "created_at": "2019-04-24T11:39:52Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.95-hotfix",
+      "name": "AdGuard Home v0.95-hotfix",
+      "prerelease": false,
+      "published_at": "2019-04-24T13:38:10Z",
+      "tag_name": "v0.95-hotfix",
+      "target_commitish": "7d2df263359c95d8e31e0319d0d15c93e4ceb886"
+    },
+    {
+      "created_at": "2019-04-23T17:28:54Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.95",
+      "name": "AdGuard Home v0.95",
+      "prerelease": false,
+      "published_at": "2019-04-23T18:18:34Z",
+      "tag_name": "v0.95",
+      "target_commitish": "cedab695c2819eaca8e49e069af9b613a0023abb"
+    },
+    {
+      "created_at": "2019-03-22T13:57:47Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.94",
+      "name": "AdGuard Home v0.94",
+      "prerelease": false,
+      "published_at": "2019-03-22T14:30:14Z",
+      "tag_name": "v0.94",
+      "target_commitish": "395ddb7b3caf97c4c281badf0882dc3baf7f3b88"
+    },
+    {
+      "created_at": "2019-02-25T16:16:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.93",
+      "name": "AdGuard Home v0.93",
+      "prerelease": false,
+      "published_at": "2019-02-25T16:39:32Z",
+      "tag_name": "v0.93",
+      "target_commitish": "aa30728cdaf0b51e449e248cbdeadf7532347a68"
+    },
+    {
+      "created_at": "2019-01-11T12:28:16Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92-hotfix2",
+      "name": "AdGuard Home v0.92-hotfix2",
+      "prerelease": false,
+      "published_at": "2019-01-11T12:31:53Z",
+      "tag_name": "v0.92-hotfix2",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2019-01-04T19:18:53Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92-hotfix1",
+      "name": "AdGuard Home v0.92-hotfix1",
+      "prerelease": false,
+      "published_at": "2019-01-04T19:23:05Z",
+      "tag_name": "v0.92-hotfix1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-12-29T17:21:36Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.92",
+      "name": "AdGuard Home v0.92",
+      "prerelease": false,
+      "published_at": "2018-12-30T13:06:07Z",
+      "tag_name": "v0.92",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-11-27T09:44:37Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.91",
+      "name": "AdGuard Home v0.91",
+      "prerelease": false,
+      "published_at": "2018-11-27T10:18:14Z",
+      "tag_name": "v0.91",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-10-18T13:01:12Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.9-hotfix1",
+      "name": "AdGuard Home v0.9-hotfix1",
+      "prerelease": false,
+      "published_at": "2018-10-18T13:25:12Z",
+      "tag_name": "v0.9-hotfix1",
+      "target_commitish": "master"
+    },
+    {
+      "created_at": "2018-10-16T12:40:11Z",
+      "draft": false,
+      "html_url": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.9",
+      "name": "AdGuard Home v0.9",
+      "prerelease": false,
+      "published_at": "2018-10-16T20:47:57Z",
+      "tag_name": "v0.9",
+      "target_commitish": "master"
+    }
+  ],
+  "synced_at": "2026-05-05T03:52:31+00:00",
+  "version_source": "release"
+}
