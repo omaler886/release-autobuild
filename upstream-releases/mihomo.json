@@ -1,0 +1,1158 @@
+{
+  "all_releases": [
+    {
+      "created_at": "2026-05-02T10:43:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha",
+      "name": "Prerelease-Alpha",
+      "prerelease": true,
+      "published_at": "2024-08-12T17:01:02Z",
+      "tag_name": "Prerelease-Alpha",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-19T23:49:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.24",
+      "name": "v1.19.24",
+      "prerelease": false,
+      "published_at": "2026-04-20T01:56:58Z",
+      "tag_name": "v1.19.24",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-07T22:45:04Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.23",
+      "name": "v1.19.23",
+      "prerelease": false,
+      "published_at": "2026-04-08T01:16:14Z",
+      "tag_name": "v1.19.23",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-01T01:41:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.22",
+      "name": "v1.19.22",
+      "prerelease": false,
+      "published_at": "2026-04-01T05:30:15Z",
+      "tag_name": "v1.19.22",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-03-09T12:36:31Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.21",
+      "name": "v1.19.21",
+      "prerelease": false,
+      "published_at": "2026-03-09T17:04:37Z",
+      "tag_name": "v1.19.21",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-02-07T16:10:07Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.20",
+      "name": "v1.19.20",
+      "prerelease": false,
+      "published_at": "2026-02-08T14:13:08Z",
+      "tag_name": "v1.19.20",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-01-16T03:05:15Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.19",
+      "name": "v1.19.19",
+      "prerelease": false,
+      "published_at": "2026-01-16T03:44:32Z",
+      "tag_name": "v1.19.19",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-12-21T02:28:05Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.18",
+      "name": "v1.19.18",
+      "prerelease": false,
+      "published_at": "2025-12-21T13:23:51Z",
+      "tag_name": "v1.19.18",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-12-01T00:42:28Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.17",
+      "name": "v1.19.17",
+      "prerelease": false,
+      "published_at": "2025-12-01T01:11:31Z",
+      "tag_name": "v1.19.17",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-11-09T02:09:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.16",
+      "name": "v1.19.16",
+      "prerelease": false,
+      "published_at": "2025-11-09T02:42:38Z",
+      "tag_name": "v1.19.16",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-10-14T17:35:29Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.15",
+      "name": "v1.19.15",
+      "prerelease": false,
+      "published_at": "2025-10-14T18:07:43Z",
+      "tag_name": "v1.19.15",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-09-24T08:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14",
+      "name": "v1.19.14",
+      "prerelease": false,
+      "published_at": "2025-09-24T09:18:21Z",
+      "tag_name": "v1.19.14",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-08-27T09:14:48Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.13",
+      "name": "v1.19.13",
+      "prerelease": false,
+      "published_at": "2025-08-27T09:42:57Z",
+      "tag_name": "v1.19.13",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-07-27T04:30:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.12",
+      "name": "v1.19.12",
+      "prerelease": false,
+      "published_at": "2025-07-27T13:50:09Z",
+      "tag_name": "v1.19.12",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-06-25T08:20:37Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11",
+      "name": "v1.19.11",
+      "prerelease": false,
+      "published_at": "2025-06-25T12:41:46Z",
+      "tag_name": "v1.19.11",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-29T02:14:06Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.10",
+      "name": "v1.19.10",
+      "prerelease": false,
+      "published_at": "2025-05-31T07:57:07Z",
+      "tag_name": "v1.19.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-21T13:37:20Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9",
+      "name": "v1.19.9",
+      "prerelease": false,
+      "published_at": "2025-05-22T02:50:52Z",
+      "tag_name": "v1.19.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-13T04:09:38Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.8",
+      "name": "v1.19.8",
+      "prerelease": false,
+      "published_at": "2025-05-13T04:28:06Z",
+      "tag_name": "v1.19.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-12T02:00:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.7",
+      "name": "v1.19.7",
+      "prerelease": false,
+      "published_at": "2025-05-12T02:09:43Z",
+      "tag_name": "v1.19.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-10T04:32:47Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.6",
+      "name": "v1.19.6",
+      "prerelease": false,
+      "published_at": "2025-05-10T04:48:23Z",
+      "tag_name": "v1.19.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-04-21T04:07:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.5",
+      "name": "v1.19.5",
+      "prerelease": false,
+      "published_at": "2025-04-21T14:54:08Z",
+      "tag_name": "v1.19.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-03-28T03:08:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.4",
+      "name": "v1.19.4",
+      "prerelease": false,
+      "published_at": "2025-04-01T14:42:10Z",
+      "tag_name": "v1.19.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-03-03T03:37:36Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.3",
+      "name": "v1.19.3",
+      "prerelease": false,
+      "published_at": "2025-03-03T03:59:39Z",
+      "tag_name": "v1.19.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-02-08T15:37:04Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.2",
+      "name": "v1.19.2",
+      "prerelease": false,
+      "published_at": "2025-02-09T13:24:57Z",
+      "tag_name": "v1.19.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-12-31T08:42:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.1",
+      "name": "v1.19.1",
+      "prerelease": false,
+      "published_at": "2024-12-31T17:02:12Z",
+      "tag_name": "v1.19.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-12-09T04:05:11Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.0",
+      "name": "v1.19.0",
+      "prerelease": false,
+      "published_at": "2024-12-09T09:55:18Z",
+      "tag_name": "v1.19.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-10-21T01:38:21Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.10",
+      "name": "v1.18.10",
+      "prerelease": false,
+      "published_at": "2024-11-03T09:24:36Z",
+      "tag_name": "v1.18.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-09-29T09:13:43Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.9",
+      "name": "v1.18.9",
+      "prerelease": false,
+      "published_at": "2024-09-29T09:47:55Z",
+      "tag_name": "v1.18.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-09-02T08:18:28Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.8",
+      "name": "v1.18.8",
+      "prerelease": false,
+      "published_at": "2024-09-02T08:38:59Z",
+      "tag_name": "v1.18.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-07-28T05:50:11Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.7",
+      "name": "v1.18.7",
+      "prerelease": false,
+      "published_at": "2024-07-28T05:50:26Z",
+      "tag_name": "v1.18.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-07-01T15:05:18Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.6",
+      "name": "v1.18.6",
+      "prerelease": false,
+      "published_at": "2024-07-01T15:05:34Z",
+      "tag_name": "v1.18.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-05-19T08:50:40Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.5",
+      "name": "v1.18.5",
+      "prerelease": false,
+      "published_at": "2024-05-19T08:50:46Z",
+      "tag_name": "v1.18.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-04-29T06:22:39Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.4",
+      "name": "v1.18.4",
+      "prerelease": false,
+      "published_at": "2024-04-29T06:24:11Z",
+      "tag_name": "v1.18.4",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-03-29T11:50:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.3",
+      "name": "v1.18.3",
+      "prerelease": false,
+      "published_at": "2024-03-29T11:56:05Z",
+      "tag_name": "v1.18.3",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-03-27T10:43:06Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.2",
+      "name": "v1.18.2",
+      "prerelease": false,
+      "published_at": "2024-03-27T11:20:31Z",
+      "tag_name": "v1.18.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-02-02T12:15:27Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.1",
+      "name": "v1.18.1",
+      "prerelease": false,
+      "published_at": "2024-02-02T12:19:32Z",
+      "tag_name": "v1.18.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-01-02T07:21:37Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.0",
+      "name": "v1.18.0",
+      "prerelease": false,
+      "published_at": "2024-01-02T07:30:29Z",
+      "tag_name": "v1.18.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-12-03T00:44:30Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.17.0",
+      "name": "v1.17.0",
+      "prerelease": false,
+      "published_at": "2023-12-03T01:01:22Z",
+      "tag_name": "v1.17.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-09-25T11:32:51Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.16.0",
+      "name": "v1.16.0",
+      "prerelease": false,
+      "published_at": "2023-09-25T11:37:23Z",
+      "tag_name": "v1.16.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-08-13T15:00:41Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.15.1",
+      "name": "v1.15.1",
+      "prerelease": false,
+      "published_at": "2023-08-13T15:02:42Z",
+      "tag_name": "v1.15.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-06-29T06:25:25Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.15.0",
+      "name": "v1.15.0",
+      "prerelease": false,
+      "published_at": "2023-06-29T06:26:35Z",
+      "tag_name": "v1.15.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-06-03T10:02:31Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.5",
+      "name": "v1.14.5",
+      "prerelease": false,
+      "published_at": "2023-06-03T10:10:24Z",
+      "tag_name": "v1.14.5",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-04-28T17:10:55Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.4",
+      "name": "v1.14.4",
+      "prerelease": false,
+      "published_at": "2023-04-28T17:11:26Z",
+      "tag_name": "v1.14.4",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-03-30T16:04:09Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.3",
+      "name": "v1.14.3",
+      "prerelease": false,
+      "published_at": "2023-03-30T16:07:37Z",
+      "tag_name": "v1.14.3",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-02-18T17:25:34Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.2",
+      "name": "v1.14.2",
+      "prerelease": false,
+      "published_at": "2023-02-18T17:49:26Z",
+      "tag_name": "v1.14.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-01-11T17:33:56Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.1",
+      "name": "v1.14.1",
+      "prerelease": false,
+      "published_at": "2023-01-11T17:56:06Z",
+      "tag_name": "v1.14.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-01-01T11:41:36Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.0",
+      "name": "v1.14.0",
+      "prerelease": false,
+      "published_at": "2023-01-01T12:02:44Z",
+      "tag_name": "v1.14.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-11-02T10:08:22Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.13.2",
+      "name": "v1.13.2",
+      "prerelease": false,
+      "published_at": "2022-11-02T14:09:13Z",
+      "tag_name": "v1.13.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-08-29T05:08:29Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.13.1",
+      "name": "v1.13.1",
+      "prerelease": false,
+      "published_at": "2022-08-29T04:22:57Z",
+      "tag_name": "v1.13.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-07-02T02:41:41Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.12.0",
+      "name": "v1.12.0",
+      "prerelease": false,
+      "published_at": "2022-07-02T03:20:41Z",
+      "tag_name": "v1.12.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-06-11T10:51:26Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.2",
+      "name": "v1.11.2",
+      "prerelease": false,
+      "published_at": "2022-06-11T15:36:28Z",
+      "tag_name": "v1.11.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-05-18T10:43:44Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.1",
+      "name": "v1.11.1",
+      "prerelease": false,
+      "published_at": "2022-05-18T11:22:56Z",
+      "tag_name": "v1.11.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-05-14T15:45:10Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.0",
+      "name": "v1.11.0",
+      "prerelease": false,
+      "published_at": "2022-05-14T15:51:09Z",
+      "tag_name": "v1.11.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-04-02T11:02:43Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.10.0",
+      "name": "v1.10.0",
+      "prerelease": false,
+      "published_at": "2022-04-02T14:17:30Z",
+      "tag_name": "v1.10.0",
+      "target_commitish": "rm"
+    },
+    {
+      "created_at": "2022-01-04T09:58:50Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.9.0",
+      "name": "v1.9.0",
+      "prerelease": false,
+      "published_at": "2022-01-04T10:59:21Z",
+      "tag_name": "v1.9.0",
+      "target_commitish": "rm"
+    },
+    {
+      "created_at": "2021-12-03T06:35:21Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.8.0",
+      "name": "v1.8.0",
+      "prerelease": false,
+      "published_at": "2021-12-21T17:47:34Z",
+      "tag_name": "v1.8.0",
+      "target_commitish": "rm"
+    }
+  ],
+  "base_branch": "master",
+  "base_commit": "fe195216b05d765cbafeeeeecd7822b0fab943d9",
+  "project": "mihomo",
+  "push_candidates": [
+    {
+      "created_at": "2026-04-19T23:49:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.24",
+      "name": "v1.19.24",
+      "prerelease": false,
+      "published_at": "2026-04-20T01:56:58Z",
+      "tag_name": "v1.19.24",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-07T22:45:04Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.23",
+      "name": "v1.19.23",
+      "prerelease": false,
+      "published_at": "2026-04-08T01:16:14Z",
+      "tag_name": "v1.19.23",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-01T01:41:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.22",
+      "name": "v1.19.22",
+      "prerelease": false,
+      "published_at": "2026-04-01T05:30:15Z",
+      "tag_name": "v1.19.22",
+      "target_commitish": "main"
+    }
+  ],
+  "push_release_limit": 3,
+  "release_count": 56,
+  "repo": "MetaCubeX/mihomo",
+  "source_branch": "upstream/mihomo",
+  "stable_release_count": 55,
+  "stable_releases": [
+    {
+      "created_at": "2026-04-19T23:49:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.24",
+      "name": "v1.19.24",
+      "prerelease": false,
+      "published_at": "2026-04-20T01:56:58Z",
+      "tag_name": "v1.19.24",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-07T22:45:04Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.23",
+      "name": "v1.19.23",
+      "prerelease": false,
+      "published_at": "2026-04-08T01:16:14Z",
+      "tag_name": "v1.19.23",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-04-01T01:41:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.22",
+      "name": "v1.19.22",
+      "prerelease": false,
+      "published_at": "2026-04-01T05:30:15Z",
+      "tag_name": "v1.19.22",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-03-09T12:36:31Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.21",
+      "name": "v1.19.21",
+      "prerelease": false,
+      "published_at": "2026-03-09T17:04:37Z",
+      "tag_name": "v1.19.21",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-02-07T16:10:07Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.20",
+      "name": "v1.19.20",
+      "prerelease": false,
+      "published_at": "2026-02-08T14:13:08Z",
+      "tag_name": "v1.19.20",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2026-01-16T03:05:15Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.19",
+      "name": "v1.19.19",
+      "prerelease": false,
+      "published_at": "2026-01-16T03:44:32Z",
+      "tag_name": "v1.19.19",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-12-21T02:28:05Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.18",
+      "name": "v1.19.18",
+      "prerelease": false,
+      "published_at": "2025-12-21T13:23:51Z",
+      "tag_name": "v1.19.18",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-12-01T00:42:28Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.17",
+      "name": "v1.19.17",
+      "prerelease": false,
+      "published_at": "2025-12-01T01:11:31Z",
+      "tag_name": "v1.19.17",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-11-09T02:09:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.16",
+      "name": "v1.19.16",
+      "prerelease": false,
+      "published_at": "2025-11-09T02:42:38Z",
+      "tag_name": "v1.19.16",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-10-14T17:35:29Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.15",
+      "name": "v1.19.15",
+      "prerelease": false,
+      "published_at": "2025-10-14T18:07:43Z",
+      "tag_name": "v1.19.15",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-09-24T08:05:38Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14",
+      "name": "v1.19.14",
+      "prerelease": false,
+      "published_at": "2025-09-24T09:18:21Z",
+      "tag_name": "v1.19.14",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-08-27T09:14:48Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.13",
+      "name": "v1.19.13",
+      "prerelease": false,
+      "published_at": "2025-08-27T09:42:57Z",
+      "tag_name": "v1.19.13",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-07-27T04:30:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.12",
+      "name": "v1.19.12",
+      "prerelease": false,
+      "published_at": "2025-07-27T13:50:09Z",
+      "tag_name": "v1.19.12",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-06-25T08:20:37Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11",
+      "name": "v1.19.11",
+      "prerelease": false,
+      "published_at": "2025-06-25T12:41:46Z",
+      "tag_name": "v1.19.11",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-29T02:14:06Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.10",
+      "name": "v1.19.10",
+      "prerelease": false,
+      "published_at": "2025-05-31T07:57:07Z",
+      "tag_name": "v1.19.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-21T13:37:20Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9",
+      "name": "v1.19.9",
+      "prerelease": false,
+      "published_at": "2025-05-22T02:50:52Z",
+      "tag_name": "v1.19.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-13T04:09:38Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.8",
+      "name": "v1.19.8",
+      "prerelease": false,
+      "published_at": "2025-05-13T04:28:06Z",
+      "tag_name": "v1.19.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-12T02:00:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.7",
+      "name": "v1.19.7",
+      "prerelease": false,
+      "published_at": "2025-05-12T02:09:43Z",
+      "tag_name": "v1.19.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-05-10T04:32:47Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.6",
+      "name": "v1.19.6",
+      "prerelease": false,
+      "published_at": "2025-05-10T04:48:23Z",
+      "tag_name": "v1.19.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-04-21T04:07:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.5",
+      "name": "v1.19.5",
+      "prerelease": false,
+      "published_at": "2025-04-21T14:54:08Z",
+      "tag_name": "v1.19.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-03-28T03:08:01Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.4",
+      "name": "v1.19.4",
+      "prerelease": false,
+      "published_at": "2025-04-01T14:42:10Z",
+      "tag_name": "v1.19.4",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-03-03T03:37:36Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.3",
+      "name": "v1.19.3",
+      "prerelease": false,
+      "published_at": "2025-03-03T03:59:39Z",
+      "tag_name": "v1.19.3",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2025-02-08T15:37:04Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.2",
+      "name": "v1.19.2",
+      "prerelease": false,
+      "published_at": "2025-02-09T13:24:57Z",
+      "tag_name": "v1.19.2",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-12-31T08:42:33Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.1",
+      "name": "v1.19.1",
+      "prerelease": false,
+      "published_at": "2024-12-31T17:02:12Z",
+      "tag_name": "v1.19.1",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-12-09T04:05:11Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.0",
+      "name": "v1.19.0",
+      "prerelease": false,
+      "published_at": "2024-12-09T09:55:18Z",
+      "tag_name": "v1.19.0",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-10-21T01:38:21Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.10",
+      "name": "v1.18.10",
+      "prerelease": false,
+      "published_at": "2024-11-03T09:24:36Z",
+      "tag_name": "v1.18.10",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-09-29T09:13:43Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.9",
+      "name": "v1.18.9",
+      "prerelease": false,
+      "published_at": "2024-09-29T09:47:55Z",
+      "tag_name": "v1.18.9",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-09-02T08:18:28Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.8",
+      "name": "v1.18.8",
+      "prerelease": false,
+      "published_at": "2024-09-02T08:38:59Z",
+      "tag_name": "v1.18.8",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-07-28T05:50:11Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.7",
+      "name": "v1.18.7",
+      "prerelease": false,
+      "published_at": "2024-07-28T05:50:26Z",
+      "tag_name": "v1.18.7",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-07-01T15:05:18Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.6",
+      "name": "v1.18.6",
+      "prerelease": false,
+      "published_at": "2024-07-01T15:05:34Z",
+      "tag_name": "v1.18.6",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-05-19T08:50:40Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.5",
+      "name": "v1.18.5",
+      "prerelease": false,
+      "published_at": "2024-05-19T08:50:46Z",
+      "tag_name": "v1.18.5",
+      "target_commitish": "main"
+    },
+    {
+      "created_at": "2024-04-29T06:22:39Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.4",
+      "name": "v1.18.4",
+      "prerelease": false,
+      "published_at": "2024-04-29T06:24:11Z",
+      "tag_name": "v1.18.4",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-03-29T11:50:16Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.3",
+      "name": "v1.18.3",
+      "prerelease": false,
+      "published_at": "2024-03-29T11:56:05Z",
+      "tag_name": "v1.18.3",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-03-27T10:43:06Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.2",
+      "name": "v1.18.2",
+      "prerelease": false,
+      "published_at": "2024-03-27T11:20:31Z",
+      "tag_name": "v1.18.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-02-02T12:15:27Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.1",
+      "name": "v1.18.1",
+      "prerelease": false,
+      "published_at": "2024-02-02T12:19:32Z",
+      "tag_name": "v1.18.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2024-01-02T07:21:37Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.18.0",
+      "name": "v1.18.0",
+      "prerelease": false,
+      "published_at": "2024-01-02T07:30:29Z",
+      "tag_name": "v1.18.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-12-03T00:44:30Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.17.0",
+      "name": "v1.17.0",
+      "prerelease": false,
+      "published_at": "2023-12-03T01:01:22Z",
+      "tag_name": "v1.17.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-09-25T11:32:51Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.16.0",
+      "name": "v1.16.0",
+      "prerelease": false,
+      "published_at": "2023-09-25T11:37:23Z",
+      "tag_name": "v1.16.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-08-13T15:00:41Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.15.1",
+      "name": "v1.15.1",
+      "prerelease": false,
+      "published_at": "2023-08-13T15:02:42Z",
+      "tag_name": "v1.15.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-06-29T06:25:25Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.15.0",
+      "name": "v1.15.0",
+      "prerelease": false,
+      "published_at": "2023-06-29T06:26:35Z",
+      "tag_name": "v1.15.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-06-03T10:02:31Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.5",
+      "name": "v1.14.5",
+      "prerelease": false,
+      "published_at": "2023-06-03T10:10:24Z",
+      "tag_name": "v1.14.5",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-04-28T17:10:55Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.4",
+      "name": "v1.14.4",
+      "prerelease": false,
+      "published_at": "2023-04-28T17:11:26Z",
+      "tag_name": "v1.14.4",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-03-30T16:04:09Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.3",
+      "name": "v1.14.3",
+      "prerelease": false,
+      "published_at": "2023-03-30T16:07:37Z",
+      "tag_name": "v1.14.3",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-02-18T17:25:34Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.2",
+      "name": "v1.14.2",
+      "prerelease": false,
+      "published_at": "2023-02-18T17:49:26Z",
+      "tag_name": "v1.14.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-01-11T17:33:56Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.1",
+      "name": "v1.14.1",
+      "prerelease": false,
+      "published_at": "2023-01-11T17:56:06Z",
+      "tag_name": "v1.14.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2023-01-01T11:41:36Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.14.0",
+      "name": "v1.14.0",
+      "prerelease": false,
+      "published_at": "2023-01-01T12:02:44Z",
+      "tag_name": "v1.14.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-11-02T10:08:22Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.13.2",
+      "name": "v1.13.2",
+      "prerelease": false,
+      "published_at": "2022-11-02T14:09:13Z",
+      "tag_name": "v1.13.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-08-29T05:08:29Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.13.1",
+      "name": "v1.13.1",
+      "prerelease": false,
+      "published_at": "2022-08-29T04:22:57Z",
+      "tag_name": "v1.13.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-07-02T02:41:41Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.12.0",
+      "name": "v1.12.0",
+      "prerelease": false,
+      "published_at": "2022-07-02T03:20:41Z",
+      "tag_name": "v1.12.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-06-11T10:51:26Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.2",
+      "name": "v1.11.2",
+      "prerelease": false,
+      "published_at": "2022-06-11T15:36:28Z",
+      "tag_name": "v1.11.2",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-05-18T10:43:44Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.1",
+      "name": "v1.11.1",
+      "prerelease": false,
+      "published_at": "2022-05-18T11:22:56Z",
+      "tag_name": "v1.11.1",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-05-14T15:45:10Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.11.0",
+      "name": "v1.11.0",
+      "prerelease": false,
+      "published_at": "2022-05-14T15:51:09Z",
+      "tag_name": "v1.11.0",
+      "target_commitish": "Meta"
+    },
+    {
+      "created_at": "2022-04-02T11:02:43Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.10.0",
+      "name": "v1.10.0",
+      "prerelease": false,
+      "published_at": "2022-04-02T14:17:30Z",
+      "tag_name": "v1.10.0",
+      "target_commitish": "rm"
+    },
+    {
+      "created_at": "2022-01-04T09:58:50Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.9.0",
+      "name": "v1.9.0",
+      "prerelease": false,
+      "published_at": "2022-01-04T10:59:21Z",
+      "tag_name": "v1.9.0",
+      "target_commitish": "rm"
+    },
+    {
+      "created_at": "2021-12-03T06:35:21Z",
+      "draft": false,
+      "html_url": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.8.0",
+      "name": "v1.8.0",
+      "prerelease": false,
+      "published_at": "2021-12-21T17:47:34Z",
+      "tag_name": "v1.8.0",
+      "target_commitish": "rm"
+    }
+  ],
+  "synced_at": "2026-05-05T03:52:38+00:00",
+  "version_source": "release"
+}
