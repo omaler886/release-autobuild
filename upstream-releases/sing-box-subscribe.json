@@ -1,0 +1,612 @@
+{
+  "all_releases": [
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.14.0-alpha.20",
+      "name": "v1.14.0-alpha.20",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.14.0-alpha.20",
+      "target_commitish": "9da0746dfd71f53253b02fe94e15bd2442eeae43"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.14.0-alpha.11",
+      "name": "v1.14.0-alpha.11",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.14.0-alpha.11",
+      "target_commitish": "9675b0902af12f1acaa0d677f102332472c1b06c"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.14.0-alpha.2",
+      "name": "v1.14.0-alpha.2",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.14.0-alpha.2",
+      "target_commitish": "7df171ff20cdcd5e79dd373198176811dabc7742"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.11",
+      "name": "v1.13.11",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.11",
+      "target_commitish": "553cfa1f9f99f4da6118f93d507294e580db00d7"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.8",
+      "name": "v1.13.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.8",
+      "target_commitish": "d5adb54bc6c6b2c21ab6f748276c4ec62d9bb650"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.7",
+      "name": "v1.13.7",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.7",
+      "target_commitish": "025b947a24cf4cba30ca3e629b2a326d1d02e93e"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.5",
+      "name": "v1.13.5",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.5",
+      "target_commitish": "7ffdc48b49718d6aeee19ede523a31d1286724cf"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.3",
+      "name": "v1.13.3",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.3",
+      "target_commitish": "d3768cca3602c2949417fe767c1acd88d7f67698"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.1",
+      "name": "v1.13.1",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.1",
+      "target_commitish": "7fd21f8bf4592303160cc45cbd0dd38a0cdcb512"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.1-beta.2",
+      "name": "v1.13.1-beta.2",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.1-beta.2",
+      "target_commitish": "c17aec5086e9d3a1de95b6644c17090efdf0f064"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0",
+      "name": "v1.13.0",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0",
+      "target_commitish": "6da7e538e122b77c226ce48c1a6b4ecb61fd3fc4"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-rc.1",
+      "name": "v1.13.0-rc.1",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-rc.1",
+      "target_commitish": "c1dc6cb0fb428edf152c8e6cc600924b0fd6fd91"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.27",
+      "name": "v1.13.0-alpha.27",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.27",
+      "target_commitish": "84ceb90eeb36ec25aadcbedd614373850d9c4c5a"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.22",
+      "name": "v1.13.0-alpha.22",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.22",
+      "target_commitish": "7b5fc3d6df29a379fe7b47404e4908f2084fad36"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.21",
+      "name": "v1.13.0-alpha.21",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.21",
+      "target_commitish": "43a3beb98851ad5e27e60042ea353b63c7d77448"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.18",
+      "name": "v1.13.0-alpha.18",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.18",
+      "target_commitish": "5dd435862959e9502a8088c56883564a51cb2ab5"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.11",
+      "name": "v1.13.0-alpha.11",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.11",
+      "target_commitish": "fa1ee03f05a5f89c192b8610074e375377f77029"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.9",
+      "name": "v1.13.0-alpha.9",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.9",
+      "target_commitish": "64384c75fae7a3f726ac0ada8fcb372a86276173"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.8",
+      "name": "v1.13.0-alpha.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.8",
+      "target_commitish": "d03b4eaf0a9f10cbac96646698a19029e9da795f"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.5",
+      "name": "v1.13.0-alpha.5",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.5",
+      "target_commitish": "a3c108b3a6c7e940e7be657dc021858175e8978b"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0-alpha.2",
+      "name": "v1.13.0-alpha.2",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0-alpha.2",
+      "target_commitish": "a4c600d94ab5d1c8daa1df121757736a69124f3e"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.19",
+      "name": "v1.12.19",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.19",
+      "target_commitish": "69bebbda82f0e6f04d128e320de4585b723bee52"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.12",
+      "name": "v1.12.12",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.12",
+      "target_commitish": "54ed58499d7063136ed52dabf87d179d252425d0"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.10",
+      "name": "v1.12.10",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.10",
+      "target_commitish": "444f45481023f6e8851dbcb294f744629efd0448"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.9",
+      "name": "v1.12.9",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.9",
+      "target_commitish": "328a6de7976182700aaa4f7e2c134bd568b47d88"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.8",
+      "name": "v1.12.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.8",
+      "target_commitish": "573c6179ab4fc1b9ecb8f049299bb1dfe8babc97"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.5",
+      "name": "v1.12.5",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.5",
+      "target_commitish": "fcde0c94e01f990b5d67c16a2382032f784a6ed0"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.4",
+      "name": "v1.12.4",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.4",
+      "target_commitish": "980e96250bf693bb8400183d6a05665da8ad9d03"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.3",
+      "name": "v1.12.3",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.3",
+      "target_commitish": "b40f642fa4ae25633426f136aa2e5d25f985c991"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.1",
+      "name": "v1.12.1",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.1",
+      "target_commitish": "4fb5ac292b5c90e0e4a15470ff982b6af76aeb67"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0",
+      "name": "v1.12.0",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0",
+      "target_commitish": "2dcb86941f5db01bbe296acae555a3b1f38c0441"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-rc.4",
+      "name": "v1.12.0-rc.4",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-rc.4",
+      "target_commitish": "94d9c181d9f950ebc95a198eccb325815c09eece"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-rc.3",
+      "name": "v1.12.0-rc.3",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-rc.3",
+      "target_commitish": "9095e5763a3ab0d10e60f9fb4650b6c502e1ba01"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.31",
+      "name": "v1.12.0-beta.31",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.31",
+      "target_commitish": "989034b8f7f6672e2dde060649b17cc29fceff91"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.30",
+      "name": "v1.12.0-beta.30",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.30",
+      "target_commitish": "70371c3cbe5201a3e0855ac50cc573dfc5365529"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.29",
+      "name": "v1.12.0-beta.29",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.29",
+      "target_commitish": "1f74074ff58a4da9b0f74f988deb33c773025219"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.28",
+      "name": "v1.12.0-beta.28",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.28",
+      "target_commitish": "36c095f66032e3c6283f0689763baa1c70b82e85"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.27",
+      "name": "v1.12.0-beta.27",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.27",
+      "target_commitish": "46bb372a37df0509d7969a4a26f4167a5017504b"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.26",
+      "name": "v1.12.0-beta.26",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.26",
+      "target_commitish": "ccceb8b30a911ad53fed9a6cebf09a8a517aa5dd"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0-beta.25",
+      "name": "v1.12.0-beta.25",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0-beta.25",
+      "target_commitish": "ea149f24012327bd31d37ff312924867706f86aa"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.15",
+      "name": "v1.11.15",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.15",
+      "target_commitish": "bc35aca01704497c179da1a03e45ad8e32f1a51b"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.14",
+      "name": "v1.11.14",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.14",
+      "target_commitish": "9b8ab3e61e5b3a199fce5575bc6a04373f222d22"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.13",
+      "name": "v1.11.13",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.13",
+      "target_commitish": "255068fd40e92ca857115322b596801173525a91"
+    }
+  ],
+  "base_branch": "master",
+  "base_commit": "fe195216b05d765cbafeeeeecd7822b0fab943d9",
+  "project": "sing-box-subscribe",
+  "push_candidates": [
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.11",
+      "name": "v1.13.11",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.11",
+      "target_commitish": "553cfa1f9f99f4da6118f93d507294e580db00d7"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.8",
+      "name": "v1.13.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.8",
+      "target_commitish": "d5adb54bc6c6b2c21ab6f748276c4ec62d9bb650"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.7",
+      "name": "v1.13.7",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.7",
+      "target_commitish": "025b947a24cf4cba30ca3e629b2a326d1d02e93e"
+    }
+  ],
+  "push_release_limit": 3,
+  "release_count": 43,
+  "repo": "yelnoo/sing-box",
+  "source_branch": "upstream/sing-box-subscribe",
+  "stable_release_count": 20,
+  "stable_releases": [
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.11",
+      "name": "v1.13.11",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.11",
+      "target_commitish": "553cfa1f9f99f4da6118f93d507294e580db00d7"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.8",
+      "name": "v1.13.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.8",
+      "target_commitish": "d5adb54bc6c6b2c21ab6f748276c4ec62d9bb650"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.7",
+      "name": "v1.13.7",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.7",
+      "target_commitish": "025b947a24cf4cba30ca3e629b2a326d1d02e93e"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.5",
+      "name": "v1.13.5",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.5",
+      "target_commitish": "7ffdc48b49718d6aeee19ede523a31d1286724cf"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.3",
+      "name": "v1.13.3",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.3",
+      "target_commitish": "d3768cca3602c2949417fe767c1acd88d7f67698"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.1",
+      "name": "v1.13.1",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.1",
+      "target_commitish": "7fd21f8bf4592303160cc45cbd0dd38a0cdcb512"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.13.0",
+      "name": "v1.13.0",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.13.0",
+      "target_commitish": "6da7e538e122b77c226ce48c1a6b4ecb61fd3fc4"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.19",
+      "name": "v1.12.19",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.19",
+      "target_commitish": "69bebbda82f0e6f04d128e320de4585b723bee52"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.12",
+      "name": "v1.12.12",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.12",
+      "target_commitish": "54ed58499d7063136ed52dabf87d179d252425d0"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.10",
+      "name": "v1.12.10",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.10",
+      "target_commitish": "444f45481023f6e8851dbcb294f744629efd0448"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.9",
+      "name": "v1.12.9",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.9",
+      "target_commitish": "328a6de7976182700aaa4f7e2c134bd568b47d88"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.8",
+      "name": "v1.12.8",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.8",
+      "target_commitish": "573c6179ab4fc1b9ecb8f049299bb1dfe8babc97"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.5",
+      "name": "v1.12.5",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.5",
+      "target_commitish": "fcde0c94e01f990b5d67c16a2382032f784a6ed0"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.4",
+      "name": "v1.12.4",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.4",
+      "target_commitish": "980e96250bf693bb8400183d6a05665da8ad9d03"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.3",
+      "name": "v1.12.3",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.3",
+      "target_commitish": "b40f642fa4ae25633426f136aa2e5d25f985c991"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.1",
+      "name": "v1.12.1",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.1",
+      "target_commitish": "4fb5ac292b5c90e0e4a15470ff982b6af76aeb67"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.12.0",
+      "name": "v1.12.0",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.12.0",
+      "target_commitish": "2dcb86941f5db01bbe296acae555a3b1f38c0441"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.15",
+      "name": "v1.11.15",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.15",
+      "target_commitish": "bc35aca01704497c179da1a03e45ad8e32f1a51b"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.14",
+      "name": "v1.11.14",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.14",
+      "target_commitish": "9b8ab3e61e5b3a199fce5575bc6a04373f222d22"
+    },
+    {
+      "draft": false,
+      "html_url": "https://github.com/yelnoo/sing-box/tree/v1.11.13",
+      "name": "v1.11.13",
+      "prerelease": false,
+      "source": "tag",
+      "tag_name": "v1.11.13",
+      "target_commitish": "255068fd40e92ca857115322b596801173525a91"
+    }
+  ],
+  "synced_at": "2026-05-05T03:52:54+00:00",
+  "version_source": "tag"
+}
