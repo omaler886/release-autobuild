@@ -1,0 +1,978 @@
+{
+  "all_releases": [
+    {
+      "created_at": "2026-04-23T15:14:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-ci5",
+      "name": "v12.6.4-ci5",
+      "prerelease": true,
+      "published_at": "2026-04-23T15:32:58Z",
+      "tag_name": "v12.6.4-ci5",
+      "target_commitish": "e7b81ef7930cd7b6c27ed2fbbc8fd7b9384a991b"
+    },
+    {
+      "created_at": "2026-04-20T12:51:20Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-ci4",
+      "name": "v12.6.4-ci4",
+      "prerelease": true,
+      "published_at": "2026-04-20T13:49:05Z",
+      "tag_name": "v12.6.4-ci4",
+      "target_commitish": "3e14b4d97412a1aae7fcc2acf51e64e11c3369fb"
+    },
+    {
+      "created_at": "2026-04-19T08:07:31Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-4",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-19T09:08:38Z",
+      "tag_name": "v12.6.4-4",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-16T03:42:11Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-3",
+      "name": "First build with new package name",
+      "prerelease": true,
+      "published_at": "2026-04-16T03:55:21Z",
+      "tag_name": "v12.6.4-3",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2026-04-15T15:18:19Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-2",
+      "name": "v12.6.4-2: Final build with current package name",
+      "prerelease": false,
+      "published_at": "2026-04-15T15:26:39Z",
+      "tag_name": "v12.6.4-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-14T17:13:18Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-ci3",
+      "name": "v12.6.4-ci3",
+      "prerelease": true,
+      "published_at": "2026-04-14T17:28:31Z",
+      "tag_name": "v12.6.4-ci3",
+      "target_commitish": "9d4772e791f281659b3cfaa23bd32d49b0ef60d8"
+    },
+    {
+      "created_at": "2026-04-14T16:52:14Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-ci2",
+      "name": "v12.6.4-ci2",
+      "prerelease": true,
+      "published_at": "2026-04-14T17:08:09Z",
+      "tag_name": "v12.6.4-ci2",
+      "target_commitish": "838f9c43ad43ae0b3d3a129b4bb733afcbc639bd"
+    },
+    {
+      "created_at": "2026-04-09T08:49:41Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-14T07:30:21Z",
+      "tag_name": "v12.6.4-1",
+      "target_commitish": "006a5be2b48590fbc8519dfae2dac5772f0ae9ac"
+    },
+    {
+      "created_at": "2026-04-09T08:49:41Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-ci",
+      "name": "v12.6.4-ci",
+      "prerelease": true,
+      "published_at": "2026-04-14T14:03:29Z",
+      "tag_name": "v12.6.4-ci",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-06T07:40:39Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.5.1-1",
+      "name": "v12.5.1",
+      "prerelease": false,
+      "published_at": "2026-04-06T07:52:38Z",
+      "tag_name": "v12.5.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-03-07T03:08:11Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.4.1",
+      "name": "v12.4.1 - upstream UI redesign update",
+      "prerelease": false,
+      "published_at": "2026-03-10T07:28:51Z",
+      "tag_name": "v12.4.1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-02-10T08:17:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.3.1-1",
+      "name": "12.3.1 Final",
+      "prerelease": false,
+      "published_at": "2026-02-18T07:46:36Z",
+      "tag_name": "v12.3.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-01-13T07:26:07Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.10-2",
+      "name": "12.2.10 Final",
+      "prerelease": false,
+      "published_at": "2026-01-16T05:32:35Z",
+      "tag_name": "v12.2.10-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-12-26T08:17:57Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.10-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-12-26T08:34:07Z",
+      "tag_name": "v12.2.10-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-12-09T00:51:43Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.3-2",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-12-09T01:30:23Z",
+      "tag_name": "v12.2.3-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-11-28T01:14:46Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.3-1",
+      "name": "v12.2.3-1",
+      "prerelease": false,
+      "published_at": "2025-11-28T08:42:54Z",
+      "tag_name": "v12.2.3-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-11-18T00:57:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.1.1-1",
+      "name": "v12.1.1-1",
+      "prerelease": false,
+      "published_at": "2025-11-18T01:14:26Z",
+      "tag_name": "v12.1.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-10-16T01:28:17Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-5",
+      "name": "v12.0.1-5",
+      "prerelease": false,
+      "published_at": "2025-10-16T05:11:03Z",
+      "tag_name": "v12.0.1-5",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-30T09:20:49Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-4",
+      "name": "v12.0.1-4",
+      "prerelease": false,
+      "published_at": "2025-09-30T09:34:23Z",
+      "tag_name": "v12.0.1-4",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-19T02:07:05Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-3",
+      "name": "bugfix release",
+      "prerelease": true,
+      "published_at": "2025-09-19T02:24:17Z",
+      "tag_name": "v12.0.1-3",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-09-18T08:10:26Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-2-up",
+      "name": "test build for UnifiedPush",
+      "prerelease": true,
+      "published_at": "2025-09-18T08:42:29Z",
+      "tag_name": "v12.0.1-2-up",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-09-11T13:30:00Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-2-tx",
+      "name": "Firefox local translate support",
+      "prerelease": true,
+      "published_at": "2025-09-12T00:26:22Z",
+      "tag_name": "v12.0.1-2-tx",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-09-09T13:09:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-2",
+      "name": "hotfix for v12.0.1-1",
+      "prerelease": false,
+      "published_at": "2025-09-09T14:56:40Z",
+      "tag_name": "v12.0.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-09T05:26:07Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-1",
+      "name": "v12.0.1-1",
+      "prerelease": true,
+      "published_at": "2025-09-09T05:52:47Z",
+      "tag_name": "v12.0.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-01T23:35:07Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.14.1-2",
+      "name": "v11.14.1-2",
+      "prerelease": false,
+      "published_at": "2025-09-02T01:12:41Z",
+      "tag_name": "v11.14.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-08-20T01:25:59Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.14.1-1",
+      "name": "11.14.1-1",
+      "prerelease": false,
+      "published_at": "2025-08-20T01:34:50Z",
+      "tag_name": "v11.14.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-07-26T16:29:01Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.13.0-2a",
+      "name": "Hotfix for login",
+      "prerelease": false,
+      "published_at": "2025-07-27T23:42:35Z",
+      "tag_name": "v11.13.0-2a",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-07-09T02:24:44Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.13.0-1",
+      "name": "11.13.0-1",
+      "prerelease": false,
+      "published_at": "2025-07-09T02:54:12Z",
+      "tag_name": "v11.13.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-07-02T15:29:23Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.13.0-pre1",
+      "name": "v11.13.0 test build",
+      "prerelease": true,
+      "published_at": "2025-07-02T15:39:39Z",
+      "tag_name": "v11.13.0-pre1",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-06-25T01:25:03Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.12.0-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-06-25T01:42:13Z",
+      "tag_name": "v11.12.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-06-05T05:43:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.12.0-pre1",
+      "name": "v11.12.0-pre1",
+      "prerelease": true,
+      "published_at": "2025-06-05T05:55:51Z",
+      "tag_name": "v11.12.0-pre1",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-06-05T02:51:56Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.1-2",
+      "name": "v11.9.1-2",
+      "prerelease": false,
+      "published_at": "2025-06-05T03:12:21Z",
+      "tag_name": "v11.9.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-05-12T02:57:22Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.1-1",
+      "name": "v11.9.1-1",
+      "prerelease": false,
+      "published_at": "2025-05-13T05:55:49Z",
+      "tag_name": "v11.9.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-05-02T03:04:06Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-3",
+      "name": "v11.9.0-3",
+      "prerelease": false,
+      "published_at": "2025-05-02T07:44:01Z",
+      "tag_name": "v11.9.0-3",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-04-09T09:02:43Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-2",
+      "name": "Fix local Whisper for non-premium users",
+      "prerelease": false,
+      "published_at": "2025-04-10T02:41:13Z",
+      "tag_name": "v11.9.0-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-04-08T03:34:03Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-1",
+      "name": "v11.9.0-1",
+      "prerelease": false,
+      "published_at": "2025-04-09T06:22:57Z",
+      "tag_name": "v11.9.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-03-27T00:23:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.8.2-1",
+      "name": "v11.8.2-1",
+      "prerelease": false,
+      "published_at": "2025-03-31T06:04:35Z",
+      "tag_name": "v11.8.2-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-03-10T01:17:25Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.7.0-1",
+      "name": "v11.7.0-1",
+      "prerelease": false,
+      "published_at": "2025-03-10T01:30:22Z",
+      "tag_name": "v11.7.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-02-03T03:23:29Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.5.3-1",
+      "name": "v11.5.3-1",
+      "prerelease": false,
+      "published_at": "2025-02-03T08:02:42Z",
+      "tag_name": "v11.5.3-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-12-09T03:49:39Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.5.3-pre0",
+      "name": "v11.5.3",
+      "prerelease": true,
+      "published_at": "2024-12-09T03:51:43Z",
+      "tag_name": "v11.5.3-pre0",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-12-09T01:52:17Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.4.2-2",
+      "name": "v11.4.2-2",
+      "prerelease": false,
+      "published_at": "2024-12-09T02:03:44Z",
+      "tag_name": "v11.4.2-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-12-04T03:30:42Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.4.2-1",
+      "name": "This is Momogram :)",
+      "prerelease": false,
+      "published_at": "2024-12-04T03:59:57Z",
+      "tag_name": "v11.4.2-1",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-11-19T03:34:44Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.4.2-pre0",
+      "name": "v11.4.2-pre0",
+      "prerelease": true,
+      "published_at": "2024-11-22T07:37:11Z",
+      "tag_name": "v11.4.2-pre0",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-11-19T03:34:44Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.2.3-3",
+      "name": "v11.2.3-3",
+      "prerelease": false,
+      "published_at": "2024-11-21T02:27:51Z",
+      "tag_name": "v11.2.3-3",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-11-13T05:13:33Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.2.3-2",
+      "name": "v11.2.3-2",
+      "prerelease": false,
+      "published_at": "2024-11-13T06:02:03Z",
+      "tag_name": "v11.2.3-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-10-09T06:06:50Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.1.3-2",
+      "name": "v11.1.3-2",
+      "prerelease": false,
+      "published_at": "2024-10-09T06:20:21Z",
+      "tag_name": "v11.1.3-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-10-08T02:55:28Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.1.3-1",
+      "name": "v11.1.3",
+      "prerelease": true,
+      "published_at": "2024-10-08T03:17:48Z",
+      "tag_name": "v11.1.3-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-09-10T08:43:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.1.3-prev",
+      "name": "11.1.3 - bug fix release",
+      "prerelease": true,
+      "published_at": "2024-09-13T04:42:58Z",
+      "tag_name": "v11.1.3-prev",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-09-10T08:43:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.0.0",
+      "name": "v11.0.0",
+      "prerelease": false,
+      "published_at": "2024-09-11T02:30:03Z",
+      "tag_name": "v11.0.0",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-03-16T16:23:05Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.9.1-3",
+      "name": "v10.9.1-3",
+      "prerelease": false,
+      "published_at": "2024-03-16T17:09:50Z",
+      "tag_name": "v10.9.1-3",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-03-13T17:40:16Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.9.1-2",
+      "name": "v10.9.1-2",
+      "prerelease": false,
+      "published_at": "2024-03-13T17:46:01Z",
+      "tag_name": "v10.9.1-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-01-03T10:21:55Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.5.0",
+      "name": "v10.5.0",
+      "prerelease": false,
+      "published_at": "2024-01-05T11:38:47Z",
+      "tag_name": "v10.5.0",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2023-12-06T11:50:50Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.3.2-test",
+      "name": "v10.3.2-test",
+      "prerelease": false,
+      "published_at": "2023-12-06T13:34:33Z",
+      "tag_name": "v10.3.2-test",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2023-12-06T13:41:23Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.3.2-rc",
+      "name": "v10.3.2-rc",
+      "prerelease": false,
+      "published_at": "2023-12-06T14:21:24Z",
+      "tag_name": "v10.3.2-rc",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2023-12-04T00:48:59Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.2.6-dep1",
+      "name": "v10.2.6-dep1",
+      "prerelease": false,
+      "published_at": "2023-12-04T01:55:03Z",
+      "tag_name": "v10.2.6-dep1",
+      "target_commitish": "lifesupport"
+    }
+  ],
+  "base_branch": "master",
+  "base_commit": "fe195216b05d765cbafeeeeecd7822b0fab943d9",
+  "project": "momogram",
+  "push_candidates": [
+    {
+      "created_at": "2026-04-19T08:07:31Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-4",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-19T09:08:38Z",
+      "tag_name": "v12.6.4-4",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-15T15:18:19Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-2",
+      "name": "v12.6.4-2: Final build with current package name",
+      "prerelease": false,
+      "published_at": "2026-04-15T15:26:39Z",
+      "tag_name": "v12.6.4-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-09T08:49:41Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-14T07:30:21Z",
+      "tag_name": "v12.6.4-1",
+      "target_commitish": "006a5be2b48590fbc8519dfae2dac5772f0ae9ac"
+    }
+  ],
+  "push_release_limit": 3,
+  "release_count": 55,
+  "repo": "dic1911/Momogram",
+  "source_branch": "upstream/momogram",
+  "stable_release_count": 38,
+  "stable_releases": [
+    {
+      "created_at": "2026-04-19T08:07:31Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-4",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-19T09:08:38Z",
+      "tag_name": "v12.6.4-4",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-15T15:18:19Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-2",
+      "name": "v12.6.4-2: Final build with current package name",
+      "prerelease": false,
+      "published_at": "2026-04-15T15:26:39Z",
+      "tag_name": "v12.6.4-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-04-09T08:49:41Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.6.4-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2026-04-14T07:30:21Z",
+      "tag_name": "v12.6.4-1",
+      "target_commitish": "006a5be2b48590fbc8519dfae2dac5772f0ae9ac"
+    },
+    {
+      "created_at": "2026-04-06T07:40:39Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.5.1-1",
+      "name": "v12.5.1",
+      "prerelease": false,
+      "published_at": "2026-04-06T07:52:38Z",
+      "tag_name": "v12.5.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-03-07T03:08:11Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.4.1",
+      "name": "v12.4.1 - upstream UI redesign update",
+      "prerelease": false,
+      "published_at": "2026-03-10T07:28:51Z",
+      "tag_name": "v12.4.1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-02-10T08:17:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.3.1-1",
+      "name": "12.3.1 Final",
+      "prerelease": false,
+      "published_at": "2026-02-18T07:46:36Z",
+      "tag_name": "v12.3.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2026-01-13T07:26:07Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.10-2",
+      "name": "12.2.10 Final",
+      "prerelease": false,
+      "published_at": "2026-01-16T05:32:35Z",
+      "tag_name": "v12.2.10-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-12-26T08:17:57Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.10-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-12-26T08:34:07Z",
+      "tag_name": "v12.2.10-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-12-09T00:51:43Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.3-2",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-12-09T01:30:23Z",
+      "tag_name": "v12.2.3-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-11-28T01:14:46Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.2.3-1",
+      "name": "v12.2.3-1",
+      "prerelease": false,
+      "published_at": "2025-11-28T08:42:54Z",
+      "tag_name": "v12.2.3-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-11-18T00:57:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.1.1-1",
+      "name": "v12.1.1-1",
+      "prerelease": false,
+      "published_at": "2025-11-18T01:14:26Z",
+      "tag_name": "v12.1.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-10-16T01:28:17Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-5",
+      "name": "v12.0.1-5",
+      "prerelease": false,
+      "published_at": "2025-10-16T05:11:03Z",
+      "tag_name": "v12.0.1-5",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-30T09:20:49Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-4",
+      "name": "v12.0.1-4",
+      "prerelease": false,
+      "published_at": "2025-09-30T09:34:23Z",
+      "tag_name": "v12.0.1-4",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-09T13:09:45Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v12.0.1-2",
+      "name": "hotfix for v12.0.1-1",
+      "prerelease": false,
+      "published_at": "2025-09-09T14:56:40Z",
+      "tag_name": "v12.0.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-09-01T23:35:07Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.14.1-2",
+      "name": "v11.14.1-2",
+      "prerelease": false,
+      "published_at": "2025-09-02T01:12:41Z",
+      "tag_name": "v11.14.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-08-20T01:25:59Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.14.1-1",
+      "name": "11.14.1-1",
+      "prerelease": false,
+      "published_at": "2025-08-20T01:34:50Z",
+      "tag_name": "v11.14.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-07-26T16:29:01Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.13.0-2a",
+      "name": "Hotfix for login",
+      "prerelease": false,
+      "published_at": "2025-07-27T23:42:35Z",
+      "tag_name": "v11.13.0-2a",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-07-09T02:24:44Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.13.0-1",
+      "name": "11.13.0-1",
+      "prerelease": false,
+      "published_at": "2025-07-09T02:54:12Z",
+      "tag_name": "v11.13.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-06-25T01:25:03Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.12.0-1",
+      "name": "",
+      "prerelease": false,
+      "published_at": "2025-06-25T01:42:13Z",
+      "tag_name": "v11.12.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-06-05T02:51:56Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.1-2",
+      "name": "v11.9.1-2",
+      "prerelease": false,
+      "published_at": "2025-06-05T03:12:21Z",
+      "tag_name": "v11.9.1-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-05-12T02:57:22Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.1-1",
+      "name": "v11.9.1-1",
+      "prerelease": false,
+      "published_at": "2025-05-13T05:55:49Z",
+      "tag_name": "v11.9.1-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-05-02T03:04:06Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-3",
+      "name": "v11.9.0-3",
+      "prerelease": false,
+      "published_at": "2025-05-02T07:44:01Z",
+      "tag_name": "v11.9.0-3",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-04-09T09:02:43Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-2",
+      "name": "Fix local Whisper for non-premium users",
+      "prerelease": false,
+      "published_at": "2025-04-10T02:41:13Z",
+      "tag_name": "v11.9.0-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2025-04-08T03:34:03Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.9.0-1",
+      "name": "v11.9.0-1",
+      "prerelease": false,
+      "published_at": "2025-04-09T06:22:57Z",
+      "tag_name": "v11.9.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-03-27T00:23:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.8.2-1",
+      "name": "v11.8.2-1",
+      "prerelease": false,
+      "published_at": "2025-03-31T06:04:35Z",
+      "tag_name": "v11.8.2-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-03-10T01:17:25Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.7.0-1",
+      "name": "v11.7.0-1",
+      "prerelease": false,
+      "published_at": "2025-03-10T01:30:22Z",
+      "tag_name": "v11.7.0-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2025-02-03T03:23:29Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.5.3-1",
+      "name": "v11.5.3-1",
+      "prerelease": false,
+      "published_at": "2025-02-03T08:02:42Z",
+      "tag_name": "v11.5.3-1",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-12-09T01:52:17Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.4.2-2",
+      "name": "v11.4.2-2",
+      "prerelease": false,
+      "published_at": "2024-12-09T02:03:44Z",
+      "tag_name": "v11.4.2-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-12-04T03:30:42Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.4.2-1",
+      "name": "This is Momogram :)",
+      "prerelease": false,
+      "published_at": "2024-12-04T03:59:57Z",
+      "tag_name": "v11.4.2-1",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-11-19T03:34:44Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.2.3-3",
+      "name": "v11.2.3-3",
+      "prerelease": false,
+      "published_at": "2024-11-21T02:27:51Z",
+      "tag_name": "v11.2.3-3",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-11-13T05:13:33Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.2.3-2",
+      "name": "v11.2.3-2",
+      "prerelease": false,
+      "published_at": "2024-11-13T06:02:03Z",
+      "tag_name": "v11.2.3-2",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-10-09T06:06:50Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.1.3-2",
+      "name": "v11.1.3-2",
+      "prerelease": false,
+      "published_at": "2024-10-09T06:20:21Z",
+      "tag_name": "v11.1.3-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-09-10T08:43:36Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v11.0.0",
+      "name": "v11.0.0",
+      "prerelease": false,
+      "published_at": "2024-09-11T02:30:03Z",
+      "tag_name": "v11.0.0",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2024-03-16T16:23:05Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.9.1-3",
+      "name": "v10.9.1-3",
+      "prerelease": false,
+      "published_at": "2024-03-16T17:09:50Z",
+      "tag_name": "v10.9.1-3",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-03-13T17:40:16Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.9.1-2",
+      "name": "v10.9.1-2",
+      "prerelease": false,
+      "published_at": "2024-03-13T17:46:01Z",
+      "tag_name": "v10.9.1-2",
+      "target_commitish": "test"
+    },
+    {
+      "created_at": "2024-01-03T10:21:55Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.5.0",
+      "name": "v10.5.0",
+      "prerelease": false,
+      "published_at": "2024-01-05T11:38:47Z",
+      "tag_name": "v10.5.0",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2023-12-06T11:50:50Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.3.2-test",
+      "name": "v10.3.2-test",
+      "prerelease": false,
+      "published_at": "2023-12-06T13:34:33Z",
+      "tag_name": "v10.3.2-test",
+      "target_commitish": "lifesupport"
+    },
+    {
+      "created_at": "2023-12-04T00:48:59Z",
+      "draft": false,
+      "html_url": "https://github.com/dic1911/Momogram/releases/tag/v10.2.6-dep1",
+      "name": "v10.2.6-dep1",
+      "prerelease": false,
+      "published_at": "2023-12-04T01:55:03Z",
+      "tag_name": "v10.2.6-dep1",
+      "target_commitish": "lifesupport"
+    }
+  ],
+  "synced_at": "2026-05-05T03:52:57+00:00",
+  "version_source": "release"
+}
