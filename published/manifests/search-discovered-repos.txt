@@ -1,10 +1,11 @@
-Au1rxx/free-vpn-subscriptions@main
 junjun266/FreeProxyGo@main
-wnlen/clash-for-linux@master
+Aethersailor/SubConverter-Extended@master
+chenx-dust/DeckyClash@main
+Au1rxx/free-vpn-subscriptions@main
 kort0881/vpn-vless-configs-russia@main
-nodesfree/v2raynode@main
-OpenNetCN/clash@main
-mahdibland/V2RayAggregator@master
-PuddinCat/BestClash@main
 NiREvil/vless@main
+OpenNetCN/clash@main
+PuddinCat/BestClash@main
+mahdibland/V2RayAggregator@master
+nodesfree/v2raynode@main
 ishalumi/proxy-node-collector@main
