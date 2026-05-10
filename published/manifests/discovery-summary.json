@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-09T05:30:58.134023+00:00",
+  "updated_at": "2026-05-10T05:47:02.393108+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 245,
+  "discovered_source_count": 242,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -63,9 +63,7 @@
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_FR.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml",
@@ -73,6 +71,8 @@
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_KR.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_KR.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_RU.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.meta.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.meta.yml",
@@ -154,11 +154,11 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_FR.yml",
+          "path": "snippets/nodes_FR.meta.yml",
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_RU.yml",
+          "path": "snippets/nodes_FR.yml",
           "reason": "content_not_matching"
         }
       ]
@@ -574,10 +574,9 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 5,
-      "accepted_source_count": 2,
+      "accepted_source_count": 1,
       "accepted_sources": [
-        "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
-        "https://raw.githubusercontent.com/free18/v2ray/main/v.txt"
+        "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml"
       ],
       "sample_rejections": [
         {
@@ -586,6 +585,10 @@
         },
         {
           "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "v.txt",
           "reason": "content_not_matching"
         },
         {
@@ -622,18 +625,16 @@
       "seed_repo": "Au1rxx/free-vpn-subscriptions",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 26,
-      "accepted_source_count": 10,
+      "candidate_file_count": 24,
+      "accepted_source_count": 8,
       "accepted_sources": [
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-CA.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-DE.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-GB.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-JP.yaml",
-        "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-NL.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-US.yaml",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-DE.txt",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-GB.txt",
-        "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-NL.txt",
         "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml"
       ],
       "sample_rejections": [
@@ -717,76 +718,6 @@
         },
         {
           "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "Kindness-Kismet/Stelliberty",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 15,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "analysis_options.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "android/app/src/main/cpp/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "dart_dependency_validator.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "devtools_options.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "linux/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "linux/flutter/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "linux/runner/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "pubspec.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "scripts/analysis_options.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "scripts/pubspec.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "slang.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "windows/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "windows/flutter/CMakeLists.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "windows/runner/CMakeLists.txt",
           "reason": "content_not_matching"
         }
       ]
@@ -882,35 +813,53 @@
       ]
     },
     {
-      "seed_repo": "OpenNetCN/clash",
-      "ref": "main",
+      "seed_repo": "marvinli001/ClashMax",
+      "ref": "master",
       "tree_truncated": false,
-      "candidate_file_count": 1,
+      "candidate_file_count": 6,
       "accepted_source_count": 0,
       "accepted_sources": [],
       "sample_rejections": [
         {
           "path": "README.md",
           "reason": "content_not_matching"
+        },
+        {
+          "path": "README.zh-CN.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "Resources/Core/README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "docs/DEVELOPMENT.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "project.yml",
+          "reason": "content_not_matching"
         }
       ]
     },
     {
-      "seed_repo": "PuddinCat/BestClash",
+      "seed_repo": "OpenNetCN/clash",
       "ref": "main",
       "tree_truncated": false,
-      "candidate_file_count": 3,
-      "accepted_source_count": 1,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
-      ],
+      "candidate_file_count": 2,
+      "accepted_source_count": 0,
+      "accepted_sources": [],
       "sample_rejections": [
         {
-          "path": "5M.txt",
+          "path": "README.md",
           "reason": "content_not_matching"
         },
         {
-          "path": "README.md",
+          "path": "daily-news.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1005,6 +954,26 @@
         },
         {
           "path": "sub/list/36.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "PuddinCat/BestClash",
+      "ref": "main",
+      "tree_truncated": false,
+      "candidate_file_count": 3,
+      "accepted_source_count": 1,
+      "accepted_sources": [
+        "https://raw.githubusercontent.com/PuddinCat/BestClash/main/proxies.yaml"
+      ],
+      "sample_rejections": [
+        {
+          "path": "5M.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "README.md",
           "reason": "content_not_matching"
         }
       ]
