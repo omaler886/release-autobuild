@@ -1,12 +1,8 @@
-junjun266/FreeProxyGo@main
-marvinli001/ClashMax@master
 Au1rxx/free-vpn-subscriptions@main
+junjun266/FreeProxyGo@main
 kort0881/vpn-vless-configs-russia@main
-sub-store-org/Sub-Store@master
-OpenNetCN/clash@main
-nodesfree/v2raynode@main
-ermaozi01/free_clash_vpn@main
-PuddinCat/BestClash@main
-mahdibland/V2RayAggregator@master
 NiREvil/vless@main
-ermaozi/get_subscribe@main
+PuddinCat/BestClash@main
+OpenNetCN/clash@main
+mahdibland/V2RayAggregator@master
+nodesfree/v2raynode@main
