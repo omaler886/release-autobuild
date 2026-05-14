@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-13T05:58:51.422197+00:00",
+  "updated_at": "2026-05-14T05:57:42.387277+00:00",
   "seed_repo_files": [
     "config/github_seed_repos.txt",
     "published/manifests/search-discovered-repos.txt"
   ],
   "patterns_file": "config/discovery_patterns.yaml",
-  "discovered_source_count": 257,
+  "discovered_source_count": 236,
   "discovered_sources_file": "published/manifests/discovered-source-urls.txt",
   "repos": [
     {
@@ -54,17 +54,17 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 51,
-      "accepted_source_count": 24,
+      "accepted_source_count": 22,
       "accepted_sources": [
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CA.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.yml",
+        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_FR.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_GB.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml",
@@ -76,8 +76,6 @@
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.meta.yml",
-        "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.meta.yml",
         "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_US.yml"
       ],
@@ -127,10 +125,6 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_CA.meta.yml",
-          "reason": "content_not_matching"
-        },
-        {
           "path": "snippets/nodes_CA.yml",
           "reason": "content_not_matching"
         },
@@ -147,6 +141,10 @@
           "reason": "content_not_matching"
         },
         {
+          "path": "snippets/nodes_DE.yml",
+          "reason": "content_not_matching"
+        },
+        {
           "path": "snippets/nodes_EE.meta.yml",
           "reason": "content_not_matching"
         },
@@ -155,11 +153,11 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_FR.meta.yml",
+          "path": "snippets/nodes_FR.yml",
           "reason": "content_not_matching"
         },
         {
-          "path": "snippets/nodes_FR.yml",
+          "path": "snippets/nodes_GB.yml",
           "reason": "content_not_matching"
         }
       ]
@@ -468,21 +466,16 @@
       "ref": "master",
       "tree_truncated": false,
       "candidate_file_count": 48,
-      "accepted_source_count": 17,
+      "accepted_source_count": 12,
       "accepted_sources": [
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes.yml",
-        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_CH.meta.yml",
-        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_DE.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_HK.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_JP.yml",
-        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_KR.meta.yml",
-        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_RU.meta.yml",
-        "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SE.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.meta.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_SG.yml",
         "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/snippets/nodes_US.meta.yml",
@@ -538,6 +531,10 @@
           "reason": "content_not_matching"
         },
         {
+          "path": "snippets/nodes_CH.meta.yml",
+          "reason": "content_not_matching"
+        },
+        {
           "path": "snippets/nodes_CH.yml",
           "reason": "content_not_matching"
         },
@@ -547,6 +544,10 @@
         },
         {
           "path": "snippets/nodes_CN.yml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "snippets/nodes_DE.meta.yml",
           "reason": "content_not_matching"
         },
         {
@@ -560,14 +561,6 @@
         {
           "path": "snippets/nodes_EE.yml",
           "reason": "content_not_matching"
-        },
-        {
-          "path": "snippets/nodes_FR.meta.yml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "snippets/nodes_FR.yml",
-          "reason": "content_not_matching"
         }
       ]
     },
@@ -576,9 +569,10 @@
       "ref": "main",
       "tree_truncated": false,
       "candidate_file_count": 5,
-      "accepted_source_count": 1,
+      "accepted_source_count": 2,
       "accepted_sources": [
-        "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml"
+        "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
+        "https://raw.githubusercontent.com/free18/v2ray/main/v.txt"
       ],
       "sample_rejections": [
         {
@@ -587,10 +581,6 @@
         },
         {
           "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "v.txt",
           "reason": "content_not_matching"
         },
         {
@@ -619,6 +609,36 @@
         },
         {
           "path": "subscribe/v2ray.txt",
+          "reason": "content_not_matching"
+        }
+      ]
+    },
+    {
+      "seed_repo": "sub-store-org/Sub-Store",
+      "ref": "master",
+      "tree_truncated": false,
+      "candidate_file_count": 5,
+      "accepted_source_count": 0,
+      "accepted_sources": [],
+      "sample_rejections": [
+        {
+          "path": "README.md",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "backend/pnpm-lock.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "backend/pnpm-workspace.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config/Egern.yaml",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "config/README.md",
           "reason": "content_not_matching"
         }
       ]
@@ -702,36 +722,6 @@
       ]
     },
     {
-      "seed_repo": "sub-store-org/Sub-Store",
-      "ref": "master",
-      "tree_truncated": false,
-      "candidate_file_count": 5,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "backend/pnpm-lock.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "backend/pnpm-workspace.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config/Egern.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config/README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
       "seed_repo": "junjun266/FreeProxyGo",
       "ref": "main",
       "tree_truncated": false,
@@ -745,100 +735,6 @@
         },
         {
           "path": "README.md",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "madeye/mihomo-rust",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 90,
-      "accepted_source_count": 3,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/madeye/mihomo-rust/main/config.example.yaml",
-        "https://raw.githubusercontent.com/madeye/mihomo-rust/main/crates/mihomo-app/tests/fixtures/minimal.yaml",
-        "https://raw.githubusercontent.com/madeye/mihomo-rust/main/tests/tproxy-qemu/mihomo-tproxy.yaml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "AGENTS.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "CLAUDE.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "M2_QA_BASELINE.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config-bench-dns.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "config-bench.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0001-mihomo-transport-crate.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0002-upstream-divergence-policy.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0003-provider-refresh-substrate.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0004-metrics-cardinality.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0005-runtime-event-broadcaster.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0006-m2-benchmark-methodology.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0007-m2-footprint-budget.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0008-m2-allocator-audit.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0009-cleanup-scope.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0010-m1-hygiene-and-gates-addendum.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0010-m1-hygiene-and-gates.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/adr/0011-m2-footprint-targets.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/benchmarks/binary-size.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "docs/benchmarks/footprint-alloc-baseline.md",
           "reason": "content_not_matching"
         }
       ]
@@ -1000,10 +896,6 @@
           "reason": "content_not_matching"
         },
         {
-          "path": "sub/list/07.txt",
-          "reason": "content_not_matching"
-        },
-        {
           "path": "sub/list/12.txt",
           "reason": "content_not_matching"
         },
@@ -1041,6 +933,10 @@
         },
         {
           "path": "sub/list/36.txt",
+          "reason": "content_not_matching"
+        },
+        {
+          "path": "sub/list/38.txt",
           "reason": "content_not_matching"
         }
       ]
@@ -1182,159 +1078,6 @@
         },
         {
           "path": "edge/assets/p-list-may.txt",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "ishalumi/proxy-node-collector",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 10,
-      "accepted_source_count": 0,
-      "accepted_sources": [],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_asia.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_chatgpt.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_europe.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_nodes.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/easy_proxy_us_optimized.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/nodes.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "output/nodes_base64.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "requirements.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sources.yaml",
-          "reason": "content_not_matching"
-        }
-      ]
-    },
-    {
-      "seed_repo": "peacefish/nodefree",
-      "ref": "main",
-      "tree_truncated": false,
-      "candidate_file_count": 94,
-      "accepted_source_count": 12,
-      "accepted_sources": [
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/Eternity.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_online.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_openshare.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/clash_short.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/newclash.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_cf.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/proxy_s.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/sub/sub_merge_clash.yaml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-all.yml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-others.yml",
-        "https://raw.githubusercontent.com/peacefish/nodefree/main/update/provider/provider-us.yml"
-      ],
-      "sample_rejections": [
-        {
-          "path": "README.md",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/clash_nodeshare.yaml",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/00.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/02.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/03.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/04.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/05.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/06.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/07.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/08.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/09.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/10.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/11.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/15.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/16.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/17.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/23.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/24.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/25.txt",
-          "reason": "content_not_matching"
-        },
-        {
-          "path": "sub/list/27.txt",
           "reason": "content_not_matching"
         }
       ]
