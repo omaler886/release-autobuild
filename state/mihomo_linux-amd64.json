@@ -1,14 +1,22 @@
 {
-  "commit": "0120b1d76d263575ac008abd821ec726042c94e6",
+  "commit": "5e22035118d13fa609164670111cc674906bb2a4",
   "files": [
-    "mihomo-v1.19.22-linux-amd64.tar.gz"
+    "mihomo-v1.19.25-linux-amd64.tar.gz"
   ],
   "project": "mihomo",
   "repo": "MetaCubeX/mihomo",
-  "tag": "v1.19.22",
+  "tag": "v1.19.25",
   "target": "linux-amd64",
-  "uploaded_at": "2026-04-27T10:03:52+00:00",
+  "uploaded_at": "2026-05-16T19:40:40+00:00",
   "uploads": [
+    {
+      "commit": "5e22035118d13fa609164670111cc674906bb2a4",
+      "files": [
+        "mihomo-v1.19.25-linux-amd64.tar.gz"
+      ],
+      "tag": "v1.19.25",
+      "uploaded_at": "2026-05-16T19:40:40+00:00"
+    },
     {
       "commit": "0120b1d76d263575ac008abd821ec726042c94e6",
       "files": [
