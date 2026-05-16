@@ -1,0 +1,53 @@
+{
+  "commit": "a13c5e122925d0bb8777a87725965f881f01c8ff",
+  "files": [
+    "Momo-v12.6.4-a13c5e12-arm64-v8a.apk"
+  ],
+  "project": "momogram",
+  "repo": "dic1911/Momogram",
+  "tag": "v12.6.4-2",
+  "target": "android-arm64",
+  "uploaded_at": "2026-05-16T15:52:56+00:00",
+  "uploaded_files": [
+    "Momo-v12.6.4-a13c5e12-arm64-v8a.apk.part01of02",
+    "Momo-v12.6.4-a13c5e12-arm64-v8a.apk.part02of02"
+  ],
+  "uploads": [
+    {
+      "commit": "a13c5e122925d0bb8777a87725965f881f01c8ff",
+      "files": [
+        "Momo-v12.6.4-a13c5e12-arm64-v8a.apk"
+      ],
+      "tag": "v12.6.4-2",
+      "uploaded_at": "2026-05-16T15:52:56+00:00",
+      "uploaded_files": [
+        "Momo-v12.6.4-a13c5e12-arm64-v8a.apk.part01of02",
+        "Momo-v12.6.4-a13c5e12-arm64-v8a.apk.part02of02"
+      ]
+    },
+    {
+      "commit": "c677dafa07d358025886e8d4aba5e68bb668a7aa",
+      "files": [
+        "Momo-v12.6.4-c677dafa-arm64-v8a.apk"
+      ],
+      "tag": "v12.6.4-4",
+      "uploaded_at": "2026-05-16T14:56:54+00:00",
+      "uploaded_files": [
+        "Momo-v12.6.4-c677dafa-arm64-v8a.apk.part01of02",
+        "Momo-v12.6.4-c677dafa-arm64-v8a.apk.part02of02"
+      ]
+    },
+    {
+      "commit": "90a662efff1113828bd9ce557f58b2d1bd85a551",
+      "files": [
+        "Momo-v12.6.4-90a662ef-arm64-v8a.apk"
+      ],
+      "tag": "v12.6.4-5",
+      "uploaded_at": "2026-05-16T14:00:06+00:00",
+      "uploaded_files": [
+        "Momo-v12.6.4-90a662ef-arm64-v8a.apk.part01of02",
+        "Momo-v12.6.4-90a662ef-arm64-v8a.apk.part02of02"
+      ]
+    }
+  ]
+}
