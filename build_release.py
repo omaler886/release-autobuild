@@ -44,6 +44,7 @@ DEFAULT_STATE_DIR = ROOT / "state"
 DEFAULT_LOG_DIR = ROOT / "logs"
 DEFAULT_PATCH_DIR = ROOT / "patches"
 USER_AGENT = "codex-release-autobuild/1.0"
+DEFAULT_TELEGRAM_MAX_UPLOAD_BYTES = 45 * 1024 * 1024
 DEFAULT_ENV_FILES = (
     Path.home() / ".release-autobuild.env",
     ROOT / "config.env",
@@ -970,6 +971,59 @@ def telegram_upload(file_path: Path, caption: str) -> None:
         raise BuildError(f"Telegram upload failed: {data}")
 
 
+def telegram_max_upload_bytes() -> int:
+    value = env_int("TELEGRAM_MAX_UPLOAD_BYTES", DEFAULT_TELEGRAM_MAX_UPLOAD_BYTES)
+    if value < 1024 * 1024:
+        raise BuildError("TELEGRAM_MAX_UPLOAD_BYTES must be at least 1048576")
+    return value
+
+
+def split_file(file_path: Path, chunk_size: int, parts_dir: Path) -> list[Path]:
+    size = file_path.stat().st_size
+    total = (size + chunk_size - 1) // chunk_size
+    width = max(2, len(str(total)))
+    parts: list[Path] = []
+    with file_path.open("rb") as src:
+        for index in range(1, total + 1):
+            part = parts_dir / f"{file_path.name}.part{index:0{width}d}of{total:0{width}d}"
+            remaining = min(chunk_size, size - ((index - 1) * chunk_size))
+            with part.open("wb") as dst:
+                while remaining > 0:
+                    chunk = src.read(min(1024 * 1024, remaining))
+                    if not chunk:
+                        raise BuildError(f"failed to split {file_path.name}: unexpected EOF")
+                    dst.write(chunk)
+                    remaining -= len(chunk)
+            parts.append(part)
+    return parts
+
+
+def telegram_upload_package(file_path: Path, caption: str) -> list[str]:
+    size = file_path.stat().st_size
+    max_size = telegram_max_upload_bytes()
+    if size <= max_size:
+        print(f"uploading {file_path.name} ({size} bytes)")
+        telegram_upload(file_path, caption)
+        return [file_path.name]
+
+    parts_dir = Path(tempfile.mkdtemp(prefix=f"{safe_name(file_path.stem)}-parts-", dir=file_path.parent))
+    try:
+        parts = split_file(file_path, max_size, parts_dir)
+        print(
+            f"splitting {file_path.name} ({size} bytes) into {len(parts)} Telegram upload part(s), "
+            f"max_part_size={max_size}"
+        )
+        uploaded: list[str] = []
+        for index, part in enumerate(parts, start=1):
+            part_caption = f"{caption}\nfile: {file_path.name}\npart: {index}/{len(parts)}"
+            print(f"uploading {part.name} ({part.stat().st_size} bytes)")
+            telegram_upload(part, part_caption)
+            uploaded.append(part.name)
+        return uploaded
+    finally:
+        shutil.rmtree(parts_dir, ignore_errors=True)
+
+
 def state_file(state_dir: Path, project: Project, target: Target) -> Path:
     return state_dir / f"{project.key}_{target.key}.json"
 
@@ -1068,30 +1122,34 @@ def mark_target_uploaded(
     tag: str,
     commit: str,
     packages: list[Path],
+    uploaded_files: list[str] | None = None,
 ) -> None:
     path = state_file(state_dir, project, target)
     previous = read_state(path)
+    package_names = [package.name for package in packages]
     upload_entry = {
         "tag": tag,
         "commit": commit,
         "uploaded_at": utc_now(),
-        "files": [package.name for package in packages],
+        "files": package_names,
     }
+    if uploaded_files and uploaded_files != package_names:
+        upload_entry["uploaded_files"] = uploaded_files
     uploads = [entry for entry in uploaded_entries(previous) if entry.get("tag") != tag]
     uploads.insert(0, upload_entry)
-    write_state(
-        path,
-        {
-            "project": project.key,
-            "repo": project.repo,
-            "tag": tag,
-            "target": target.key,
-            "commit": commit,
-            "uploaded_at": upload_entry["uploaded_at"],
-            "files": [package.name for package in packages],
-            "uploads": uploads,
-        },
-    )
+    payload: dict[str, object] = {
+        "project": project.key,
+        "repo": project.repo,
+        "tag": tag,
+        "target": target.key,
+        "commit": commit,
+        "uploaded_at": upload_entry["uploaded_at"],
+        "files": package_names,
+        "uploads": uploads,
+    }
+    if uploaded_files and uploaded_files != package_names:
+        payload["uploaded_files"] = uploaded_files
+    write_state(path, payload)
 
 
 def build_upload_one_target(
@@ -1116,10 +1174,10 @@ def build_upload_one_target(
         for package in packages:
             print(f"  {package}")
     else:
+        uploaded_files: list[str] = []
         for package in packages:
-            print(f"uploading {package.name} ({package.stat().st_size} bytes)")
-            telegram_upload(package, caption)
-        mark_target_uploaded(state_dir, project, target, tag, commit, packages)
+            uploaded_files.extend(telegram_upload_package(package, caption))
+        mark_target_uploaded(state_dir, project, target, tag, commit, packages, uploaded_files)
 
 
 def single_build(args: argparse.Namespace, project: Project, target: Target) -> int:
