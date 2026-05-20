@@ -1,8 +1,8 @@
 junjun266/FreeProxyGo@main
+howdeploy/Xrayebator@main
 Au1rxx/free-vpn-subscriptions@main
-marvinli001/ClashMax@master
-kort0881/vpn-vless-configs-russia@main
-666OS/ClashMac@main
+Aethersailor/SubConverter-Extended@master
+JohanChane/clashtui@demotui
 OpenNetCN/clash@main
 PuddinCat/BestClash@main
 mahdibland/V2RayAggregator@master

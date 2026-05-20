@@ -6,9 +6,9 @@
     "published/manifests/discovered-source-urls.txt"
   ],
   "effective_source_file": "published/manifests/effective-source-urls.txt",
-  "updated_at": "2026-05-19T06:22:59.155257+00:00",
-  "proxy_count": 17734,
-  "source_count": 249,
+  "updated_at": "2026-05-20T06:20:29.549110+00:00",
+  "proxy_count": 17658,
+  "source_count": 241,
   "output_pool_path": "published/pools/github-source-raw.yaml",
   "output_meta_path": "published/manifests/github-source-raw.meta.yaml"
 }
