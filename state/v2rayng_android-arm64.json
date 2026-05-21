@@ -1,14 +1,30 @@
 {
-  "commit": "b5bcd81ae461ad151dc5afe9184a16ec96df8437",
+  "commit": "ef13e336dac911921cc53dcbf6d67c8011e11556",
   "files": [
-    "v2rayng-2.1.7-android-arm64.zip"
+    "v2rayng-2.1.8-android-arm64.zip"
   ],
   "project": "v2rayng",
   "repo": "2dust/v2rayNG",
-  "tag": "2.1.7",
+  "tag": "2.1.8",
   "target": "android-arm64",
-  "uploaded_at": "2026-05-11T10:09:08+00:00",
+  "uploaded_at": "2026-05-21T04:54:31+00:00",
+  "uploaded_files": [
+    "v2rayng-2.1.8-android-arm64.zip.part01of02",
+    "v2rayng-2.1.8-android-arm64.zip.part02of02"
+  ],
   "uploads": [
+    {
+      "commit": "ef13e336dac911921cc53dcbf6d67c8011e11556",
+      "files": [
+        "v2rayng-2.1.8-android-arm64.zip"
+      ],
+      "tag": "2.1.8",
+      "uploaded_at": "2026-05-21T04:54:31+00:00",
+      "uploaded_files": [
+        "v2rayng-2.1.8-android-arm64.zip.part01of02",
+        "v2rayng-2.1.8-android-arm64.zip.part02of02"
+      ]
+    },
     {
       "commit": "b5bcd81ae461ad151dc5afe9184a16ec96df8437",
       "files": [
