@@ -1,10 +1,11 @@
+mowei-ie/router-vpn@main
+marvinli001/ClashMax@master
 junjun266/FreeProxyGo@main
-howdeploy/Xrayebator@main
 Au1rxx/free-vpn-subscriptions@main
-Aethersailor/SubConverter-Extended@master
-JohanChane/clashtui@demotui
+Sgraqwq/Proxy-override@main
+mahdibland/V2RayAggregator@master
 OpenNetCN/clash@main
 PuddinCat/BestClash@main
-mahdibland/V2RayAggregator@master
 nodesfree/v2raynode@main
 NiREvil/vless@main
+ishalumi/proxy-node-collector@main
