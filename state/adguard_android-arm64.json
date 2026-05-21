@@ -1,14 +1,22 @@
 {
-  "commit": "89ca8d58ab95d7234fa12c9bdb80013c4f7e40aa",
+  "commit": "46eef4d2e2c7972893a23663496d21e00e862bd3",
   "files": [
-    "adguard-v0.107.75-android-arm64.tar.gz"
+    "adguard-v0.107.76-android-arm64.tar.gz"
   ],
   "project": "adguard",
   "repo": "AdguardTeam/AdGuardHome",
-  "tag": "v0.107.75",
+  "tag": "v0.107.76",
   "target": "android-arm64",
-  "uploaded_at": "2026-05-19T15:55:01+00:00",
+  "uploaded_at": "2026-05-21T20:15:29+00:00",
   "uploads": [
+    {
+      "commit": "46eef4d2e2c7972893a23663496d21e00e862bd3",
+      "files": [
+        "adguard-v0.107.76-android-arm64.tar.gz"
+      ],
+      "tag": "v0.107.76",
+      "uploaded_at": "2026-05-21T20:15:29+00:00"
+    },
     {
       "commit": "89ca8d58ab95d7234fa12c9bdb80013c4f7e40aa",
       "files": [
