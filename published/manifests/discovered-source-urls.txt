@@ -4,10 +4,10 @@ https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
-https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_CH.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_DE.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_FR.meta.yml
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_FR.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_HK.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.meta.yml
@@ -15,8 +15,8 @@ https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_JP.y
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_KR.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_KR.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_RU.meta.yml
-https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_RU.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.meta.yml
+https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SE.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.meta.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_SG.yml
 https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes_TW.meta.yml
@@ -83,6 +83,7 @@ https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trials_providers/yiyua
 https://raw.githubusercontent.com/hossein-shayesteh/v2ray-config/main/generated/clashConfig.yaml
 https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
 https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/mihomo_sub.yaml
+https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/vray_sub.txt
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-28.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-29.yaml
 https://raw.githubusercontent.com/go4sharing/sub/main/2025/10-30.yaml
@@ -222,11 +223,11 @@ https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
 https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-CA.yaml
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-DE.yaml
-https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-GB.yaml
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-JP.yaml
+https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-NL.yaml
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/clash-US.yaml
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-DE.txt
-https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-GB.txt
+https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/by-country/v2ray-base64-NL.txt
 https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml
 https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
 https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_base64.txt
