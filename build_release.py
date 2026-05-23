@@ -486,11 +486,18 @@ def run(
     cwd: Path,
     env: dict[str, str] | None = None,
     log_file: Path | None = None,
+    display_cmd: list[str] | None = None,
 ) -> None:
     merged_env = os.environ.copy()
     if env:
         merged_env.update(env)
-    line = f"+ {' '.join(cmd)}"
+    logged_cmd = display_cmd or cmd
+    redactions = [
+        (actual, display)
+        for actual, display in zip(cmd, logged_cmd)
+        if actual and actual != display
+    ]
+    line = f"+ {' '.join(logged_cmd)}"
     print(line, flush=True)
     if log_file:
         with log_file.open("a", encoding="utf-8") as fh:
@@ -508,13 +515,27 @@ def run(
     assert proc.stdout is not None
     with proc.stdout:
         for out_line in proc.stdout:
+            for actual, display in redactions:
+                out_line = out_line.replace(actual, display)
             print(out_line, end="")
             if log_file:
                 with log_file.open("a", encoding="utf-8") as fh:
                     fh.write(out_line)
     code = proc.wait()
     if code != 0:
-        raise BuildError(f"command failed with exit code {code}: {' '.join(cmd)}")
+        raise BuildError(f"command failed with exit code {code}: {' '.join(logged_cmd)}")
+
+
+def github_authenticated_remote() -> tuple[str, str]:
+    token = os.environ.get("GITHUB_TOKEN")
+    repository = os.environ.get("GITHUB_REPOSITORY")
+    if not token:
+        return "origin", "origin"
+    if not repository:
+        raise BuildError("GITHUB_REPOSITORY is required when GITHUB_TOKEN is set")
+    remote = f"https://x-access-token:{urllib.parse.quote(token, safe='')}@github.com/{repository}.git"
+    display_remote = f"https://x-access-token:***@github.com/{repository}.git"
+    return remote, display_remote
 
 
 def ensure_source_cache(
@@ -1430,6 +1451,7 @@ def sync_upstream_branches(args: argparse.Namespace) -> None:
     base_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=str(ROOT), text=True).strip()
     if not base_branch:
         base_branch = "HEAD"
+    push_remote, display_push_remote = github_authenticated_remote()
 
     with tempfile.TemporaryDirectory(prefix="codex-upstream-branches-") as tmp:
         worktree_dir = Path(tmp) / "worktree"
@@ -1486,7 +1508,9 @@ def sync_upstream_branches(args: argparse.Namespace) -> None:
                         cwd=worktree_dir,
                         log_file=log_file,
                     )
-                run(["git", "push", "--force", "origin", f"{branch}:refs/heads/{branch}"], cwd=worktree_dir, log_file=log_file)
+                push_cmd = ["git", "push", "--force", push_remote, f"{branch}:refs/heads/{branch}"]
+                display_push_cmd = ["git", "push", "--force", display_push_remote, f"{branch}:refs/heads/{branch}"]
+                run(push_cmd, cwd=worktree_dir, log_file=log_file, display_cmd=display_push_cmd)
                 print(f"synced upstream branch: {branch}")
         finally:
             run(["git", "worktree", "remove", "--force", str(worktree_dir)], cwd=ROOT, log_file=log_file)
