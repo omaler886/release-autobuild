@@ -210,7 +210,7 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | `GITHUB_TOKEN` | 提高 GitHub API 速率限制 / Increases the GitHub API rate limit |
 | `GITHUB_API_RETRIES` | GitHub API 短重试次数，默认 `3` / GitHub API retry attempts, default `3` |
 | `GITHUB_API_TIMEOUT` | 单次 GitHub API 请求超时秒数，默认 `60` / Per-request GitHub API timeout in seconds, default `60` |
-| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 单次上传安全阈值，默认 `47185920`；更大的文件会自动分片上传 / Safe per-upload Bot API limit, default `47185920`; larger files are uploaded in split parts |
+| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 整体文件上传阈值，默认 `50000000`；更大的文件会失败，不会分片上传 / Whole-file Bot API upload limit, default `50000000`; larger files fail instead of being split |
 | `BUILD_JOBS` | `--poll-all` 并行构建的上游项目数，默认 `1` / Number of upstream projects built in parallel by `--poll-all`, default `1` |
 | `PUSH_RELEASE_LIMIT` | `--poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Number of newest stable versions built/uploaded by `--poll-all`, default `3` |
 | `UPSTREAM_BRANCH_PREFIX` | 远端 Release 元数据分支前缀，默认 `upstream` / Remote release metadata branch prefix, default `upstream` |
@@ -437,9 +437,9 @@ Make sure `ANDROID_HOME` or `ANDROID_SDK_ROOT` is set, and install the required 
 
 ### Telegram 上传失败 / Telegram upload failed
 
-检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 的文件会自动按 `.partXXofYY` 分片上传。
+检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 的文件会直接失败，避免把同一个编译产物拆成多个 Telegram 上传。
 
-Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Files larger than `TELEGRAM_MAX_UPLOAD_BYTES` are uploaded as `.partXXofYY` chunks.
+Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Files larger than `TELEGRAM_MAX_UPLOAD_BYTES` fail instead of being uploaded as separate chunks.
 
 ### 构建失败后临时目录被删除 / Temporary directory was removed after failure
 
