@@ -1,14 +1,22 @@
 {
-  "commit": "5e22035118d13fa609164670111cc674906bb2a4",
+  "commit": "fc8c5a24b16991f98cd736950c17d1aa306a5041",
   "files": [
-    "mihomo-v1.19.25-android-arm64.tar.gz"
+    "mihomo-v1.19.26-android-arm64.tar.gz"
   ],
   "project": "mihomo",
   "repo": "MetaCubeX/mihomo",
-  "tag": "v1.19.25",
+  "tag": "v1.19.26",
   "target": "android-arm64",
-  "uploaded_at": "2026-05-16T19:37:50+00:00",
+  "uploaded_at": "2026-05-31T19:44:20+00:00",
   "uploads": [
+    {
+      "commit": "fc8c5a24b16991f98cd736950c17d1aa306a5041",
+      "files": [
+        "mihomo-v1.19.26-android-arm64.tar.gz"
+      ],
+      "tag": "v1.19.26",
+      "uploaded_at": "2026-05-31T19:44:20+00:00"
+    },
     {
       "commit": "5e22035118d13fa609164670111cc674906bb2a4",
       "files": [
