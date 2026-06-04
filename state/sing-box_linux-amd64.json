@@ -1,14 +1,22 @@
 {
-  "commit": "1086ab2563320e0da0c23b3a491d8dfa0939dff4",
+  "commit": "83b73048ff772b919af18653b78ffeaa2d48b66e",
   "files": [
-    "sing-box-v1.13.12-linux-amd64.tar.gz"
+    "sing-box-v1.13.13-linux-amd64.tar.gz"
   ],
   "project": "sing-box",
   "repo": "SagerNet/sing-box",
-  "tag": "v1.13.12",
+  "tag": "v1.13.13",
   "target": "linux-amd64",
-  "uploaded_at": "2026-05-15T19:59:28+00:00",
+  "uploaded_at": "2026-06-04T15:51:54+00:00",
   "uploads": [
+    {
+      "commit": "83b73048ff772b919af18653b78ffeaa2d48b66e",
+      "files": [
+        "sing-box-v1.13.13-linux-amd64.tar.gz"
+      ],
+      "tag": "v1.13.13",
+      "uploaded_at": "2026-06-04T15:51:54+00:00"
+    },
     {
       "commit": "1086ab2563320e0da0c23b3a491d8dfa0939dff4",
       "files": [
