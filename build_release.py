@@ -155,7 +155,7 @@ PROJECTS: dict[str, Project] = {
         binary="Momogram",
         supports=("android-arm64",),
         clone_submodules=True,
-        gradle_tasks=("TMessagesProj:assembleRelease",),
+        gradle_tasks=("TMessagesProj:assembleFdroidRelease",),
     ),
     "v2rayng": Project(
         key="v2rayng",
@@ -712,6 +712,26 @@ def write_local_properties(
         fh.write("\n".join(lines) + "\n")
 
 
+def prepend_android_cmake_to_path() -> None:
+    android_home = os.environ.get("ANDROID_HOME") or os.environ.get("ANDROID_SDK_ROOT")
+    if not android_home:
+        return
+    cmake_root = Path(android_home) / "cmake"
+    if not cmake_root.is_dir():
+        return
+
+    candidates: list[Path] = []
+    for version in ("3.22.1", "3.10.2.4988404"):
+        candidates.append(cmake_root / version / "bin")
+    candidates.extend(path / "bin" for path in sorted(cmake_root.iterdir(), reverse=True) if path.is_dir())
+
+    current = os.environ.get("PATH", "")
+    existing = set(current.split(os.pathsep)) if current else set()
+    additions = [str(path) for path in candidates if (path / "cmake").is_file() and str(path) not in existing]
+    if additions:
+        os.environ["PATH"] = os.pathsep.join([*additions, current] if current else additions)
+
+
 def apply_patch_hook(project: Project, source_dir: Path, patch_dir: Path, log_file: Path) -> None:
     hooks = [
         patch_dir / f"{project.key}.py",
@@ -731,6 +751,10 @@ def apply_patch_hook(project: Project, source_dir: Path, patch_dir: Path, log_fi
 
 
 def build_momogram(project: Project, target: Target, source_dir: Path, dist_dir: Path, log_file: Path) -> list[Path]:
+    if target.key == "android-arm64":
+        os.environ.setdefault("NATIVE_TARGET", "arm64-v8a")
+        os.environ.setdefault("CMAKE_BUILD_PARALLEL_LEVEL", "1")
+    prepend_android_cmake_to_path()
     signing_properties = ensure_momogram_keystore(source_dir, log_file)
     write_local_properties(project, source_dir, signing_properties)
     run_script = source_dir / "run"
