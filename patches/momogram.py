@@ -14,6 +14,26 @@ INJECTED = (
 )
 
 
+def upsert_gradle_property(path: Path, name: str, value: str) -> bool:
+    if not path.is_file():
+        return False
+    lines = path.read_text(encoding="utf-8").splitlines()
+    target = f"{name}={value}"
+    changed = False
+    for index, line in enumerate(lines):
+        if line.startswith(f"{name}="):
+            if line != target:
+                lines[index] = target
+                changed = True
+            break
+    else:
+        lines.append(target)
+        changed = True
+    if changed:
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return changed
+
+
 def add_set_e(path: Path) -> bool:
     if not path.is_file():
         return False
@@ -50,6 +70,17 @@ def main() -> int:
     ffmpeg_script = source_dir / "TMessagesProj" / "jni" / "build_ffmpeg_clang.sh"
     if patch_ffmpeg_pkg_config(ffmpeg_script):
         changed.append(str(ffmpeg_script.relative_to(source_dir)))
+
+    gradle_properties = source_dir / "gradle.properties"
+    gradle_updates = {
+        "org.gradle.jvmargs": "-Xmx2048m -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-8",
+        "org.gradle.daemon": "false",
+        "org.gradle.workers.max": "2",
+        "kotlin.daemon.jvmargs": "-Xmx1536m",
+    }
+    for name, value in gradle_updates.items():
+        if upsert_gradle_property(gradle_properties, name, value):
+            changed.append(f"{gradle_properties.relative_to(source_dir)}:{name}")
 
     if changed:
         print("momogram patch hook updated:")

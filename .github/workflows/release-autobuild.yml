@@ -192,6 +192,7 @@ jobs:
       TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
       TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
       V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
+      TELEGRAM_OVERSIZE_MODE: split
       MATRIX_MODE: ${{ matrix.mode }}
       MATRIX_PROJECT: ${{ matrix.project }}
       MATRIX_TARGET: ${{ matrix.target }}
@@ -238,10 +239,19 @@ jobs:
           sdkmanager \
             "platform-tools" \
             "platforms;android-35" \
+            "platforms;android-36" \
+            "platforms;android-37.0" \
             "build-tools;35.0.0" \
+            "build-tools;36.0.0" \
+            "build-tools;37.0.0" \
             "ndk;21.4.7075529" \
             "ndk;27.2.12479018" \
+            "cmake;3.10.2.4988404" \
             "cmake;3.22.1"
+          sdk_root="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          if [[ -d "$sdk_root/platforms/android-37.0" && ! -e "$sdk_root/platforms/android-37" ]]; then
+            ln -s android-37.0 "$sdk_root/platforms/android-37"
+          fi
 
       - name: Run autobuild
         id: autobuild

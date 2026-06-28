@@ -45,6 +45,7 @@ DEFAULT_LOG_DIR = ROOT / "logs"
 DEFAULT_PATCH_DIR = ROOT / "patches"
 USER_AGENT = "codex-release-autobuild/1.0"
 DEFAULT_TELEGRAM_MAX_UPLOAD_BYTES = 50_000_000
+DEFAULT_TELEGRAM_OVERSIZE_MODE = "fail"
 DEFAULT_ENV_FILES = (
     Path.home() / ".release-autobuild.env",
     ROOT / "config.env",
@@ -164,7 +165,7 @@ PROJECTS: dict[str, Project] = {
         supports=("android-arm64",),
         aliases=("v2ray-ng",),
         gradle_dir="V2rayNG",
-        gradle_tasks=("assembleRelease",),
+        gradle_tasks=("assembleFdroidRelease",),
     ),
 }
 
@@ -852,7 +853,7 @@ def build_gradle(project: Project, _target: Target, source_dir: Path, dist_dir: 
     tasks = os.environ.get(f"{project.key.upper().replace('-', '_')}_GRADLE_TASKS")
     task_list = tasks.split() if tasks else list(project.gradle_tasks)
     for task in task_list:
-        run([str(gradlew), task], cwd=gradle_dir, log_file=log_file)
+        run([str(gradlew), "--no-daemon", task], cwd=gradle_dir, log_file=log_file)
     apks = collect_apks(gradle_dir)
     if not apks:
         raise BuildError(f"no APK found under {gradle_dir}")
@@ -999,18 +1000,73 @@ def telegram_max_upload_bytes() -> int:
     return value
 
 
+def telegram_oversize_mode() -> str:
+    value = os.environ.get("TELEGRAM_OVERSIZE_MODE", DEFAULT_TELEGRAM_OVERSIZE_MODE).strip().lower()
+    aliases = {
+        "": DEFAULT_TELEGRAM_OVERSIZE_MODE,
+        "false": "fail",
+        "no": "fail",
+        "0": "fail",
+        "true": "split",
+        "yes": "split",
+        "1": "split",
+    }
+    value = aliases.get(value, value)
+    if value not in {"fail", "split"}:
+        raise BuildError("TELEGRAM_OVERSIZE_MODE must be 'fail' or 'split'")
+    return value
+
+
+def split_file(file_path: Path, chunk_size: int, parts_dir: Path) -> list[Path]:
+    size = file_path.stat().st_size
+    total = (size + chunk_size - 1) // chunk_size
+    width = max(2, len(str(total)))
+    parts: list[Path] = []
+    with file_path.open("rb") as src:
+        for index in range(1, total + 1):
+            part = parts_dir / f"{file_path.name}.part{index:0{width}d}of{total:0{width}d}"
+            remaining = min(chunk_size, size - ((index - 1) * chunk_size))
+            with part.open("wb") as dst:
+                while remaining > 0:
+                    chunk = src.read(min(1024 * 1024, remaining))
+                    if not chunk:
+                        raise BuildError(f"failed to split {file_path.name}: unexpected EOF")
+                    dst.write(chunk)
+                    remaining -= len(chunk)
+            parts.append(part)
+    return parts
+
+
 def telegram_upload_package(file_path: Path, caption: str) -> list[str]:
     size = file_path.stat().st_size
     max_size = telegram_max_upload_bytes()
-    if size > max_size:
+    if size <= max_size:
+        print(f"uploading {file_path.name} ({size} bytes)")
+        telegram_upload(file_path, caption)
+        return [file_path.name]
+
+    if telegram_oversize_mode() != "split":
         raise BuildError(
             f"{file_path.name} is {size} bytes, above TELEGRAM_MAX_UPLOAD_BYTES={max_size}; "
-            "refusing to split the compiled package for Telegram upload"
+            "set TELEGRAM_OVERSIZE_MODE=split to upload it as multiple Telegram parts"
         )
 
-    print(f"uploading {file_path.name} ({size} bytes)")
-    telegram_upload(file_path, caption)
-    return [file_path.name]
+    parts_dir = Path(tempfile.mkdtemp(prefix=f"{safe_name(file_path.stem)}-parts-", dir=file_path.parent))
+    try:
+        parts = split_file(file_path, max_size, parts_dir)
+        print(
+            f"splitting {file_path.name} ({size} bytes) into {len(parts)} Telegram upload part(s), "
+            f"max_part_size={max_size}"
+        )
+        uploaded: list[str] = []
+        for index, part in enumerate(parts, start=1):
+            part_caption = f"{caption}\nfile: {file_path.name}\npart: {index}/{len(parts)}"
+            print(f"uploading {part.name} ({part.stat().st_size} bytes)")
+            telegram_upload(part, part_caption)
+            uploaded.append(part.name)
+        return uploaded
+    finally:
+        shutil.rmtree(parts_dir, ignore_errors=True)
 
 
 def state_file(state_dir: Path, project: Project, target: Target) -> Path:
@@ -1111,6 +1167,7 @@ def mark_target_uploaded(
     tag: str,
     commit: str,
     packages: list[Path],
+    uploaded_files: list[str] | None = None,
 ) -> None:
     path = state_file(state_dir, project, target)
     previous = read_state(path)
@@ -1121,6 +1178,8 @@ def mark_target_uploaded(
         "uploaded_at": utc_now(),
         "files": package_names,
     }
+    if uploaded_files and uploaded_files != package_names:
+        upload_entry["uploaded_files"] = uploaded_files
     uploads = [entry for entry in uploaded_entries(previous) if entry.get("tag") != tag]
     uploads.insert(0, upload_entry)
     payload: dict[str, object] = {
@@ -1133,6 +1192,8 @@ def mark_target_uploaded(
         "files": package_names,
         "uploads": uploads,
     }
+    if uploaded_files and uploaded_files != package_names:
+        payload["uploaded_files"] = uploaded_files
     write_state(path, payload)
 
 
@@ -1158,9 +1219,10 @@ def build_upload_one_target(
         for package in packages:
             print(f"  {package}")
     else:
+        uploaded_files: list[str] = []
         for package in packages:
-            telegram_upload_package(package, caption)
-        mark_target_uploaded(state_dir, project, target, tag, commit, packages)
+            uploaded_files.extend(telegram_upload_package(package, caption))
+        mark_target_uploaded(state_dir, project, target, tag, commit, packages, uploaded_files)
 
 
 def single_build(args: argparse.Namespace, project: Project, target: Target) -> int:

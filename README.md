@@ -210,7 +210,8 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | `GITHUB_TOKEN` | 提高 GitHub API 速率限制 / Increases the GitHub API rate limit |
 | `GITHUB_API_RETRIES` | GitHub API 短重试次数，默认 `3` / GitHub API retry attempts, default `3` |
 | `GITHUB_API_TIMEOUT` | 单次 GitHub API 请求超时秒数，默认 `60` / Per-request GitHub API timeout in seconds, default `60` |
-| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 整体文件上传阈值，默认 `50000000`；更大的文件会失败，不会分片上传 / Whole-file Bot API upload limit, default `50000000`; larger files fail instead of being split |
+| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 单文件上传阈值，默认 `50000000` / Single-file Bot API upload limit, default `50000000` |
+| `TELEGRAM_OVERSIZE_MODE` | 超过上传阈值时的处理方式：`fail` 默认失败，`split` 拆成 `.partXXofYY` 上传 / Oversized upload mode: `fail` by default, or `split` into `.partXXofYY` uploads |
 | `BUILD_JOBS` | `--poll-all` 并行构建的上游项目数，默认 `1` / Number of upstream projects built in parallel by `--poll-all`, default `1` |
 | `PUSH_RELEASE_LIMIT` | `--poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Number of newest stable versions built/uploaded by `--poll-all`, default `3` |
 | `UPSTREAM_BRANCH_PREFIX` | 远端 Release 元数据分支前缀，默认 `upstream` / Remote release metadata branch prefix, default `upstream` |
@@ -437,9 +438,9 @@ Make sure `ANDROID_HOME` or `ANDROID_SDK_ROOT` is set, and install the required 
 
 ### Telegram 上传失败 / Telegram upload failed
 
-检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 的文件会直接失败，避免把同一个编译产物拆成多个 Telegram 上传。
+检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 的文件默认会失败；需要让 CI 对大 APK 继续成功时，设置 `TELEGRAM_OVERSIZE_MODE=split`，脚本会把文件拆成多个 `.partXXofYY` Telegram 上传。
 
-Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Files larger than `TELEGRAM_MAX_UPLOAD_BYTES` fail instead of being uploaded as separate chunks.
+Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Files larger than `TELEGRAM_MAX_UPLOAD_BYTES` fail by default. Set `TELEGRAM_OVERSIZE_MODE=split` when CI should continue by uploading large APKs as separate `.partXXofYY` Telegram documents.
 
 ### 构建失败后临时目录被删除 / Temporary directory was removed after failure
 
