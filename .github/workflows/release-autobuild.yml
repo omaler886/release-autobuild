@@ -192,7 +192,6 @@ jobs:
       TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
       TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
       V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
-      TELEGRAM_OVERSIZE_MODE: split
       MATRIX_MODE: ${{ matrix.mode }}
       MATRIX_PROJECT: ${{ matrix.project }}
       MATRIX_TARGET: ${{ matrix.target }}

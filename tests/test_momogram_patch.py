@@ -62,6 +62,29 @@ class MomogramPatchTest(unittest.TestCase):
         self.assertIn("abiFilters nativeTarget", patched)
         self.assertNotIn("ndk {\n                abiFilters nativeTarget", patched)
 
+    def test_gradle_release_lint_is_disabled(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            gradle_file = Path(tmp) / "build.gradle"
+            gradle_file.write_text(
+                """plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'momo.gram'
+}
+""",
+                encoding="utf-8",
+            )
+
+            self.assertTrue(momogram_patch.patch_gradle_release_lint(gradle_file))
+            patched = gradle_file.read_text(encoding="utf-8")
+            self.assertFalse(momogram_patch.patch_gradle_release_lint(gradle_file))
+
+        self.assertIn("checkReleaseBuilds false", patched)
+        self.assertIn("abortOnError false", patched)
+        self.assertIn('task.name.startsWith("lintVital")', patched)
+
 
 if __name__ == "__main__":
     unittest.main()

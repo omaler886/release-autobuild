@@ -199,6 +199,42 @@ def patch_gradle_native_target(path: Path) -> bool:
     return changed
 
 
+def patch_gradle_release_lint(path: Path) -> bool:
+    """Disable release lint because CI compiles are blocked by lint heap and bundle failures."""
+    if not path.is_file():
+        return False
+    text = path.read_text(encoding="utf-8")
+    changed = False
+
+    lint_block = """    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+"""
+    if "checkReleaseBuilds false" not in text:
+        marker = "android {\n"
+        if marker not in text:
+            return False
+        text = text.replace(marker, marker + lint_block, 1)
+        changed = True
+
+    task_block = """
+tasks.configureEach { task ->
+    if (task.name.startsWith("lintVital")) {
+        task.enabled = false
+    }
+}
+"""
+    if "task.name.startsWith(\"lintVital\")" not in text:
+        text = text.rstrip() + "\n" + task_block
+        changed = True
+
+    if changed:
+        path.write_text(text, encoding="utf-8")
+    return changed
+
+
 def main() -> int:
     source_dir = Path(sys.argv[1]).resolve()
     changed: list[str] = []
@@ -240,6 +276,8 @@ def main() -> int:
         changed.append(f"{tmessages_gradle.relative_to(source_dir)}:arm64-filter")
     if patch_gradle_native_jobs(tmessages_gradle):
         changed.append(f"{tmessages_gradle.relative_to(source_dir)}:ninja-j1")
+    if patch_gradle_release_lint(tmessages_gradle):
+        changed.append(f"{tmessages_gradle.relative_to(source_dir)}:release-lint")
 
     gradle_properties = source_dir / "gradle.properties"
     gradle_updates = {
