@@ -352,6 +352,9 @@ jobs:
       - name: Merge state artifacts
         shell: bash
         run: |
+          # A long build may finish after its branch advances; merge state onto the latest remote tip.
+          git fetch origin "$GITHUB_REF_NAME"
+          git reset --hard "origin/$GITHUB_REF_NAME"
           shopt -s nullglob
           files=(.state-artifacts/*.json)
           if (( ${#files[@]} == 0 )); then
@@ -375,4 +378,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state
           git commit -m "Update uploaded release state [skip ci]"
-          git push
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "State push raced with a newer commit; rebasing attempt $attempt/3."
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
+          done
+          echo "Unable to push state after 3 attempts." >&2
+          exit 1
