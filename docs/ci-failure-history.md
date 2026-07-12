@@ -54,7 +54,7 @@ Publication-size failures dominate the history: 220 of 244 failed runs (90.2%) c
 | Momogram dynamic-feature configuration was invalid | Seven early Gradle failures from 2026-04-27 through 2026-04-29 | Upstream module configuration and selected release tasks were incompatible with the initial CI patch | Ended after the early Android workflow compatibility fixes |
 | Momogram R8 exhausted the Java heap | Ten runs from 2026-06-29 through 2026-07-11; `minifyFdroidReleaseWithR8` raised `OutOfMemoryError` | The patch limited Gradle to 1.5 GB, below observed R8 demand | PR #5 raises the Gradle heap to 4 GB and keeps native/Gradle workers serialized |
 | Telegram returned HTTP 413 for large artifacts | Momogram and v2rayNG artifacts exceeded the standard Bot API limit | Publication failed after compilation succeeded | Superseded by explicit size checks; durable intact-file fallback added in PR #5 |
-| Telegram size policy permanently rejected successful builds | Latest run `29165489752`; Momogram APKs were 61,935,583 and 62,302,014 bytes | Splitting was intentionally disabled while the only upload backend retained a 50,000,000-byte limit | PR #5 publishes the intact asset to GitHub Releases and sends its link to Telegram; real run `29176966966` tracks verification |
+| Telegram size policy permanently rejected successful builds | Latest historical run `29165489752`; Momogram APKs were 61,935,583 and 62,302,014 bytes | Splitting was intentionally disabled while the only upload backend retained a 50,000,000-byte limit | Fixed and verified by PR #5 / run `29176966966`, which published the intact 62,302,206-byte APK and sent its link to Telegram |
 | Upstream branch push had no credentials | Run `26334741152` | Generated HTTPS remote did not include Actions authentication | Fixed by PR #3 / commit `ef380979` |
 | GitHub Releases response was truncated | Runs `26108693436`, `27289316720`, and `28278358325`; mostly sing-box and upstream sync | Large 20-22 MB API responses raised `http.client.IncompleteRead`, which was outside the retry handler | PR #5 now retries `IncompleteRead` and timeouts; covered by a regression test |
 | Upstream metadata sync blocked every build | The build job had a hard dependency on the sync job | An auxiliary metadata failure caused the full matrix to be skipped | PR #5 allows builds whenever preparation succeeds, while still reporting sync failure separately |
@@ -80,6 +80,12 @@ Successful compilation must not be reported as a build failure solely because a 
 - `actionlint .github/workflows/release-autobuild.yml`
 - A real Momogram build must create a downloadable intact Release asset, notify Telegram, update state, and finish successfully.
 - A subsequent full scheduled or manually dispatched `poll-all` run must complete without a recurring known root cause.
+
+## Live verification results
+
+- Run `29176966966`: Momogram compiled successfully in 39 minutes and published the intact 62,302,206-byte APK as release asset `Momo-v12.8.1-8453086b-arm64-v8a-fdroidRelease-unsigned.apk` with SHA-256 `25a5167fa7c8d02d00d6ac46ebdfe601f6dfb4261f5c122c9ad32d5aad331924`. Its original state commit raced with newer PR commits and exposed the stale-checkout issue recorded above.
+- Run `29178126192`: Xray Linux amd64 built and uploaded successfully; the updated state artifact was committed and pushed successfully after the stale-checkout fix. Every job, including `commit-state`, passed.
+- PR CI run `29177706872`: Python compilation, unit tests, and project configuration loading passed.
 
 ## Residual engineering risks
 
