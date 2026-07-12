@@ -13,6 +13,28 @@ SPEC.loader.exec_module(momogram_patch)
 
 
 class MomogramPatchTest(unittest.TestCase):
+    def test_gradle_heap_supports_r8_release_build(self) -> None:
+        """Verify the generated Gradle limits cover observed R8 memory pressure.
+
+        Args:
+            None.
+
+        Returns:
+            None.
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            properties_file = Path(tmp) / "gradle.properties"
+            properties_file.write_text("org.gradle.jvmargs=-Xmx1536m\n", encoding="utf-8")
+
+            changed = momogram_patch.upsert_gradle_property(
+                properties_file,
+                "org.gradle.jvmargs",
+                "-Xmx4096m -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-8",
+            )
+
+            self.assertTrue(changed)
+            self.assertIn("-Xmx4096m", properties_file.read_text(encoding="utf-8"))
+
     def test_gradle_native_target_uses_split_and_cmake_filters_without_ndk_filter(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             gradle_file = Path(tmp) / "build.gradle"

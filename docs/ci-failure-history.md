@@ -14,7 +14,7 @@ The audit paged through every Actions run exposed by the GitHub API from 2026-04
 - Manually dispatched: 21
 - Workflow: `Release Autobuild`
 
-A failed run may contain more than one failed matrix job. Failed-job counts therefore do not add up to the failed-run total.
+A failed run may contain more than one failed matrix job. The 244 failed runs contain 307 failed jobs; all 307 job logs were readable and classified. Category counts overlap when one job exposed multiple root causes.
 
 | Failed job group | Count |
 | --- | ---: |
@@ -27,11 +27,32 @@ A failed run may contain more than one failed matrix job. Failed-job counts ther
 
 ## Root-cause tracking
 
+Publication-size failures dominate the history: 220 of 244 failed runs (90.2%) contained either Telegram HTTP 413 or the later 50 MB local rejection. In many of these runs compilation itself had already succeeded.
+
+| Classified signature | Failed jobs | Failed runs | Period |
+| --- | ---: | ---: | --- |
+| Telegram 50 MB preflight rejection | 208 | 155 | 2026-06-01 through 2026-07-11 |
+| Telegram HTTP 413 | 65 | 65 | 2026-04-29 through 2026-05-16 |
+| Momogram dav1d/FFmpeg/libswscale missing | 62 | 62 | 2026-04-27 through 2026-05-15 |
+| Momogram invalid keystore/password | 62 | 62 | 2026-04-29 through 2026-05-15 |
+| GitHub API `IncompleteRead` | 16 | 16 | 2026-05-19 through 2026-06-27 |
+| Momogram R8/Gradle Java heap exhaustion | 10 | 10 | 2026-06-29 through 2026-07-11 |
+| Momogram missing keystore/path | 8 | 8 | 2026-04-27 through 2026-04-29 |
+| Momogram dynamic-feature Gradle configuration | 7 | 7 | 2026-04-27 through 2026-04-29 |
+| Runner disk full | 2 | 2 | 2026-04-28 and 2026-06-17 |
+| Corrupt/incomplete Android NDK archive | 1 | 1 | 2026-06-12 |
+| Telegram TLS EOF | 1 | 1 | 2026-05-01 |
+| Upstream push credentials missing | 1 | 1 | 2026-05-23 |
+| State push non-fast-forward | 1 | 1 | 2026-05-16 |
+| Runner shutdown / exit 143 | 1 | 1 | 2026-07-07 |
+
 | Root cause | Evidence and affected period | Attribution | Resolution status |
 | --- | --- | --- | --- |
 | Momogram keystore path was missing | Run `24981950788`; early Actions revisions | CI signing layout did not match the upstream Gradle layout | Fixed by commits `27a979c6`, `1db3b101`, and `fd4789f7` |
 | Momogram keystore password or alias mismatch | Run `25910452683` | Generated or copied credentials did not match every Gradle signing location | Fixed by PR #2 / commit `f2c4fe8b` |
 | Momogram native FFmpeg/dav1d outputs were missing | Repeated failures from late April through early May; errors included missing `libswscale.a` | Native dependency update and ABI-specific build assumptions drifted from upstream | Fixed incrementally by `e4dbfa22`, `90fabe73`, `27c99659`, and `327c4371` |
+| Momogram dynamic-feature configuration was invalid | Seven early Gradle failures from 2026-04-27 through 2026-04-29 | Upstream module configuration and selected release tasks were incompatible with the initial CI patch | Ended after the early Android workflow compatibility fixes |
+| Momogram R8 exhausted the Java heap | Ten runs from 2026-06-29 through 2026-07-11; `minifyFdroidReleaseWithR8` raised `OutOfMemoryError` | The patch limited Gradle to 1.5 GB, below observed R8 demand | PR #5 raises the Gradle heap to 4 GB and keeps native/Gradle workers serialized |
 | Telegram returned HTTP 413 for large artifacts | Momogram and v2rayNG artifacts exceeded the standard Bot API limit | Publication failed after compilation succeeded | Superseded by explicit size checks; durable intact-file fallback added in PR #5 |
 | Telegram size policy permanently rejected successful builds | Latest run `29165489752`; Momogram APKs were 61,935,583 and 62,302,014 bytes | Splitting was intentionally disabled while the only upload backend retained a 50,000,000-byte limit | PR #5 publishes the intact asset to GitHub Releases and sends its link to Telegram; real run `29176966966` tracks verification |
 | Upstream branch push had no credentials | Run `26334741152` | Generated HTTPS remote did not include Actions authentication | Fixed by PR #3 / commit `ef380979` |
@@ -39,6 +60,9 @@ A failed run may contain more than one failed matrix job. Failed-job counts ther
 | Upstream metadata sync blocked every build | The build job had a hard dependency on the sync job | An auxiliary metadata failure caused the full matrix to be skipped | PR #5 allows builds whenever preparation succeeds, while still reporting sync failure separately |
 | State commit was rejected as non-fast-forward | Run `25963837338` | Concurrent workflow state writers raced | Current workflow-level concurrency serializes runs; no recurrence in the audited current design |
 | Runner shutdown or cancellation | Isolated exit 143 / operation-cancelled run on 2026-07-07, plus six cancelled runs | Hosted-runner or externally cancelled infrastructure event | Classified as transient; rerun is appropriate |
+| Runner disk was full | Two isolated runs on 2026-04-28 and 2026-06-17 | Hosted workspace was exhausted by large Android/native intermediates | Classified as infrastructure/resource pressure; cleanup between releases and serialized project jobs limit recurrence |
+| Android NDK archive was invalid | One run on 2026-06-12 reported an unknown archive format | SDK download was incomplete or corrupt | Classified as transient download corruption; rerun is appropriate |
+| Telegram TLS stream ended early | One run on 2026-05-01 raised an SSL EOF | Transient network failure during publication | Classified as transient; later publication retries/reruns succeeded |
 
 ## Current invariant
 
