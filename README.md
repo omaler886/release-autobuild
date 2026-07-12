@@ -210,7 +210,8 @@ For duplicate variables, the first value wins. With `--env-file <path>`, only th
 | `GITHUB_TOKEN` | 提高 GitHub API 速率限制 / Increases the GitHub API rate limit |
 | `GITHUB_API_RETRIES` | GitHub API 短重试次数，默认 `3` / GitHub API retry attempts, default `3` |
 | `GITHUB_API_TIMEOUT` | 单次 GitHub API 请求超时秒数，默认 `60` / Per-request GitHub API timeout in seconds, default `60` |
-| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 单文件上传阈值，默认 `50000000`；超过限制的文件会失败，不会分段上传 / Single-file Bot API upload limit, default `50000000`; oversized files fail and are not split |
+| `TELEGRAM_MAX_UPLOAD_BYTES` | Bot API 单文件上传阈值，默认 `50000000` / Single-file Bot API upload limit, default `50000000` |
+| `TELEGRAM_OVERSIZE_MODE` | `fail` 默认失败；`github-release` 将超限整文件发布为 GitHub Release 资产并向 Telegram 发送链接；不支持分片 / `fail` by default; `github-release` publishes the intact oversized file as a GitHub Release asset and sends its link to Telegram; splitting is unsupported |
 | `BUILD_JOBS` | `--poll-all` 并行构建的上游项目数，默认 `1` / Number of upstream projects built in parallel by `--poll-all`, default `1` |
 | `PUSH_RELEASE_LIMIT` | `--poll-all` 构建/上传的最近稳定版本数量，默认 `3` / Number of newest stable versions built/uploaded by `--poll-all`, default `3` |
 | `UPSTREAM_BRANCH_PREFIX` | 远端 Release 元数据分支前缀，默认 `upstream` / Remote release metadata branch prefix, default `upstream` |
@@ -437,9 +438,9 @@ Make sure `ANDROID_HOME` or `ANDROID_SDK_ROOT` is set, and install the required 
 
 ### Telegram 上传失败 / Telegram upload failed
 
-检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 的文件会失败，脚本不会把 APK 或压缩包拆成多个 Telegram 文件。
+检查 `TG_BOT_TOKEN`、`TG_CHAT_ID` 是否正确，以及机器人是否有权限给目标聊天发送文件。超过 `TELEGRAM_MAX_UPLOAD_BYTES` 时可设置 `TELEGRAM_OVERSIZE_MODE=github-release`，脚本会发布完整文件到当前 GitHub 仓库的 Release，并向 Telegram 发送下载链接；不会拆分 APK 或压缩包。
 
-Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Files larger than `TELEGRAM_MAX_UPLOAD_BYTES` fail; the script does not split APKs or archives into multiple Telegram documents.
+Check `TG_BOT_TOKEN`, `TG_CHAT_ID`, and whether the bot has permission to send files to the target chat. Set `TELEGRAM_OVERSIZE_MODE=github-release` to publish an intact oversized file to the current GitHub repository's Releases and send its link to Telegram. APKs and archives are never split.
 
 ### 构建失败后临时目录被删除 / Temporary directory was removed after failure
 

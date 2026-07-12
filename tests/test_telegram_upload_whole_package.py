@@ -34,6 +34,38 @@ class TelegramUploadWholePackageTest(unittest.TestCase):
 
             self.assertIn("segmented Telegram uploads are disabled", str(raised.exception))
             upload.assert_not_called()
+
+    def test_large_package_uses_github_release_fallback(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            package = Path(tmp) / "large.apk"
+            package.write_bytes(b"x" * 1_048_577)
+            project = build_release.PROJECTS["momogram"]
+            target = build_release.TARGETS["android-arm64"]
+
+            with mock.patch.dict(
+                os.environ,
+                {"TELEGRAM_MAX_UPLOAD_BYTES": "1048576", "TELEGRAM_OVERSIZE_MODE": "github-release"},
+                clear=True,
+            ):
+                with mock.patch.object(build_release, "ensure_github_release", return_value={"id": 1}) as ensure:
+                    with mock.patch.object(
+                        build_release,
+                        "upload_github_release_asset",
+                        return_value="https://example.test/large.apk",
+                    ) as upload:
+                        with mock.patch.object(build_release, "telegram_send_message") as send:
+                            uploaded_names = build_release.telegram_upload_package(
+                                package,
+                                "caption",
+                                project,
+                                target,
+                                "v1.0.0",
+                            )
+
+            self.assertEqual(uploaded_names, ["large.apk"])
+            ensure.assert_called_once_with(project, target, "v1.0.0")
+            upload.assert_called_once_with({"id": 1}, package)
+            self.assertIn("https://example.test/large.apk", send.call_args.args[0])
             self.assertEqual([path.name for path in Path(tmp).iterdir()], ["large.apk"])
 
     def test_package_is_uploaded_as_one_file_when_within_limit(self) -> None:

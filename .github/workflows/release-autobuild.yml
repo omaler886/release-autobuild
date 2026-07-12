@@ -189,6 +189,7 @@ jobs:
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       GITHUB_TOKEN: ${{ github.token }}
+      TELEGRAM_OVERSIZE_MODE: github-release
       TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
       TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
       V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
