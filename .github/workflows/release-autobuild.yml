@@ -178,7 +178,8 @@ jobs:
     needs:
       - prepare
       - sync-upstream-branches
-    if: ${{ needs.prepare.result == 'success' }}
+    # Metadata sync is auxiliary; a transient API or push failure must not suppress builds.
+    if: ${{ always() && needs.prepare.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     strategy:
