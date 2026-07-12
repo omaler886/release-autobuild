@@ -6,6 +6,10 @@
 
 `release-autobuild` tracks the latest stable GitHub Release of configured upstream projects, can build different upstream repositories in parallel while processing targets from the same project sequentially, uploads artifacts to Telegram, and records completed uploads in `state/` to avoid duplicate builds.
 
+历史 Actions 失败归因和修复状态见 [`docs/ci-failure-history.md`](docs/ci-failure-history.md)。
+
+See [`docs/ci-failure-history.md`](docs/ci-failure-history.md) for the historical Actions failure audit and fix status.
+
 它适合部署在 Linux 构建机上通过 cron 运行，也可以直接使用 GitHub Actions 定时执行。
 
 It can run on a Linux builder through cron, or run on schedule through GitHub Actions.

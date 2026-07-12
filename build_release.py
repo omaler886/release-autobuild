@@ -19,6 +19,7 @@ import concurrent.futures
 import dataclasses
 import datetime as dt
 import fnmatch
+import http.client
 import json
 import os
 import re
@@ -375,8 +376,9 @@ def github_json(path: str) -> object:
                 time.sleep(delay)
                 continue
             raise BuildError(message) from exc
-        except urllib.error.URLError as exc:
-            message = f"GitHub API request failed: {exc.reason}"
+        except (urllib.error.URLError, http.client.IncompleteRead, TimeoutError) as exc:
+            reason = exc.reason if isinstance(exc, urllib.error.URLError) else str(exc)
+            message = f"GitHub API request failed: {reason}"
             if attempt < attempts:
                 delay = retry_delay(attempt)
                 print(f"warning: {message}; retrying in {delay}s", file=sys.stderr, flush=True)

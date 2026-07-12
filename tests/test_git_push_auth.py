@@ -1,4 +1,5 @@
 import os
+import http.client
 import tempfile
 import unittest
 from pathlib import Path
@@ -8,6 +9,28 @@ import build_release
 
 
 class GitPushAuthTest(unittest.TestCase):
+    def test_github_json_retries_incomplete_response(self) -> None:
+        """Verify truncated GitHub responses are retried.
+
+        Args:
+            None.
+
+        Returns:
+            None.
+        """
+        response = mock.MagicMock()
+        response.__enter__.return_value.read.return_value = b'{"ok": true}'
+        with mock.patch.dict(os.environ, {"GITHUB_API_RETRIES": "2"}, clear=True):
+            with mock.patch("build_release.time.sleep"):
+                with mock.patch(
+                    "build_release.urllib.request.urlopen",
+                    side_effect=[http.client.IncompleteRead(b"partial", 20), response],
+                ) as urlopen:
+                    payload = build_release.github_json("/repos/example/repo")
+
+        self.assertEqual(payload, {"ok": True})
+        self.assertEqual(urlopen.call_count, 2)
+
     def test_github_authenticated_remote_uses_token_and_repository(self) -> None:
         with mock.patch.dict(
             os.environ,
