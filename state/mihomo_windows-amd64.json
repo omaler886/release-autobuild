@@ -7,7 +7,7 @@
   "repo": "MetaCubeX/mihomo",
   "tag": "v1.19.28",
   "target": "windows-amd64",
-  "uploaded_at": "2026-07-12T03:49:34+00:00",
+  "uploaded_at": "2026-07-08T03:50:30+00:00",
   "uploads": [
     {
       "commit": "cbd11db1e13a75d8e680e0fe7742c95be4cba2be",
@@ -15,7 +15,7 @@
         "mihomo-v1.19.28-windows-amd64.zip"
       ],
       "tag": "v1.19.28",
-      "uploaded_at": "2026-07-12T03:49:34+00:00"
+      "uploaded_at": "2026-07-08T03:50:30+00:00"
     },
     {
       "commit": "5184081ac327394d9e15fa5d5f9f4a61e723fd94",

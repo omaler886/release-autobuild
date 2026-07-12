@@ -7,7 +7,7 @@
   "repo": "SagerNet/sing-box",
   "tag": "v1.13.14",
   "target": "windows-amd64",
-  "uploaded_at": "2026-07-12T03:52:38+00:00",
+  "uploaded_at": "2026-06-25T09:49:21+00:00",
   "uploads": [
     {
       "commit": "25a600db24f7680ad9806ce5427bd0ab8afe1114",
@@ -15,7 +15,7 @@
         "sing-box-v1.13.14-windows-amd64.zip"
       ],
       "tag": "v1.13.14",
-      "uploaded_at": "2026-07-12T03:52:38+00:00"
+      "uploaded_at": "2026-06-25T09:49:21+00:00"
     },
     {
       "commit": "83b73048ff772b919af18653b78ffeaa2d48b66e",

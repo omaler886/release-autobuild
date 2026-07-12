@@ -7,7 +7,7 @@
   "repo": "2dust/v2rayNG",
   "tag": "2.2.6",
   "target": "android-arm64",
-  "uploaded_at": "2026-07-12T04:44:48+00:00",
+  "uploaded_at": "2026-07-06T11:13:53+00:00",
   "uploads": [
     {
       "commit": "15b4fff8e45da9bc0acaa5cc1d80a1d3531e8712",
@@ -15,7 +15,7 @@
         "v2rayNG_2.2.6-fdroid_arm64-v8a.apk"
       ],
       "tag": "2.2.6",
-      "uploaded_at": "2026-07-12T04:44:48+00:00"
+      "uploaded_at": "2026-07-06T11:13:53+00:00"
     },
     {
       "commit": "b103e3aec98650272b7d9d1ee0f5c9cd0aa7a58c",

@@ -1,21 +1,29 @@
 {
-  "commit": "8453086bc71d27363478ebb0ee867f0ad170952a",
+  "commit": "ff72a0b4a020d11dcb58ebb0f04670217092b66e",
   "files": [
-    "Momo-v12.8.1-8453086b-arm64-v8a-fdroidRelease-unsigned.apk"
+    "Momo-v12.7.3-ff72a0b4-arm64-v8a-fdroidRelease-unsigned.apk"
   ],
   "project": "momogram",
   "repo": "dic1911/Momogram",
-  "tag": "v12.8.1-1",
+  "tag": "v12.7.3-1",
   "target": "android-arm64",
-  "uploaded_at": "2026-07-12T04:38:53+00:00",
+  "uploaded_at": "2026-07-12T05:24:17+00:00",
   "uploads": [
+    {
+      "commit": "ff72a0b4a020d11dcb58ebb0f04670217092b66e",
+      "files": [
+        "Momo-v12.7.3-ff72a0b4-arm64-v8a-fdroidRelease-unsigned.apk"
+      ],
+      "tag": "v12.7.3-1",
+      "uploaded_at": "2026-07-12T05:24:17+00:00"
+    },
     {
       "commit": "8453086bc71d27363478ebb0ee867f0ad170952a",
       "files": [
         "Momo-v12.8.1-8453086b-arm64-v8a-fdroidRelease-unsigned.apk"
       ],
       "tag": "v12.8.1-1",
-      "uploaded_at": "2026-07-12T04:38:53+00:00"
+      "uploaded_at": "2026-07-12T03:14:03+00:00"
     },
     {
       "commit": "a13c5e122925d0bb8777a87725965f881f01c8ff",
