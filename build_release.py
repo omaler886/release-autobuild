@@ -19,6 +19,7 @@ import concurrent.futures
 import dataclasses
 import datetime as dt
 import fnmatch
+import http.client
 import json
 import os
 import re
@@ -375,8 +376,9 @@ def github_json(path: str) -> object:
                 time.sleep(delay)
                 continue
             raise BuildError(message) from exc
-        except urllib.error.URLError as exc:
-            message = f"GitHub API request failed: {exc.reason}"
+        except (urllib.error.URLError, http.client.IncompleteRead, TimeoutError) as exc:
+            reason = exc.reason if isinstance(exc, urllib.error.URLError) else str(exc)
+            message = f"GitHub API request failed: {reason}"
             if attempt < attempts:
                 delay = retry_delay(attempt)
                 print(f"warning: {message}; retrying in {delay}s", file=sys.stderr, flush=True)
@@ -1016,6 +1018,36 @@ def telegram_upload(file_path: Path, caption: str) -> None:
         raise BuildError(f"Telegram upload failed: {data}")
 
 
+def telegram_send_message(message: str) -> None:
+    """Send a Telegram text message.
+
+    Args:
+        message: Text delivered to the configured chat.
+
+    Returns:
+        None.
+    """
+    token = os.environ.get("TG_BOT_TOKEN")
+    chat_id = os.environ.get("TG_CHAT_ID")
+    if not token or not chat_id:
+        raise BuildError("TG_BOT_TOKEN and TG_CHAT_ID must be set")
+
+    body = urllib.parse.urlencode({"chat_id": chat_id, "text": message[:4096]}).encode("utf-8")
+    request = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        data=body,
+        headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": USER_AGENT},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        body_text = exc.read().decode("utf-8", "replace")
+        raise BuildError(f"Telegram message failed {exc.code}: {body_text[:300]}") from exc
+    if not data.get("ok"):
+        raise BuildError(f"Telegram message failed: {data}")
+
+
 def telegram_max_upload_bytes() -> int:
     value = env_int("TELEGRAM_MAX_UPLOAD_BYTES", DEFAULT_TELEGRAM_MAX_UPLOAD_BYTES)
     if value < 1024 * 1024:
@@ -1023,16 +1055,165 @@ def telegram_max_upload_bytes() -> int:
     return value
 
 
-def reject_segmented_upload_mode() -> None:
-    """Reject split upload configuration so release files stay intact."""
-    value = os.environ.get("TELEGRAM_OVERSIZE_MODE", "").strip().lower()
-    if value in {"", "fail", "false", "no", "0"}:
-        return
-    raise BuildError("segmented Telegram uploads are disabled; unset TELEGRAM_OVERSIZE_MODE or set it to fail")
+def telegram_oversize_mode() -> str:
+    """Resolve how intact files above Telegram's limit are published.
+
+    Args:
+        None.
+
+    Returns:
+        Either ``fail`` or ``github-release``.
+    """
+    value = os.environ.get("TELEGRAM_OVERSIZE_MODE", "fail").strip().lower()
+    aliases = {"": "fail", "false": "fail", "no": "fail", "0": "fail"}
+    value = aliases.get(value, value)
+    if value == "split":
+        raise BuildError("segmented Telegram uploads are disabled; use TELEGRAM_OVERSIZE_MODE=github-release")
+    if value not in {"fail", "github-release"}:
+        raise BuildError("TELEGRAM_OVERSIZE_MODE must be 'fail' or 'github-release'")
+    return value
 
 
-def telegram_upload_package(file_path: Path, caption: str) -> list[str]:
-    reject_segmented_upload_mode()
+def github_write_json(path: str, method: str, payload: dict[str, object] | None = None) -> object:
+    """Call an authenticated GitHub JSON write endpoint.
+
+    Args:
+        path: API path beginning with ``/``.
+        method: HTTP method such as POST or DELETE.
+        payload: Optional JSON request body.
+
+    Returns:
+        Decoded JSON response, or an empty object for a bodyless response.
+    """
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        raise BuildError("GITHUB_TOKEN is required for GitHub Release fallback")
+
+    data = json.dumps(payload).encode("utf-8") if payload is not None else None
+    headers = env_with_token()
+    if data is not None:
+        headers["Content-Type"] = "application/json"
+    request = urllib.request.Request(f"https://api.github.com{path}", data=data, headers=headers, method=method)
+    try:
+        with urllib.request.urlopen(request, timeout=600) as response:
+            body = response.read()
+    except urllib.error.HTTPError as exc:
+        body_text = exc.read().decode("utf-8", "replace")
+        raise BuildError(f"GitHub API write failed {exc.code}: {body_text[:300]}") from exc
+    return json.loads(body.decode("utf-8")) if body else {}
+
+
+def github_release_repository() -> str:
+    """Return the repository that owns generated fallback releases.
+
+    Args:
+        None.
+
+    Returns:
+        Repository name in ``owner/name`` format.
+    """
+    repository = os.environ.get("GITHUB_REPOSITORY", "").strip()
+    if not re.fullmatch(r"[^/\s]+/[^/\s]+", repository):
+        raise BuildError("GITHUB_REPOSITORY must be set to owner/name for GitHub Release fallback")
+    return repository
+
+
+def ensure_github_release(project: Project, target: Target, tag: str) -> dict[str, object]:
+    """Find or create the release used for one upstream build.
+
+    Args:
+        project: Upstream project configuration.
+        target: Build target configuration.
+        tag: Upstream release tag.
+
+    Returns:
+        GitHub release API object.
+    """
+    repository = github_release_repository()
+    release_tag = safe_name(f"autobuild-{project.key}-{target.key}-{tag}")
+    encoded_tag = urllib.parse.quote(release_tag, safe="")
+    try:
+        release = github_json(f"/repos/{repository}/releases/tags/{encoded_tag}")
+    except BuildError as exc:
+        if "GitHub API failed 404:" not in str(exc):
+            raise
+        release = github_write_json(
+            f"/repos/{repository}/releases",
+            "POST",
+            {
+                "tag_name": release_tag,
+                "name": f"{project.key} {tag} {target.key}",
+                "body": f"Automated intact-file fallback for {project.repo} {tag} ({target.key}).",
+                "draft": False,
+                "prerelease": False,
+            },
+        )
+    if not isinstance(release, dict):
+        raise BuildError("unexpected GitHub Release response")
+    return release
+
+
+def upload_github_release_asset(release: dict[str, object], file_path: Path) -> str:
+    """Upload an intact package and return its browser download URL.
+
+    Args:
+        release: GitHub release API object.
+        file_path: Package to upload.
+
+    Returns:
+        Public browser download URL.
+    """
+    repository = github_release_repository()
+    assets = release.get("assets")
+    if isinstance(assets, list):
+        for asset in assets:
+            if not isinstance(asset, dict) or asset.get("name") != file_path.name:
+                continue
+            if asset.get("size") == file_path.stat().st_size and isinstance(asset.get("browser_download_url"), str):
+                return str(asset["browser_download_url"])
+            asset_id = asset.get("id")
+            if isinstance(asset_id, int):
+                github_write_json(f"/repos/{repository}/releases/assets/{asset_id}", "DELETE")
+
+    upload_url = release.get("upload_url")
+    if not isinstance(upload_url, str):
+        raise BuildError("GitHub Release response has no upload_url")
+    upload_url = upload_url.split("{", 1)[0] + "?name=" + urllib.parse.quote(file_path.name)
+    headers = env_with_token()
+    headers["Content-Type"] = "application/octet-stream"
+    request = urllib.request.Request(upload_url, data=file_path.read_bytes(), headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=1200) as response:
+            asset = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        body_text = exc.read().decode("utf-8", "replace")
+        raise BuildError(f"GitHub Release asset upload failed {exc.code}: {body_text[:300]}") from exc
+    download_url = asset.get("browser_download_url") if isinstance(asset, dict) else None
+    if not isinstance(download_url, str):
+        raise BuildError("GitHub Release asset response has no browser_download_url")
+    return download_url
+
+
+def telegram_upload_package(
+    file_path: Path,
+    caption: str,
+    project: Project | None = None,
+    target: Target | None = None,
+    tag: str = "",
+) -> list[str]:
+    """Publish one package without splitting its contents.
+
+    Args:
+        file_path: Package to publish.
+        caption: Telegram caption or link message prefix.
+        project: Project context required by GitHub fallback.
+        target: Target context required by GitHub fallback.
+        tag: Upstream tag required by GitHub fallback.
+
+    Returns:
+        Original package name after successful publication.
+    """
+    mode = telegram_oversize_mode()
     size = file_path.stat().st_size
     max_size = telegram_max_upload_bytes()
     if size <= max_size:
@@ -1040,10 +1221,19 @@ def telegram_upload_package(file_path: Path, caption: str) -> list[str]:
         telegram_upload(file_path, caption)
         return [file_path.name]
 
-    raise BuildError(
-        f"{file_path.name} is {size} bytes, above TELEGRAM_MAX_UPLOAD_BYTES={max_size}; "
-        "segmented Telegram uploads are disabled"
-    )
+    if mode == "fail":
+        raise BuildError(
+            f"{file_path.name} is {size} bytes, above TELEGRAM_MAX_UPLOAD_BYTES={max_size}; "
+            "segmented Telegram uploads are disabled"
+        )
+    if project is None or target is None or not tag:
+        raise BuildError("GitHub Release fallback requires project, target, and tag")
+
+    release = ensure_github_release(project, target, tag)
+    download_url = upload_github_release_asset(release, file_path)
+    telegram_send_message(f"{caption}\nfile: {file_path.name}\nwhole-file download: {download_url}")
+    print(f"published oversized package as intact GitHub Release asset: {download_url}")
+    return [file_path.name]
 
 
 def state_file(state_dir: Path, project: Project, target: Target) -> Path:
@@ -1192,7 +1382,7 @@ def build_upload_one_target(
             print(f"  {package}")
     else:
         for package in packages:
-            telegram_upload_package(package, caption)
+            telegram_upload_package(package, caption, project, target, tag)
         mark_target_uploaded(state_dir, project, target, tag, commit, packages)
 
 

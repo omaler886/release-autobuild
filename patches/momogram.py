@@ -281,11 +281,12 @@ def main() -> int:
 
     gradle_properties = source_dir / "gradle.properties"
     gradle_updates = {
-        "org.gradle.jvmargs": "-Xmx1536m -XX:MaxMetaspaceSize=768m -Dfile.encoding=UTF-8",
+        # R8 exceeded 1.5 GB repeatedly; 4 GB fits the hosted runner while native work stays single-threaded.
+        "org.gradle.jvmargs": "-Xmx4096m -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-8",
         "org.gradle.daemon": "false",
         "org.gradle.parallel": "false",
         "org.gradle.workers.max": "1",
-        "kotlin.daemon.jvmargs": "-Xmx1024m",
+        "kotlin.daemon.jvmargs": "-Xmx1536m",
     }
     for name, value in gradle_updates.items():
         if upsert_gradle_property(gradle_properties, name, value):

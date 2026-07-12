@@ -178,7 +178,8 @@ jobs:
     needs:
       - prepare
       - sync-upstream-branches
-    if: ${{ needs.prepare.result == 'success' }}
+    # Metadata sync is auxiliary; a transient API or push failure must not suppress builds.
+    if: ${{ always() && needs.prepare.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     strategy:
@@ -189,6 +190,7 @@ jobs:
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       GITHUB_TOKEN: ${{ github.token }}
+      TELEGRAM_OVERSIZE_MODE: github-release
       TELEGRAM_APP_ID: ${{ secrets.TELEGRAM_APP_ID }}
       TELEGRAM_APP_HASH: ${{ secrets.TELEGRAM_APP_HASH }}
       V2RAYNG_LIBV2RAY_AAR: ${{ secrets.V2RAYNG_LIBV2RAY_AAR }}
@@ -350,6 +352,9 @@ jobs:
       - name: Merge state artifacts
         shell: bash
         run: |
+          # A long build may finish after its branch advances; merge state onto the latest remote tip.
+          git fetch origin "$GITHUB_REF_NAME"
+          git reset --hard "origin/$GITHUB_REF_NAME"
           shopt -s nullglob
           files=(.state-artifacts/*.json)
           if (( ${#files[@]} == 0 )); then
@@ -373,4 +378,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state
           git commit -m "Update uploaded release state [skip ci]"
-          git push
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "State push raced with a newer commit; rebasing attempt $attempt/3."
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
+          done
+          echo "Unable to push state after 3 attempts." >&2
+          exit 1
