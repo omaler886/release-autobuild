@@ -86,6 +86,7 @@ Successful compilation must not be reported as a build failure solely because a 
 - Run `29176966966`: Momogram compiled successfully in 39 minutes and published the intact 62,302,206-byte APK as release asset `Momo-v12.8.1-8453086b-arm64-v8a-fdroidRelease-unsigned.apk` with SHA-256 `25a5167fa7c8d02d00d6ac46ebdfe601f6dfb4261f5c122c9ad32d5aad331924`. Its original state commit raced with newer PR commits and exposed the stale-checkout issue recorded above.
 - Run `29178126192`: Xray Linux amd64 built and uploaded successfully; the updated state artifact was committed and pushed successfully after the stale-checkout fix. Every job, including `commit-state`, passed.
 - PR CI run `29177706872`: Python compilation, unit tests, and project configuration loading passed.
+- Run `29178209336`: final end-to-end `poll-all` verification passed. Upstream metadata synchronization, all eight project matrix jobs (AdGuard, Xray, Mihomo, sing-box, sing-box-subscribe, MosDNS, Momogram, and v2rayNG), artifact/state handling, and `commit-state` all completed successfully.
 
 ## Residual engineering risks
 
